@@ -19,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self zh_setupWindow];
+    [self zh_setupAppearance];
     
     return YES;
 }

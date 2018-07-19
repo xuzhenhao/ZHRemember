@@ -12,5 +12,7 @@
 @interface AppDelegate (ZHAppearance)
 
 - (void)zh_setupWindow;
+/**设置tabbar和navibar样式*/
+- (void)zh_setupAppearance;
 
 @end
