@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		C46923ADF3BF9B3C83345EFC /* libPods-ZHRemember.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79BB266E378090BD3030FF43 /* libPods-ZHRemember.a */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
-		E76B115D21002AF60067E577 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115C21002AF60067E577 /* ViewController.m */; };
-		E76B116021002AF60067E577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B115E21002AF60067E577 /* Main.storyboard */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
 		E76B116821002AF70067E577 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B116721002AF70067E577 /* main.m */; };
+		E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117321002E1D0067E577 /* MinMainTabController.m */; };
+		E76B1178210031590067E577 /* MainTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B1177210031590067E577 /* MainTarget.m */; };
+		E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117E210032E30067E577 /* ZHMediator+Main.m */; };
+		E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +25,19 @@
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E76B115B21002AF60067E577 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E76B115C21002AF60067E577 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E76B115F21002AF60067E577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E76B116121002AF70067E577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76B116421002AF70067E577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76B116621002AF70067E577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E76B116721002AF70067E577 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E76B117221002E1D0067E577 /* MinMainTabController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MinMainTabController.h; sourceTree = "<group>"; };
+		E76B117321002E1D0067E577 /* MinMainTabController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MinMainTabController.m; sourceTree = "<group>"; };
+		E76B1176210031590067E577 /* MainTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTarget.h; sourceTree = "<group>"; };
+		E76B1177210031590067E577 /* MainTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTarget.m; sourceTree = "<group>"; };
+		E76B117B210032060067E577 /* ZHMainHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHMainHeader.h; sourceTree = "<group>"; };
+		E76B117D210032E30067E577 /* ZHMediator+Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+Main.h"; sourceTree = "<group>"; };
+		E76B117E210032E30067E577 /* ZHMediator+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+Main.m"; sourceTree = "<group>"; };
+		E76B11802100358D0067E577 /* AppDelegate+ZHAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZHAppearance.h"; sourceTree = "<group>"; };
+		E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHAppearance.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,17 +90,87 @@
 		E76B115721002AF60067E577 /* ZHRemember */ = {
 			isa = PBXGroup;
 			children = (
-				E76B115821002AF60067E577 /* AppDelegate.h */,
-				E76B115921002AF60067E577 /* AppDelegate.m */,
-				E76B115B21002AF60067E577 /* ViewController.h */,
-				E76B115C21002AF60067E577 /* ViewController.m */,
-				E76B115E21002AF60067E577 /* Main.storyboard */,
-				E76B116121002AF70067E577 /* Assets.xcassets */,
-				E76B116321002AF70067E577 /* LaunchScreen.storyboard */,
-				E76B116621002AF70067E577 /* Info.plist */,
-				E76B116721002AF70067E577 /* main.m */,
+				E76B117C210032A50067E577 /* ModeuleCategory */,
+				E76B117021002D8A0067E577 /* Modules */,
+				E76B116F21002D780067E577 /* AppDelegate */,
+				E76B116E21002D360067E577 /* SupportingFiles */,
 			);
 			path = ZHRemember;
+			sourceTree = "<group>";
+		};
+		E76B116E21002D360067E577 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E76B116321002AF70067E577 /* LaunchScreen.storyboard */,
+				E76B116721002AF70067E577 /* main.m */,
+				E76B116621002AF70067E577 /* Info.plist */,
+				E76B116121002AF70067E577 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		E76B116F21002D780067E577 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				E76B115821002AF60067E577 /* AppDelegate.h */,
+				E76B115921002AF60067E577 /* AppDelegate.m */,
+				E76B11802100358D0067E577 /* AppDelegate+ZHAppearance.h */,
+				E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		E76B117021002D8A0067E577 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E76B117121002DB20067E577 /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E76B117121002DB20067E577 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E76B1176210031590067E577 /* MainTarget.h */,
+				E76B1177210031590067E577 /* MainTarget.m */,
+				E76B117B210032060067E577 /* ZHMainHeader.h */,
+				E76B117A2100316B0067E577 /* ViewModel */,
+				E76B1179210031620067E577 /* View */,
+				E76B1175210031200067E577 /* Controllers */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E76B1175210031200067E577 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E76B117221002E1D0067E577 /* MinMainTabController.h */,
+				E76B117321002E1D0067E577 /* MinMainTabController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E76B1179210031620067E577 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E76B117A2100316B0067E577 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E76B117C210032A50067E577 /* ModeuleCategory */ = {
+			isa = PBXGroup;
+			children = (
+				E76B117D210032E30067E577 /* ZHMediator+Main.h */,
+				E76B117E210032E30067E577 /* ZHMediator+Main.m */,
+			);
+			path = ModeuleCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,7 +235,6 @@
 			files = (
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
-				E76B116021002AF60067E577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,23 +296,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E76B115D21002AF60067E577 /* ViewController.m in Sources */,
+				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
+				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E76B116821002AF70067E577 /* main.m in Sources */,
+				E76B1178210031590067E577 /* MainTarget.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,
+				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E76B115E21002AF60067E577 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E76B115F21002AF60067E577 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E76B116321002AF70067E577 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -364,7 +436,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3X6AR78KA;
-				INFOPLIST_FILE = ZHRemember/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -383,7 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3X6AR78KA;
-				INFOPLIST_FILE = ZHRemember/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
