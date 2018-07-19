@@ -26,8 +26,8 @@
 #pragma mark - UI
 - (void)initialSetup{
     
-    UINavigationController *eventsNC = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
-    eventsNC.tabBarItem.title = @"记忆点";
+    UINavigationController *eventsNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] eventListController]];
+    eventsNC.tabBarItem.title = @"时间点";
     eventsNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-event-normal"];
     eventsNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-event-high"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     

@@ -25,6 +25,11 @@
 		E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E704436E2100754C000239C1 /* UIScrollView+EasyNavigationExt.m */; };
 		E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443742100754C000239C1 /* EasyCustomBackGestureDelegate.m */; };
 		E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443762100754C000239C1 /* UIViewController+EasyNavigationExt.m */; };
+		E704438B210076C9000239C1 /* EvtEventListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E704438A210076C9000239C1 /* EvtEventListController.m */; };
+		E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E704438C210076EC000239C1 /* EvtEventStoryboard.storyboard */; };
+		E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439121007833000239C1 /* UIViewController+ZHStoryBoard.m */; };
+		E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044394210078F3000239C1 /* EvtEventTarget.m */; };
+		E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439721007963000239C1 /* ZHMediator+ZHEvent.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
@@ -75,6 +80,16 @@
 		E70443742100754C000239C1 /* EasyCustomBackGestureDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyCustomBackGestureDelegate.m; sourceTree = "<group>"; };
 		E70443752100754C000239C1 /* EasyNavigationView+LeftButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EasyNavigationView+LeftButton.h"; sourceTree = "<group>"; };
 		E70443762100754C000239C1 /* UIViewController+EasyNavigationExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EasyNavigationExt.m"; sourceTree = "<group>"; };
+		E7044389210076C9000239C1 /* EvtEventListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventListController.h; sourceTree = "<group>"; };
+		E704438A210076C9000239C1 /* EvtEventListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventListController.m; sourceTree = "<group>"; };
+		E704438C210076EC000239C1 /* EvtEventStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EvtEventStoryboard.storyboard; sourceTree = "<group>"; };
+		E704438E210077B6000239C1 /* EvtEventHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventHeader.h; sourceTree = "<group>"; };
+		E704439021007833000239C1 /* UIViewController+ZHStoryBoard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ZHStoryBoard.h"; sourceTree = "<group>"; };
+		E704439121007833000239C1 /* UIViewController+ZHStoryBoard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ZHStoryBoard.m"; sourceTree = "<group>"; };
+		E7044393210078F3000239C1 /* EvtEventTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventTarget.h; sourceTree = "<group>"; };
+		E7044394210078F3000239C1 /* EvtEventTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventTarget.m; sourceTree = "<group>"; };
+		E704439621007963000239C1 /* ZHMediator+ZHEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+ZHEvent.h"; sourceTree = "<group>"; };
+		E704439721007963000239C1 /* ZHMediator+ZHEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHEvent.m"; sourceTree = "<group>"; };
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -125,6 +140,7 @@
 		E7044348210037A7000239C1 /* Categroy */ = {
 			isa = PBXGroup;
 			children = (
+				E704438F21007816000239C1 /* Controller */,
 				E704435021003972000239C1 /* Color */,
 				E704434A210037E2000239C1 /* Image */,
 				E704435821003E8B000239C1 /* ZHCagegory.h */,
@@ -202,6 +218,52 @@
 			path = EasyNavigation;
 			sourceTree = "<group>";
 		};
+		E704438521007614000239C1 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				E704438E210077B6000239C1 /* EvtEventHeader.h */,
+				E7044393210078F3000239C1 /* EvtEventTarget.h */,
+				E7044394210078F3000239C1 /* EvtEventTarget.m */,
+				E70443882100764C000239C1 /* ViewModel */,
+				E704438721007646000239C1 /* View */,
+				E70443862100763C000239C1 /* Controller */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		E70443862100763C000239C1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E704438C210076EC000239C1 /* EvtEventStoryboard.storyboard */,
+				E7044389210076C9000239C1 /* EvtEventListController.h */,
+				E704438A210076C9000239C1 /* EvtEventListController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E704438721007646000239C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E70443882100764C000239C1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E704438F21007816000239C1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E704439021007833000239C1 /* UIViewController+ZHStoryBoard.h */,
+				E704439121007833000239C1 /* UIViewController+ZHStoryBoard.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E76B114C21002AF60067E577 = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +322,7 @@
 		E76B117021002D8A0067E577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E704438521007614000239C1 /* Events */,
 				E76B117121002DB20067E577 /* Main */,
 			);
 			path = Modules;
@@ -306,6 +369,8 @@
 			children = (
 				E76B117D210032E30067E577 /* ZHMediator+Main.h */,
 				E76B117E210032E30067E577 /* ZHMediator+Main.m */,
+				E704439621007963000239C1 /* ZHMediator+ZHEvent.h */,
+				E704439721007963000239C1 /* ZHMediator+ZHEvent.m */,
 			);
 			path = ModeuleCategory;
 			sourceTree = "<group>";
@@ -372,6 +437,7 @@
 			files = (
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
+				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,17 +501,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */,
+				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
+				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
+				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
 				E704437C2100754C000239C1 /* UIView+EasyNavigationExt.m in Sources */,
 				E7044356210039F1000239C1 /* ZHMacro.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
 				E76B116821002AF70067E577 /* main.m in Sources */,
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,
+				E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */,
 				E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,

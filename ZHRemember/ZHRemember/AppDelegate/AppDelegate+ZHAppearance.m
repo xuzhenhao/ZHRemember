@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate+ZHAppearance.h"
-#import "ZHMediator+Main.h"
-#import "UIImage+ZHExt.h"
 
 @implementation AppDelegate (ZHAppearance)
 
