@@ -13,7 +13,9 @@
 + (UIColor *)zh_themeColor{
     return RGBColor(249, 216, 106);
 }
-
++ (UIColor *)zh_imagePlaceholdColor{
+    return RGBColor(224, 224, 224);
+}
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal{
     return RGBColor(102, 102, 102);

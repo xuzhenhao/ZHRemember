@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+ZHAppearance.h"
+#import "AppDelegate+ZHThirdPart.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,7 @@
     
     [self zh_setupWindow];
     [self zh_setupAppearance];
+    [self zh_setupLeanCloudService];
     
     return YES;
 }

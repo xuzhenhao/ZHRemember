@@ -11,6 +11,7 @@
 @interface UIColor (ZHTheme)
 /**全局主题色*/
 + (UIColor *)zh_themeColor;
++ (UIColor *)zh_imagePlaceholdColor;
 
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal;

@@ -12,5 +12,6 @@
 #import "UIImage+ZHExt.h"
 #import "UIColor+ZHTheme.h"
 #import "UIViewController+ZHStoryBoard.h"
+#import "UIResponder+ZHRouter.h"
 
 #endif /* ZHCagegory_h */

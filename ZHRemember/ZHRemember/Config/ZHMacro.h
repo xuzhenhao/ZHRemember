@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define ZHScreenWidth [UIScreen mainScreen].bounds.size.width
+#define ZHScreenHeight [UIScreen mainScreen].bounds.size.height
+
 #define RGBColor(r,g,b) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:1.0]
 #define RGBAColor(r,g,b,a) [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a]
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
