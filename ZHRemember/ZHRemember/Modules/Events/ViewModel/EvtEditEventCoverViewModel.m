@@ -22,4 +22,8 @@
     
     return vm;
 }
+- (void)setCover:(UIImage *)cover{
+    _cover = cover;
+    self.coverData = UIImagePNGRepresentation(cover);
+}
 @end

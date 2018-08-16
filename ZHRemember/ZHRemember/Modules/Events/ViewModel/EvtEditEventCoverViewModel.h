@@ -15,6 +15,9 @@
 
 @property (nonatomic, strong)   UIImage     *cover;
 
+/** 封面数据*/
+@property (nonatomic, strong)   NSData     *coverData;
+
 + (instancetype)viewModelWithCoverURL:(NSString *)coverString;
 
 @property (nonatomic, strong)   RACSubject     *selectPhotoSubject;

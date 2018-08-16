@@ -33,6 +33,9 @@
 		E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */; };
 		E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */; };
 		E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */; };
+		E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */; };
+		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
+		E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
 		E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
 		E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */; };
 		E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
@@ -110,6 +113,12 @@
 		E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCoverViewModel.m; sourceTree = "<group>"; };
 		E71ED4192122843C000E18F2 /* EvtEditEventDateViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventDateViewModel.h; sourceTree = "<group>"; };
 		E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventDateViewModel.m; sourceTree = "<group>"; };
+		E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCycleViewModel.h; sourceTree = "<group>"; };
+		E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCycleViewModel.m; sourceTree = "<group>"; };
+		E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventRemarkViewModel.h; sourceTree = "<group>"; };
+		E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkViewModel.m; sourceTree = "<group>"; };
+		E73667CB2124095B00BC7652 /* EvtEventApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventApi.h; sourceTree = "<group>"; };
+		E73667CC2124095B00BC7652 /* EvtEventApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventApi.m; sourceTree = "<group>"; };
 		E73B4FC22106D22100B6243B /* EvtEditEventCoverCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCoverCell.h; sourceTree = "<group>"; };
 		E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCoverCell.m; sourceTree = "<group>"; };
 		E73B4FC52106D23700B6243B /* EvtEditEventTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTitleCell.h; sourceTree = "<group>"; };
@@ -315,6 +324,10 @@
 				E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */,
 				E71ED4192122843C000E18F2 /* EvtEditEventDateViewModel.h */,
 				E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */,
+				E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */,
+				E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */,
+				E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */,
+				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -456,6 +469,8 @@
 			isa = PBXGroup;
 			children = (
 				E778D8032101775000E9CEEB /* Models */,
+				E73667CB2124095B00BC7652 /* EvtEventApi.h */,
+				E73667CC2124095B00BC7652 /* EvtEventApi.m */,
 			);
 			path = EventApi;
 			sourceTree = "<group>";
@@ -639,6 +654,7 @@
 				E7044356210039F1000239C1 /* ZHMacro.m in Sources */,
 				E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
+				E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */,
 				E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */,
 				E76B116821002AF70067E577 /* main.m in Sources */,
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,
@@ -646,6 +662,7 @@
 				E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,
+				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
@@ -656,6 +673,7 @@
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
 				E70443772100754C000239C1 /* EasyNavigationController.m in Sources */,
+				E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */,
 				E704437A2100754C000239C1 /* EasyKVOInfo.m in Sources */,
 				E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */,
 			);

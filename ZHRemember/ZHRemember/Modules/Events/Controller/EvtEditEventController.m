@@ -67,6 +67,11 @@
         @strongify(self)
         [self selectPhotoEventWithIndexPath:x];
     }];
+    
+    [[self.viewModel.saveCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 }
 #pragma mark - UITableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -115,7 +120,7 @@
     [self presentViewController:datePickManager animated:false completion:nil];
 }
 - (void)clickSaveEvent:(UIBarButtonItem *)sender{
-    NSLog(@"点击了保存");
+    [self.viewModel.saveCommand execute:nil];
 }
 #pragma mark - getter&setter
 - (EvtEditEventViewModel *)viewModel{

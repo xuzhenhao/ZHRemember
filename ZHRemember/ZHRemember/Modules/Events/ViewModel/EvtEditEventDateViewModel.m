@@ -18,5 +18,8 @@
 
 - (void)setDateComp:(NSDateComponents *)dateComp{
     self.dateFormat = [NSString stringWithFormat:@"%zd年%zd月%zd日%zd时",dateComp.year,dateComp.month,dateComp.day,dateComp.hour];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *date = [calendar dateFromComponents:dateComp];
+    self.unixTime = [NSString stringWithFormat:@"%.0f",[date timeIntervalSince1970]];
 }
 @end

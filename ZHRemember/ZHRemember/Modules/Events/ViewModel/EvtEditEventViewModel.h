@@ -10,6 +10,8 @@
 #import "EvtEditEventTitleViewModel.h"
 #import "EvtEditEventCoverViewModel.h"
 #import "EvtEditEventDateViewModel.h"
+#import "EvtEditEventCycleViewModel.h"
+#import "EvtEditEventRemarkViewModel.h"
 
 /**
  EvtEditEventController对应的ViewModel
@@ -25,5 +27,7 @@
 @property (nonatomic, strong)   RACSubject     *selectPhotoSubject;
 /** 选择照片*/
 @property (nonatomic, strong)   RACSubject     *selectDateSubject;
+
+@property (nonatomic, strong)   RACCommand     *saveCommand;
 
 @end

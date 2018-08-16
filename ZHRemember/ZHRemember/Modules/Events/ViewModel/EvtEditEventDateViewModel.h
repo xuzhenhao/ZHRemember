@@ -13,11 +13,13 @@
 @property (nonatomic, strong)   NSDateComponents     *dateComp;
 /** 格式化后的时间*/
 @property (nonatomic, copy)     NSString    *dateFormat;
+/** 时间戳*/
+@property (nonatomic, copy)     NSString    *unixTime;
 
 
 + (instancetype)viewModelWithDate:(NSString *)dateString;
 
-/** <#desc#>*/
+/** 选择了时间后的回调*/
 @property (nonatomic, strong)   RACSubject     *selectDateSubject;
 
 @end
