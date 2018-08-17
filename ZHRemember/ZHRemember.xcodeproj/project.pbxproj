@@ -53,6 +53,12 @@
 		E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
 		E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
 		E791844721085C1B0033745D /* EvtEditEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E791844621085C1B0033745D /* EvtEditEventCell.m */; };
+		E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D62125127C00578F24 /* EvtEventListViewModel.m */; };
+		E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D92125223800578F24 /* EvtEventListCell.m */; };
+		E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0DC212527BC00578F24 /* EvtEventListEventsViewModel.m */; };
+		E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E021252A5B00578F24 /* UITableViewCell+ZHViewModel.m */; };
+		E798B0E421254B7D00578F24 /* ZHCommonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E321254B7D00578F24 /* ZHCommonApi.m */; };
+		E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E92125764600578F24 /* NSDate+ZHDate.m */; };
 		E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A6222B212178740093853A /* EvtEditEventViewModel.m */; };
 		E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */; };
 /* End PBXBuildFile section */
@@ -153,6 +159,18 @@
 		E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventController.m; sourceTree = "<group>"; };
 		E791844521085C1B0033745D /* EvtEditEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCell.h; sourceTree = "<group>"; };
 		E791844621085C1B0033745D /* EvtEditEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCell.m; sourceTree = "<group>"; };
+		E798B0D52125127C00578F24 /* EvtEventListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventListViewModel.h; sourceTree = "<group>"; };
+		E798B0D62125127C00578F24 /* EvtEventListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventListViewModel.m; sourceTree = "<group>"; };
+		E798B0D82125223800578F24 /* EvtEventListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventListCell.h; sourceTree = "<group>"; };
+		E798B0D92125223800578F24 /* EvtEventListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventListCell.m; sourceTree = "<group>"; };
+		E798B0DB212527BC00578F24 /* EvtEventListEventsViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventListEventsViewModel.h; sourceTree = "<group>"; };
+		E798B0DC212527BC00578F24 /* EvtEventListEventsViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventListEventsViewModel.m; sourceTree = "<group>"; };
+		E798B0DF21252A5B00578F24 /* UITableViewCell+ZHViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+ZHViewModel.h"; sourceTree = "<group>"; };
+		E798B0E021252A5B00578F24 /* UITableViewCell+ZHViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+ZHViewModel.m"; sourceTree = "<group>"; };
+		E798B0E221254B7D00578F24 /* ZHCommonApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCommonApi.h; sourceTree = "<group>"; };
+		E798B0E321254B7D00578F24 /* ZHCommonApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCommonApi.m; sourceTree = "<group>"; };
+		E798B0E82125764600578F24 /* NSDate+ZHDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+ZHDate.h"; sourceTree = "<group>"; };
+		E798B0E92125764600578F24 /* NSDate+ZHDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ZHDate.m"; sourceTree = "<group>"; };
 		E7A6222A212178740093853A /* EvtEditEventViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventViewModel.h; sourceTree = "<group>"; };
 		E7A6222B212178740093853A /* EvtEditEventViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventViewModel.m; sourceTree = "<group>"; };
 		E7A62230212188AB0093853A /* EvtEditEventTitleViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTitleViewModel.h; sourceTree = "<group>"; };
@@ -191,6 +209,8 @@
 		E7044348210037A7000239C1 /* Categroy */ = {
 			isa = PBXGroup;
 			children = (
+				E798B0E72125762500578F24 /* Date */,
+				E798B0DE21252A3E00578F24 /* Cell */,
 				E704438F21007816000239C1 /* Controller */,
 				E704435021003972000239C1 /* Color */,
 				E704434A210037E2000239C1 /* Image */,
@@ -297,18 +317,9 @@
 		E704438721007646000239C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E73B4FC52106D23700B6243B /* EvtEditEventTitleCell.h */,
-				E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */,
-				E73B4FC22106D22100B6243B /* EvtEditEventCoverCell.h */,
-				E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */,
-				E73B4FC82106D2FD00B6243B /* EvtEditEventDateCell.h */,
-				E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */,
-				E73B4FCB2106D33E00B6243B /* EvtEditEventCycleCell.h */,
-				E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */,
-				E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */,
-				E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */,
-				E791844521085C1B0033745D /* EvtEditEventCell.h */,
-				E791844621085C1B0033745D /* EvtEditEventCell.m */,
+				E798B0D4212511E800578F24 /* Edit */,
+				E798B0D82125223800578F24 /* EvtEventListCell.h */,
+				E798B0D92125223800578F24 /* EvtEventListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,18 +327,11 @@
 		E70443882100764C000239C1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E7A6222A212178740093853A /* EvtEditEventViewModel.h */,
-				E7A6222B212178740093853A /* EvtEditEventViewModel.m */,
-				E7A62230212188AB0093853A /* EvtEditEventTitleViewModel.h */,
-				E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */,
-				E71ED416212282F3000E18F2 /* EvtEditEventCoverViewModel.h */,
-				E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */,
-				E71ED4192122843C000E18F2 /* EvtEditEventDateViewModel.h */,
-				E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */,
-				E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */,
-				E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */,
-				E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */,
-				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
+				E798B0D3212511C400578F24 /* Edit */,
+				E798B0D52125127C00578F24 /* EvtEventListViewModel.h */,
+				E798B0D62125127C00578F24 /* EvtEventListViewModel.m */,
+				E798B0DB212527BC00578F24 /* EvtEventListEventsViewModel.h */,
+				E798B0DC212527BC00578F24 /* EvtEventListEventsViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -461,6 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				E778D8022101773000E9CEEB /* EventApi */,
+				E798B0E221254B7D00578F24 /* ZHCommonApi.h */,
+				E798B0E321254B7D00578F24 /* ZHCommonApi.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -482,6 +488,62 @@
 				E778D80521017D2B00E9CEEB /* EvtEventModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E798B0D3212511C400578F24 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				E7A6222A212178740093853A /* EvtEditEventViewModel.h */,
+				E7A6222B212178740093853A /* EvtEditEventViewModel.m */,
+				E7A62230212188AB0093853A /* EvtEditEventTitleViewModel.h */,
+				E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */,
+				E71ED416212282F3000E18F2 /* EvtEditEventCoverViewModel.h */,
+				E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */,
+				E71ED4192122843C000E18F2 /* EvtEditEventDateViewModel.h */,
+				E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */,
+				E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */,
+				E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */,
+				E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */,
+				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		E798B0D4212511E800578F24 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				E73B4FC52106D23700B6243B /* EvtEditEventTitleCell.h */,
+				E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */,
+				E73B4FC22106D22100B6243B /* EvtEditEventCoverCell.h */,
+				E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */,
+				E73B4FC82106D2FD00B6243B /* EvtEditEventDateCell.h */,
+				E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */,
+				E73B4FCB2106D33E00B6243B /* EvtEditEventCycleCell.h */,
+				E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */,
+				E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */,
+				E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */,
+				E791844521085C1B0033745D /* EvtEditEventCell.h */,
+				E791844621085C1B0033745D /* EvtEditEventCell.m */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		E798B0DE21252A3E00578F24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E798B0DF21252A5B00578F24 /* UITableViewCell+ZHViewModel.h */,
+				E798B0E021252A5B00578F24 /* UITableViewCell+ZHViewModel.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		E798B0E72125762500578F24 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				E798B0E82125764600578F24 /* NSDate+ZHDate.h */,
+				E798B0E92125764600578F24 /* NSDate+ZHDate.m */,
+			);
+			path = Date;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,7 +624,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
+				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PGDatePicker/PGDatePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/PGPickerView/PGPickerView.framework",
@@ -575,7 +639,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PGDatePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PGPickerView.framework",
@@ -640,6 +706,7 @@
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
+				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
 				E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
@@ -648,6 +715,7 @@
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
+				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
 				E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */,
 				E704437C2100754C000239C1 /* UIView+EasyNavigationExt.m in Sources */,
@@ -660,11 +728,14 @@
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,
 				E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */,
 				E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */,
+				E798B0E421254B7D00578F24 /* ZHCommonApi.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
+				E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,
 				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
+				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
@@ -672,6 +743,7 @@
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
+				E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */,
 				E70443772100754C000239C1 /* EasyNavigationController.m in Sources */,
 				E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */,
 				E704437A2100754C000239C1 /* EasyKVOInfo.m in Sources */,
@@ -813,10 +885,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -833,10 +902,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

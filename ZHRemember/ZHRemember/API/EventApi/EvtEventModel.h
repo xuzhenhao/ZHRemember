@@ -6,9 +6,17 @@
 //  Copyright © 2018年 xuzhenhao. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface EvtEventModel : NSObject
+typedef enum : NSUInteger {
+    EvtEventCycleNone = 0,//不重复
+    EvtEventCycleDay,//每天
+    EvtEventCycleWeek,//每周
+    EvtEventCycleMonth,//每月
+    EvtEventCycleYear,//每年
+} EvtEventCycleType;
+
+@interface EvtEventModel : MTLModel<MTLJSONSerializing>
 
 /** 事件id*/
 @property (nonatomic, copy)     NSString    *eventId;
@@ -20,8 +28,6 @@
 /** 事件类型，根据时间即可判断。未来的时间即为倒数，过去的时间即为纪念日*/
 /** 封面地址*/
 @property (nonatomic, copy)     NSString    *coverURLStr;
-/** 封面数据*/
-@property (nonatomic, strong)   NSData     *coverData;
 /** 开始时间*/
 @property (nonatomic, copy)     NSString    *beginTime;
 /** 提醒周期*/

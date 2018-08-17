@@ -13,5 +13,7 @@
 #import "UIColor+ZHTheme.h"
 #import "UIViewController+ZHStoryBoard.h"
 #import "UIResponder+ZHRouter.h"
+#import "UITableViewCell+ZHViewModel.h"
+#import "NSDate+ZHDate.h"
 
 #endif /* ZHCagegory_h */

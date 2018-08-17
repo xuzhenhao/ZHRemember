@@ -59,7 +59,7 @@
     RAC(self.eventModel,eventName) = RACObserve(titleVM, eventName);
     RAC(self.eventModel,remarks) = RACObserve(remarkVM, remark);
     RAC(self.eventModel,beginTime) = RACObserve(dateVM, unixTime);
-    RAC(self.eventModel,coverData) = RACObserve(coverVM, coverData);
+    RAC(self.eventModel,coverURLStr) = RACObserve(coverVM, coverURLString);
 }
 
 - (void)racConfig{

@@ -20,17 +20,32 @@ NSString *const EvtClassName = @"Event";
         doneHandler(succeeded,nil);
     }];
 }
++ (void)getEventListsWithPage:(NSInteger)page
+                         done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSDictionary *result))doneHandler{
+    NSMutableArray *tempM = [NSMutableArray array];
+    
+    AVQuery *query = [AVQuery queryWithClassName:EvtClassName];
+    
+    [query whereKey:@"user_id" equalTo:[AVUser currentUser].objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (AVObject *obj in objects) {
+            NSDictionary *dict = [obj valueForKey:@"localData"];
+            [dict setValue:obj.objectId forKey:@"objectId"];
+            [tempM addObject:dict];
+        }
+        NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtEventModel class] fromJSONArray:tempM error:nil];
+        doneHandler(lists,nil);
+    }];
+}
 
 #pragma mark - utils
 + (void)fillObject:(AVObject *)eventObj withEvent:(EvtEventModel *)eventModel{
-    
+    [eventObj setObject:[AVUser currentUser].objectId forKey:@"user_id"];
     [eventObj setValue:eventModel.eventId forKey:@"objectId"];
     [eventObj setObject:eventModel.eventName forKey:@"event_name"];
     [eventObj setObject:eventModel.beginTime forKey:@"time_begin"];
     [eventObj setObject:eventModel.remarks forKey:@"event_remark"];
-    
-    AVFile *coverFile = [AVFile fileWithData:eventModel.coverData];
-    [eventObj setObject:coverFile forKey:@"event_cover"];
+    [eventObj setObject:eventModel.coverURLStr forKey:@"event_cover"];
 }
 
 

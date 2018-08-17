@@ -11,7 +11,7 @@
 
 #define EvtEventStoryboard @"EvtEventStoryboard"
 #import <ZHTableView/UITableView+ZHTableView.h>
-#import <SDWebImage/UIImageView+WebCache.h>
+
 #import <TZImagePickerController/TZImagePickerController.h>
 
 #endif /* EvtEventHeader_h */

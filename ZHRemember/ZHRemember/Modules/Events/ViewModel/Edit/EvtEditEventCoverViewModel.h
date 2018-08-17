@@ -13,12 +13,12 @@
  */
 @interface EvtEditEventCoverViewModel : NSObject
 
-@property (nonatomic, strong)   UIImage     *cover;
-
-/** 封面数据*/
-@property (nonatomic, strong)   NSData     *coverData;
+@property (nonatomic, copy, readonly)     NSString    *coverURLString;
+@property (nonatomic, strong, readonly)   UIImage     *coverImg;
 
 + (instancetype)viewModelWithCoverURL:(NSString *)coverString;
+
+- (void)setCoverImage:(UIImage *)image;
 
 @property (nonatomic, strong)   RACSubject     *selectPhotoSubject;
 

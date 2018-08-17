@@ -97,7 +97,7 @@
     imagePickVC.cropRect = CGRectMake(0,(ZHScreenHeight - cropHeight)/2 ,ZHScreenWidth,cropHeight) ;
     
     [imagePickVC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        model.cover = photos.lastObject;
+        [model setCoverImage:photos.lastObject];
         [weakself.tableView reloadData];
     }];
     [self presentViewController:imagePickVC animated:YES completion:nil];

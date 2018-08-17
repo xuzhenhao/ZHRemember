@@ -13,5 +13,6 @@
 
 + (void)saveEvent:(EvtEventModel *)event
              done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
-
++ (void)getEventListsWithPage:(NSInteger)page
+                         done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSDictionary *result))doneHandler;
 @end

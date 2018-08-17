@@ -10,4 +10,14 @@
 
 @implementation EvtEventModel
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey{
+    return @{
+             @"eventId":@"objectId",
+             @"eventName":@"event_name",
+             @"coverURLStr":@"event_cover",
+             @"beginTime":@"time_begin",
+             @"remarks":@"event_remark",
+             
+             };
+}
 @end

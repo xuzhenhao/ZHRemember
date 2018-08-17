@@ -14,5 +14,7 @@ pod 'Masonry'
 pod 'TZImagePickerController'
 pod 'PGDatePicker'
 pod 'ReactiveObjC'
+pod 'Mantle'
+pod 'DateTools'
 
 end

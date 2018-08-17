@@ -7,14 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef enum : NSUInteger {
-    EvtEventCycleNone = 0,//不重复
-    EvtEventCycleDay,//每天
-    EvtEventCycleWeek,//每周
-    EvtEventCycleMonth,//每月
-    EvtEventCycleYear,//每年
-} EvtEventCycleType;
+#import "EvtEventModel.h"
 
 @interface EvtEditEventCycleViewModel : NSObject
 
