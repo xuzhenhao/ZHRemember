@@ -31,19 +31,34 @@
     [super viewDidLoad];
     [self initialSetup];
     [self bindActions];
-    [self.viewModel.loadDataCommand execute:nil];
 }
 #pragma mark - UI
 - (void)initialSetup{
     self.view.backgroundColor = [UIColor yellowColor];
     
     [self.view addSubview:self.addEventButton];
+    [self setupTableView];
+}
+- (void)setupTableView{
+    @weakify(self)
+    MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        @strongify(self)
+        [self.viewModel.loadDataCommand execute:nil];
+    }];
+//    header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_header = header;
+    [header beginRefreshing];
 }
 - (void)bindActions{
     @weakify(self)
     [[self.viewModel.loadDataCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
+        [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
+    }];
+    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:EvtEditEventSuccessNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        [self.viewModel.loadDataCommand execute:nil];
     }];
 }
 #pragma mark - action
@@ -52,10 +67,10 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         sender.userInteractionEnabled = YES;
     });
-    [self navigateToEditViewController];
+    [self navigateToEditViewControllerWithModel:nil];
 }
-- (void)navigateToEditViewController{
-    EvtEditEventController *editVC = [EvtEditEventController editEventController];
+- (void)navigateToEditViewControllerWithModel:(EvtEventModel *)model{
+    EvtEditEventController *editVC = [EvtEditEventController editEventControllerWithModel:model];
     editVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:editVC animated:YES];
 }
@@ -84,7 +99,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self navigateToEditViewController];
+    [self navigateToEditViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
 }
 
 #pragma mark - getter

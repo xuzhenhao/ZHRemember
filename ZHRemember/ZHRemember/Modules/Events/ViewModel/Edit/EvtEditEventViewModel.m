@@ -17,28 +17,28 @@
 @end
 
 @implementation EvtEditEventViewModel
-
-- (instancetype)init{
-    self = [super init];
-    if (self) {
-        [self initConfig];
-        [self racConfig];
-    }
-    return self;
++ (instancetype)viewModelWithModel:(EvtEventModel *)model{
+    EvtEditEventViewModel *vm = [EvtEditEventViewModel new];
+    [vm initConfigWithModel:model];
+    [vm racConfig];
+    
+    return vm;
 }
 
-- (void)initConfig{
-    EvtEditEventTitleViewModel *titleVM = [EvtEditEventTitleViewModel viewModelWithEventName:nil];
+- (void)initConfigWithModel:(EvtEventModel *)model{
+    self.eventModel.eventId = model.eventId;
     
-    EvtEditEventCoverViewModel *coverVM = [EvtEditEventCoverViewModel viewModelWithCoverURL:nil];
+    EvtEditEventTitleViewModel *titleVM = [EvtEditEventTitleViewModel viewModelWithEventName:model.eventName];
+    
+    EvtEditEventCoverViewModel *coverVM = [EvtEditEventCoverViewModel viewModelWithCoverURL:model.coverURLStr];
     coverVM.selectPhotoSubject = self.selectPhotoSubject;
     
-    EvtEditEventDateViewModel *dateVM = [EvtEditEventDateViewModel viewModelWithDate:nil];
+    EvtEditEventDateViewModel *dateVM = [EvtEditEventDateViewModel viewModelWithDate:model.beginTime];
     dateVM.selectDateSubject = self.selectDateSubject;
     
-    EvtEditEventCycleViewModel *cycleVM = [EvtEditEventCycleViewModel viewModelWithCycleType:0];
+    EvtEditEventCycleViewModel *cycleVM = [EvtEditEventCycleViewModel viewModelWithCycleType:model.cycleType];
     
-    EvtEditEventRemarkViewModel *remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:nil];
+    EvtEditEventRemarkViewModel *remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:model.remarks];
     
     NSArray *contents = @[
                           [ZHTableViewItem itemWithData:titleVM reuserId:@"EvtEditEventTitleCell" height:60],

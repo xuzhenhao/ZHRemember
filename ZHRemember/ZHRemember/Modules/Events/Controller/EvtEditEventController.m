@@ -14,7 +14,10 @@
 #import "EvtEditEventViewModel.h"
 #import <PGDatePicker/PGDatePickManager.h>
 
+NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
+
 @interface EvtEditEventController ()<UITableViewDelegate,TZImagePickerControllerDelegate>
+
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   EvtEditEventViewModel     *viewModel;
@@ -27,10 +30,14 @@
 
 #pragma mark - init
 + (instancetype)editEventController{
+    return [self editEventControllerWithModel:nil];
+}
++ (instancetype)editEventControllerWithModel:(EvtEventModel *)model{
     EvtEditEventController *vc = [self viewControllerWithStoryBoard:EvtEventStoryboard];
+    vc.viewModel = [EvtEditEventViewModel viewModelWithModel:model];
+    
     return vc;
 }
-
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,6 +77,8 @@
     
     [[self.viewModel.saveCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:EvtEditEventSuccessNotification object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 }
@@ -123,17 +132,10 @@
     [self.viewModel.saveCommand execute:nil];
 }
 #pragma mark - getter&setter
-- (EvtEditEventViewModel *)viewModel{
-    if (!_viewModel) {
-        _viewModel = [EvtEditEventViewModel new];
-    }
-    return _viewModel;
-}
 - (UIBarButtonItem *)saveItem{
     if (!_saveItem) {
         _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveEvent:)];
     }
     return _saveItem;
 }
-
 @end

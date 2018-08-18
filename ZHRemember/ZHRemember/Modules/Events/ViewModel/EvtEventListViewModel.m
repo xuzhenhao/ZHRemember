@@ -92,4 +92,19 @@
     
     return viewModel;
 }
+- (id)modelForSection:(EvtEventListSection)section
+                  row:(NSInteger)row{
+    id model = nil;
+    
+    switch (section) {
+        case EvtEventListSectionEvents:{
+            EvtEventListEventsViewModel *viewModel = self.eventViewModels[row];
+            model = [viewModel getModelData];
+        }
+            
+            break;
+    }
+    
+    return model;
+}
 @end

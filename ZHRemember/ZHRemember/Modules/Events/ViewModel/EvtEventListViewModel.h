@@ -30,5 +30,7 @@ typedef enum : NSInteger {
                              row:(NSInteger)row;
 - (id)viewModelForSection:(EvtEventListSection)section
                       row:(NSInteger)row;
+- (id)modelForSection:(EvtEventListSection)section
+                      row:(NSInteger)row;
 
 @end

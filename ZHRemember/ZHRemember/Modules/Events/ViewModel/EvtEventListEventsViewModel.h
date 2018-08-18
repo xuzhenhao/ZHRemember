@@ -25,5 +25,7 @@
 
 + (instancetype)viewModelWithModel:(EvtEventModel *)model;
 + (NSArray<EvtEventListEventsViewModel *> *)viewModelsWithModels:(NSArray<EvtEventModel *> *)models;
+/**获取原始model数据,返回的为副本*/
+- (EvtEventModel *)getModelData;
 
 @end

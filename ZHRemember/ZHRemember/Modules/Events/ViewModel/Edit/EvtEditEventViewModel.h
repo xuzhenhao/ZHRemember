@@ -30,4 +30,12 @@
 
 @property (nonatomic, strong)   RACCommand     *saveCommand;
 
+/**
+ 构造方法，必须采用此方法初始化
+
+ @param model 原始数据，如编辑模式时传入原始数据
+ @return 对象实例
+ */
++ (instancetype)viewModelWithModel:(EvtEventModel *)model;
+
 @end

@@ -34,6 +34,12 @@
     
     return [tempM copy];
 }
+
+#pragma mark - private method
+- (EvtEventModel *)getModelData{
+    return [self.eventModel copy];
+}
+
 #pragma mark - private method
 - (void)updateWithEventModel:(EvtEventModel *)model{
     self.eventModel = model;
