@@ -11,6 +11,10 @@
 
 @interface EvtEventListCell()
 
+@property (weak, nonatomic) IBOutlet UIView *shadowView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remindTimeLabel;
@@ -26,7 +30,20 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self setupView];
+}
+- (void)setupView{
+    self.shadowView.layer.cornerRadius = 4;
+    self.shadowView.layer.shadowColor = [UIColor zh_shadowColor].CGColor;
+    self.shadowView.layer.shadowOffset = CGSizeMake(0, 4);
+    self.shadowView.layer.shadowRadius = 5;
+    self.shadowView.layer.shadowOpacity = 1;
     
+    self.containerView.layer.cornerRadius = 4;
+    self.containerView.layer.masksToBounds = YES;
+    
+    self.timeView.layer.cornerRadius = 5;
+    self.timeView.layer.masksToBounds = YES;
 }
 - (void)bindViewModel:(id)viewModel{
     self.viewModel = viewModel;

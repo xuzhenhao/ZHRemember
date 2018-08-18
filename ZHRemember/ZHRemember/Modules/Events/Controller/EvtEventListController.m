@@ -52,6 +52,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         sender.userInteractionEnabled = YES;
     });
+    [self navigateToEditViewController];
+}
+- (void)navigateToEditViewController{
     EvtEditEventController *editVC = [EvtEditEventController editEventController];
     editVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:editVC animated:YES];
@@ -75,6 +78,13 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self.viewModel rowHeightForSection:indexPath.section row:indexPath.row];
+}
+
+#pragma mark - UITableView delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self navigateToEditViewController];
 }
 
 #pragma mark - getter

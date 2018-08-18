@@ -61,7 +61,8 @@
     
     switch (section) {
         case EvtEventListSectionEvents:
-            rowHeight = 110;
+            //上下留白+图片高度+下方内容高度
+            rowHeight = 40 + (ZHScreenWidth - 40) * 9 / 16 + 142;
             break;
             
     }

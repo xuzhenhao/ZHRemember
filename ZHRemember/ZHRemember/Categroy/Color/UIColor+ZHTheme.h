@@ -12,6 +12,7 @@
 /**全局主题色*/
 + (UIColor *)zh_themeColor;
 + (UIColor *)zh_imagePlaceholdColor;
++ (UIColor *)zh_shadowColor;
 
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal;

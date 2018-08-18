@@ -16,6 +16,9 @@
 + (UIColor *)zh_imagePlaceholdColor{
     return RGBColor(224, 224, 224);
 }
++ (UIColor *)zh_shadowColor{
+    return RGBAColor(240, 240, 240, 0.6);
+}
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal{
     return RGBColor(102, 102, 102);

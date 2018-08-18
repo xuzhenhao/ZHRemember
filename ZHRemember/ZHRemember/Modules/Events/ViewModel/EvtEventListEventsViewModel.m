@@ -53,9 +53,9 @@
     if (cycleType == EvtEventCycleNone || cycleType == EvtEventCycleDay) {
         NSInteger existDays = [self getExistDays];
         if (existDays > 0) {
-            return [NSString stringWithFormat:@"已经%zd天",existDays];
+            return [NSString stringWithFormat:@"%zd",existDays];
         }else{
-            return @"今天";
+            return @"今";
         }
     }else{
         return [self getLeftDaysDescWithCycleType:cycleType];
@@ -114,9 +114,9 @@
     }
 
     if (leftDays > 0) {
-        return [NSString stringWithFormat:@"%zd天后",existDays];
+        return [NSString stringWithFormat:@"%zd",existDays];
     }else{
-        return @"今天";
+        return @"天";
     }
 }
 
