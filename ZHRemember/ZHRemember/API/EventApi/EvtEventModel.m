@@ -17,7 +17,12 @@
              @"coverURLStr":@"event_cover",
              @"beginTime":@"time_begin",
              @"remarks":@"event_remark",
-             
+             @"cycleType":@"event_cycle",
              };
+}
++ (NSValueTransformer *)cycleTypeJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return @(value.integerValue);
+    }];
 }
 @end

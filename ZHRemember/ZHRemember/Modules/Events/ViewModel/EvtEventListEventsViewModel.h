@@ -18,7 +18,7 @@
 /** 已经发生的，显示"已经"，将来发生的，显示"还剩"*/
 @property (nonatomic, copy)     NSString    *remindTypeTips;
 
-/** 开始时间*/
+/** 事件开始时间*/
 @property (nonatomic, copy)     NSString    *beginTime;
 /** 星期几*/
 @property (nonatomic, copy)     NSString    *weekTime;

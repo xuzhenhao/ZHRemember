@@ -60,6 +60,7 @@
     RAC(self.eventModel,remarks) = RACObserve(remarkVM, remark);
     RAC(self.eventModel,beginTime) = RACObserve(dateVM, unixTime);
     RAC(self.eventModel,coverURLStr) = RACObserve(coverVM, coverURLString);
+    RAC(self.eventModel,cycleType) = RACObserve(cycleVM, cycleType);
 }
 
 - (void)racConfig{

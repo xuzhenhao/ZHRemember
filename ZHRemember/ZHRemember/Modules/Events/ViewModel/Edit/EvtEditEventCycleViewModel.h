@@ -11,8 +11,9 @@
 
 @interface EvtEditEventCycleViewModel : NSObject
 
-/** 循环周期*/
+/** 循环周期格式化描述*/
 @property (nonatomic, copy)     NSString    *cycleFormat;
+@property (nonatomic, assign, readonly)   EvtEventCycleType      cycleType;
 
 + (instancetype)viewModelWithCycleType:(EvtEventCycleType)type;
 

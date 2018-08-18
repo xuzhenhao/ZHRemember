@@ -46,6 +46,7 @@ NSString *const EvtClassName = @"Event";
     [eventObj setObject:eventModel.beginTime forKey:@"time_begin"];
     [eventObj setObject:eventModel.remarks forKey:@"event_remark"];
     [eventObj setObject:eventModel.coverURLStr forKey:@"event_cover"];
+    [eventObj setObject:@(eventModel.cycleType) forKey:@"event_cycle"];
 }
 
 
