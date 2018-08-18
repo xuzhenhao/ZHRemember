@@ -78,8 +78,8 @@ UIPickerViewDelegate,ZHTableViewCellProtocol>
         UIBarButtonItem *finBtn = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(clickToolbarFinishEvent)];
         finBtn.tintColor = [UIColor whiteColor];
         fixBtn.tintColor = [UIColor clearColor];
-//        _toolBar.backgroundColor = [UIColor zh_themeColor];
-        [_toolBar setBackgroundImage:[UIImage zh_imageWithColor:[UIColor zh_themeColor] size:CGSizeMake(ZHScreenWidth, 44)] forToolbarPosition:0 barMetrics:UIBarMetricsDefault];
+
+        [_toolBar setBackgroundImage:[UIImage zh_imageWithColor:[UIColor zh_tabbarColor] size:CGSizeMake(ZHScreenWidth, 44)] forToolbarPosition:0 barMetrics:UIBarMetricsDefault];
         
         _toolBar.items = @[fixBtn,finBtn];
         

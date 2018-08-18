@@ -49,7 +49,7 @@
 - (void)bindViewModel:(id)viewModel{
     self.viewModel = viewModel;
     
-    [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.coverURLStr] placeholderImage:[UIImage zh_imageWithColor:[UIColor blueColor] size:self.coverImageView.bounds.size]];
+    [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.coverURLStr] placeholderImage:[UIImage zh_imageWithColor:[UIColor zh_coverColor] size:self.coverImageView.bounds.size]];
     self.eventNameLabel.text = self.viewModel.eventName;
     self.remindTimeLabel.text = self.viewModel.remindTime;
     self.beginTimeLabel.text = self.viewModel.beginTime;

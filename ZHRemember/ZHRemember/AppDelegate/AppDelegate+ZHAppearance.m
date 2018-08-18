@@ -23,17 +23,17 @@
 }
 - (void)zh_setupTabbarAppearance{
     [[UITabBar appearance] setTranslucent:NO];
-    [[UITabBar appearance] setTintColor:[UIColor zh_themeColor]];
+    [[UITabBar appearance] setTintColor:[UIColor zh_tabbarColor]];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_tabbarTextNormal]}forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_themeColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_tabbarColor]} forState:UIControlStateSelected];
 }
 - (void)zh_setupNavigationAppearance{
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
     [[UINavigationBar appearance] setBackgroundImage:
-     [UIImage zh_imageWithColor:[UIColor zh_themeColor] size:CGSizeMake(1, 1)]
+     [UIImage zh_imageWithColor:[UIColor zh_navigationColor] size:CGSizeMake(1, 1)]
                            forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor zh_themeColor]];
 }
 - (void)iOS11Config{
     if (@available(iOS 11.0, *)){

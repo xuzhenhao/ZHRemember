@@ -108,9 +108,16 @@
 - (UIButton *)addEventButton{
     if (_addEventButton == nil) {
         _addEventButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_addEventButton setImage:[UIImage imageNamed:@"event-write-pen"] forState:UIControlStateNormal];
         _addEventButton.frame = CGRectMake(ZHScreenWidth - 60, ZHScreenHeight - 250, 50, 50);
+        
+        _addEventButton.backgroundColor = RGBColor(73 ,172 ,102);
         _addEventButton.layer.cornerRadius = 25;
-        _addEventButton.backgroundColor = [UIColor greenColor];
+        _addEventButton.layer.shadowOffset = CGSizeMake(0, 8);
+        _addEventButton.layer.shadowOpacity = 0.5;
+        _addEventButton.layer.shadowColor = [UIColor greenColor].CGColor;
+        _addEventButton.layer.shadowRadius = 12;
+        
         [_addEventButton addTarget:self action:@selector(didClickAddEventButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addEventButton;

@@ -11,7 +11,18 @@
 @implementation UIColor (ZHTheme)
 
 + (UIColor *)zh_themeColor{
+//
     return RGBColor(249, 216, 106);
+//    return [UIColor whiteColor];
+}
++ (UIColor *)zh_tabbarColor{
+    return RGBColor(249, 216, 106);
+}
++ (UIColor *)zh_navigationColor{
+    return [UIColor whiteColor];
+}
++ (UIColor *)zh_coverColor{
+    return RGBColor(51, 204, 245);
 }
 + (UIColor *)zh_imagePlaceholdColor{
     return RGBColor(224, 224, 224);

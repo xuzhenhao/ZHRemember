@@ -13,6 +13,9 @@
 + (UIColor *)zh_themeColor;
 + (UIColor *)zh_imagePlaceholdColor;
 + (UIColor *)zh_shadowColor;
++ (UIColor *)zh_coverColor;
++ (UIColor *)zh_tabbarColor;
++ (UIColor *)zh_navigationColor;
 
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal;
