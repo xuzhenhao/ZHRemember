@@ -15,6 +15,9 @@
 @property (nonatomic, copy)     NSString    *eventName;
 /** 提醒时间.没有设置重复提醒则显示总天数，设置了重复提醒则显示距离下一个周期的天数*/
 @property (nonatomic, copy)     NSString    *remindTime;
+/** 已经发生的，显示"已经"，将来发生的，显示"还剩"*/
+@property (nonatomic, copy)     NSString    *remindTypeTips;
+
 /** 开始时间*/
 @property (nonatomic, copy)     NSString    *beginTime;
 /** 星期几*/

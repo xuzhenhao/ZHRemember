@@ -15,5 +15,6 @@
 #import "UIResponder+ZHRouter.h"
 #import "UITableViewCell+ZHViewModel.h"
 #import "NSDate+ZHDate.h"
+#import "UITableView+ZHRefresh.h"
 
 #endif /* ZHCagegory_h */

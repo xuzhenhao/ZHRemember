@@ -37,17 +37,13 @@
     self.view.backgroundColor = [UIColor yellowColor];
     
     [self.view addSubview:self.addEventButton];
-    [self setupTableView];
-}
-- (void)setupTableView{
+    
     @weakify(self)
-    MJRefreshHeader *header = [MJRefreshHeader headerWithRefreshingBlock:^{
+    [self.tableView configHeadRefreshControlWithRefreshBlock:^{
         @strongify(self)
         [self.viewModel.loadDataCommand execute:nil];
     }];
-//    header.automaticallyChangeAlpha = YES;
-    self.tableView.mj_header = header;
-    [header beginRefreshing];
+    [self.tableView.mj_header beginRefreshing];
 }
 - (void)bindActions{
     @weakify(self)

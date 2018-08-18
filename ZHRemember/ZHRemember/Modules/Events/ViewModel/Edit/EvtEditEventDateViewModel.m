@@ -13,9 +13,11 @@
 + (instancetype)viewModelWithDate:(NSString *)dateString{
     EvtEditEventDateViewModel *vm = [EvtEditEventDateViewModel new];
     
-    vm.unixTime = dateString;
-    NSDate *date = [NSDate dateWithTimeIntervalSince1970:dateString.integerValue];
-    vm.dateFormat = [date formattedDateWithFormat:@"yyyy年MM月dd日HH时" locale:[NSLocale systemLocale]];
+    if (dateString) {
+        vm.unixTime = dateString;
+        NSDate *date = [NSDate dateWithTimeIntervalSince1970:dateString.integerValue];
+        vm.dateFormat = [date formattedDateWithFormat:@"yyyy年MM月dd日HH时" locale:[NSLocale systemLocale]];
+    }
     
     return vm;
 }

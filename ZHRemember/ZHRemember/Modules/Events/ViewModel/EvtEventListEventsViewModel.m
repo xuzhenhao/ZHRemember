@@ -52,20 +52,46 @@
     self.weekTime = [date getWeekDay];
     self.beginTime = [date formattedDateWithFormat:@"yyyy.MM.dd" locale:[NSLocale systemLocale]];
 }
+- (BOOL)isFutureEvent{
+    
+    NSDate *eventDate = [NSDate dateWithTimeIntervalSince1970:[self.eventModel.beginTime integerValue]];
+    NSDate *currentDate = [NSDate date];
+    
+    return [eventDate isLaterThan:currentDate];
+}
 /**提醒时间.没有设置重复提醒则显示总天数，设置了重复提醒则显示距离下一个周期的天数*/
 - (NSString *)calcuteRemindDays{
+    if (self.isFutureEvent) {
+        return [self calcuteFutrueEventDaysDesc];
+    }
     
     EvtEventCycleType cycleType = self.eventModel.cycleType;
     if (cycleType == EvtEventCycleNone || cycleType == EvtEventCycleDay) {
         NSInteger existDays = [self getExistDays];
         if (existDays > 0) {
+            self.remindTypeTips = @"已经";
             return [NSString stringWithFormat:@"%zd",existDays];
         }else{
+            self.remindTypeTips = @"就在";
             return @"今";
         }
     }else{
         return [self getLeftDaysDescWithCycleType:cycleType];
     }
+    
+}
+/**未发生的事情，即倒数日*/
+- (NSString *)calcuteFutrueEventDaysDesc{
+    self.remindTypeTips = @"还剩";
+    
+    NSDate *beginDate = [NSDate dateWithTimeIntervalSince1970:[self.eventModel.beginTime integerValue]];
+    //抹掉时分秒的数据，统一从0点方便比较
+    beginDate = [NSDate dateWithYear:beginDate.year month:beginDate.month day:beginDate.day];
+    NSDate *currentDate = [NSDate date];
+    currentDate = [NSDate dateWithYear:currentDate.year month:currentDate.month day:currentDate.day];
+    
+    NSInteger days = [beginDate daysLaterThan:currentDate];
+    return [NSString stringWithFormat:@"%zd",days];
     
 }
 /**计算事件开始到今天为止，已经经过的天数*/
@@ -120,9 +146,11 @@
     }
 
     if (leftDays > 0) {
+        self.remindTypeTips = @"还剩";
         return [NSString stringWithFormat:@"%zd",existDays];
     }else{
-        return @"天";
+        self.remindTypeTips = @"就在";
+        return @"今";
     }
 }
 
