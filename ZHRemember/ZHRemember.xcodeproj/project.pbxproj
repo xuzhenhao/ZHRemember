@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		98AABF8C02DE73D3F5FB294A /* Pods_ZHRemember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */; };
+		E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDE7212A671800A9C330 /* EvtTagManagerController.m */; };
+		E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */; };
+		E700FDEF212A679800A9C330 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDEE212A679800A9C330 /* MyViewController.m */; };
+		E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF1212A67FB00A9C330 /* MyTarget.m */; };
+		E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF5212A694B00A9C330 /* ZHMediator+My.m */; };
+		E700FDFA212A6F3800A9C330 /* EvtTagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF9212A6F3800A9C330 /* EvtTagListCell.m */; };
+		E700FDFE212A8F8D00A9C330 /* EvtTagManageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDFD212A8F8D00A9C330 /* EvtTagManageViewModel.m */; };
+		E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FE00212A936500A9C330 /* EvtTagModel.m */; };
 		E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E704434C21003805000239C1 /* UIImage+ZHExt.m */; };
 		E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443522100399E000239C1 /* UIColor+ZHTheme.m */; };
 		E7044356210039F1000239C1 /* ZHMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044355210039F1000239C1 /* ZHMacro.m */; };
@@ -70,6 +78,22 @@
 		4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHRemember.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember.debug.xcconfig"; sourceTree = "<group>"; };
 		7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHRemember.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember.release.xcconfig"; sourceTree = "<group>"; };
 		8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZHRemember.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E700FDE6212A671800A9C330 /* EvtTagManagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtTagManagerController.h; sourceTree = "<group>"; };
+		E700FDE7212A671800A9C330 /* EvtTagManagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtTagManagerController.m; sourceTree = "<group>"; };
+		E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStoryboard.storyboard; sourceTree = "<group>"; };
+		E700FDED212A679800A9C330 /* MyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		E700FDEE212A679800A9C330 /* MyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		E700FDF0212A67FB00A9C330 /* MyTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTarget.h; sourceTree = "<group>"; };
+		E700FDF1212A67FB00A9C330 /* MyTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTarget.m; sourceTree = "<group>"; };
+		E700FDF3212A689400A9C330 /* MyModuleHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyModuleHeader.h; sourceTree = "<group>"; };
+		E700FDF4212A694B00A9C330 /* ZHMediator+My.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+My.h"; sourceTree = "<group>"; };
+		E700FDF5212A694B00A9C330 /* ZHMediator+My.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+My.m"; sourceTree = "<group>"; };
+		E700FDF8212A6F3800A9C330 /* EvtTagListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtTagListCell.h; sourceTree = "<group>"; };
+		E700FDF9212A6F3800A9C330 /* EvtTagListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtTagListCell.m; sourceTree = "<group>"; };
+		E700FDFC212A8F8D00A9C330 /* EvtTagManageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtTagManageViewModel.h; sourceTree = "<group>"; };
+		E700FDFD212A8F8D00A9C330 /* EvtTagManageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtTagManageViewModel.m; sourceTree = "<group>"; };
+		E700FDFF212A936500A9C330 /* EvtTagModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtTagModel.h; sourceTree = "<group>"; };
+		E700FE00212A936500A9C330 /* EvtTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtTagModel.m; sourceTree = "<group>"; };
 		E704434B21003805000239C1 /* UIImage+ZHExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZHExt.h"; sourceTree = "<group>"; };
 		E704434C21003805000239C1 /* UIImage+ZHExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZHExt.m"; sourceTree = "<group>"; };
 		E70443512100399E000239C1 /* UIColor+ZHTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZHTheme.h"; sourceTree = "<group>"; };
@@ -215,6 +239,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E700FDE9212A675400A9C330 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				E700FDEA212A675F00A9C330 /* Controller */,
+				E700FDF0212A67FB00A9C330 /* MyTarget.h */,
+				E700FDF1212A67FB00A9C330 /* MyTarget.m */,
+				E700FDF3212A689400A9C330 /* MyModuleHeader.h */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		E700FDEA212A675F00A9C330 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */,
+				E700FDED212A679800A9C330 /* MyViewController.h */,
+				E700FDEE212A679800A9C330 /* MyViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E700FDF7212A6F1900A9C330 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				E700FDF8212A6F3800A9C330 /* EvtTagListCell.h */,
+				E700FDF9212A6F3800A9C330 /* EvtTagListCell.m */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		E700FDFB212A8F5700A9C330 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				E700FDFC212A8F8D00A9C330 /* EvtTagManageViewModel.h */,
+				E700FDFD212A8F8D00A9C330 /* EvtTagManageViewModel.m */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
 		E7044348210037A7000239C1 /* Categroy */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +384,8 @@
 				E704438A210076C9000239C1 /* EvtEventListController.m */,
 				E778D80A2101BDE500E9CEEB /* EvtEditEventController.h */,
 				E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */,
+				E700FDE6212A671800A9C330 /* EvtTagManagerController.h */,
+				E700FDE7212A671800A9C330 /* EvtTagManagerController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -328,6 +393,7 @@
 		E704438721007646000239C1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E700FDF7212A6F1900A9C330 /* Tag */,
 				E798B0D4212511E800578F24 /* Edit */,
 				E798B0D82125223800578F24 /* EvtEventListCell.h */,
 				E798B0D92125223800578F24 /* EvtEventListCell.m */,
@@ -338,6 +404,7 @@
 		E70443882100764C000239C1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E700FDFB212A8F5700A9C330 /* Tag */,
 				E798B0D3212511C400578F24 /* Edit */,
 				E798B0D52125127C00578F24 /* EvtEventListViewModel.h */,
 				E798B0D62125127C00578F24 /* EvtEventListViewModel.m */,
@@ -419,6 +486,7 @@
 		E76B117021002D8A0067E577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E700FDE9212A675400A9C330 /* My */,
 				E704438521007614000239C1 /* Events */,
 				E76B117121002DB20067E577 /* Main */,
 			);
@@ -468,6 +536,8 @@
 				E76B117E210032E30067E577 /* ZHMediator+Main.m */,
 				E704439621007963000239C1 /* ZHMediator+ZHEvent.h */,
 				E704439721007963000239C1 /* ZHMediator+ZHEvent.m */,
+				E700FDF4212A694B00A9C330 /* ZHMediator+My.h */,
+				E700FDF5212A694B00A9C330 /* ZHMediator+My.m */,
 			);
 			path = ModeuleCategory;
 			sourceTree = "<group>";
@@ -497,6 +567,8 @@
 			children = (
 				E778D80421017D2B00E9CEEB /* EvtEventModel.h */,
 				E778D80521017D2B00E9CEEB /* EvtEventModel.m */,
+				E700FDFF212A936500A9C330 /* EvtTagModel.h */,
+				E700FE00212A936500A9C330 /* EvtTagModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -638,6 +710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
+				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
@@ -734,6 +807,7 @@
 			files = (
 				E791844721085C1B0033745D /* EvtEditEventCell.m in Sources */,
 				E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */,
+				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
@@ -748,7 +822,9 @@
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
+				E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
+				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
@@ -769,6 +845,7 @@
 				E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,
 				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
+				E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
@@ -779,10 +856,13 @@
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
+				E700FDEF212A679800A9C330 /* MyViewController.m in Sources */,
 				E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */,
 				E70443772100754C000239C1 /* EasyNavigationController.m in Sources */,
 				E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */,
+				E700FDFE212A8F8D00A9C330 /* EvtTagManageViewModel.m in Sources */,
 				E704437A2100754C000239C1 /* EasyKVOInfo.m in Sources */,
+				E700FDFA212A6F3800A9C330 /* EvtTagListCell.m in Sources */,
 				E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

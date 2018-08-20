@@ -13,6 +13,7 @@
 #import "ZHCagegory.h"
 #import "ZHMediator+Main.h"
 #import "ZHMediator+ZHEvent.h"
+#import "ZHMediator+My.h"
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <SDWebImage/UIImageView+WebCache.h>

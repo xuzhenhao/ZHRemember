@@ -16,4 +16,8 @@
     UIViewController *vc = [self performTarget:eventModuleTargetName action:@"eventListViewController" params:nil];
     return vc ?: [UIViewController new];
 }
+- (UIViewController *)eventTagController{
+    UIViewController *vc = [self performTarget:eventModuleTargetName action:@"eventTagViewController" params:nil];
+    return vc ?: [UIViewController new];
+}
 @end

@@ -12,5 +12,6 @@
 @interface ZHMediator (ZHEvent)
 
 - (UIViewController *)eventListController;
+- (UIViewController *)eventTagController;
 
 @end

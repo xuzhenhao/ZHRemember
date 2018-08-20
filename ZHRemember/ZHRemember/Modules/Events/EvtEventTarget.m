@@ -8,11 +8,14 @@
 
 #import "EvtEventTarget.h"
 #import "EvtEventListController.h"
+#import "EvtTagManagerController.h"
 
 @implementation EvtEventTarget
 
 - (UIViewController *)eventListViewController{
     return [EvtEventListController eventListController];
 }
-
+- (UIViewController *)eventTagViewController{
+    return [EvtTagManagerController tagController];
+}
 @end

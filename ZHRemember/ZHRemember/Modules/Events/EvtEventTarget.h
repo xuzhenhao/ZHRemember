@@ -12,4 +12,5 @@
 
 - (UIViewController *)eventListViewController;
 
+- (UIViewController *)eventTagViewController;
 @end
