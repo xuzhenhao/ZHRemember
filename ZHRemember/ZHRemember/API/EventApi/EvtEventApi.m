@@ -8,17 +8,42 @@
 
 #import "EvtEventApi.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "AVObject+ApiExt.h"
 
+/**事件表名*/
 NSString *const EvtClassName = @"Event";
+/**标签表名*/
 NSString *const EvtTagClassName = @"Event_Tag";
+/**每张表的ObjectId字段*/
+NSString *const EvtObjectIdKey = @"objectId";
+/**每张表的用户id字段*/
+NSString *const EvtUserIdKey = @"user_id";
+/**事件表-标签字段*/
+NSString *const EvtEventClassTagKey = @"event_tag";
+/**事件表-名字字段*/
+NSString *const EvtEventClassNameKey = @"event_name";
+/**事件表-开始时间字段*/
+NSString *const EvtEventClassTimeKey = @"time_begin";
+/**事件表-备注字段*/
+NSString *const EvtEventClassRemarkKey = @"event_remark";
+/**事件表-封面字段*/
+NSString *const EvtEventClassCoverKey = @"event_cover";
+/**事件表-重复周期字段*/
+NSString *const EvtEventClassCycleKey = @"event_cycle";
+
+/**标签表-标签类型字段*/
+NSString *const EvtTagClassTypeKey = @"tag_type";
+/**标签表-标签名字段*/
+NSString *const EvtTagClassNameKey = @"tag_name";
+
 
 @implementation EvtEventApi
 + (void)saveEvent:(EvtEventModel *)event
              done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
     AVObject *eventObj = [[AVObject alloc] initWithClassName:EvtClassName];
-    AVObject *tagObj = [AVObject objectWithClassName:@"Event_Tag" objectId:event.tagModel.tagId];
-    
-    [eventObj setObject:tagObj forKey:@"event_tag"];
+    //关联标签表
+    AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:event.tagModel.tagId];
+    [eventObj setObject:tagObj forKey:EvtEventClassTagKey];
     
     [self fillObject:eventObj withEvent:event];
     [eventObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
@@ -30,18 +55,19 @@ NSString *const EvtTagClassName = @"Event_Tag";
     NSMutableArray *tempM = [NSMutableArray array];
     
     AVQuery *query = [AVQuery queryWithClassName:EvtClassName];
-    [query includeKey:@"event_tag"];
-    
-    [query whereKey:@"user_id" equalTo:[AVUser currentUser].objectId];
+    //关联标签表的查询结果
+    [query includeKey:EvtEventClassTagKey];
+    //查询条件为用户id
+    [query whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj valueForKey:@"localData"];
-            [dict setValue:obj.objectId forKey:@"objectId"];
-            
-            AVObject *tagObj = obj[@"event_tag"];
-            NSDictionary *tagDict = [tagObj valueForKey:@"localData"];
-            [tagDict setValue:tagObj.objectId forKey:@"objectId"];
-            [dict setValue:tagDict forKey:@"event_tag"];
+            NSDictionary *dict = [obj localData];
+            [dict setValue:obj.objectId forKey:EvtObjectIdKey];
+            //取出嵌套的标签对象数据
+            AVObject *tagObj = obj[EvtEventClassTagKey];
+            NSDictionary *tagDict = [tagObj localData];
+            [tagDict setValue:tagObj.objectId forKey:EvtObjectIdKey];
+            [dict setValue:tagDict forKey:EvtEventClassTagKey];
             
             [tempM addObject:dict];
         }
@@ -68,19 +94,19 @@ NSString *const EvtTagClassName = @"Event_Tag";
 }
 + (void)getTagListWithDone:(void(^)(NSArray<EvtTagModel *> *tagList,NSDictionary *result))doneHandler{
     NSMutableArray *tempM = [NSMutableArray array];
-    
+    //查询共有标签
     AVQuery *pubicQuery = [AVQuery queryWithClassName:EvtTagClassName];
-    [pubicQuery whereKey:@"tag_type" equalTo:@"0"];
-    
+    [pubicQuery whereKey:EvtTagClassTypeKey equalTo:@"0"];
+    //查询私有标签
     AVQuery *privateQuery = [AVQuery queryWithClassName:EvtTagClassName];
-    [privateQuery whereKey:@"user_id" equalTo:[AVUser currentUser].objectId];
-    
+    [privateQuery whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
+    //组合查询
     AVQuery *orQuery = [AVQuery orQueryWithSubqueries:@[pubicQuery,privateQuery]];
     
     [orQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj valueForKey:@"localData"];
-            [dict setValue:obj.objectId forKey:@"objectId"];
+            NSDictionary *dict = [obj localData];
+            [dict setValue:obj.objectId forKey:EvtObjectIdKey];
             [tempM addObject:dict];
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtTagModel class] fromJSONArray:tempM error:nil];
@@ -91,12 +117,12 @@ NSString *const EvtTagClassName = @"Event_Tag";
     NSMutableArray *tempM = [NSMutableArray array];
     
     AVQuery *privateQuery = [AVQuery queryWithClassName:EvtTagClassName];
-    [privateQuery whereKey:@"user_id" equalTo:[AVUser currentUser].objectId];
+    [privateQuery whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
     
     [privateQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj valueForKey:@"localData"];
-            [dict setValue:obj.objectId forKey:@"objectId"];
+            NSDictionary *dict = [obj localData];
+            [dict setValue:obj.objectId forKey:EvtObjectIdKey];
             [tempM addObject:dict];
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtTagModel class] fromJSONArray:tempM error:nil];
@@ -106,20 +132,21 @@ NSString *const EvtTagClassName = @"Event_Tag";
 
 #pragma mark - utils
 + (void)fillObject:(AVObject *)tagObj withTag:(EvtTagModel *)tagModel{
-    [tagObj setObject:[AVUser currentUser].objectId forKey:@"user_id"];
-    [tagObj setValue:tagModel.tagId forKey:@"objectId"];
-    [tagObj setObject:tagModel.tagName forKey:@"tag_name"];
-    [tagObj setObject:@"1" forKey:@"tag_type"];
+    [tagObj setObject:[AVUser currentUser].objectId forKey:EvtUserIdKey];
+    [tagObj setValue:tagModel.tagId forKey:EvtObjectIdKey];
+    [tagObj setObject:tagModel.tagName forKey:EvtTagClassNameKey];
+    //标记为公有标签
+    [tagObj setObject:@"1" forKey:EvtTagClassTypeKey];
 }
 
 + (void)fillObject:(AVObject *)eventObj withEvent:(EvtEventModel *)eventModel{
-    [eventObj setObject:[AVUser currentUser].objectId forKey:@"user_id"];
-    [eventObj setValue:eventModel.eventId forKey:@"objectId"];
-    [eventObj setObject:eventModel.eventName forKey:@"event_name"];
-    [eventObj setObject:eventModel.beginTime forKey:@"time_begin"];
-    [eventObj setObject:eventModel.remarks forKey:@"event_remark"];
-    [eventObj setObject:eventModel.coverURLStr forKey:@"event_cover"];
-    [eventObj setObject:@(eventModel.cycleType) forKey:@"event_cycle"];
+    [eventObj setObject:[AVUser currentUser].objectId forKey:EvtUserIdKey];
+    [eventObj setValue:eventModel.eventId forKey:EvtObjectIdKey];
+    [eventObj setObject:eventModel.eventName forKey:EvtEventClassNameKey];
+    [eventObj setObject:eventModel.beginTime forKey:EvtEventClassTimeKey];
+    [eventObj setObject:eventModel.remarks forKey:EvtEventClassRemarkKey];
+    [eventObj setObject:eventModel.coverURLStr forKey:EvtEventClassCoverKey];
+    [eventObj setObject:@(eventModel.cycleType) forKey:EvtEventClassCycleKey];
 }
 
 

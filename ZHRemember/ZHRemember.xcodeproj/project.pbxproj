@@ -74,6 +74,7 @@
 		E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */; };
 		E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */; };
 		E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */; };
+		E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -214,6 +215,8 @@
 		E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTagCell.m; sourceTree = "<group>"; };
 		E7AC8520212BAE04006B92AA /* EvtEditEventTagViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTagViewModel.h; sourceTree = "<group>"; };
 		E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTagViewModel.m; sourceTree = "<group>"; };
+		E7AC8527212BE65F006B92AA /* AVObject+ApiExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVObject+ApiExt.h"; sourceTree = "<group>"; };
+		E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVObject+ApiExt.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -551,9 +554,9 @@
 		E778D8012101770500E9CEEB /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E7AC8526212BE631006B92AA /* Category */,
+				E7AC8525212BE16C006B92AA /* CommonApi */,
 				E778D8022101773000E9CEEB /* EventApi */,
-				E798B0E221254B7D00578F24 /* ZHCommonApi.h */,
-				E798B0E321254B7D00578F24 /* ZHCommonApi.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -657,6 +660,24 @@
 				E798B0F62127F76000578F24 /* UITableView+ZHRefresh.m */,
 			);
 			path = UITableView;
+			sourceTree = "<group>";
+		};
+		E7AC8525212BE16C006B92AA /* CommonApi */ = {
+			isa = PBXGroup;
+			children = (
+				E798B0E221254B7D00578F24 /* ZHCommonApi.h */,
+				E798B0E321254B7D00578F24 /* ZHCommonApi.m */,
+			);
+			path = CommonApi;
+			sourceTree = "<group>";
+		};
+		E7AC8526212BE631006B92AA /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E7AC8527212BE65F006B92AA /* AVObject+ApiExt.h */,
+				E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -859,6 +880,7 @@
 				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
 				E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
+				E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
