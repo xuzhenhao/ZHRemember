@@ -10,6 +10,7 @@
 #import "EvtEventHeader.h"
 #import "EvtEditEventController.h"
 #import "EvtEventListViewModel.h"
+#import "EvtEventDetailController.h"
 
 @interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -70,6 +71,11 @@
     editVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:editVC animated:YES];
 }
+- (void)navigateToDetailViewControllerWithModel:(EvtEventModel *)model{
+    EvtEventDetailController *detailVC = [EvtEventDetailController detailViewControlleWithEvent:model];
+    detailVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailVC animated:YES];
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -95,7 +101,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self navigateToEditViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
+    [self navigateToDetailViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
 }
 
 #pragma mark - getter

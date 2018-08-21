@@ -75,6 +75,8 @@
 		E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */; };
 		E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */; };
 		E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */; };
+		E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */; };
+		E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +219,10 @@
 		E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTagViewModel.m; sourceTree = "<group>"; };
 		E7AC8527212BE65F006B92AA /* AVObject+ApiExt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AVObject+ApiExt.h"; sourceTree = "<group>"; };
 		E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AVObject+ApiExt.m"; sourceTree = "<group>"; };
+		E7AC852A212BF7BB006B92AA /* EvtEventDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventDetailController.h; sourceTree = "<group>"; };
+		E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailController.m; sourceTree = "<group>"; };
+		E7AC852E212C15C3006B92AA /* EvtEventDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventDetailViewModel.h; sourceTree = "<group>"; };
+		E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +296,7 @@
 		E7044348210037A7000239C1 /* Categroy */ = {
 			isa = PBXGroup;
 			children = (
+				E76B117C210032A50067E577 /* ModeuleCategory */,
 				E798B0F42127F74B00578F24 /* UITableView */,
 				E798B0E72125762500578F24 /* Date */,
 				E798B0DE21252A3E00578F24 /* Cell */,
@@ -393,6 +400,8 @@
 				E704438A210076C9000239C1 /* EvtEventListController.m */,
 				E778D80A2101BDE500E9CEEB /* EvtEditEventController.h */,
 				E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */,
+				E7AC852A212BF7BB006B92AA /* EvtEventDetailController.h */,
+				E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */,
 				E700FDE6212A671800A9C330 /* EvtTagManagerController.h */,
 				E700FDE7212A671800A9C330 /* EvtTagManagerController.m */,
 			);
@@ -413,6 +422,7 @@
 		E70443882100764C000239C1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7AC852D212C1452006B92AA /* Detail */,
 				E700FDFB212A8F5700A9C330 /* Tag */,
 				E798B0D3212511C400578F24 /* Edit */,
 				E798B0D52125127C00578F24 /* EvtEventListViewModel.h */,
@@ -459,7 +469,6 @@
 				E704435921007493000239C1 /* Lib */,
 				E704434E210038AD000239C1 /* Config */,
 				E7044348210037A7000239C1 /* Categroy */,
-				E76B117C210032A50067E577 /* ModeuleCategory */,
 				E76B117021002D8A0067E577 /* Modules */,
 				E76B116F21002D780067E577 /* AppDelegate */,
 				E76B116E21002D360067E577 /* SupportingFiles */,
@@ -680,6 +689,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		E7AC852D212C1452006B92AA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E7AC852E212C15C3006B92AA /* EvtEventDetailViewModel.h */,
+				E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -840,6 +858,7 @@
 				E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */,
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
+				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
@@ -868,6 +887,7 @@
 				E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
 				E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */,
+				E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */,
 				E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */,
 				E76B116821002AF70067E577 /* main.m in Sources */,
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,

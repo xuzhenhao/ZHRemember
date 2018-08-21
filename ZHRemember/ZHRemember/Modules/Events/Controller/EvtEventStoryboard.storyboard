@@ -548,6 +548,21 @@
             </objects>
             <point key="canvasLocation" x="832.79999999999995" y="148.87556221889056"/>
         </scene>
+        <!--Evt Event Detail Controller-->
+        <scene sceneID="9eP-5M-3bz">
+            <objects>
+                <viewController storyboardIdentifier="EvtEventDetailController" id="J5R-hy-FFA" customClass="EvtEventDetailController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NsL-bZ-VUd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MrO-za-H7g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hD8-FH-ta6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1522" y="149"/>
+        </scene>
         <!--Evt Tag Manager Controller-->
         <scene sceneID="kYy-Ab-Bbu">
             <objects>
@@ -646,7 +661,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zry-JI-vqT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1581.5999999999999" y="156.97151424287858"/>
+            <point key="canvasLocation" x="2305" y="149"/>
         </scene>
     </scenes>
     <resources>

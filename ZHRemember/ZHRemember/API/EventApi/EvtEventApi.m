@@ -61,11 +61,11 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     [query whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj localData];
+            NSDictionary *dict = [obj zh_localData];
             [dict setValue:obj.objectId forKey:EvtObjectIdKey];
             //取出嵌套的标签对象数据
             AVObject *tagObj = obj[EvtEventClassTagKey];
-            NSDictionary *tagDict = [tagObj localData];
+            NSDictionary *tagDict = [tagObj zh_localData];
             [tagDict setValue:tagObj.objectId forKey:EvtObjectIdKey];
             [dict setValue:tagDict forKey:EvtEventClassTagKey];
             
@@ -73,6 +73,13 @@ NSString *const EvtTagClassNameKey = @"tag_name";
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtEventModel class] fromJSONArray:tempM error:nil];
         doneHandler(lists,nil);
+    }];
+}
++ (void)deleteWithEventId:(NSString *)eventId
+                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+    AVObject *eventObj = [AVObject objectWithClassName:EvtClassName objectId:eventId];
+    [eventObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,nil);
     }];
 }
 
@@ -105,7 +112,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     
     [orQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj localData];
+            NSDictionary *dict = [obj zh_localData];
             [dict setValue:obj.objectId forKey:EvtObjectIdKey];
             [tempM addObject:dict];
         }
@@ -121,7 +128,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     
     [privateQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
-            NSDictionary *dict = [obj localData];
+            NSDictionary *dict = [obj zh_localData];
             [dict setValue:obj.objectId forKey:EvtObjectIdKey];
             [tempM addObject:dict];
         }

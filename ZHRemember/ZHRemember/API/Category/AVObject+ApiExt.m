@@ -9,7 +9,7 @@
 #import "AVObject+ApiExt.h"
 
 @implementation AVObject (ApiExt)
-- (NSDictionary *)localData{
+- (NSDictionary *)zh_localData{
     return [self valueForKey:@"localData"];
 }
 

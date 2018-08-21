@@ -32,6 +32,15 @@
  */
 + (void)getEventListsWithPage:(NSInteger)page
                          done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSDictionary *result))doneHandler;
+
+/**
+ 删除事件
+
+ @param eventId 事件id
+ @param doneHandler 完成回调
+ */
++ (void)deleteWithEventId:(NSString *)eventId
+                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
 #pragma mark - tag
 /**
  保存（新增/修改）标签

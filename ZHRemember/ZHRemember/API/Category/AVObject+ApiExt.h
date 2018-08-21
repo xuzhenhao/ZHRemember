@@ -15,6 +15,6 @@
 
  @return 返回字典形式的数据
  */
-- (NSDictionary *)localData;
+- (NSDictionary *)zh_localData;
 
 @end
