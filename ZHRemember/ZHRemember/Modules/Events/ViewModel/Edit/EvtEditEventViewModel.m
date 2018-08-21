@@ -38,6 +38,8 @@
     
     EvtEditEventCycleViewModel *cycleVM = [EvtEditEventCycleViewModel viewModelWithCycleType:model.cycleType];
     
+    EvtEditEventTagViewModel *tagVM = [EvtEditEventTagViewModel viewModelWithTag:model.tagModel];
+    
     EvtEditEventRemarkViewModel *remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:model.remarks];
     
     NSArray *contents = @[
@@ -45,6 +47,7 @@
                           [ZHTableViewItem itemWithData:coverVM reuserId:@"EvtEditEventCoverCell" height:100],
                           [ZHTableViewItem itemWithData:dateVM reuserId:@"EvtEditEventDateCell" height:60],
                           [ZHTableViewItem itemWithData:cycleVM reuserId:@"EvtEditEventCycleCell" height:60],
+                          [ZHTableViewItem itemWithData:tagVM reuserId:@"EvtEditEventTagCell" height:60],
                           [ZHTableViewItem itemWithData:remarkVM reuserId:@"EvtEditEventRemarkCell" height:60]
                           ];
     self.dataSource = contents;
@@ -61,6 +64,7 @@
     RAC(self.eventModel,beginTime) = RACObserve(dateVM, unixTime);
     RAC(self.eventModel,coverURLStr) = RACObserve(coverVM, coverURLString);
     RAC(self.eventModel,cycleType) = RACObserve(cycleVM, cycleType);
+    RAC(self.eventModel,tagModel) = RACObserve(tagVM, currentTag);
 }
 
 - (void)racConfig{

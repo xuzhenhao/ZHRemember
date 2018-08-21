@@ -176,6 +176,7 @@
                                             <outlet property="remindTimeLabel" destination="aZB-pf-f5O" id="UuG-du-YNX"/>
                                             <outlet property="remindTypeTipLabel" destination="MrH-7j-N70" id="eAQ-kj-OHT"/>
                                             <outlet property="shadowView" destination="blp-a3-Xtu" id="30Y-Um-F5M"/>
+                                            <outlet property="tagLabel" destination="ZO3-gJ-Mgq" id="C75-gw-z3z"/>
                                             <outlet property="timeView" destination="pPy-Il-nmU" id="fmP-up-wf0"/>
                                             <outlet property="weekTimeLabel" destination="L83-Y0-t2Y" id="Sb1-PO-Kvq"/>
                                         </connections>
@@ -420,8 +421,61 @@
                                             <outlet property="textField" destination="Jqn-hc-Dh2" id="1P7-ab-pYe"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EvtEditEventRemarkCell" rowHeight="60" id="0o4-DL-erA" customClass="EvtEditEventRemarkCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EvtEditEventTagCell" rowHeight="60" id="IEc-pf-voA" customClass="EvtEditEventTagCell">
                                         <rect key="frame" x="0.0" y="309" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IEc-pf-voA" id="S8b-yT-GOg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标签" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sy0-Tv-Ibo">
+                                                    <rect key="frame" x="40" y="18.5" width="34" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                    <color key="textColor" red="0.36862745099999999" green="0.39607843139999999" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event-tag-icon" translatesAutoresizingMaskIntoConstraints="NO" id="7Mb-I0-w4y">
+                                                    <rect key="frame" x="12" y="19.5" width="21" height="21"/>
+                                                </imageView>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-QV-SXE">
+                                                    <rect key="frame" x="120" y="5" width="255" height="49.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event-forward-icon" translatesAutoresizingMaskIntoConstraints="NO" id="bhR-Qj-PNh">
+                                                    <rect key="frame" x="345" y="21" width="18" height="18"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jYS-Tx-JmM" userLabel="bottomLineView">
+                                                    <rect key="frame" x="12" y="59.5" width="363" height="0.5"/>
+                                                    <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="5lH-u6-aLK"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bhR-Qj-PNh" secondAttribute="trailing" constant="12" id="0qs-iu-oxq"/>
+                                                <constraint firstItem="jYS-Tx-JmM" firstAttribute="leading" secondItem="S8b-yT-GOg" secondAttribute="leading" constant="12" id="9lg-X6-Q9Q"/>
+                                                <constraint firstItem="7Mb-I0-w4y" firstAttribute="leading" secondItem="S8b-yT-GOg" secondAttribute="leading" constant="12" id="FXA-2E-5YR"/>
+                                                <constraint firstItem="rYf-QV-SXE" firstAttribute="top" secondItem="S8b-yT-GOg" secondAttribute="top" constant="5" id="TXQ-0i-rDh"/>
+                                                <constraint firstItem="jYS-Tx-JmM" firstAttribute="top" secondItem="rYf-QV-SXE" secondAttribute="bottom" constant="5" id="VDZ-xU-hpS"/>
+                                                <constraint firstAttribute="trailing" secondItem="jYS-Tx-JmM" secondAttribute="trailing" id="XYS-zE-K5b"/>
+                                                <constraint firstAttribute="trailing" secondItem="rYf-QV-SXE" secondAttribute="trailing" id="b40-8Z-yhj"/>
+                                                <constraint firstItem="7Mb-I0-w4y" firstAttribute="centerY" secondItem="S8b-yT-GOg" secondAttribute="centerY" id="bNs-Cy-5lA"/>
+                                                <constraint firstAttribute="bottom" secondItem="jYS-Tx-JmM" secondAttribute="bottom" id="iri-G2-72S"/>
+                                                <constraint firstItem="sy0-Tv-Ibo" firstAttribute="leading" secondItem="S8b-yT-GOg" secondAttribute="leading" constant="40" id="u9K-2W-SKz"/>
+                                                <constraint firstItem="sy0-Tv-Ibo" firstAttribute="centerY" secondItem="S8b-yT-GOg" secondAttribute="centerY" id="uFX-VB-k0y"/>
+                                                <constraint firstItem="bhR-Qj-PNh" firstAttribute="centerY" secondItem="S8b-yT-GOg" secondAttribute="centerY" id="vh0-Ol-Wns"/>
+                                                <constraint firstItem="rYf-QV-SXE" firstAttribute="leading" secondItem="S8b-yT-GOg" secondAttribute="leading" constant="120" id="wYM-GC-iDc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textField" destination="rYf-QV-SXE" id="lbM-ud-Sfu"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EvtEditEventRemarkCell" rowHeight="60" id="0o4-DL-erA" customClass="EvtEditEventRemarkCell">
+                                        <rect key="frame" x="0.0" y="369" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0o4-DL-erA" id="LtX-Td-67q">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -603,5 +657,6 @@
         <image name="event-name-icon" width="21" height="21"/>
         <image name="event-remark-icon" width="21" height="21"/>
         <image name="event-tag" width="17" height="17"/>
+        <image name="event-tag-icon" width="21" height="21"/>
     </resources>
 </document>

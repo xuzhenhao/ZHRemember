@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *beginTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weekTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remarkLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
+
 
 @property (nonatomic, strong)   EvtEventListEventsViewModel     *viewModel;
 
@@ -56,6 +58,7 @@
     self.weekTimeLabel.text = self.viewModel.weekTime;
     self.remarkLabel.text = self.viewModel.remark;
     self.remindTypeTipLabel.text = self.viewModel.remindTypeTips;
+    self.tagLabel.text = self.viewModel.tagName;
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "EvtTagModel.h"
 
 typedef enum : NSUInteger {
     EvtEventCycleNone = 0,//不重复
@@ -38,5 +39,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy)     NSString    *remarks;
 /** 排序序号，小者靠前*/
 @property (nonatomic, copy)     NSString    *orderNum;
+/** 标签模型*/
+@property (nonatomic, strong)   EvtTagModel     *tagModel;
 
 @end

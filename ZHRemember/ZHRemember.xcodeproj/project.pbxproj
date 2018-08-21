@@ -72,6 +72,8 @@
 		E798B0F72127F76000578F24 /* UITableView+ZHRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0F62127F76000578F24 /* UITableView+ZHRefresh.m */; };
 		E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A6222B212178740093853A /* EvtEditEventViewModel.m */; };
 		E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */; };
+		E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */; };
+		E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -208,6 +210,10 @@
 		E7A6222B212178740093853A /* EvtEditEventViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventViewModel.m; sourceTree = "<group>"; };
 		E7A62230212188AB0093853A /* EvtEditEventTitleViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTitleViewModel.h; sourceTree = "<group>"; };
 		E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTitleViewModel.m; sourceTree = "<group>"; };
+		E7AC851C212BAC17006B92AA /* EvtEditEventTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTagCell.h; sourceTree = "<group>"; };
+		E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTagCell.m; sourceTree = "<group>"; };
+		E7AC8520212BAE04006B92AA /* EvtEditEventTagViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTagViewModel.h; sourceTree = "<group>"; };
+		E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventTagViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +594,8 @@
 				E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */,
 				E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */,
 				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
+				E7AC8520212BAE04006B92AA /* EvtEditEventTagViewModel.h */,
+				E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -603,6 +611,8 @@
 				E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */,
 				E73B4FCB2106D33E00B6243B /* EvtEditEventCycleCell.h */,
 				E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */,
+				E7AC851C212BAC17006B92AA /* EvtEditEventTagCell.h */,
+				E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */,
 				E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */,
 				E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */,
 				E791844521085C1B0033745D /* EvtEditEventCell.h */,
@@ -810,12 +820,14 @@
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
+				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
 				E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
+				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,

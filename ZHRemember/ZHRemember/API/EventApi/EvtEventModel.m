@@ -18,11 +18,21 @@
              @"beginTime":@"time_begin",
              @"remarks":@"event_remark",
              @"cycleType":@"event_cycle",
+             @"tagModel": @"event_tag",
              };
 }
 + (NSValueTransformer *)cycleTypeJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         return @(value.integerValue);
+    }];
+}
++ (NSValueTransformer *)tagModelJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            EvtTagModel *tag = [MTLJSONAdapter modelOfClass:[EvtTagModel class] fromJSONDictionary:value error:nil];
+            return tag;
+        }
+        return nil;
     }];
 }
 @end

@@ -16,6 +16,10 @@ NSString *const EvtTagClassName = @"Event_Tag";
 + (void)saveEvent:(EvtEventModel *)event
              done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
     AVObject *eventObj = [[AVObject alloc] initWithClassName:EvtClassName];
+    AVObject *tagObj = [AVObject objectWithClassName:@"Event_Tag" objectId:event.tagModel.tagId];
+    
+    [eventObj setObject:tagObj forKey:@"event_tag"];
+    
     [self fillObject:eventObj withEvent:event];
     [eventObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         doneHandler(succeeded,nil);
@@ -26,12 +30,19 @@ NSString *const EvtTagClassName = @"Event_Tag";
     NSMutableArray *tempM = [NSMutableArray array];
     
     AVQuery *query = [AVQuery queryWithClassName:EvtClassName];
+    [query includeKey:@"event_tag"];
     
     [query whereKey:@"user_id" equalTo:[AVUser currentUser].objectId];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
             NSDictionary *dict = [obj valueForKey:@"localData"];
             [dict setValue:obj.objectId forKey:@"objectId"];
+            
+            AVObject *tagObj = obj[@"event_tag"];
+            NSDictionary *tagDict = [tagObj valueForKey:@"localData"];
+            [tagDict setValue:tagObj.objectId forKey:@"objectId"];
+            [dict setValue:tagDict forKey:@"event_tag"];
+            
             [tempM addObject:dict];
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtEventModel class] fromJSONArray:tempM error:nil];

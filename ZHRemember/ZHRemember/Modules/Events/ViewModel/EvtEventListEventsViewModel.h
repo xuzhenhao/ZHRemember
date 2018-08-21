@@ -24,6 +24,8 @@
 @property (nonatomic, copy)     NSString    *weekTime;
 /** 留言*/
 @property (nonatomic, copy)     NSString    *remark;
+/** 标签*/
+@property (nonatomic, copy)     NSString    *tagName;
 
 
 + (instancetype)viewModelWithModel:(EvtEventModel *)model;

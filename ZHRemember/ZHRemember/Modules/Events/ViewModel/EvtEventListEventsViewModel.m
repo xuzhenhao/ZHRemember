@@ -53,6 +53,7 @@
     self.remindTime = [self calcuteRemindDays];
     self.weekTime = [self.beginDate getWeekDay];
     self.beginTime = [self.beginDate formattedDateWithFormat:@"yyyy.MM.dd" locale:[NSLocale systemLocale]];
+    self.tagName = model.tagModel.tagName;
 }
 #pragma mark - utils
 - (BOOL)isFutureEvent{
