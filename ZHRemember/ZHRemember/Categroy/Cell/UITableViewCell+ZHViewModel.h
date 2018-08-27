@@ -12,4 +12,9 @@
 
 - (void)bindViewModel:(id)viewModel;
 
+/**
+ 获取重用标识符
+ */
++ (NSString *)reuseIdentify;
+
 @end

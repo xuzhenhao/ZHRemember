@@ -24,4 +24,9 @@
         }];
     });
 }
++ (void)changeRootToRegisterViewController{
+    UIViewController *registVC = [[ZHMediator sharedInstance] zh_registerViewController];
+    [self changeRootViewController:[[UINavigationController alloc] initWithRootViewController:registVC]];
+}
+
 @end

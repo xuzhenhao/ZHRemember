@@ -67,6 +67,11 @@
 		E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
 		E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
 		E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
+		E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF021339C1900C72EB4 /* MySettingCell.m */; };
+		E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF321339DE200C72EB4 /* MyViewModel.m */; };
+		E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */; };
+		E78FCE002133F34100C72EB4 /* ZHMediator+ZHLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */; };
+		E78FCE032133F3C600C72EB4 /* LGLoginTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCE022133F3C600C72EB4 /* LGLoginTarget.m */; };
 		E791844721085C1B0033745D /* EvtEditEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E791844621085C1B0033745D /* EvtEditEventCell.m */; };
 		E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D62125127C00578F24 /* EvtEventListViewModel.m */; };
 		E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D92125223800578F24 /* EvtEventListCell.m */; };
@@ -209,6 +214,16 @@
 		E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHThirdPart.m"; sourceTree = "<group>"; };
 		E778D80A2101BDE500E9CEEB /* EvtEditEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventController.h; sourceTree = "<group>"; };
 		E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventController.m; sourceTree = "<group>"; };
+		E78FCDEF21339C1900C72EB4 /* MySettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySettingCell.h; sourceTree = "<group>"; };
+		E78FCDF021339C1900C72EB4 /* MySettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySettingCell.m; sourceTree = "<group>"; };
+		E78FCDF221339DE200C72EB4 /* MyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewModel.h; sourceTree = "<group>"; };
+		E78FCDF321339DE200C72EB4 /* MyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyViewModel.m; sourceTree = "<group>"; };
+		E78FCDF521339FF800C72EB4 /* MySettingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySettingViewModel.h; sourceTree = "<group>"; };
+		E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySettingViewModel.m; sourceTree = "<group>"; };
+		E78FCDFE2133F34100C72EB4 /* ZHMediator+ZHLogin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+ZHLogin.h"; sourceTree = "<group>"; };
+		E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHLogin.m"; sourceTree = "<group>"; };
+		E78FCE012133F3C600C72EB4 /* LGLoginTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginTarget.h; sourceTree = "<group>"; };
+		E78FCE022133F3C600C72EB4 /* LGLoginTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLoginTarget.m; sourceTree = "<group>"; };
 		E791844521085C1B0033745D /* EvtEditEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCell.h; sourceTree = "<group>"; };
 		E791844621085C1B0033745D /* EvtEditEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCell.m; sourceTree = "<group>"; };
 		E798B0D52125127C00578F24 /* EvtEventListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventListViewModel.h; sourceTree = "<group>"; };
@@ -277,6 +292,8 @@
 		E700FDE9212A675400A9C330 /* My */ = {
 			isa = PBXGroup;
 			children = (
+				E78FCDEE21339BDF00C72EB4 /* ViewModel */,
+				E78FCDED21339BD700C72EB4 /* View */,
 				E700FDEA212A675F00A9C330 /* Controller */,
 				E700FDF0212A67FB00A9C330 /* MyTarget.h */,
 				E700FDF1212A67FB00A9C330 /* MyTarget.m */,
@@ -482,6 +499,8 @@
 				E72705CC212EA35900F4BDB9 /* Model */,
 				E72705D5212EA64400F4BDB9 /* LoginConfig.h */,
 				E72705D6212EA64400F4BDB9 /* LoginConfig.m */,
+				E78FCE012133F3C600C72EB4 /* LGLoginTarget.h */,
+				E78FCE022133F3C600C72EB4 /* LGLoginTarget.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -636,6 +655,8 @@
 				E704439721007963000239C1 /* ZHMediator+ZHEvent.m */,
 				E700FDF4212A694B00A9C330 /* ZHMediator+My.h */,
 				E700FDF5212A694B00A9C330 /* ZHMediator+My.m */,
+				E78FCDFE2133F34100C72EB4 /* ZHMediator+ZHLogin.h */,
+				E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */,
 			);
 			path = ModeuleCategory;
 			sourceTree = "<group>";
@@ -670,6 +691,26 @@
 				E700FE00212A936500A9C330 /* EvtTagModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E78FCDED21339BD700C72EB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E78FCDEF21339C1900C72EB4 /* MySettingCell.h */,
+				E78FCDF021339C1900C72EB4 /* MySettingCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E78FCDEE21339BDF00C72EB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E78FCDF221339DE200C72EB4 /* MyViewModel.h */,
+				E78FCDF321339DE200C72EB4 /* MyViewModel.m */,
+				E78FCDF521339FF800C72EB4 /* MySettingViewModel.h */,
+				E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E798B0D3212511C400578F24 /* Edit */ = {
@@ -950,10 +991,12 @@
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
 				E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */,
+				E78FCE002133F34100C72EB4 /* ZHMediator+ZHLogin.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
+				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
@@ -977,8 +1020,11 @@
 				E76B116821002AF70067E577 /* main.m in Sources */,
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,
 				E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */,
+				E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */,
 				E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */,
+				E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */,
 				E798B0E421254B7D00578F24 /* ZHCommonApi.m in Sources */,
+				E78FCE032133F3C600C72EB4 /* LGLoginTarget.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
 				E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,

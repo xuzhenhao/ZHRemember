@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate+ZHAppearance.h"
-#import "LGRegisterViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 
 @implementation AppDelegate (ZHAppearance)
@@ -20,7 +19,7 @@
     if ([AVUser currentUser]) {
         rootVC = [[ZHMediator sharedInstance] zh_mainTabbarController];
     }else{
-        UIViewController *regisVC = [LGRegisterViewController registerViewController];
+        UIViewController *regisVC = [[ZHMediator sharedInstance] zh_registerViewController];
         rootVC = [[UINavigationController alloc] initWithRootViewController:regisVC];
     }
     

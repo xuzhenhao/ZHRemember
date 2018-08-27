@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 我的，主页面
+ */
 @interface MyViewController : UIViewController
 
 + (instancetype)myViewController;

@@ -18,5 +18,7 @@
  @param controller 要切换为的控制器
  */
 + (void)changeRootViewController:(UIViewController *)controller;
+/**切换根控制器为注册页*/
++ (void)changeRootToRegisterViewController;
 
 @end

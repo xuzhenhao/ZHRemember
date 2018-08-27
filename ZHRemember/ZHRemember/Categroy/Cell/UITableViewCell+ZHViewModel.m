@@ -13,4 +13,7 @@
 - (void)bindViewModel:(id)viewModel{
     
 }
++ (NSString *)reuseIdentify{
+    return NSStringFromClass([self class]);
+}
 @end
