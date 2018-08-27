@@ -12,4 +12,11 @@
 
 + (instancetype)viewControllerWithStoryBoard:(NSString *)name;
 
+/**
+ 切换根控制器
+
+ @param controller 要切换为的控制器
+ */
++ (void)changeRootViewController:(UIViewController *)controller;
+
 @end

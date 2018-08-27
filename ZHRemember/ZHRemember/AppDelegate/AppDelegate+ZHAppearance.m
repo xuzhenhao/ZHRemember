@@ -7,13 +7,24 @@
 //
 
 #import "AppDelegate+ZHAppearance.h"
+#import "LGRegisterViewController.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @implementation AppDelegate (ZHAppearance)
 
 - (void)zh_setupWindow{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ZHMediator sharedInstance] zh_mainTabbarController];
+    
+    UIViewController *rootVC = nil;
+    if ([AVUser currentUser]) {
+        rootVC = [[ZHMediator sharedInstance] zh_mainTabbarController];
+    }else{
+        UIViewController *regisVC = [LGRegisterViewController registerViewController];
+        rootVC = [[UINavigationController alloc] initWithRootViewController:regisVC];
+    }
+    
+    self.window.rootViewController = rootVC;
     [self.window makeKeyAndVisible];
 }
 - (void)zh_setupAppearance{

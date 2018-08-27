@@ -38,10 +38,17 @@
 		E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439121007833000239C1 /* UIViewController+ZHStoryBoard.m */; };
 		E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044394210078F3000239C1 /* EvtEventTarget.m */; };
 		E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439721007963000239C1 /* ZHMediator+ZHEvent.m */; };
+		E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */; };
+		E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */; };
+		E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
 		E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */; };
 		E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */; };
 		E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */; };
 		E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */; };
+		E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */; };
+		E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */; };
+		E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D6212EA64400F4BDB9 /* LoginConfig.m */; };
+		E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */; };
 		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
 		E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
 		E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
@@ -145,6 +152,12 @@
 		E7044394210078F3000239C1 /* EvtEventTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventTarget.m; sourceTree = "<group>"; };
 		E704439621007963000239C1 /* ZHMediator+ZHEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+ZHEvent.h"; sourceTree = "<group>"; };
 		E704439721007963000239C1 /* ZHMediator+ZHEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHEvent.m"; sourceTree = "<group>"; };
+		E70CFEEE212FE2AA004A6155 /* ZHAccountApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHAccountApi.h; sourceTree = "<group>"; };
+		E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHAccountApi.m; sourceTree = "<group>"; };
+		E70CFEF1212FEE53004A6155 /* LGLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginViewController.h; sourceTree = "<group>"; };
+		E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLoginViewController.m; sourceTree = "<group>"; };
+		E70CFEF6212FF7A5004A6155 /* LGLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginViewModel.h; sourceTree = "<group>"; };
+		E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLoginViewModel.m; sourceTree = "<group>"; };
 		E70F6AFA2109B5A4006E816C /* UIResponder+ZHRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+ZHRouter.h"; sourceTree = "<group>"; };
 		E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ZHRouter.m"; sourceTree = "<group>"; };
 		E71ED416212282F3000E18F2 /* EvtEditEventCoverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCoverViewModel.h; sourceTree = "<group>"; };
@@ -153,6 +166,13 @@
 		E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventDateViewModel.m; sourceTree = "<group>"; };
 		E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCycleViewModel.h; sourceTree = "<group>"; };
 		E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCycleViewModel.m; sourceTree = "<group>"; };
+		E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
+		E72705D2212EA5AD00F4BDB9 /* LGRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRegisterViewController.h; sourceTree = "<group>"; };
+		E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRegisterViewController.m; sourceTree = "<group>"; };
+		E72705D5212EA64400F4BDB9 /* LoginConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginConfig.h; sourceTree = "<group>"; };
+		E72705D6212EA64400F4BDB9 /* LoginConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginConfig.m; sourceTree = "<group>"; };
+		E72705D8212EB86200F4BDB9 /* LGRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRegisterViewModel.h; sourceTree = "<group>"; };
+		E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRegisterViewModel.m; sourceTree = "<group>"; };
 		E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventRemarkViewModel.h; sourceTree = "<group>"; };
 		E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkViewModel.m; sourceTree = "<group>"; };
 		E73667CB2124095B00BC7652 /* EvtEventApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventApi.h; sourceTree = "<group>"; };
@@ -444,6 +464,65 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E70CFEED212FE26E004A6155 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				E70CFEEE212FE2AA004A6155 /* ZHAccountApi.h */,
+				E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		E72705CB212EA34900F4BDB9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E72705CF212EA36D00F4BDB9 /* ViewModel */,
+				E72705CE212EA36600F4BDB9 /* Controller */,
+				E72705CD212EA36100F4BDB9 /* View */,
+				E72705CC212EA35900F4BDB9 /* Model */,
+				E72705D5212EA64400F4BDB9 /* LoginConfig.h */,
+				E72705D6212EA64400F4BDB9 /* LoginConfig.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E72705CC212EA35900F4BDB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E72705CD212EA36100F4BDB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E72705CE212EA36600F4BDB9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */,
+				E72705D2212EA5AD00F4BDB9 /* LGRegisterViewController.h */,
+				E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */,
+				E70CFEF1212FEE53004A6155 /* LGLoginViewController.h */,
+				E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E72705CF212EA36D00F4BDB9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E72705D8212EB86200F4BDB9 /* LGRegisterViewModel.h */,
+				E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */,
+				E70CFEF6212FF7A5004A6155 /* LGLoginViewModel.h */,
+				E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E76B114C21002AF60067E577 = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +583,7 @@
 		E76B117021002D8A0067E577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E72705CB212EA34900F4BDB9 /* Login */,
 				E700FDE9212A675400A9C330 /* My */,
 				E704438521007614000239C1 /* Events */,
 				E76B117121002DB20067E577 /* Main */,
@@ -563,6 +643,7 @@
 		E778D8012101770500E9CEEB /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E70CFEED212FE26E004A6155 /* Account */,
 				E7AC8526212BE631006B92AA /* Category */,
 				E7AC8525212BE16C006B92AA /* CommonApi */,
 				E778D8022101773000E9CEEB /* EventApi */,
@@ -761,6 +842,7 @@
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
 				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
+				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
 			);
@@ -858,10 +940,12 @@
 				E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */,
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
+				E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */,
 				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
+				E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
@@ -874,6 +958,7 @@
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
+				E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */,
 				E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
@@ -904,11 +989,13 @@
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
+				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
 				E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */,
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
+				E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
 				E700FDEF212A679800A9C330 /* MyViewController.m in Sources */,
 				E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */,
@@ -917,6 +1004,7 @@
 				E700FDFE212A8F8D00A9C330 /* EvtTagManageViewModel.m in Sources */,
 				E704437A2100754C000239C1 /* EasyKVOInfo.m in Sources */,
 				E700FDFA212A6F3800A9C330 /* EvtTagListCell.m in Sources */,
+				E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */,
 				E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
