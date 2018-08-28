@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dmd-gc-ZEn" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="347" height="0.5"/>
@@ -60,7 +60,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GES-jM-ugr" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="343" height="0.5"/>
@@ -98,7 +98,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13Q-Cl-8RX" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="343" height="0.5"/>
@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghx-h1-bia" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="347" height="0.5"/>
@@ -239,7 +239,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIz-9j-4z1" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="343" height="0.5"/>
@@ -277,7 +277,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="He0-j0-mXL">
                                         <rect key="frame" x="303" y="0.0" width="40" height="59.5"/>
@@ -375,7 +375,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RvV-Yo-Ch0" userLabel="bottomLineView">
                                         <rect key="frame" x="0.0" y="59.5" width="347" height="0.5"/>
@@ -404,7 +404,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ny-kg-TWQ">
                                         <rect key="frame" x="303" y="0.0" width="40" height="59.5"/>
