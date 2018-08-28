@@ -30,6 +30,10 @@
 + (UIColor *)zh_shadowColor{
     return RGBAColor(240, 240, 240, 0.6);
 }
+#pragma mark - 常用颜色
++ (UIColor *)zh_lightGrayColor{
+    return RGBColor(237, 239, 240);
+}
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal{
     return RGBColor(102, 102, 102);

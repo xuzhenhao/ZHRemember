@@ -16,6 +16,8 @@
 + (UIColor *)zh_coverColor;
 + (UIColor *)zh_tabbarColor;
 + (UIColor *)zh_navigationColor;
+#pragma mark - 常用颜色
++ (UIColor *)zh_lightGrayColor;
 
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal;

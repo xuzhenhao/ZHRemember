@@ -8,16 +8,27 @@
 
 #import "MySettingViewModel.h"
 
+@interface MySettingViewModel()
+
+
+
+@end
+
 @implementation MySettingViewModel
 
 + (instancetype)viewModelWithName:(NSString *)name
-                            image:(NSString *)imageName
-                             type:(MySettingType)type{
+                         subTitle:(NSString *)subTitle
+                             type:(MySettingType)type
+                    showIndicator:(BOOL)isShowIndicator
+                   showBottomLine:(BOOL)isShowBottomLine;{
     MySettingViewModel *vm = [MySettingViewModel new];
     vm.name = name;
-    vm.imageName = imageName;
+    vm.subTitle = subTitle;
     vm.type = type;
+    vm.isShowIndicator = isShowIndicator;
+    vm.isShowBottomLine = isShowBottomLine;
     
     return vm;
 }
+
 @end

@@ -11,7 +11,7 @@
 
 @interface MyViewModel()
 /** 数据源*/
-@property (nonatomic, strong)   NSArray<MySettingViewModel *>     *items;
+@property (nonatomic, strong)   NSArray     *sections;
 
 @end
 
@@ -26,21 +26,39 @@
 }
 
 - (void)initSetup{
-    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" image:nil type:MySettingTypeAccount];
-    MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"标签" image:nil type:MySettingTypeTag];
-    MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"登出" image:nil type:MySettingTypeLogout];
+    NSString *userName = [AVUser currentUser].username;
     
-    self.items = @[accountItem,tagItem,logOutItem];
+    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"帐户" subTitle:userName type:MySettingTypeAccount showIndicator:NO showBottomLine:NO];
+    
+    MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"标签管理" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];
+    MySettingViewModel *colorItem = [MySettingViewModel viewModelWithName:@"主题色" subTitle:nil type:MySettingTypeThemeColor showIndicator:YES showBottomLine:YES];
+    MySettingViewModel *tipItem = [MySettingViewModel viewModelWithName:@"每日提醒" subTitle:nil type:MySettingTypeDayTip showIndicator:YES showBottomLine:NO];
+    
+    MySettingViewModel *recomandItem = [MySettingViewModel viewModelWithName:@"推荐鼓励" subTitle:nil type:MySettingTypeRecommand showIndicator:NO showBottomLine:YES];
+    MySettingViewModel *feedbackItem = [MySettingViewModel viewModelWithName:@"意见反馈" subTitle:nil type:MySettingTypeFeedback showIndicator:YES showBottomLine:NO];
+    
+    MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"退出登录" subTitle:@"" type:MySettingTypeLogout showIndicator:NO showBottomLine:NO];
+    
+    NSArray *sectionOne = @[accountItem];
+    NSArray *sectionTwo = @[tagItem,colorItem,tipItem];
+    NSArray *sectionThree = @[recomandItem,feedbackItem];
+    NSArray *sectionFor = @[logOutItem];
+    self.sections = @[sectionOne,sectionTwo,sectionThree,sectionFor];
 }
 #pragma mark - tableView
-- (NSInteger)numberOfItems{
-    return self.items.count;
+- (NSInteger)numberOfSections{
+    return self.sections.count;
+}
+- (NSInteger)numberOfItemsInSection:(NSInteger)section{
+    NSArray *sectionArray = self.sections[section];
+    return sectionArray.count;
 }
 - (CGFloat)itemHeight{
     return 44;
 }
 - (id)viewModelForRow:(NSInteger)row section:(NSInteger)section{
-    return self.items[row];
+    NSArray *sectionArr = self.sections[section];
+    return sectionArr[row];
 }
 - (MySettingType)itemTypeOfRow:(NSInteger)row section:(NSInteger)section{
     MySettingViewModel *vm = [self viewModelForRow:row section:section];

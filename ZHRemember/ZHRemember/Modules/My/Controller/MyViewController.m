@@ -33,8 +33,11 @@
 }
 
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self.viewModel numberOfSections];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.viewModel numberOfItems];
+    return [self.viewModel numberOfItemsInSection:section];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MySettingCell *cell = [tableView dequeueReusableCellWithIdentifier:[MySettingCell reuseIdentify] forIndexPath:indexPath];
@@ -55,6 +58,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.1f;
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [UIView new];
+    view.backgroundColor = [UIColor zh_lightGrayColor];
+    
+    return view;
+}
+
 #pragma mark - deal action
 - (void)navigateWithIndexPath:(NSIndexPath *)indexPath{
     MySettingType type = [self.viewModel itemTypeOfRow:indexPath.row section:indexPath.section];

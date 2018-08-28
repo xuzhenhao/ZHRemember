@@ -11,6 +11,8 @@
 
 @interface MySettingCell()
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *subTitleLabel;
+@property (weak, nonatomic) IBOutlet UIView *bottomLineView;
 
 @end
 
@@ -22,6 +24,10 @@
 }
 - (void)bindViewModel:(MySettingViewModel *)viewModel{
     self.nameLabel.text = viewModel.name;
+    self.subTitleLabel.text = viewModel.subTitle;
+    self.accessoryType = viewModel.isShowIndicator ?UITableViewCellAccessoryDisclosureIndicator: UITableViewCellAccessoryNone;
+    self.bottomLineView.hidden = viewModel.isShowBottomLine? NO : YES;
+    
 }
 
 

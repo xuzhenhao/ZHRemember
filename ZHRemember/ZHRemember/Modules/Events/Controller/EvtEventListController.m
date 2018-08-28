@@ -12,7 +12,7 @@
 #import "EvtEventListViewModel.h"
 #import "EvtEventDetailController.h"
 
-@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource>
+@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)   EvtEventListViewModel     *viewModel;
 
@@ -38,6 +38,7 @@
     self.view.backgroundColor = [UIColor yellowColor];
     
     [self.view addSubview:self.addEventButton];
+    self.tableView.emptyDataSetSource = self;
     
     @weakify(self)
     [self.tableView configHeadRefreshControlWithRefreshBlock:^{
@@ -102,6 +103,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     [self navigateToDetailViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
+}
+
+#pragma mark - DZNEmptyDataSetSource
+
+- (nullable NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    return [[NSAttributedString alloc] initWithString:@"欢迎使用~"];
+}
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
+    return [[NSAttributedString alloc] initWithString:@"试着写下自己的第一个纪念日吧!"];
 }
 
 #pragma mark - getter
