@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *resetPwdButton;
+@property (weak, nonatomic) IBOutlet UIButton *showPwdButton;
 
 
 @property (nonatomic, strong)   LGLoginViewModel     *viewModel;
@@ -63,6 +64,12 @@
         @strongify(self)
         LGResetPwdViewController *vc = [LGResetPwdViewController resetPwdViewController];
         [self.navigationController pushViewController:vc animated:YES];
+    }];
+    [[[self.showPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self)
+        BOOL isHidePwd = self.pwdTextField.secureTextEntry;
+        self.pwdTextField.secureTextEntry = !isHidePwd;
+        self.showPwdButton.selected = isHidePwd;
     }];
 }
 

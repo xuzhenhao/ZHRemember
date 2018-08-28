@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registButton;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+/**显示/隐藏密码按钮*/
+@property (weak, nonatomic) IBOutlet UIButton *showPwdButton;
 
 
 @property (nonatomic, strong)   LGRegisterViewModel     *viewModel;
@@ -60,6 +62,12 @@
         @strongify(self)
         UIColor *bgColor = [x boolValue] ? RGBColor(92, 176, 133): RGBAColor(92, 176, 133, 0.6);
         self.registButton.backgroundColor = bgColor;
+    }];
+    [[[self.showPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self)
+        BOOL isHidePwd = self.pwdTextField.secureTextEntry;
+        self.pwdTextField.secureTextEntry = !isHidePwd;
+        self.showPwdButton.selected = isHidePwd;
     }];
     [[RACObserve(self.viewModel, smsBtnDesc) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)

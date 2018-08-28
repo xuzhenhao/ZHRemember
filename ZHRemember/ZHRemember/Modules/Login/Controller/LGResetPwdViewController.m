@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *smsButton;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (weak, nonatomic) IBOutlet UIButton *showPwdButton;
 
 
 @property (nonatomic, strong)   LGResetPwdViewModel     *viewModel;
@@ -67,6 +68,12 @@
         }else{
             [HBHUDManager showMessage:@"修改失败，请检查后重试"];
         }
+    }];
+    [[[self.showPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self)
+        BOOL isHidePwd = self.pwdTextField.secureTextEntry;
+        self.pwdTextField.secureTextEntry = !isHidePwd;
+        self.showPwdButton.selected = isHidePwd;
     }];
 }
 
