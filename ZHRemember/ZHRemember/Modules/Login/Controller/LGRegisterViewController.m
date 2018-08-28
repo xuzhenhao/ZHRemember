@@ -40,8 +40,6 @@
 
 #pragma mark - setupUI
 - (void)setupUI{
-//    self.navigationController.navigationBarHidden = YES;
-    
     self.registButton.layer.cornerRadius = 5;
     self.registButton.layer.masksToBounds = YES;
 }
@@ -56,8 +54,7 @@
     @weakify(self)
     [[[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self)
-        LGLoginViewController *vc = [LGLoginViewController loginViewController];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self navigateToLoginViewController];
     }];
     [RACObserve(self.registButton, enabled) subscribeNext:^(id  _Nullable x) {
         @strongify(self)
@@ -69,9 +66,24 @@
         [self.smsButton setTitle:x forState:UIControlStateNormal];
         [self.smsButton setTitle:x forState:UIControlStateDisabled];
     }];
+    [[self.viewModel.registCommad.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        BOOL success = [x boolValue];
+        @strongify(self)
+        if (success) {
+            [HBHUDManager showMessage:@"注册成功" done:^{
+                [self navigateToLoginViewController];
+            }];
+        }else{
+            [HBHUDManager showMessage:@"注册失败，请检查后重试"];
+        }
+    }];
 }
 
 #pragma mark - action
+- (void)navigateToLoginViewController{
+    LGLoginViewController *vc = [LGLoginViewController loginViewController];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 #pragma mark - getter
 - (LGRegisterViewModel *)viewModel{

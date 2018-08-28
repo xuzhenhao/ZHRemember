@@ -47,10 +47,9 @@
     @weakify(self);
     [SMSSDK commitVerificationCode:self.smsCode phoneNumber:self.mobilePhone zone:@"86" result:^(NSError *error) {
         @strongify(self)
-        if (!error) {
-            
+        if (error) {
+            doneHandler(NO);
         }else{
-            
             [ZHAccountApi ResetPwdWithMobile:self.mobilePhone password:self.password done:^(BOOL success, NSDictionary *result) {
                 doneHandler(success);
             }];

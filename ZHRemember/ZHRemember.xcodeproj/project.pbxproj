@@ -39,6 +39,7 @@
 		E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044394210078F3000239C1 /* EvtEventTarget.m */; };
 		E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439721007963000239C1 /* ZHMediator+ZHEvent.m */; };
 		E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A3FC2134E4A700A4EAEF /* LGResetPwdViewModel.m */; };
+		E704A4012134F26200A4EAEF /* HBHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A4002134F26200A4EAEF /* HBHUDManager.m */; };
 		E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */; };
 		E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */; };
 		E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
@@ -161,6 +162,8 @@
 		E704439721007963000239C1 /* ZHMediator+ZHEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHEvent.m"; sourceTree = "<group>"; };
 		E704A3FB2134E4A700A4EAEF /* LGResetPwdViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGResetPwdViewModel.h; sourceTree = "<group>"; };
 		E704A3FC2134E4A700A4EAEF /* LGResetPwdViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGResetPwdViewModel.m; sourceTree = "<group>"; };
+		E704A3FF2134F26200A4EAEF /* HBHUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBHUDManager.h; sourceTree = "<group>"; };
+		E704A4002134F26200A4EAEF /* HBHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHUDManager.m; sourceTree = "<group>"; };
 		E70CFEEE212FE2AA004A6155 /* ZHAccountApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHAccountApi.h; sourceTree = "<group>"; };
 		E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHAccountApi.m; sourceTree = "<group>"; };
 		E70CFEF1212FEE53004A6155 /* LGLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginViewController.h; sourceTree = "<group>"; };
@@ -381,6 +384,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E704A3FE2134F25100A4EAEF /* HBHud */,
 				E798B0ED2127F0E600578F24 /* AOPConfig */,
 				E704435A2100754C000239C1 /* EasyNavigation */,
 			);
@@ -485,6 +489,15 @@
 				E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E704A3FE2134F25100A4EAEF /* HBHud */ = {
+			isa = PBXGroup;
+			children = (
+				E704A3FF2134F26200A4EAEF /* HBHUDManager.h */,
+				E704A4002134F26200A4EAEF /* HBHUDManager.m */,
+			);
+			path = HBHud;
 			sourceTree = "<group>";
 		};
 		E70CFEED212FE26E004A6155 /* Account */ = {
@@ -912,6 +925,7 @@
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -928,6 +942,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -998,6 +1013,7 @@
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
 				E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
+				E704A4012134F26200A4EAEF /* HBHUDManager.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
 				E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */,

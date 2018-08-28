@@ -30,9 +30,13 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupUI];
     [self bindAction];
 }
-
+- (void)setupUI{
+    self.loginButton.layer.cornerRadius = 5;
+    self.loginButton.layer.masksToBounds = YES;
+}
 - (void)bindAction{
     self.loginButton.rac_command = self.viewModel.loginCommand;
     
@@ -51,6 +55,8 @@
             //登录成功
             UIViewController *mainVC = [[ZHMediator sharedInstance] zh_mainTabbarController];
             [UIViewController changeRootViewController:mainVC];
+        }else{
+            [HBHUDManager showMessage:@"登录失败，请检查后重试"];
         }
     }];
     [[[self.resetPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {

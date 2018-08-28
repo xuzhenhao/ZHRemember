@@ -61,7 +61,11 @@
         @strongify(self)
         BOOL success = [x boolValue];
         if (success) {
-            
+            [HBHUDManager showMessage:@"修改成功" done:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }else{
+            [HBHUDManager showMessage:@"修改失败，请检查后重试"];
         }
     }];
 }

@@ -43,16 +43,16 @@
     }];
 }
 #pragma mark - request
-- (void)registerAccountAction{
+- (void)registerAccountActionWithHandler:(void(^)(BOOL result))doneHandler{
     //验证短信
     @weakify(self);
     [SMSSDK commitVerificationCode:self.smsCode phoneNumber:self.mobilePhone zone:@"86" result:^(NSError *error) {
         @strongify(self)
         if (error) {
-            
+            doneHandler(NO);
         }else{
             [ZHAccountApi registerWithAccount:self.mobilePhone password:self.password done:^(BOOL success, NSDictionary *result) {
-                
+                doneHandler(success);
             }];
         }
     }];
@@ -128,10 +128,11 @@
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
                 @strongify(self)
-                [self registerAccountAction];
+                [self registerAccountActionWithHandler:^(BOOL result) {
+                    [subscriber sendNext:@(result)];
+                    [subscriber sendCompleted];
+                }];
                 
-                [subscriber sendNext:nil];
-                [subscriber sendCompleted];
                 return nil;
             }];
         }];
