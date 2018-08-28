@@ -72,9 +72,17 @@
         case MySettingTypeLogout:
             [self logout];
             break;
+        case MySettingTypeTag:
+            [self navigateToTagManager];
+            break;
         default:
             break;
     }
+}
+- (void)navigateToTagManager{
+    UIViewController *tagViewController = [[ZHMediator sharedInstance] eventTagController];
+    tagViewController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:tagViewController animated:YES];
 }
 - (void)logout{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"是否退出当前登录账号?" preferredStyle:UIAlertControllerStyleAlert];

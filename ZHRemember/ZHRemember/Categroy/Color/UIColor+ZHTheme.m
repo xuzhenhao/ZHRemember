@@ -12,8 +12,8 @@
 
 + (UIColor *)zh_themeColor{
 //
-    return RGBColor(249, 216, 106);
-//    return [UIColor whiteColor];
+//    return RGBColor(249, 216, 106);
+    return RGBColor(51, 204, 245);
 }
 + (UIColor *)zh_tabbarColor{
     return RGBColor(249, 216, 106);

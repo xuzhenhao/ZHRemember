@@ -50,7 +50,7 @@ NSString *coverCellSelectImageEvent = @"EvtCoverCellSelectImageEvent";
     if (coverVM.coverImg) {
         self.coverImageView.image = coverVM.coverImg;
     }else{
-        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverVM.coverURLString] placeholderImage:[UIImage zh_imageWithColor:[UIColor zh_imagePlaceholdColor] size:self.coverImageView.bounds.size]];
+        [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:coverVM.coverURLString] placeholderImage:[UIImage zh_imageWithColor:[UIColor zh_themeColor] size:self.coverImageView.bounds.size]];
     }
     
     

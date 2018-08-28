@@ -99,6 +99,7 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     
     __weak typeof(self)weakself = self;
     TZImagePickerController *imagePickVC = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+    imagePickVC.barItemTextColor = [UIColor zh_themeColor];
     imagePickVC.showSelectBtn = NO;
     imagePickVC.allowCrop = YES;
     

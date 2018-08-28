@@ -58,6 +58,7 @@
         @strongify(self)
         BOOL success = [x boolValue];
         if (success) {
+            self.inputTextField.text = nil;
             [self.viewModel.requestCommand execute:nil];
         }
     }];

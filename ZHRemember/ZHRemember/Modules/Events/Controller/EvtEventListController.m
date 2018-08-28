@@ -38,7 +38,6 @@
     self.view.backgroundColor = [UIColor yellowColor];
     
     [self.view addSubview:self.addEventButton];
-    self.tableView.emptyDataSetSource = self;
     
     @weakify(self)
     [self.tableView configHeadRefreshControlWithRefreshBlock:^{
@@ -52,6 +51,7 @@
     [[self.viewModel.loadDataCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         [self.tableView.mj_header endRefreshing];
+        self.tableView.emptyDataSetSource = self;
         [self.tableView reloadData];
     }];
     [[[NSNotificationCenter defaultCenter] rac_addObserverForName:EvtEditEventSuccessNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
@@ -127,11 +127,11 @@
         [_addEventButton setImage:[UIImage imageNamed:@"event-write-pen"] forState:UIControlStateNormal];
         _addEventButton.frame = CGRectMake(ZHScreenWidth - 60, ZHScreenHeight - 250, 50, 50);
         
-        _addEventButton.backgroundColor = RGBColor(73 ,172 ,102);
+        _addEventButton.backgroundColor = [UIColor zh_themeColor];
         _addEventButton.layer.cornerRadius = 25;
         _addEventButton.layer.shadowOffset = CGSizeMake(0, 8);
         _addEventButton.layer.shadowOpacity = 0.5;
-        _addEventButton.layer.shadowColor = [UIColor greenColor].CGColor;
+        _addEventButton.layer.shadowColor = [UIColor zh_themeColor].CGColor;
         _addEventButton.layer.shadowRadius = 12;
         
         [_addEventButton addTarget:self action:@selector(didClickAddEventButton:) forControlEvents:UIControlEventTouchUpInside];
