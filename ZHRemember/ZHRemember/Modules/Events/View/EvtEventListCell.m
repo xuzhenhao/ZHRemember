@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remindTimeLabel;
+/**单位:天*/
+@property (weak, nonatomic) IBOutlet UILabel *remindTimeDayLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *remindTypeTipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *beginTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weekTimeLabel;
@@ -47,11 +50,14 @@
     
     self.timeView.layer.cornerRadius = 5;
     self.timeView.layer.masksToBounds = YES;
+    
+    self.remindTimeLabel.textColor = [UIColor zh_themeColor];
+    self.remindTimeDayLabel.textColor  = [UIColor zh_themeColor];
 }
 - (void)bindViewModel:(id)viewModel{
     self.viewModel = viewModel;
     
-    [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.coverURLStr] placeholderImage:[UIImage zh_imageWithColor:[UIColor zh_coverColor] size:self.coverImageView.bounds.size]];
+    [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:self.viewModel.coverURLStr] placeholderImage:[UIImage zh_imageWithColor:[UIColor zh_themeColor] size:self.coverImageView.bounds.size]];
     self.eventNameLabel.text = self.viewModel.eventName;
     self.remindTimeLabel.text = self.viewModel.remindTime;
     self.beginTimeLabel.text = self.viewModel.beginTime;

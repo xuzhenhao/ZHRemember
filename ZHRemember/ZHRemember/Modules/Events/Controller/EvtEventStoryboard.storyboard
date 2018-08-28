@@ -173,6 +173,7 @@
                                             <outlet property="coverImageView" destination="nx3-e1-0SC" id="nlf-ET-5Hf"/>
                                             <outlet property="eventNameLabel" destination="ueH-2D-C6t" id="fnD-wj-om8"/>
                                             <outlet property="remarkLabel" destination="Wkd-GY-hlG" id="eG7-b8-4wb"/>
+                                            <outlet property="remindTimeDayLabel" destination="EG7-YC-N1g" id="fkU-vq-caR"/>
                                             <outlet property="remindTimeLabel" destination="aZB-pf-f5O" id="UuG-du-YNX"/>
                                             <outlet property="remindTypeTipLabel" destination="MrH-7j-N70" id="eAQ-kj-OHT"/>
                                             <outlet property="shadowView" destination="blp-a3-Xtu" id="30Y-Um-F5M"/>

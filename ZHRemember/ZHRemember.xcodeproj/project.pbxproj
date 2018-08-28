@@ -59,6 +59,8 @@
 		E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
 		E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */; };
 		E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */; };
+		E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
+		E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
@@ -202,6 +204,10 @@
 		E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCycleCell.m; sourceTree = "<group>"; };
 		E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventRemarkCell.h; sourceTree = "<group>"; };
 		E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkCell.m; sourceTree = "<group>"; };
+		E7486652213546330032B948 /* MyThemeColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorViewController.h; sourceTree = "<group>"; };
+		E7486653213546330032B948 /* MyThemeColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewController.m; sourceTree = "<group>"; };
+		E7486655213548F00032B948 /* MyThemeColorEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorEventCell.h; sourceTree = "<group>"; };
+		E7486656213548F00032B948 /* MyThemeColorEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorEventCell.m; sourceTree = "<group>"; };
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -320,6 +326,8 @@
 				E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */,
 				E700FDED212A679800A9C330 /* MyViewController.h */,
 				E700FDEE212A679800A9C330 /* MyViewController.m */,
+				E7486652213546330032B948 /* MyThemeColorViewController.h */,
+				E7486653213546330032B948 /* MyThemeColorViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -734,6 +742,8 @@
 			children = (
 				E78FCDEF21339C1900C72EB4 /* MySettingCell.h */,
 				E78FCDF021339C1900C72EB4 /* MySettingCell.m */,
+				E7486655213548F00032B948 /* MyThemeColorEventCell.h */,
+				E7486656213548F00032B948 /* MyThemeColorEventCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1045,6 +1055,7 @@
 				E704A408213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m in Sources */,
 				E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */,
 				E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */,
+				E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
@@ -1093,6 +1104,7 @@
 				E704437A2100754C000239C1 /* EasyKVOInfo.m in Sources */,
 				E700FDFA212A6F3800A9C330 /* EvtTagListCell.m in Sources */,
 				E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */,
+				E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */,
 				E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

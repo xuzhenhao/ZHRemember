@@ -10,6 +10,7 @@
 #import "MyModuleHeader.h"
 #import "MyViewModel.h"
 #import "MySettingCell.h"
+#import "MyThemeColorViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -75,9 +76,17 @@
         case MySettingTypeTag:
             [self navigateToTagManager];
             break;
+        case MySettingTypeThemeColor:
+            [self navigateToThemeColorViewController];
+            break;
         default:
             break;
     }
+}
+- (void)navigateToThemeColorViewController{
+    UIViewController *themeVC = [MyThemeColorViewController themeColorViewController];
+    themeVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:themeVC animated:YES];
 }
 - (void)navigateToTagManager{
     UIViewController *tagViewController = [[ZHMediator sharedInstance] eventTagController];
