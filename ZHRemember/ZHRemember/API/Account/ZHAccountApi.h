@@ -32,4 +32,8 @@
                    password:(NSString *)pwd
                        done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
 
++ (void)ResetPwdWithMobile:(NSString *)mobile
+                password:(NSString *)pwd
+                    done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+
 @end

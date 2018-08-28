@@ -40,7 +40,7 @@
 
 #pragma mark - setupUI
 - (void)setupUI{
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     
     self.registButton.layer.cornerRadius = 5;
     self.registButton.layer.masksToBounds = YES;

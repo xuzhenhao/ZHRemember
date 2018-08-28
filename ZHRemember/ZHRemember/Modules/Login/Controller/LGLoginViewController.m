@@ -9,12 +9,15 @@
 #import "LGLoginViewController.h"
 #import "LoginConfig.h"
 #import "LGLoginViewModel.h"
+#import "LGResetPwdViewController.h"
 
 @interface LGLoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetPwdButton;
+
 
 @property (nonatomic, strong)   LGLoginViewModel     *viewModel;
 
@@ -49,6 +52,11 @@
             UIViewController *mainVC = [[ZHMediator sharedInstance] zh_mainTabbarController];
             [UIViewController changeRootViewController:mainVC];
         }
+    }];
+    [[[self.resetPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        @strongify(self)
+        LGResetPwdViewController *vc = [LGResetPwdViewController resetPwdViewController];
+        [self.navigationController pushViewController:vc animated:YES];
     }];
 }
 
