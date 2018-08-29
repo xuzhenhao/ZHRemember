@@ -17,11 +17,15 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     if (!themeColor) {
         return;
     }
-    [[NSUserDefaults standardUserDefaults] setObject:themeColor forKey:ZHThemeColorCacheKey];
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:themeColor];
+    [[NSUserDefaults standardUserDefaults] setObject:data forKey:ZHThemeColorCacheKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (UIColor *)getThemeColor{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:ZHThemeColorCacheKey];
+    NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:ZHThemeColorCacheKey];
+    UIColor *color = (UIColor *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    return color;
 }
 @end

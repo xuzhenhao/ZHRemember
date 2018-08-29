@@ -11,9 +11,9 @@
 @implementation UIColor (ZHTheme)
 
 + (UIColor *)zh_themeColor{
-//
-//    return RGBColor(249, 216, 106);
-    return RGBColor(51, 204, 245);
+
+    UIColor *cacheColor = [ZHCache getThemeColor];
+    return cacheColor ? cacheColor : [UIColor zh_lightBlueColor];
 }
 + (UIColor *)zh_tabbarColor{
     return RGBColor(249, 216, 106);
@@ -33,6 +33,21 @@
 #pragma mark - 常用颜色
 + (UIColor *)zh_lightGrayColor{
     return RGBColor(237, 239, 240);
+}
++ (UIColor *)zh_lightBlueColor{
+    return RGBColor(51, 204, 245);
+}
++ (UIColor *)zh_greenColor{
+    return RGBColor(92, 176, 133);
+}
++ (UIColor *)zh_lightGreenColor{
+    return RGBColor(51, 214, 187);
+}
++ (UIColor *)zh_pinkColor{
+    return RGBColor(249, 90, 125);
+}
++ (UIColor *)zh_yellowColor{
+    return RGBColor(249, 216, 106);
 }
 #pragma mark - tabbar
 + (UIColor *)zh_tabbarTextNormal{

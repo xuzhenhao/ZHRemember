@@ -17,18 +17,16 @@ static CGFloat colorViewWidth = 50;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /** 选择的颜色*/
 @property (nonatomic, strong)   UIColor      *selectedColor;
+/**供预览的按钮*/
 @property (nonatomic, strong)   UIButton     *addEventButton;
 /** 选择颜色滚动视图*/
 @property (nonatomic, strong)   UIScrollView     *scrollView;
+/** 保存按钮*/
+@property (nonatomic, strong)   UIBarButtonItem     *saveItem;
 
 /** 可选择的颜色*/
 @property (nonatomic, strong)   NSArray<UIColor *>     *colors;
-/** 之前选的颜色视图*/
-@property (nonatomic, strong)   UIView     *perColorView;
-/** 当前选的颜色视图*/
-@property (nonatomic, strong)   UIView     *currentColorView;
 
-@property (nonatomic, strong)   NSMutableArray     *colorViews;
 
 @end
 
@@ -46,14 +44,16 @@ static CGFloat colorViewWidth = 50;
     [self.view addSubview:self.addEventButton];
     
     [self setupScrollView];
+    self.navigationItem.rightBarButtonItem = self.saveItem;
     self.tableView.rowHeight = 370;
     
     @weakify(self)
-    [[RACObserve(self, selectedColor) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[[RACObserve(self, selectedColor) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         [self.tableView reloadData];
         self.addEventButton.backgroundColor = self.selectedColor;
         self.addEventButton.layer.shadowColor = self.selectedColor.CGColor;
+        self.saveItem.enabled = YES;
     }];
 }
 - (void)setupScrollView{
@@ -78,7 +78,10 @@ static CGFloat colorViewWidth = 50;
 - (void)didSelectView:(UITapGestureRecognizer *)sender{
     self.selectedColor = sender.view.backgroundColor;
 }
-
+- (void)didClickSaveItem:(UIBarButtonItem *)sender{
+    [ZHCache cacheThemeColor:self.selectedColor];
+    [HBHUDManager showMessage:@"保存成功，重启后生效哦~"];
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -94,7 +97,7 @@ static CGFloat colorViewWidth = 50;
     if (_addEventButton == nil) {
         _addEventButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_addEventButton setImage:[UIImage imageNamed:@"event-write-pen"] forState:UIControlStateNormal];
-        _addEventButton.frame = CGRectMake(ZHScreenWidth - 60, ZHScreenHeight - 350, 50, 50);
+        _addEventButton.frame = CGRectMake(ZHScreenWidth - 60, 420, 50, 50);
         
         _addEventButton.userInteractionEnabled = NO;
         _addEventButton.backgroundColor = self.selectedColor;
@@ -110,23 +113,32 @@ static CGFloat colorViewWidth = 50;
     if (!_scrollView) {
         _scrollView = [UIScrollView new];
         _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
         
         _scrollView.frame = CGRectMake(0, self.view.bounds.size.height - ZHNavbarHeight -  colorViewWidth - 20, ZHScreenWidth, colorViewWidth);
     }
     return _scrollView;
 }
-- (NSMutableArray *)colorViews{
-    if (!_colorViews) {
-        _colorViews = [NSMutableArray array];
+- (UIBarButtonItem *)saveItem{
+    if (!_saveItem) {
+        _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleDone target:self action:@selector(didClickSaveItem:)];
+        _saveItem.enabled = NO;
     }
-    return _colorViews;
+    return _saveItem;
 }
 - (NSArray<UIColor *> *)colors{
     if (!_colors) {
-        _colors = @[[UIColor redColor],
-                    [UIColor yellowColor],
+        _colors = @[
+                    [UIColor zh_lightBlueColor],
+                    [UIColor zh_lightGrayColor],
+                    [UIColor zh_greenColor],
+                    [UIColor zh_lightGreenColor],
+                    [UIColor zh_pinkColor],
+                    [UIColor zh_yellowColor],
                     [UIColor blackColor],
-                    [UIColor blueColor]];
+                    [UIColor blueColor],
+                    [UIColor purpleColor],
+                    ];
     }
     return _colors;
 }
