@@ -30,6 +30,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign)   MySettingType      type;
 @property (nonatomic, assign)   BOOL      isShowIndicator;
 @property (nonatomic, assign)   BOOL      isShowBottomLine;
+/** 重用标识符*/
+@property (nonatomic, copy,readonly)     NSString    *reuserId;
+
 /**
  工厂方法
 

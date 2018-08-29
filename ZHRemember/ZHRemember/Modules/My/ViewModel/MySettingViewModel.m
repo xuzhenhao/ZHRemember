@@ -30,5 +30,17 @@
     
     return vm;
 }
-
+- (NSString *)reuserId{
+    NSString *identify = nil;
+    switch (self.type) {
+        case MySettingTypeLogout:
+            identify = @"MyLogoutCell";
+            break;
+            
+        default:
+            identify = @"MySettingCell";
+            break;
+    }
+    return identify;
+}
 @end

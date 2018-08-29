@@ -41,8 +41,10 @@
     return [self.viewModel numberOfItemsInSection:section];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    MySettingCell *cell = [tableView dequeueReusableCellWithIdentifier:[MySettingCell reuseIdentify] forIndexPath:indexPath];
-    [cell bindViewModel:[self.viewModel viewModelForRow:indexPath.row section:indexPath.section]];
+    MySettingViewModel *vm = [self.viewModel viewModelForRow:indexPath.row section:indexPath.section];
+    
+    MySettingCell *cell = [tableView dequeueReusableCellWithIdentifier:vm.reuserId forIndexPath:indexPath];
+    [cell bindViewModel:vm];
     
     return cell;
 }

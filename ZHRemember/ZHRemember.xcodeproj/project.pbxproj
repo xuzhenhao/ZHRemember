@@ -97,6 +97,7 @@
 		E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
 		E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHCache.m */; };
 		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
+		E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,6 +283,8 @@
 		E7B798AB21363DEA00348A7E /* ZHCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCache.m; sourceTree = "<group>"; };
 		E7B798AE21363E9B00348A7E /* ZHDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDBManager.h; sourceTree = "<group>"; };
 		E7B798AF21363E9B00348A7E /* ZHDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDBManager.m; sourceTree = "<group>"; };
+		E7B798B221364E9D00348A7E /* MyLogoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLogoutCell.h; sourceTree = "<group>"; };
+		E7B798B321364E9D00348A7E /* MyLogoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLogoutCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -752,6 +755,8 @@
 				E78FCDF021339C1900C72EB4 /* MySettingCell.m */,
 				E7486655213548F00032B948 /* MyThemeColorEventCell.h */,
 				E7486656213548F00032B948 /* MyThemeColorEventCell.m */,
+				E7B798B221364E9D00348A7E /* MyLogoutCell.h */,
+				E7B798B321364E9D00348A7E /* MyLogoutCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1058,6 +1063,7 @@
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
 				E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */,
+				E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */,
 				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
@@ -1273,7 +1279,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1290,7 +1299,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

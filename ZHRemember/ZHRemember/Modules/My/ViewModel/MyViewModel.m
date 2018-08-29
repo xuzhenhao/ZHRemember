@@ -56,7 +56,7 @@
 - (CGFloat)itemHeight{
     return 44;
 }
-- (id)viewModelForRow:(NSInteger)row section:(NSInteger)section{
+- (MySettingViewModel *)viewModelForRow:(NSInteger)row section:(NSInteger)section{
     NSArray *sectionArr = self.sections[section];
     return sectionArr[row];
 }

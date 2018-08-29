@@ -18,7 +18,7 @@
 - (NSInteger)numberOfSections;
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (CGFloat)itemHeight;
-- (id)viewModelForRow:(NSInteger)row section:(NSInteger)section;
+- (MySettingViewModel *)viewModelForRow:(NSInteger)row section:(NSInteger)section;
 - (MySettingType)itemTypeOfRow:(NSInteger)row section:(NSInteger)section;
 
 #pragma mark - public method
