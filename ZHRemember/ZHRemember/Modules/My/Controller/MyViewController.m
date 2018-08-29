@@ -79,9 +79,15 @@
         case MySettingTypeThemeColor:
             [self navigateToThemeColorViewController];
             break;
+        case MySettingTypeFeedback:
+            [self navigateToFeedback];
+            break;
         default:
             break;
     }
+}
+- (void)navigateToFeedback{
+    
 }
 - (void)navigateToThemeColorViewController{
     UIViewController *themeVC = [MyThemeColorViewController themeColorViewController];

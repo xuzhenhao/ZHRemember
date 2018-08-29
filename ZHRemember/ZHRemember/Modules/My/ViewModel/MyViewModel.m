@@ -34,14 +34,14 @@
     MySettingViewModel *colorItem = [MySettingViewModel viewModelWithName:@"主题色" subTitle:nil type:MySettingTypeThemeColor showIndicator:YES showBottomLine:YES];
     MySettingViewModel *tipItem = [MySettingViewModel viewModelWithName:@"每日提醒" subTitle:nil type:MySettingTypeDayTip showIndicator:YES showBottomLine:NO];
     
-    MySettingViewModel *recomandItem = [MySettingViewModel viewModelWithName:@"推荐鼓励" subTitle:nil type:MySettingTypeRecommand showIndicator:NO showBottomLine:YES];
+//    MySettingViewModel *recomandItem = [MySettingViewModel viewModelWithName:@"推荐鼓励" subTitle:nil type:MySettingTypeRecommand showIndicator:NO showBottomLine:YES];
     MySettingViewModel *feedbackItem = [MySettingViewModel viewModelWithName:@"意见反馈" subTitle:nil type:MySettingTypeFeedback showIndicator:YES showBottomLine:NO];
     
     MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"退出登录" subTitle:@"" type:MySettingTypeLogout showIndicator:NO showBottomLine:NO];
     
     NSArray *sectionOne = @[accountItem];
     NSArray *sectionTwo = @[tagItem,colorItem,tipItem];
-    NSArray *sectionThree = @[recomandItem,feedbackItem];
+    NSArray *sectionThree = @[feedbackItem];
     NSArray *sectionFor = @[logOutItem];
     self.sections = @[sectionOne,sectionTwo,sectionThree,sectionFor];
 }

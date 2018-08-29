@@ -19,5 +19,6 @@ pod 'DateTools'
 pod 'MJRefresh', '~>3.1.14.1'
 pod 'mob_smssdk'
 pod 'MBProgressHUD'
+pod 'FMDB'
 
 end

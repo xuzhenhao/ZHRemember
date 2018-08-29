@@ -95,6 +95,8 @@
 		E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */; };
 		E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */; };
 		E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
+		E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHCache.m */; };
+		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -276,6 +278,10 @@
 		E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailController.m; sourceTree = "<group>"; };
 		E7AC852E212C15C3006B92AA /* EvtEventDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventDetailViewModel.h; sourceTree = "<group>"; };
 		E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailViewModel.m; sourceTree = "<group>"; };
+		E7B798AA21363DEA00348A7E /* ZHCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCache.h; sourceTree = "<group>"; };
+		E7B798AB21363DEA00348A7E /* ZHCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCache.m; sourceTree = "<group>"; };
+		E7B798AE21363E9B00348A7E /* ZHDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDBManager.h; sourceTree = "<group>"; };
+		E7B798AF21363E9B00348A7E /* ZHDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDBManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +401,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E7B798AD21363E6900348A7E /* ZHDBManager */,
 				E704A4022135216C00A4EAEF /* DZNEmptyDataSet */,
 				E704A3FE2134F25100A4EAEF /* HBHud */,
 				E798B0ED2127F0E600578F24 /* AOPConfig */,
@@ -607,6 +614,7 @@
 		E76B115721002AF60067E577 /* ZHRemember */ = {
 			isa = PBXGroup;
 			children = (
+				E7B798A921363DC300348A7E /* Utils */,
 				E778D8012101770500E9CEEB /* API */,
 				E704435921007493000239C1 /* Lib */,
 				E704434E210038AD000239C1 /* Config */,
@@ -866,6 +874,24 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		E7B798A921363DC300348A7E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E7B798AA21363DEA00348A7E /* ZHCache.h */,
+				E7B798AB21363DEA00348A7E /* ZHCache.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E7B798AD21363E6900348A7E /* ZHDBManager */ = {
+			isa = PBXGroup;
+			children = (
+				E7B798AE21363E9B00348A7E /* ZHDBManager.h */,
+				E7B798AF21363E9B00348A7E /* ZHDBManager.m */,
+			);
+			path = ZHDBManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -947,6 +973,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
@@ -964,6 +991,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
@@ -1048,6 +1076,7 @@
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
+				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */,
@@ -1091,6 +1120,7 @@
 				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
+				E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */,
 				E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */,
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
@@ -1243,10 +1273,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1263,10 +1290,7 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
