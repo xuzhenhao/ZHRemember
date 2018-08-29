@@ -13,6 +13,7 @@
 #import "EvtEditEventDateCell.h"
 #import "EvtEditEventViewModel.h"
 #import <PGDatePicker/PGDatePickManager.h>
+#import "EvtEventDetailViewModel.h"
 
 NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 
@@ -21,8 +22,13 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   EvtEditEventViewModel     *viewModel;
+@property (nonatomic, strong)   EvtEventDetailViewModel     *detailViewModel;
 /** 保存按钮*/
 @property (nonatomic, strong)   UIBarButtonItem     *saveItem;
+/** 删除按钮*/
+@property (nonatomic, strong)   UIBarButtonItem     *deleteItem;
+/** 是否编辑，编辑时显示删除按钮*/
+@property (nonatomic, assign)   BOOL      isEditStatus;
 
 @end
 
@@ -35,6 +41,7 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 + (instancetype)editEventControllerWithModel:(EvtEventModel *)model{
     EvtEditEventController *vc = [self viewControllerWithStoryBoard:EvtEventStoryboard];
     vc.viewModel = [EvtEditEventViewModel viewModelWithModel:model];
+    vc.isEditStatus = model ? YES : NO;
     
     return vc;
 }
@@ -50,7 +57,12 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     self.view.backgroundColor = [UIColor whiteColor];
     
     RAC(self.saveItem,enabled) = RACObserve(self.viewModel, isSaveEnable);
-    self.navigationItem.rightBarButtonItem = self.saveItem;
+    if (!self.isEditStatus) {
+        self.navigationItem.rightBarButtonItem = self.saveItem;
+    }else{
+        self.navigationItem.rightBarButtonItems = @[self.saveItem,self.deleteItem];
+    }
+    
     
     [self configDataSource];
 }
@@ -80,6 +92,19 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
         
         [[NSNotificationCenter defaultCenter] postNotificationName:EvtEditEventSuccessNotification object:nil];
         [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [[self.detailViewModel.deleteCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        BOOL success = [x boolValue];
+        if (success) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:EvtEditEventSuccessNotification object:nil];
+            [HBHUDManager showMessage:@"已删除" done:^{
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }else{
+            [HBHUDManager showMessage:@"删除失败，请稍后重试"];
+        }
     }];
 }
 #pragma mark - UITableView Delegate
@@ -132,11 +157,38 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 - (void)clickSaveEvent:(UIBarButtonItem *)sender{
     [self.viewModel.saveCommand execute:nil];
 }
+- (void)didClickDeleteEventItem:(UIBarButtonItem *)sender{
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:@"确定要删除当前纪念日吗?" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定"
+                                              style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * _Nonnull action) {
+                                                [self.detailViewModel.deleteCommand execute:self.viewModel.eventId];
+                                            }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 #pragma mark - getter&setter
 - (UIBarButtonItem *)saveItem{
     if (!_saveItem) {
         _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(clickSaveEvent:)];
     }
     return _saveItem;
+}
+- (UIBarButtonItem *)deleteItem{
+    if (!_deleteItem) {
+        _deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(didClickDeleteEventItem:)];
+    }
+    return _deleteItem;
+}
+- (EvtEventDetailViewModel *)detailViewModel{
+    if (!_detailViewModel) {
+        _detailViewModel = [EvtEventDetailViewModel new];
+    }
+    return _detailViewModel;
 }
 @end

@@ -16,11 +16,10 @@
 #pragma mark - getter
 - (RACCommand *)deleteCommand{
     if (!_deleteCommand) {
-        @weakify(self)
         _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                @strongify(self)
-                [EvtEventApi deleteWithEventId:self.eventId done:^(BOOL success, NSDictionary *result) {
+                
+                [EvtEventApi deleteWithEventId:input done:^(BOOL success, NSDictionary *result) {
                     [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];

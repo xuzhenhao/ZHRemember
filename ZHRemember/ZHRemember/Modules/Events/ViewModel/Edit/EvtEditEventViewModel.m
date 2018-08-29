@@ -106,5 +106,7 @@
     }
     return _eventModel;
 }
-
+- (NSString *)eventId{
+    return self.eventModel.eventId;
+}
 @end

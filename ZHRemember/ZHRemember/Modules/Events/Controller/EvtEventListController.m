@@ -102,7 +102,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self navigateToDetailViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
+    [self navigateToEditViewControllerWithModel:[self.viewModel modelForSection:indexPath.section row:indexPath.row]];
 }
 
 #pragma mark - DZNEmptyDataSetSource

@@ -33,9 +33,9 @@
 }
 - (void)zh_setupTabbarAppearance{
     [[UITabBar appearance] setTranslucent:NO];
-    [[UITabBar appearance] setTintColor:[UIColor zh_tabbarColor]];
+    [[UITabBar appearance] setTintColor:[UIColor zh_themeColor]];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_tabbarTextNormal]}forState:UIControlStateNormal];
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_tabbarColor]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor zh_themeColor]} forState:UIControlStateSelected];
 }
 - (void)zh_setupNavigationAppearance{
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
