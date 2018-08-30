@@ -59,6 +59,11 @@
 		E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
 		E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */; };
 		E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */; };
+		E73C65DB21379EEC007D656A /* DiaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73C65DA21379EEC007D656A /* DiaryStoryboard.storyboard */; };
+		E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E02137BD29007D656A /* DIYDiaryListViewController.m */; };
+		E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E32137C82F007D656A /* DIYWriteDiaryViewController.m */; };
+		E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E62137CB44007D656A /* DIYDiaryTarget.m */; };
+		E73C65EA2137CB97007D656A /* ZHMediator+ZHDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */; };
 		E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
 		E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
@@ -207,6 +212,16 @@
 		E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCycleCell.m; sourceTree = "<group>"; };
 		E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventRemarkCell.h; sourceTree = "<group>"; };
 		E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkCell.m; sourceTree = "<group>"; };
+		E73C65DA21379EEC007D656A /* DiaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DiaryStoryboard.storyboard; sourceTree = "<group>"; };
+		E73C65DC21379F46007D656A /* ZHRemember-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHRemember-Bridging-Header.h"; sourceTree = "<group>"; };
+		E73C65DF2137BD29007D656A /* DIYDiaryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryListViewController.h; sourceTree = "<group>"; };
+		E73C65E02137BD29007D656A /* DIYDiaryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListViewController.m; sourceTree = "<group>"; };
+		E73C65E22137C82F007D656A /* DIYWriteDiaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYWriteDiaryViewController.h; sourceTree = "<group>"; };
+		E73C65E32137C82F007D656A /* DIYWriteDiaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYWriteDiaryViewController.m; sourceTree = "<group>"; };
+		E73C65E52137CB44007D656A /* DIYDiaryTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryTarget.h; sourceTree = "<group>"; };
+		E73C65E62137CB44007D656A /* DIYDiaryTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryTarget.m; sourceTree = "<group>"; };
+		E73C65E82137CB97007D656A /* ZHMediator+ZHDiary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+ZHDiary.h"; sourceTree = "<group>"; };
+		E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHDiary.m"; sourceTree = "<group>"; };
 		E7486652213546330032B948 /* MyThemeColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorViewController.h; sourceTree = "<group>"; };
 		E7486653213546330032B948 /* MyThemeColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewController.m; sourceTree = "<group>"; };
 		E7486655213548F00032B948 /* MyThemeColorEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorEventCell.h; sourceTree = "<group>"; };
@@ -596,6 +611,44 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E73C65D621379EAE007D656A /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				E73C65D921379ED3007D656A /* View */,
+				E73C65D821379ECB007D656A /* Controller */,
+				E73C65D721379EC1007D656A /* ViewModel */,
+				E73C65E52137CB44007D656A /* DIYDiaryTarget.h */,
+				E73C65E62137CB44007D656A /* DIYDiaryTarget.m */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		E73C65D721379EC1007D656A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E73C65D821379ECB007D656A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E73C65DA21379EEC007D656A /* DiaryStoryboard.storyboard */,
+				E73C65DF2137BD29007D656A /* DIYDiaryListViewController.h */,
+				E73C65E02137BD29007D656A /* DIYDiaryListViewController.m */,
+				E73C65E22137C82F007D656A /* DIYWriteDiaryViewController.h */,
+				E73C65E32137C82F007D656A /* DIYWriteDiaryViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E73C65D921379ED3007D656A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E76B114C21002AF60067E577 = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +685,7 @@
 		E76B116E21002D360067E577 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				E73C65DC21379F46007D656A /* ZHRemember-Bridging-Header.h */,
 				E76B116321002AF70067E577 /* LaunchScreen.storyboard */,
 				E76B116721002AF70067E577 /* main.m */,
 				E76B116621002AF70067E577 /* Info.plist */,
@@ -657,6 +711,7 @@
 		E76B117021002D8A0067E577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E73C65D621379EAE007D656A /* Diary */,
 				E72705CB212EA34900F4BDB9 /* Login */,
 				E700FDE9212A675400A9C330 /* My */,
 				E704438521007614000239C1 /* Events */,
@@ -712,6 +767,8 @@
 				E700FDF5212A694B00A9C330 /* ZHMediator+My.m */,
 				E78FCDFE2133F34100C72EB4 /* ZHMediator+ZHLogin.h */,
 				E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */,
+				E73C65E82137CB97007D656A /* ZHMediator+ZHDiary.h */,
+				E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */,
 			);
 			path = ModeuleCategory;
 			sourceTree = "<group>";
@@ -931,6 +988,7 @@
 				TargetAttributes = {
 					E76B115421002AF60067E577 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -963,6 +1021,7 @@
 				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
+				E73C65DB21379EEC007D656A /* DiaryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,7 +1127,9 @@
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
+				E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */,
 				E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */,
+				E73C65EA2137CB97007D656A /* ZHMediator+ZHDiary.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
 				E704A4012134F26200A4EAEF /* HBHUDManager.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
@@ -1077,9 +1138,11 @@
 				E78FCE002133F34100C72EB4 /* ZHMediator+ZHLogin.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
+				E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
+				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
 				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
@@ -1274,6 +1337,7 @@
 			baseConfigurationReference = 4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3X6AR78KA;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
@@ -1283,9 +1347,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.remember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1294,6 +1361,7 @@
 			baseConfigurationReference = 7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F3X6AR78KA;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
@@ -1303,9 +1371,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.ZHRemember;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.remember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

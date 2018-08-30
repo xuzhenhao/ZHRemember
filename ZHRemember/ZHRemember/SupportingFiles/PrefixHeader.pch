@@ -15,6 +15,7 @@
 #import "ZHMediator+ZHEvent.h"
 #import "ZHMediator+My.h"
 #import "ZHMediator+ZHLogin.h"
+#import "ZHMediator+ZHDiary.h"
 #import <Masonry/Masonry.h>
 #import <ReactiveObjC/ReactiveObjC.h>
 #import <SDWebImage/UIImageView+WebCache.h>

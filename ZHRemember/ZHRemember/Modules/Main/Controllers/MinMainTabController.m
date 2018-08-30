@@ -31,12 +31,17 @@
     eventsNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-event-normal"];
     eventsNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-event-high"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
+    UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] zh_diaryListViewController]];
+    diaryNC.tabBarItem.title = @"日记本";
+    diaryNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-diary"];
+    diaryNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-diary"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
     UINavigationController *settingNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] myViewController] ];
     settingNC.tabBarItem.title = @"我的";
     settingNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-me-normal"];
     settingNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-me-high"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
-    self.viewControllers = @[eventsNC,settingNC];
+    self.viewControllers = @[eventsNC,diaryNC,settingNC];
 }
 
 
