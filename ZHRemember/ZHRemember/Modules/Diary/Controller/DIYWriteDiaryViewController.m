@@ -10,6 +10,7 @@
 #import "DIYDiaryConfig.h"
 #import <YYText/YYText.h>
 #import "DIYWriteDiaryViewModel.h"
+#import <PGDatePicker/PGDatePickManager.h>
 
 @interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
 /**头部状态栏视图*/
@@ -63,6 +64,13 @@
     
     self.timeView.layer.cornerRadius = 5;
     self.timeView.layer.masksToBounds = YES;
+    UITapGestureRecognizer *timeTap = [[UITapGestureRecognizer alloc] init];
+    [self.timeView addGestureRecognizer:timeTap];
+    @weakify(self)
+    [[timeTap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @strongify(self)
+        [self didClickSelectDateAction];
+    }];
 }
 - (void)setupContentView{
     [self.contentView addSubview:self.textView];
@@ -100,7 +108,20 @@
 - (void)didClickToolbarFinishAction:(UIBarButtonItem *)sender{
     [self.view endEditing:YES];
 }
-
+- (void)didClickSelectDateAction{
+    @weakify(self)
+    
+    PGDatePickManager *datePickManager = [[PGDatePickManager alloc]init];
+    datePickManager.isShadeBackgroud = true;
+    PGDatePicker *datePicker = datePickManager.datePicker;
+    datePicker.selectedDate = ^(NSDateComponents *dateComponents) {
+        @strongify(self)
+        [self.viewModel updateTimeWithDateComponents:dateComponents];
+    };
+    datePicker.datePickerMode = PGDatePickerModeDateHourMinute;
+    
+    [self presentViewController:datePickManager animated:false completion:nil];
+}
 
 #pragma mark - getter
 - (YYTextView *)textView{

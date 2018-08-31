@@ -38,5 +38,6 @@
  默认配置
  */
 + (instancetype)defaultViewModel;
+- (void)updateTimeWithDateComponents:(NSDateComponents *)components;
 
 @end

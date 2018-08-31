@@ -29,7 +29,11 @@
     
     return vm;
 }
-
+- (void)updateTimeWithDateComponents:(NSDateComponents *)components{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *date = [calendar dateFromComponents:components];
+    self.date = date;
+}
 #pragma mark - utils
 /**将数据拼成网络请求用的模型*/
 - (ZHDiaryModel *)getParamModel{
