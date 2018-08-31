@@ -8,27 +8,65 @@
 
 #import "DIYDiaryListViewController.h"
 #import "DIYWriteDiaryViewController.h"
+#import "DIYDiaryConfig.h"
+#import "DIYDiaryListViewModel.h"
+#import "DIYDiaryListCell.h"
 
-@interface DIYDiaryListViewController ()
+@interface DIYDiaryListViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /** 写日记按钮*/
 @property (nonatomic, strong)   UIButton     *writeDiaryButton;
+
+@property (nonatomic, strong)   DIYDiaryListViewModel     *viewModel;
 @end
 
 @implementation DIYDiaryListViewController
 + (instancetype)diaryListViewController{
-    return [self new];
+    return [self viewControllerWithStoryBoard:DIYModuleStoryBoardName];
 }
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self bindActions];
 }
 #pragma mark - setupUI
 - (void)setupUI{
     self.title = @"日记本";
     
     [self.view addSubview:self.writeDiaryButton];
+    
+    @weakify(self)
+    [self.tableView configHeadRefreshControlWithRefreshBlock:^{
+        @strongify(self)
+        [self.viewModel.requestCommand execute:nil];
+    }];
+    [self.tableView.mj_header beginRefreshing];
+}
+- (void)bindActions{
+    
+    @weakify(self)
+    [[self.viewModel.requestCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.viewModel numOfRows];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DIYDiaryListCell *cell = [tableView dequeueReusableCellWithIdentifier:[DIYDiaryListCell reuseIdentify] forIndexPath:indexPath];
+    [cell bindViewModel:[self.viewModel viewModelOfRow:indexPath.row section:indexPath.section]];
+    
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return [self.viewModel heightOfRow:indexPath.row section:indexPath.section];
 }
 
 #pragma mark - action
@@ -55,6 +93,12 @@
         [_writeDiaryButton addTarget:self action:@selector(didClickWriteDiaryButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _writeDiaryButton;
+}
+- (DIYDiaryListViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [DIYDiaryListViewModel new];
+    }
+    return _viewModel;
 }
 
 

@@ -16,6 +16,10 @@ NSString *const DiaryClassName = @"Diary";
 NSString *const DiaryClassTextKey = @"diary_text";
 /**日记表，时间key*/
 NSString *const DiaryClassTimeKey = @"create_time";
+/**日记表，天气图片key*/
+NSString *const DiaryClassWeatherKey = @"weather_image";
+/**日记表，心情图片key*/
+NSString *const DiaryClassMoodKey = @"mood_image";
 
 @implementation ZHDiaryApi
 
@@ -28,6 +32,26 @@ NSString *const DiaryClassTimeKey = @"create_time";
         doneHandler(succeeded,nil);
     }];
 }
++ (void)getDiaryListWithPage:(NSInteger)page
+                        done:(void(^)(NSArray<ZHDiaryModel *> *diaryList,NSDictionary *result))doneHandler{
+    AVQuery *query = [AVQuery queryWithClassName:DiaryClassName];
+    [query whereKey:AVUserIdKey equalTo:[AVUser currentUser].objectId];
+    
+    query.limit = AVPerPageCount;
+    query.skip = page * AVPerPageCount;
+    [query orderByDescending:@"create_time"];//最近的日记在前面
+    
+    NSMutableArray *tempM = [NSMutableArray array];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (AVObject *obj in objects) {
+            NSDictionary *dict = [obj zh_localData];
+            [dict setValue:obj.objectId forKey:AVObjectIdKey];
+            [tempM addObject:dict];
+        }
+        NSArray *lists = [MTLJSONAdapter modelsOfClass:[ZHDiaryModel class] fromJSONArray:tempM error:nil];
+        doneHandler(lists,nil);
+    }];
+}
 
 #pragma mark - utils
 + (void)fillObject:(AVObject *)diaryObj withDiary:(ZHDiaryModel *)diaryModel{
@@ -35,5 +59,7 @@ NSString *const DiaryClassTimeKey = @"create_time";
     [diaryObj setValue:diaryModel.diaryId forKey:AVObjectIdKey];
     [diaryObj setObject:diaryModel.diaryText forKey:DiaryClassTextKey];
     [diaryObj setObject:diaryModel.unixTime forKey:DiaryClassTimeKey];
+    [diaryObj setObject:diaryModel.weatherImageName forKey:DiaryClassWeatherKey];
+    [diaryObj setObject:diaryModel.moodImageName forKey:DiaryClassMoodKey];
 }
 @end

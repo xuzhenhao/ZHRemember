@@ -33,6 +33,10 @@
 /** 保存日记*/
 @property (nonatomic, strong)   RACCommand     *saveDiaryCommand;
 
+
+/**
+ 默认配置
+ */
 + (instancetype)defaultViewModel;
 
 @end

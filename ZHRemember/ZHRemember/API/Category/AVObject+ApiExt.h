@@ -10,6 +10,7 @@
 
 extern NSString *const AVUserIdKey;
 extern NSString *const AVObjectIdKey;
+extern NSInteger AVPerPageCount;//每次请求的最大记录数
 
 @interface AVObject (ApiExt)
 

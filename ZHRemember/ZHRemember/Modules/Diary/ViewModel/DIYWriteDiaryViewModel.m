@@ -20,7 +20,12 @@
 @implementation DIYWriteDiaryViewModel
 + (instancetype)defaultViewModel{
     DIYWriteDiaryViewModel *vm = [DIYWriteDiaryViewModel new];
+    //当前时间
     vm.date = [NSDate date];
+    //默认晴天
+    vm.weathImageName = @"weather-sun-big";
+    //默认微笑脸
+    vm.moodImageName = @"diary-mood1";
     
     return vm;
 }
@@ -31,6 +36,8 @@
     ZHDiaryModel *model = [ZHDiaryModel new];
     model.unixTime = self.unixTime;
     model.diaryText = self.diaryText;
+    model.weatherImageName = self.weathImageName;
+    model.moodImageName = self.moodImageName;
     
     return model;
 }
