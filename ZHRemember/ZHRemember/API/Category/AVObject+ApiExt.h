@@ -8,6 +8,9 @@
 
 #import <AVOSCloud/AVOSCloud.h>
 
+extern NSString *const AVUserIdKey;
+extern NSString *const AVObjectIdKey;
+
 @interface AVObject (ApiExt)
 
 /**

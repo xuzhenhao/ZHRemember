@@ -213,8 +213,14 @@
                         <viewLayoutGuide key="safeArea" id="9B8-KE-WbK"/>
                     </view>
                     <connections>
+                        <outlet property="contentView" destination="oc1-yO-LxQ" id="Tdw-Ph-NHg"/>
+                        <outlet property="dayDescLabel" destination="8ep-iU-uYX" id="RpI-EG-8Ye"/>
+                        <outlet property="hourDescLabel" destination="xWV-b8-ts2" id="uyX-tn-BoH"/>
+                        <outlet property="letterImageView" destination="Yfh-om-YZR" id="Jxw-1Y-0VU"/>
+                        <outlet property="monthDescLabel" destination="egn-Rh-Lgh" id="qU3-h4-3nB"/>
                         <outlet property="statusView" destination="bty-xq-cdZ" id="dvN-Xy-TLo"/>
                         <outlet property="timeView" destination="2Gq-WH-3lL" id="WC9-fy-tS8"/>
+                        <outlet property="weekDescLabel" destination="uR6-k4-A33" id="rdE-kf-bOf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sZ-T4-4GG" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -65,6 +65,9 @@
 		E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E62137CB44007D656A /* DIYDiaryTarget.m */; };
 		E73C65EA2137CB97007D656A /* ZHMediator+ZHDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */; };
 		E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65EC2137D1E0007D656A /* DIYDiaryConfig.m */; };
+		E73C65F02137EBE4007D656A /* DIYWriteDiaryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65EF2137EBE4007D656A /* DIYWriteDiaryViewModel.m */; };
+		E73C65F42138080C007D656A /* ZHDiaryApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F32138080C007D656A /* ZHDiaryApi.m */; };
+		E73C65F821380872007D656A /* ZHDiaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F721380872007D656A /* ZHDiaryModel.m */; };
 		E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
 		E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
@@ -225,6 +228,12 @@
 		E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHDiary.m"; sourceTree = "<group>"; };
 		E73C65EB2137D1E0007D656A /* DIYDiaryConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryConfig.h; sourceTree = "<group>"; };
 		E73C65EC2137D1E0007D656A /* DIYDiaryConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryConfig.m; sourceTree = "<group>"; };
+		E73C65EE2137EBE4007D656A /* DIYWriteDiaryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYWriteDiaryViewModel.h; sourceTree = "<group>"; };
+		E73C65EF2137EBE4007D656A /* DIYWriteDiaryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYWriteDiaryViewModel.m; sourceTree = "<group>"; };
+		E73C65F22138080C007D656A /* ZHDiaryApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDiaryApi.h; sourceTree = "<group>"; };
+		E73C65F32138080C007D656A /* ZHDiaryApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDiaryApi.m; sourceTree = "<group>"; };
+		E73C65F621380872007D656A /* ZHDiaryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDiaryModel.h; sourceTree = "<group>"; };
+		E73C65F721380872007D656A /* ZHDiaryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDiaryModel.m; sourceTree = "<group>"; };
 		E7486652213546330032B948 /* MyThemeColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorViewController.h; sourceTree = "<group>"; };
 		E7486653213546330032B948 /* MyThemeColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewController.m; sourceTree = "<group>"; };
 		E7486655213548F00032B948 /* MyThemeColorEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorEventCell.h; sourceTree = "<group>"; };
@@ -631,6 +640,8 @@
 		E73C65D721379EC1007D656A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E73C65EE2137EBE4007D656A /* DIYWriteDiaryViewModel.h */,
+				E73C65EF2137EBE4007D656A /* DIYWriteDiaryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -652,6 +663,25 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E73C65F1213807F3007D656A /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				E73C65F52138081B007D656A /* Models */,
+				E73C65F22138080C007D656A /* ZHDiaryApi.h */,
+				E73C65F32138080C007D656A /* ZHDiaryApi.m */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		E73C65F52138081B007D656A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E73C65F621380872007D656A /* ZHDiaryModel.h */,
+				E73C65F721380872007D656A /* ZHDiaryModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		E76B114C21002AF60067E577 = {
@@ -781,6 +811,7 @@
 		E778D8012101770500E9CEEB /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E73C65F1213807F3007D656A /* Diary */,
 				E70CFEED212FE26E004A6155 /* Account */,
 				E7AC8526212BE631006B92AA /* Category */,
 				E7AC8525212BE16C006B92AA /* CommonApi */,
@@ -1053,6 +1084,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 				"${BUILT_PRODUCTS_DIR}/ZHMediator/ZHMediator.framework",
 				"${BUILT_PRODUCTS_DIR}/ZHTableView/ZHTableView.framework",
 			);
@@ -1071,6 +1103,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZHMediator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZHTableView.framework",
 			);
@@ -1133,6 +1166,7 @@
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
 				E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */,
+				E73C65F02137EBE4007D656A /* DIYWriteDiaryViewModel.m in Sources */,
 				E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */,
 				E73C65EA2137CB97007D656A /* ZHMediator+ZHDiary.m in Sources */,
 				E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */,
@@ -1170,6 +1204,7 @@
 				E798B0F72127F76000578F24 /* UITableView+ZHRefresh.m in Sources */,
 				E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
+				E73C65F821380872007D656A /* ZHDiaryModel.m in Sources */,
 				E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */,
 				E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */,
 				E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */,
@@ -1181,6 +1216,7 @@
 				E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */,
 				E798B0E421254B7D00578F24 /* ZHCommonApi.m in Sources */,
 				E78FCE032133F3C600C72EB4 /* LGLoginTarget.m in Sources */,
+				E73C65F42138080C007D656A /* ZHDiaryApi.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
 				E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,

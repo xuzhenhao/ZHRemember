@@ -10,7 +10,7 @@
 
 @implementation NSDate (ZHDate)
 - (NSString *)getWeekDay{
-    NSArray *weekdays = [NSArray arrayWithObjects:@"周日", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    NSArray *weekdays = [NSArray arrayWithObjects:@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六", nil];
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *theComponents = [calendar components:NSCalendarUnitWeekday fromDate:self];
