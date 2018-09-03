@@ -16,10 +16,14 @@
 @property (nonatomic, copy)     NSString    *unixTime;
 /** 文本内容*/
 @property (nonatomic, copy)     NSString    *diaryText;
-/** 天气图片*/
+/** 日记图片*/
+@property (nonatomic, copy)     NSString    *diaryImageURL;
+/** 天气图片名称*/
 @property (nonatomic, copy)     NSString    *weatherImageName;
-/** 心情图片*/
+/** 心情图片名称*/
 @property (nonatomic, copy)     NSString    *moodImageName;
+/** 信纸图片名称*/
+@property (nonatomic, copy)     NSString    *wallPaperName;
 
 
 @end

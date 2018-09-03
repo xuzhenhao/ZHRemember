@@ -26,14 +26,18 @@ extern CGFloat DIYDiaryListCellDiaryViewHeight;
 @property (nonatomic, copy)     NSString    *hourDesc;
 /** 星期时间描述*/
 @property (nonatomic, copy)     NSString    *weekDesc;
-
+/** 心情图片名称*/
+@property (nonatomic, copy)     NSString    *moodImageName;
+/** 天气图片名称*/
+@property (nonatomic, copy)     NSString    *weatherImageName;
+/** 日记图片url*/
+@property (nonatomic, copy)     NSString    *diaryPhotoUrl;
+/** 日记文本内容*/
+@property (nonatomic, copy)     NSString    *diaryContent;
+@property (nonatomic, strong,readonly)   ZHDiaryModel     *model;
 
 /** cell高度*/
 @property (nonatomic, assign)   CGFloat      cellHeight;
-/** 日记文本内容*/
-@property (nonatomic, copy)     NSString    *diaryContent;
-
-
 + (instancetype)viewModelWithModel:(ZHDiaryModel *)model;
 
 @end

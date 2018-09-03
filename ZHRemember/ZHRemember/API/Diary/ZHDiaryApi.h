@@ -21,6 +21,15 @@
              done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
 
 /**
+ 删除日记
+
+ @param diaryId 日记id
+ @param doneHandler 完成回调
+ */
++ (void)deleteDiaryWithId:(NSString *)diaryId
+                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+
+/**
  获取日记列表
 
  @param page 分页查询，当前页数(每页100条记录)

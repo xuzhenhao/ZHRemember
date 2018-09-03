@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class ZHDiaryModel;
+
+extern NSString *DIYDiaryChangedNotification;
+
 /**写日记*/
 @interface DIYWriteDiaryViewController : UIViewController
 
 + (instancetype)writeDiaryViewController;
++ (instancetype)writeDiaryViewControllerWithModel:(ZHDiaryModel *)model;
 
 @end

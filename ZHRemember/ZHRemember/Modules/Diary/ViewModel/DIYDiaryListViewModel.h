@@ -14,7 +14,7 @@
 
 #pragma mark - UITableView
 - (NSInteger)numOfRows;
-- (id)viewModelOfRow:(NSInteger)row section:(NSInteger)section;
+- (DIYDiaryListCellViewModel *)viewModelOfRow:(NSInteger)row section:(NSInteger)section;
 - (CGFloat)heightOfRow:(NSInteger)row section:(NSInteger)section;
 
 /** 请求数据*/

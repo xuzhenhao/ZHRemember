@@ -8,12 +8,16 @@
 
 #import "DIYWriteDiaryViewModel.h"
 #import "ZHDiaryApi.h"
+#import "ZHCommonApi.h"
 
 @interface DIYWriteDiaryViewModel()
 /** 日记时间戳*/
 @property (nonatomic, copy)     NSString    *unixTime;
 /** 日记时间*/
 @property (nonatomic, strong)   NSDate     *date;
+
+/** 日记id*/
+@property (nonatomic, copy)     NSString    *diaryId;
 
 @end
 
@@ -29,19 +33,43 @@
     
     return vm;
 }
++ (instancetype)viewModelWithModel:(ZHDiaryModel *)model{
+    DIYWriteDiaryViewModel *vm = [DIYWriteDiaryViewModel new];
+    vm.date = [NSDate dateWithTimeIntervalSince1970:[model.unixTime integerValue]];
+    vm.weathImageName = model.weatherImageName;
+    vm.moodImageName = model.moodImageName;
+    vm.letterImageName = model.wallPaperName;
+    vm.diaryImageURL = model.diaryImageURL;
+    vm.diaryText = model.diaryText;
+    vm.diaryId = model.diaryId;
+    
+    return vm;
+}
 - (void)updateTimeWithDateComponents:(NSDateComponents *)components{
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDate *date = [calendar dateFromComponents:components];
     self.date = date;
 }
+- (void)updateDiaryImage:(UIImage *)image{
+    @weakify(self)
+    [ZHCommonApi uploadImage:image done:^(NSString *urlString, NSDictionary *error) {
+        @strongify(self)
+        if (urlString) {
+            self.diaryImageURL = urlString;
+        }
+    }];
+}
 #pragma mark - utils
 /**将数据拼成网络请求用的模型*/
 - (ZHDiaryModel *)getParamModel{
     ZHDiaryModel *model = [ZHDiaryModel new];
+    model.diaryId = self.diaryId;
     model.unixTime = self.unixTime;
     model.diaryText = self.diaryText;
     model.weatherImageName = self.weathImageName;
     model.moodImageName = self.moodImageName;
+    model.diaryImageURL = self.diaryImageURL;
+    model.wallPaperName = self.letterImageName;
     
     return model;
 }
@@ -78,5 +106,20 @@
     }
     return _saveDiaryCommand;
 }
-
+- (RACCommand *)deleteCommand{
+    if (!_deleteCommand) {
+        @weakify(self)
+        _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                @strongify(self)
+                [ZHDiaryApi deleteDiaryWithId:self.diaryId done:^(BOOL success, NSDictionary *result) {
+                    [subscriber sendNext:@(success)];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _deleteCommand;
+}
 @end

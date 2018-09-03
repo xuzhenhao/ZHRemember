@@ -15,8 +15,10 @@
              @"diaryId":@"objectId",
              @"unixTime":@"create_time",
              @"diaryText":@"diary_text",
+             @"diaryImageURL":@"diary_image",
              @"weatherImageName":@"weather_image",
              @"moodImageName":@"mood_image",
+             @"wallPaperName":@"paper_image",
              };
 }
 + (NSValueTransformer *)diaryIdJSONTransformer{
@@ -29,7 +31,17 @@
         return [NSString stringWithFormat:@"%@",value];
     }];
 }
++ (NSValueTransformer *)diary_imageJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return [NSString stringWithFormat:@"%@",value];
+    }];
+}
 + (NSValueTransformer *)diaryTextJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return [NSString stringWithFormat:@"%@",value];
+    }];
+}
++ (NSValueTransformer *)wallPaperNameJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         return [NSString stringWithFormat:@"%@",value];
     }];

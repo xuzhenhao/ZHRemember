@@ -53,6 +53,10 @@
         [self.tableView.mj_header endRefreshing];
         [self.tableView reloadData];
     }];
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:DIYDiaryChangedNotification object:nil] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        [self.tableView.mj_header beginRefreshing];
+    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -68,10 +72,24 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [self.viewModel heightOfRow:indexPath.row section:indexPath.section];
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ZHDiaryModel *model = [self.viewModel viewModelOfRow:indexPath.row section:indexPath.section].model;
+    [self naviageToWriteDiaryViewControllerWithModel:model];
+}
 
 #pragma mark - action
 - (void)didClickWriteDiaryButton:(UIButton *)sender{
-    DIYWriteDiaryViewController *writeVC = [DIYWriteDiaryViewController writeDiaryViewController];
+    [self naviageToWriteDiaryViewControllerWithModel:nil];
+}
+- (void)naviageToWriteDiaryViewControllerWithModel:(ZHDiaryModel *)model{
+    DIYWriteDiaryViewController *writeVC = nil;
+    if (!model) {
+       writeVC = [DIYWriteDiaryViewController writeDiaryViewController];
+    }else{
+        writeVC = [DIYWriteDiaryViewController writeDiaryViewControllerWithModel:model];
+    }
     writeVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:writeVC animated:YES];
 }

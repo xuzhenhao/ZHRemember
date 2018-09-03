@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class ZHDiaryModel;
 
 /**
  写日记页面vm
@@ -27,17 +28,24 @@
 @property (nonatomic, copy)     NSString    *moodImageName;
 /** 信纸图片名称*/
 @property (nonatomic, copy)     NSString    *letterImageName;
+/** 日记图片*/
+@property (nonatomic, copy)     NSString    *diaryImageURL;
 /** 日记文本*/
 @property (nonatomic, copy)     NSString    *diaryText;
+@property (nonatomic, copy,readonly)     NSString    *diaryId;
 
 /** 保存日记*/
 @property (nonatomic, strong)   RACCommand     *saveDiaryCommand;
-
+/** 删除日记*/
+@property (nonatomic, strong)   RACCommand     *deleteCommand;
 
 /**
  默认配置
  */
 + (instancetype)defaultViewModel;
++ (instancetype)viewModelWithModel:(ZHDiaryModel *)model;
+
 - (void)updateTimeWithDateComponents:(NSDateComponents *)components;
+- (void)updateDiaryImage:(UIImage *)image;
 
 @end

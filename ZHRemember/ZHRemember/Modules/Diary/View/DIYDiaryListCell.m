@@ -12,6 +12,8 @@
 @interface DIYDiaryListCell()
 /**日记内容视图顶部间距*/
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *diaryViewTopLayout;
+@property (weak, nonatomic) IBOutlet UIView *timeView;
+
 /**顶部区域日记时间*/
 @property (weak, nonatomic) IBOutlet UILabel *headTimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *topLineView;
@@ -27,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *weekLabel;
 /**日记文本内容*/
 @property (weak, nonatomic) IBOutlet UILabel *diaryTextLabel;
+/**日记图片*/
+@property (weak, nonatomic) IBOutlet UIImageView *diaryPhotoImageView;
+
 /**显示小时*/
 @property (weak, nonatomic) IBOutlet UILabel *hourLabel;
 /**显示天气*/
@@ -53,12 +58,18 @@
 - (void)bindViewModel:(DIYDiaryListCellViewModel *)viewModel{
     //样式更新
     self.diaryViewTopLayout.constant = viewModel.isShowHeadTime ? DIYDiaryListCellHeadTimeViewHeight: 0;
+    self.timeView.hidden = viewModel.isShowHeadTime ? NO :YES;
     if (viewModel.isShowDayTime) {
         self.callenderBgView.hidden = NO;
         self.dayLabel.hidden = NO;
     }else{
         self.callenderBgView.hidden = YES;
         self.dayLabel.hidden = YES;
+    }
+    if (viewModel.diaryPhotoUrl.length > 0) {
+        self.diaryPhotoImageView.hidden = NO;
+    }else{
+        self.diaryPhotoImageView.hidden = YES;
     }
     
     //内容更新
@@ -67,6 +78,9 @@
     self.dayLabel.text = viewModel.dayDesc;
     self.weekLabel.text = viewModel.weekDesc;
     self.hourLabel.text = viewModel.hourDesc;
+    self.weatherImageView.image = [UIImage imageNamed:viewModel.weatherImageName];
+    self.moodImageView.image = [UIImage imageNamed:viewModel.moodImageName];
+    [self.diaryPhotoImageView sd_setImageWithURL:[NSURL URLWithString:viewModel.diaryPhotoUrl]];
 }
 
 @end

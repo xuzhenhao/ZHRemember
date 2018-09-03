@@ -12,6 +12,10 @@
 #import "DIYWriteDiaryViewModel.h"
 #import <PGDatePicker/PGDatePickManager.h>
 #import "DIYSelectMoodViewController.h"
+#import <TZImagePickerController/TZImagePickerController.h>
+#import <TZImagePreviewController/TZImagePreviewController.h>
+
+NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 
 @interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
 /**头部状态栏视图*/
@@ -27,6 +31,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *moodImageView;
 
+@property (weak, nonatomic) IBOutlet UIView *pictureView;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 
 /**日记内容容器view*/
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -38,6 +44,8 @@
 /**系统按钮*/
 /** 保存按钮*/
 @property (nonatomic, strong)   UIBarButtonItem     *saveItem;
+/** 删除按钮*/
+@property (nonatomic, strong)   UIBarButtonItem     *deleteItem;
 /** 键盘辅助工具条*/
 @property (nonatomic, strong)   UIToolbar     *toolBar;
 
@@ -47,7 +55,15 @@
 
 @implementation DIYWriteDiaryViewController
 + (instancetype)writeDiaryViewController{
-    return [self viewControllerWithStoryBoard:DIYModuleStoryBoardName];
+    DIYWriteDiaryViewController *vc = [self viewControllerWithStoryBoard:DIYModuleStoryBoardName];
+    vc.viewModel = [DIYWriteDiaryViewModel defaultViewModel];
+    return vc;
+}
++ (instancetype)writeDiaryViewControllerWithModel:(ZHDiaryModel *)model{
+    DIYWriteDiaryViewController *vc = [self viewControllerWithStoryBoard:DIYModuleStoryBoardName];
+    vc.viewModel = [DIYWriteDiaryViewModel viewModelWithModel:model];
+    
+    return vc;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -57,7 +73,7 @@
 #pragma mark - setupUI
 - (void)setupUI{
     self.title = @"写日记";
-    self.navigationItem.rightBarButtonItem = self.saveItem;
+    self.navigationItem.rightBarButtonItems = @[self.saveItem,self.deleteItem];
     [self setupStatusView];
     [self setupContentView];
     [self bindAction];
@@ -77,7 +93,7 @@
         @strongify(self)
         [self didClickSelectDateAction];
     }];
-    
+    //点击了心情天气选择
     UITapGestureRecognizer *moodTap = [[UITapGestureRecognizer alloc] init];
     [self.weatherMoodView addGestureRecognizer:moodTap];
     [[moodTap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
@@ -90,6 +106,17 @@
             self.viewModel.weathImageName = weatherName ?:self.viewModel.weathImageName;
             self.viewModel.moodImageName = moodName ?: self.viewModel.moodImageName;
         };
+    }];
+    //点击了照片选择
+    UITapGestureRecognizer *photoTap = [[UITapGestureRecognizer alloc] init];
+    [self.pictureView addGestureRecognizer:photoTap];
+    [[photoTap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @strongify(self)
+        if (self.viewModel.diaryImageURL) {
+            [self showPreViewImageActionSheet];
+        }else{
+            [self didClickSelectImageAction];
+        }
     }];
 }
 - (void)setupContentView{
@@ -105,6 +132,10 @@
     RAC(self,weekDescLabel.text) = RACObserve(self.viewModel, weekDesc);
     
     @weakify(self)
+    [[RACObserve(self.viewModel, diaryText) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.textView.text = x;
+    }];
     [[RACObserve(self.viewModel, weathImageName) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.weatherImageView.image = [UIImage imageNamed:x];
@@ -112,6 +143,11 @@
     [[RACObserve(self.viewModel, moodImageName) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.moodImageView.image = [UIImage imageNamed:x];
+    }];
+    [[RACObserve(self.viewModel, diaryImageURL) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+
+        [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:x] placeholderImage:[UIImage imageNamed:@"diary-photo-bg"]];
     }];
     
     [RACObserve(self.textView, text) subscribeNext:^(id  _Nullable x) {
@@ -125,11 +161,25 @@
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"保存成功" done:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:DIYDiaryChangedNotification object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             }];
             
         }else{
             [HBHUDManager showMessage:@"保存失败"];
+        }
+    }];
+    
+    [[self.viewModel.deleteCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        BOOL success = [x boolValue];
+        if (success) {
+            [HBHUDManager showMessage:@"已删除" done:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:DIYDiaryChangedNotification object:nil];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+        }else{
+            [HBHUDManager showMessage:@"删除失败,请稍后重试"];
         }
     }];
 }
@@ -151,7 +201,71 @@
     
     [self presentViewController:datePickManager animated:false completion:nil];
 }
-
+- (void)didClickSelectImageAction{
+    TZImagePickerController *imagePickVC = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+    imagePickVC.barItemTextColor = [UIColor zh_themeColor];
+    imagePickVC.showSelectBtn = NO;
+    imagePickVC.allowCrop = YES;
+    
+    CGFloat cropHeight = ZHScreenWidth ;
+    imagePickVC.cropRect = CGRectMake(0,(ZHScreenHeight - cropHeight)/2 ,ZHScreenWidth,cropHeight) ;
+    
+    @weakify(self)
+    [imagePickVC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
+        @strongify(self)
+        [self.viewModel updateDiaryImage:photos.lastObject];
+    }];
+    [self presentViewController:imagePickVC animated:YES completion:nil];
+    
+}
+- (void)didClickPreviewImageAction{
+    TZImagePickerController *imagePickVC = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:nil];
+    imagePickVC.barItemTextColor = [UIColor zh_themeColor];
+    imagePickVC.showSelectBtn = NO;
+    imagePickVC.allowCrop = YES;
+    
+    NSURL *preUrl = [NSURL URLWithString:self.viewModel.diaryImageURL];
+    TZImagePreviewController *preVC = [[TZImagePreviewController alloc] initWithPhotos:@[preUrl] currentIndex:0 tzImagePickerVc:imagePickVC];
+    [preVC setSetImageWithURLBlock:^(NSURL *URL, UIImageView *imageView, void (^completion)(void)) {
+        [imageView sd_setImageWithURL:URL];
+    }];
+    [self presentViewController:preVC animated:YES completion:nil];
+}
+/**弹窗提示查看还是编辑*/
+- (void)showPreViewImageActionSheet{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"更换图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self didClickSelectImageAction];
+    }];
+    UIAlertAction *previewAction = [UIAlertAction actionWithTitle:@"浏览图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self didClickPreviewImageAction];
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertVC addAction:editAction];
+    [alertVC addAction:previewAction];
+    [alertVC addAction:cancleAction];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+}
+- (void)showDeleteDiaryAlertView{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定要删除日记?" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *editAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self.viewModel.deleteCommand execute:nil];
+    }];
+    UIAlertAction *cancleAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertVC addAction:editAction];
+    [alertVC addAction:cancleAction];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+    
+}
 #pragma mark - getter
 - (YYTextView *)textView{
     if (_textView == nil) {
@@ -173,12 +287,6 @@
     }
     return _textView;
 }
-- (DIYWriteDiaryViewModel *)viewModel{
-    if (!_viewModel) {
-        _viewModel = [DIYWriteDiaryViewModel defaultViewModel];
-    }
-    return _viewModel;
-}
 - (BOOL)prefersHomeIndicatorAutoHidden{
     return YES;
 }
@@ -187,6 +295,12 @@
         _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     return _saveItem;
+}
+- (UIBarButtonItem *)deleteItem{
+    if (!_deleteItem) {
+        _deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(showDeleteDiaryAlertView)];
+    }
+    return _deleteItem;
 }
 - (UIToolbar *)toolBar{
     if (!_toolBar) {

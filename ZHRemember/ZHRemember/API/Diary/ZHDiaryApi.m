@@ -20,6 +20,11 @@ NSString *const DiaryClassTimeKey = @"create_time";
 NSString *const DiaryClassWeatherKey = @"weather_image";
 /**日记表，心情图片key*/
 NSString *const DiaryClassMoodKey = @"mood_image";
+/**日记表，墙纸图片key*/
+NSString *const DiaryClassWallPaperKey = @"paper_image";
+/**日记表，日记图片key*/
+NSString *const DiaryClassDiaryPhotoKey = @"diary_image";
+
 
 @implementation ZHDiaryApi
 
@@ -29,6 +34,13 @@ NSString *const DiaryClassMoodKey = @"mood_image";
     
     [self fillObject:diaryObj withDiary:diary];
     [diaryObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,nil);
+    }];
+}
++ (void)deleteDiaryWithId:(NSString *)diaryId
+                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+    AVObject *diaryObj = [AVObject objectWithClassName:DiaryClassName objectId:diaryId];
+    [diaryObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         doneHandler(succeeded,nil);
     }];
 }
@@ -61,5 +73,7 @@ NSString *const DiaryClassMoodKey = @"mood_image";
     [diaryObj setObject:diaryModel.unixTime forKey:DiaryClassTimeKey];
     [diaryObj setObject:diaryModel.weatherImageName forKey:DiaryClassWeatherKey];
     [diaryObj setObject:diaryModel.moodImageName forKey:DiaryClassMoodKey];
+    [diaryObj setObject:diaryModel.wallPaperName forKey:DiaryClassWallPaperKey];
+    [diaryObj setObject:diaryModel.diaryImageURL forKey:DiaryClassDiaryPhotoKey];
 }
 @end

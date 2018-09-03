@@ -23,7 +23,7 @@
 - (NSInteger)numOfRows{
     return self.diaryViewModels.count;
 }
-- (id)viewModelOfRow:(NSInteger)row section:(NSInteger)section{
+- (DIYDiaryListCellViewModel *)viewModelOfRow:(NSInteger)row section:(NSInteger)section{
     return self.diaryViewModels[row];
 }
 - (CGFloat)heightOfRow:(NSInteger)row section:(NSInteger)section{

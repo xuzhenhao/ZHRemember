@@ -25,6 +25,9 @@ CGFloat DIYDiaryListCellDiaryViewHeight = 75;
     viewModel.model = model;
     viewModel.diaryContent = model.diaryText;
     [viewModel formatTime:model.unixTime];
+    viewModel.diaryPhotoUrl = model.diaryImageURL;
+    viewModel.weatherImageName = model.weatherImageName;
+    viewModel.moodImageName = model.moodImageName;
     
     return viewModel;
 }
