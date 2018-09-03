@@ -264,16 +264,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bty-xq-cdZ" userLabel="statusView">
-                                        <rect key="frame" x="37.5" y="0.0" width="300" height="70"/>
+                                        <rect key="frame" x="72.5" y="0.0" width="230" height="70"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kog-W1-IyZ" userLabel="weathMoodView">
                                                 <rect key="frame" x="73" y="0.0" width="80" height="70"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weather-sun-big" translatesAutoresizingMaskIntoConstraints="NO" id="9sM-NI-05k">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary-weather0" translatesAutoresizingMaskIntoConstraints="NO" id="9sM-NI-05k">
                                                         <rect key="frame" x="3" y="0.0" width="74" height="38"/>
                                                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary-mood1" translatesAutoresizingMaskIntoConstraints="NO" id="KeY-Te-OxJ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary-mood0" translatesAutoresizingMaskIntoConstraints="NO" id="KeY-Te-OxJ">
                                                         <rect key="frame" x="8" y="45" width="25" height="25"/>
                                                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                                                     </imageView>
@@ -357,7 +357,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="bE2-UW-pdv" secondAttribute="trailing" id="set-gj-D79"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-nl-RgE" userLabel="recordView">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-nl-RgE" userLabel="recordView">
                                                 <rect key="frame" x="227" y="0.0" width="70" height="70"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary-sound-button" translatesAutoresizingMaskIntoConstraints="NO" id="XcU-8r-pG5">
@@ -381,7 +381,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Y8u-e1-CZo" secondAttribute="bottom" id="KyU-Kh-Z06"/>
                                             <constraint firstItem="HWP-nl-RgE" firstAttribute="top" secondItem="bty-xq-cdZ" secondAttribute="top" id="Mic-sO-dd0"/>
                                             <constraint firstAttribute="height" constant="70" id="OWo-J9-xJ1"/>
-                                            <constraint firstAttribute="width" constant="300" id="PTP-Cv-r54"/>
+                                            <constraint firstAttribute="width" constant="230" id="PTP-Cv-r54"/>
                                             <constraint firstItem="2Gq-WH-3lL" firstAttribute="top" secondItem="bty-xq-cdZ" secondAttribute="top" id="UEg-gi-mQb"/>
                                             <constraint firstItem="Y8u-e1-CZo" firstAttribute="leading" secondItem="kog-W1-IyZ" secondAttribute="trailing" constant="2" id="UOP-aI-yFi"/>
                                             <constraint firstItem="kog-W1-IyZ" firstAttribute="top" secondItem="bty-xq-cdZ" secondAttribute="top" id="eEx-fe-QCg"/>
@@ -436,8 +436,11 @@
                         <outlet property="hourDescLabel" destination="xWV-b8-ts2" id="uyX-tn-BoH"/>
                         <outlet property="letterImageView" destination="Yfh-om-YZR" id="Jxw-1Y-0VU"/>
                         <outlet property="monthDescLabel" destination="egn-Rh-Lgh" id="qU3-h4-3nB"/>
+                        <outlet property="moodImageView" destination="KeY-Te-OxJ" id="DWj-mS-NgN"/>
                         <outlet property="statusView" destination="bty-xq-cdZ" id="dvN-Xy-TLo"/>
                         <outlet property="timeView" destination="2Gq-WH-3lL" id="WC9-fy-tS8"/>
+                        <outlet property="weatherImageView" destination="9sM-NI-05k" id="sAC-c0-iZt"/>
+                        <outlet property="weatherMoodView" destination="kog-W1-IyZ" id="Ev6-e8-f5u"/>
                         <outlet property="weekDescLabel" destination="uR6-k4-A33" id="rdE-kf-bOf"/>
                     </connections>
                 </viewController>
@@ -445,15 +448,101 @@
             </objects>
             <point key="canvasLocation" x="197.59999999999999" y="127.28635682158921"/>
         </scene>
+        <!--Select Mood View Controller-->
+        <scene sceneID="uJn-ZV-5x5">
+            <objects>
+                <viewController storyboardIdentifier="DIYSelectMoodViewController" id="Wx2-FR-B99" customClass="DIYSelectMoodViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EDF-Yf-FFg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IXl-SQ-bLD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="E2Y-SI-E46">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DIYSelectMoodCell" id="Un9-L7-5g4" customClass="DIYSelectMoodCell">
+                                        <rect key="frame" x="12" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIY-lv-Pt3" userLabel="contentView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2T-Ac-8Kw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </view>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary-mood1" translatesAutoresizingMaskIntoConstraints="NO" id="9E2-yb-Lnn">
+                                                            <rect key="frame" x="12.5" y="12.5" width="25" height="25"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="X2T-Ac-8Kw" secondAttribute="trailing" id="8kg-7I-6cF"/>
+                                                        <constraint firstItem="9E2-yb-Lnn" firstAttribute="centerY" secondItem="SIY-lv-Pt3" secondAttribute="centerY" id="Cj7-b2-o1d"/>
+                                                        <constraint firstAttribute="bottom" secondItem="X2T-Ac-8Kw" secondAttribute="bottom" id="erH-hQ-Y26"/>
+                                                        <constraint firstItem="X2T-Ac-8Kw" firstAttribute="top" secondItem="SIY-lv-Pt3" secondAttribute="top" id="tf4-Je-0Pb"/>
+                                                        <constraint firstItem="X2T-Ac-8Kw" firstAttribute="leading" secondItem="SIY-lv-Pt3" secondAttribute="leading" id="wuc-nX-Vyi"/>
+                                                        <constraint firstItem="9E2-yb-Lnn" firstAttribute="centerX" secondItem="SIY-lv-Pt3" secondAttribute="centerX" id="yVb-mD-1iG"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SIY-lv-Pt3" secondAttribute="trailing" id="TbB-g3-SyX"/>
+                                            <constraint firstItem="SIY-lv-Pt3" firstAttribute="leading" secondItem="Un9-L7-5g4" secondAttribute="leading" id="ZiJ-AS-ssb"/>
+                                            <constraint firstAttribute="bottom" secondItem="SIY-lv-Pt3" secondAttribute="bottom" id="bUb-1A-3VR"/>
+                                            <constraint firstItem="SIY-lv-Pt3" firstAttribute="top" secondItem="Un9-L7-5g4" secondAttribute="top" id="w5p-F4-odB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="moodImageView" destination="9E2-yb-Lnn" id="cw7-Ch-xR3"/>
+                                            <outlet property="selectedView" destination="X2T-Ac-8Kw" id="8MK-WH-VPp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wx2-FR-B99" id="JrM-HH-HVl"/>
+                                    <outlet property="delegate" destination="Wx2-FR-B99" id="gH2-Mb-mDj"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yKg-Vl-ago" firstAttribute="trailing" secondItem="IXl-SQ-bLD" secondAttribute="trailing" id="6Hg-2w-QM3"/>
+                            <constraint firstItem="IXl-SQ-bLD" firstAttribute="leading" secondItem="yKg-Vl-ago" secondAttribute="leading" id="Uog-fO-wfs"/>
+                            <constraint firstItem="IXl-SQ-bLD" firstAttribute="top" secondItem="EDF-Yf-FFg" secondAttribute="top" id="aGy-qZ-fJq"/>
+                            <constraint firstAttribute="bottom" secondItem="IXl-SQ-bLD" secondAttribute="bottom" id="fNj-ah-RCU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yKg-Vl-ago"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="IXl-SQ-bLD" id="ef9-lh-kBP"/>
+                        <outlet property="flowLayout" destination="E2Y-SI-E46" id="Va4-GW-2nf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgA-UH-SmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1012" y="127.28635682158921"/>
+        </scene>
     </scenes>
     <resources>
         <image name="diary-foot-bg" width="320" height="50"/>
+        <image name="diary-mood0" width="25" height="25"/>
         <image name="diary-mood1" width="25" height="25"/>
         <image name="diary-paper-menu" width="44" height="44"/>
         <image name="diary-photo-bg" width="75" height="75"/>
         <image name="diary-sound-button" width="75" height="75"/>
+        <image name="diary-weather0" width="74" height="38"/>
         <image name="letter-paper0" width="320" height="504"/>
         <image name="weather-cloudy-big" width="74" height="38"/>
-        <image name="weather-sun-big" width="74" height="38"/>
     </resources>
 </document>

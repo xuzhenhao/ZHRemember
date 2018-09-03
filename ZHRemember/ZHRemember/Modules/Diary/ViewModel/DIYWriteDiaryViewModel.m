@@ -23,9 +23,9 @@
     //当前时间
     vm.date = [NSDate date];
     //默认晴天
-    vm.weathImageName = @"weather-sun-big";
+    vm.weathImageName = [NSString diary_weatherImageNameOfIndex:0];
     //默认微笑脸
-    vm.moodImageName = @"diary-mood1";
+    vm.moodImageName = [NSString diary_moodImageNameOfIndex:0];
     
     return vm;
 }

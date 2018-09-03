@@ -11,6 +11,7 @@
 #import <YYText/YYText.h>
 #import "DIYWriteDiaryViewModel.h"
 #import <PGDatePicker/PGDatePickManager.h>
+#import "DIYSelectMoodViewController.h"
 
 @interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
 /**头部状态栏视图*/
@@ -21,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *dayDescLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weekDescLabel;
 @property (weak, nonatomic) IBOutlet UILabel *hourDescLabel;
+/**天气心情视图*/
+@property (weak, nonatomic) IBOutlet UIView *weatherMoodView;
+@property (weak, nonatomic) IBOutlet UIImageView *weatherImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *moodImageView;
+
 
 /**日记内容容器view*/
 @property (weak, nonatomic) IBOutlet UIView *contentView;
@@ -71,6 +77,20 @@
         @strongify(self)
         [self didClickSelectDateAction];
     }];
+    
+    UITapGestureRecognizer *moodTap = [[UITapGestureRecognizer alloc] init];
+    [self.weatherMoodView addGestureRecognizer:moodTap];
+    [[moodTap rac_gestureSignal] subscribeNext:^(__kindof UIGestureRecognizer * _Nullable x) {
+        @strongify(self)
+        DIYSelectMoodViewController *selectVC = [DIYSelectMoodViewController viewController];
+        [self.navigationController pushViewController:selectVC animated:YES];
+        @weakify(self)
+        selectVC.selectMoodWeatherCallback = ^(NSString *moodName, NSString *weatherName, NSString *paperName) {
+            @strongify(self)
+            self.viewModel.weathImageName = weatherName ?:self.viewModel.weathImageName;
+            self.viewModel.moodImageName = moodName ?: self.viewModel.moodImageName;
+        };
+    }];
 }
 - (void)setupContentView{
     [self.contentView addSubview:self.textView];
@@ -85,6 +105,15 @@
     RAC(self,weekDescLabel.text) = RACObserve(self.viewModel, weekDesc);
     
     @weakify(self)
+    [[RACObserve(self.viewModel, weathImageName) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.weatherImageView.image = [UIImage imageNamed:x];
+    }];
+    [[RACObserve(self.viewModel, moodImageName) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.moodImageView.image = [UIImage imageNamed:x];
+    }];
+    
     [RACObserve(self.textView, text) subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.viewModel.diaryText = x;

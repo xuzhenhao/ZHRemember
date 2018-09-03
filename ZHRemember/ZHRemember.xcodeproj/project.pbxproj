@@ -52,6 +52,8 @@
 		E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */; };
 		E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D6212EA64400F4BDB9 /* LoginConfig.m */; };
 		E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */; };
+		E735FF8D213CCE2100B270E3 /* NSString+DiaryImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */; };
+		E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */; };
 		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
 		E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
 		E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
@@ -104,12 +106,14 @@
 		E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */; };
 		E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */; };
 		E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
+		E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */; };
 		E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHCache.m */; };
 		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
 		E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
 		E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */; };
 		E7E98C8E213911FB0070313D /* DIYDiaryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */; };
 		E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
+		E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +209,10 @@
 		E72705D6212EA64400F4BDB9 /* LoginConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginConfig.m; sourceTree = "<group>"; };
 		E72705D8212EB86200F4BDB9 /* LGRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRegisterViewModel.h; sourceTree = "<group>"; };
 		E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRegisterViewModel.m; sourceTree = "<group>"; };
+		E735FF8B213CCE2100B270E3 /* NSString+DiaryImageName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DiaryImageName.h"; sourceTree = "<group>"; };
+		E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DiaryImageName.m"; sourceTree = "<group>"; };
+		E735FF91213CD52E00B270E3 /* DIYSelectMoodViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodViewModel.h; sourceTree = "<group>"; };
+		E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodViewModel.m; sourceTree = "<group>"; };
 		E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventRemarkViewModel.h; sourceTree = "<group>"; };
 		E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkViewModel.m; sourceTree = "<group>"; };
 		E73667CB2124095B00BC7652 /* EvtEventApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventApi.h; sourceTree = "<group>"; };
@@ -309,6 +317,8 @@
 		E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailController.m; sourceTree = "<group>"; };
 		E7AC852E212C15C3006B92AA /* EvtEventDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventDetailViewModel.h; sourceTree = "<group>"; };
 		E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailViewModel.m; sourceTree = "<group>"; };
+		E7B20048213A989B00EAD1F5 /* DIYSelectMoodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodCell.h; sourceTree = "<group>"; };
+		E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodCell.m; sourceTree = "<group>"; };
 		E7B798AA21363DEA00348A7E /* ZHCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCache.h; sourceTree = "<group>"; };
 		E7B798AB21363DEA00348A7E /* ZHCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCache.m; sourceTree = "<group>"; };
 		E7B798AE21363E9B00348A7E /* ZHDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDBManager.h; sourceTree = "<group>"; };
@@ -321,6 +331,8 @@
 		E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListViewModel.m; sourceTree = "<group>"; };
 		E7E98C8F213912140070313D /* DIYDiaryListCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryListCellViewModel.h; sourceTree = "<group>"; };
 		E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListCellViewModel.m; sourceTree = "<group>"; };
+		E7E98C92213944E40070313D /* DIYSelectMoodViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodViewController.h; sourceTree = "<group>"; };
+		E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,6 +410,7 @@
 		E7044348210037A7000239C1 /* Categroy */ = {
 			isa = PBXGroup;
 			children = (
+				E735FF8A213CCDF900B270E3 /* String */,
 				E76B117C210032A50067E577 /* ModeuleCategory */,
 				E798B0F42127F74B00578F24 /* UITableView */,
 				E798B0E72125762500578F24 /* Date */,
@@ -632,6 +645,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E735FF8A213CCDF900B270E3 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				E735FF8B213CCE2100B270E3 /* NSString+DiaryImageName.h */,
+				E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		E73C65D621379EAE007D656A /* Diary */ = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +677,8 @@
 				E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */,
 				E7E98C8F213912140070313D /* DIYDiaryListCellViewModel.h */,
 				E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */,
+				E735FF91213CD52E00B270E3 /* DIYSelectMoodViewModel.h */,
+				E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -667,6 +691,8 @@
 				E73C65E02137BD29007D656A /* DIYDiaryListViewController.m */,
 				E73C65E22137C82F007D656A /* DIYWriteDiaryViewController.h */,
 				E73C65E32137C82F007D656A /* DIYWriteDiaryViewController.m */,
+				E7E98C92213944E40070313D /* DIYSelectMoodViewController.h */,
+				E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -676,6 +702,8 @@
 			children = (
 				E7E98C8921390FAE0070313D /* DIYDiaryListCell.h */,
 				E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */,
+				E7B20048213A989B00EAD1F5 /* DIYSelectMoodCell.h */,
+				E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1201,6 +1229,7 @@
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
 				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
+				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */,
@@ -1212,6 +1241,7 @@
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
+				E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
@@ -1246,6 +1276,7 @@
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
 				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
+				E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
@@ -1254,6 +1285,7 @@
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
 				E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */,
+				E735FF8D213CCE2100B270E3 /* NSString+DiaryImageName.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,
 				E700FDEF212A679800A9C330 /* MyViewController.m in Sources */,
 				E798B0D72125127C00578F24 /* EvtEventListViewModel.m in Sources */,

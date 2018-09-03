@@ -16,5 +16,6 @@
 #import "UITableViewCell+ZHViewModel.h"
 #import "NSDate+ZHDate.h"
 #import "UITableView+ZHRefresh.h"
+#import "NSString+DiaryImageName.h"
 
 #endif /* ZHCagegory_h */
