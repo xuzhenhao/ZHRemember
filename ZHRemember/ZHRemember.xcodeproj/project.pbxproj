@@ -99,6 +99,14 @@
 		E7837055213E1CFC00000F28 /* feedback_bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */; };
 		E7837056213E1CFC00000F28 /* LCUserFeedbackReply.m in Sources */ = {isa = PBXBuildFile; fileRef = E783703F213E1CFC00000F28 /* LCUserFeedbackReply.m */; };
 		E7837057213E1CFC00000F28 /* LCUserFeedbackReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837041213E1CFC00000F28 /* LCUserFeedbackReplyCell.m */; };
+		E7837062213E660000000F28 /* IAPDiamondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837061213E660000000F28 /* IAPDiamondViewController.m */; };
+		E7837064213E66B700000F28 /* IAPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7837063213E66B700000F28 /* IAPStoryboard.storyboard */; };
+		E7837067213E677800000F28 /* IAPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837066213E677800000F28 /* IAPConfig.m */; };
+		E783706A213E683000000F28 /* IAPTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837069213E683000000F28 /* IAPTarget.m */; };
+		E783706D213E68D000000F28 /* ZHMediator+ZHIAP.m in Sources */ = {isa = PBXBuildFile; fileRef = E783706C213E68D000000F28 /* ZHMediator+ZHIAP.m */; };
+		E7837070213E782D00000F28 /* IAPDiamondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E783706F213E782D00000F28 /* IAPDiamondCell.m */; };
+		E7837073213E788F00000F28 /* IAPDiamondViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837072213E788F00000F28 /* IAPDiamondViewModel.m */; };
+		E7837076213E798400000F28 /* IAPDiamondCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837075213E798400000F28 /* IAPDiamondCellViewModel.m */; };
 		E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF021339C1900C72EB4 /* MySettingCell.m */; };
 		E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF321339DE200C72EB4 /* MyViewModel.m */; };
 		E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */; };
@@ -314,6 +322,21 @@
 		E7837044213E1CFC00000F28 /* LCUserFeedbackThread_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackThread_Internal.h; sourceTree = "<group>"; };
 		E7837045213E1CFC00000F28 /* LCUserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackViewController.h; sourceTree = "<group>"; };
 		E7837047213E1CFC00000F28 /* LCUserFeedbackReply_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply_Internal.h; sourceTree = "<group>"; };
+		E7837060213E660000000F28 /* IAPDiamondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPDiamondViewController.h; sourceTree = "<group>"; };
+		E7837061213E660000000F28 /* IAPDiamondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPDiamondViewController.m; sourceTree = "<group>"; };
+		E7837063213E66B700000F28 /* IAPStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IAPStoryboard.storyboard; sourceTree = "<group>"; };
+		E7837065213E677800000F28 /* IAPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPConfig.h; sourceTree = "<group>"; };
+		E7837066213E677800000F28 /* IAPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPConfig.m; sourceTree = "<group>"; };
+		E7837068213E683000000F28 /* IAPTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPTarget.h; sourceTree = "<group>"; };
+		E7837069213E683000000F28 /* IAPTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPTarget.m; sourceTree = "<group>"; };
+		E783706B213E68D000000F28 /* ZHMediator+ZHIAP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZHMediator+ZHIAP.h"; sourceTree = "<group>"; };
+		E783706C213E68D000000F28 /* ZHMediator+ZHIAP.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+ZHIAP.m"; sourceTree = "<group>"; };
+		E783706E213E782D00000F28 /* IAPDiamondCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPDiamondCell.h; sourceTree = "<group>"; };
+		E783706F213E782D00000F28 /* IAPDiamondCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPDiamondCell.m; sourceTree = "<group>"; };
+		E7837071213E788F00000F28 /* IAPDiamondViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPDiamondViewModel.h; sourceTree = "<group>"; };
+		E7837072213E788F00000F28 /* IAPDiamondViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPDiamondViewModel.m; sourceTree = "<group>"; };
+		E7837074213E798400000F28 /* IAPDiamondCellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPDiamondCellViewModel.h; sourceTree = "<group>"; };
+		E7837075213E798400000F28 /* IAPDiamondCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPDiamondCellViewModel.m; sourceTree = "<group>"; };
 		E78FCDEF21339C1900C72EB4 /* MySettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySettingCell.h; sourceTree = "<group>"; };
 		E78FCDF021339C1900C72EB4 /* MySettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySettingCell.m; sourceTree = "<group>"; };
 		E78FCDF221339DE200C72EB4 /* MyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewModel.h; sourceTree = "<group>"; };
@@ -833,6 +856,7 @@
 		E76B117021002D8A0067E577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E783705C213E659600000F28 /* IAP */,
 				E73C65D621379EAE007D656A /* Diary */,
 				E72705CB212EA34900F4BDB9 /* Login */,
 				E700FDE9212A675400A9C330 /* My */,
@@ -891,6 +915,8 @@
 				E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */,
 				E73C65E82137CB97007D656A /* ZHMediator+ZHDiary.h */,
 				E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */,
+				E783706B213E68D000000F28 /* ZHMediator+ZHIAP.h */,
+				E783706C213E68D000000F28 /* ZHMediator+ZHIAP.m */,
 			);
 			path = ModeuleCategory;
 			sourceTree = "<group>";
@@ -968,6 +994,50 @@
 				E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */,
 			);
 			path = resources;
+			sourceTree = "<group>";
+		};
+		E783705C213E659600000F28 /* IAP */ = {
+			isa = PBXGroup;
+			children = (
+				E783705F213E65D100000F28 /* view */,
+				E783705E213E65CA00000F28 /* viewModel */,
+				E783705D213E65C300000F28 /* controller */,
+				E7837065213E677800000F28 /* IAPConfig.h */,
+				E7837066213E677800000F28 /* IAPConfig.m */,
+				E7837068213E683000000F28 /* IAPTarget.h */,
+				E7837069213E683000000F28 /* IAPTarget.m */,
+			);
+			path = IAP;
+			sourceTree = "<group>";
+		};
+		E783705D213E65C300000F28 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7837063213E66B700000F28 /* IAPStoryboard.storyboard */,
+				E7837060213E660000000F28 /* IAPDiamondViewController.h */,
+				E7837061213E660000000F28 /* IAPDiamondViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		E783705E213E65CA00000F28 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E7837071213E788F00000F28 /* IAPDiamondViewModel.h */,
+				E7837072213E788F00000F28 /* IAPDiamondViewModel.m */,
+				E7837074213E798400000F28 /* IAPDiamondCellViewModel.h */,
+				E7837075213E798400000F28 /* IAPDiamondCellViewModel.m */,
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		E783705F213E65D100000F28 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				E783706E213E782D00000F28 /* IAPDiamondCell.h */,
+				E783706F213E782D00000F28 /* IAPDiamondCell.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		E78FCDED21339BD700C72EB4 /* View */ = {
@@ -1182,6 +1252,7 @@
 			files = (
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
 				E7837054213E1CFC00000F28 /* feedback_add_image@2x.png in Resources */,
+				E7837064213E66B700000F28 /* IAPStoryboard.storyboard in Resources */,
 				E7837053213E1CFC00000F28 /* LeanCloudFeedback.strings in Resources */,
 				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
@@ -1300,11 +1371,13 @@
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
 				E783704C213E1CFC00000F28 /* LCUserFeedbackThread.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
+				E7837070213E782D00000F28 /* IAPDiamondCell.m in Sources */,
 				E7837057213E1CFC00000F28 /* LCUserFeedbackReplyCell.m in Sources */,
 				E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */,
 				E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */,
 				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
+				E783706D213E68D000000F28 /* ZHMediator+ZHIAP.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
 				E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */,
@@ -1332,6 +1405,7 @@
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */,
+				E7837076213E798400000F28 /* IAPDiamondCellViewModel.m in Sources */,
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
 				E704A408213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m in Sources */,
 				E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */,
@@ -1349,6 +1423,7 @@
 				E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */,
 				E704437C2100754C000239C1 /* UIView+EasyNavigationExt.m in Sources */,
 				E7044356210039F1000239C1 /* ZHMacro.m in Sources */,
+				E7837062213E660000000F28 /* IAPDiamondViewController.m in Sources */,
 				E798B0F72127F76000578F24 /* UITableView+ZHRefresh.m in Sources */,
 				E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
@@ -1379,13 +1454,16 @@
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
 				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
+				E783706A213E683000000F28 /* IAPTarget.m in Sources */,
 				E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
 				E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */,
+				E7837067213E677800000F28 /* IAPConfig.m in Sources */,
 				E783704D213E1CFC00000F28 /* LCUtils.m in Sources */,
 				E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */,
+				E7837073213E788F00000F28 /* IAPDiamondViewModel.m in Sources */,
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
 				E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */,

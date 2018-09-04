@@ -85,9 +85,17 @@
         case MySettingTypeFeedback:
             [self navigateToFeedback];
             break;
+        case MySettingTypeIAP:
+            [self navigateToIAP];
+            break;
         default:
             break;
     }
+}
+- (void)navigateToIAP{
+    UIViewController *diamondVC = [[ZHMediator sharedInstance] zh_diamondViewController];
+    diamondVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:diamondVC animated:YES];
 }
 - (void)navigateToFeedback{
     LCUserFeedbackAgent *agent = [LCUserFeedbackAgent sharedInstance];

@@ -28,7 +28,8 @@
 - (void)initSetup{
     NSString *userName = [AVUser currentUser].username;
     
-    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"帐户" subTitle:userName type:MySettingTypeAccount showIndicator:NO showBottomLine:NO];
+    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"帐户" subTitle:userName type:MySettingTypeAccount showIndicator:NO showBottomLine:YES];
+    MySettingViewModel *iapItem = [MySettingViewModel viewModelWithName:@"记忆结晶" subTitle:@"0" type:MySettingTypeIAP showIndicator:YES showBottomLine:NO];
     
     MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"标签管理" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];
     MySettingViewModel *colorItem = [MySettingViewModel viewModelWithName:@"主题色" subTitle:nil type:MySettingTypeThemeColor showIndicator:YES showBottomLine:YES];
@@ -39,7 +40,7 @@
     
     MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"退出登录" subTitle:@"" type:MySettingTypeLogout showIndicator:NO showBottomLine:NO];
     
-    NSArray *sectionOne = @[accountItem];
+    NSArray *sectionOne = @[accountItem,iapItem];
     NSArray *sectionTwo = @[tagItem,colorItem,tipItem];
     NSArray *sectionThree = @[feedbackItem];
     NSArray *sectionFor = @[logOutItem];
