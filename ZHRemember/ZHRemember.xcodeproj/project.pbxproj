@@ -83,6 +83,22 @@
 		E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
 		E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
 		E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
+		E7837048213E1CFC00000F28 /* LCUserFeedbackAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */; };
+		E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702D213E1CFC00000F28 /* LCHttpClient.m */; };
+		E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702F213E1CFC00000F28 /* LCUserFeedbackImageViewController.m */; };
+		E783704B213E1CFC00000F28 /* LCUserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837030213E1CFC00000F28 /* LCUserFeedbackViewController.m */; };
+		E783704C213E1CFC00000F28 /* LCUserFeedbackThread.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837031213E1CFC00000F28 /* LCUserFeedbackThread.m */; };
+		E783704D213E1CFC00000F28 /* LCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837032213E1CFC00000F28 /* LCUtils.m */; };
+		E783704E213E1CFC00000F28 /* feedback_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837034213E1CFC00000F28 /* feedback_warning@2x.png */; };
+		E783704F213E1CFC00000F28 /* feedback_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837035213E1CFC00000F28 /* feedback_back@2x.png */; };
+		E7837050213E1CFC00000F28 /* feedback_bg_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837036213E1CFC00000F28 /* feedback_bg_2@2x.png */; };
+		E7837051213E1CFC00000F28 /* feedback_btn_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837037213E1CFC00000F28 /* feedback_btn_new@2x.png */; };
+		E7837052213E1CFC00000F28 /* feedback_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837038213E1CFC00000F28 /* feedback_btn@2x.png */; };
+		E7837053213E1CFC00000F28 /* LeanCloudFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7837039213E1CFC00000F28 /* LeanCloudFeedback.strings */; };
+		E7837054213E1CFC00000F28 /* feedback_add_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E783703A213E1CFC00000F28 /* feedback_add_image@2x.png */; };
+		E7837055213E1CFC00000F28 /* feedback_bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */; };
+		E7837056213E1CFC00000F28 /* LCUserFeedbackReply.m in Sources */ = {isa = PBXBuildFile; fileRef = E783703F213E1CFC00000F28 /* LCUserFeedbackReply.m */; };
+		E7837057213E1CFC00000F28 /* LCUserFeedbackReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837041213E1CFC00000F28 /* LCUserFeedbackReplyCell.m */; };
 		E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF021339C1900C72EB4 /* MySettingCell.m */; };
 		E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF321339DE200C72EB4 /* MyViewModel.m */; };
 		E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */; };
@@ -271,6 +287,33 @@
 		E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHThirdPart.m"; sourceTree = "<group>"; };
 		E778D80A2101BDE500E9CEEB /* EvtEditEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventController.h; sourceTree = "<group>"; };
 		E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventController.m; sourceTree = "<group>"; };
+		E783702B213E1CFC00000F28 /* LCUserFeedbackReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply.h; sourceTree = "<group>"; };
+		E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackAgent.m; sourceTree = "<group>"; };
+		E783702D213E1CFC00000F28 /* LCHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHttpClient.m; sourceTree = "<group>"; };
+		E783702E213E1CFC00000F28 /* LCUserFeedbackReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReplyCell.h; sourceTree = "<group>"; };
+		E783702F213E1CFC00000F28 /* LCUserFeedbackImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackImageViewController.m; sourceTree = "<group>"; };
+		E7837030213E1CFC00000F28 /* LCUserFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackViewController.m; sourceTree = "<group>"; };
+		E7837031213E1CFC00000F28 /* LCUserFeedbackThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackThread.m; sourceTree = "<group>"; };
+		E7837032213E1CFC00000F28 /* LCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUtils.m; sourceTree = "<group>"; };
+		E7837034213E1CFC00000F28 /* feedback_warning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_warning@2x.png"; sourceTree = "<group>"; };
+		E7837035213E1CFC00000F28 /* feedback_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_back@2x.png"; sourceTree = "<group>"; };
+		E7837036213E1CFC00000F28 /* feedback_bg_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_bg_2@2x.png"; sourceTree = "<group>"; };
+		E7837037213E1CFC00000F28 /* feedback_btn_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_btn_new@2x.png"; sourceTree = "<group>"; };
+		E7837038213E1CFC00000F28 /* feedback_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_btn@2x.png"; sourceTree = "<group>"; };
+		E7837039213E1CFC00000F28 /* LeanCloudFeedback.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = LeanCloudFeedback.strings; sourceTree = "<group>"; };
+		E783703A213E1CFC00000F28 /* feedback_add_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_add_image@2x.png"; sourceTree = "<group>"; };
+		E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "feedback_bg_1@2x.png"; sourceTree = "<group>"; };
+		E783703C213E1CFC00000F28 /* LCHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHttpClient.h; sourceTree = "<group>"; };
+		E783703D213E1CFC00000F28 /* LeanCloudFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeanCloudFeedback.h; sourceTree = "<group>"; };
+		E783703E213E1CFC00000F28 /* LCUserFeedbackAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackAgent.h; sourceTree = "<group>"; };
+		E783703F213E1CFC00000F28 /* LCUserFeedbackReply.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackReply.m; sourceTree = "<group>"; };
+		E7837040213E1CFC00000F28 /* LCUserFeedbackImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackImageViewController.h; sourceTree = "<group>"; };
+		E7837041213E1CFC00000F28 /* LCUserFeedbackReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackReplyCell.m; sourceTree = "<group>"; };
+		E7837042213E1CFC00000F28 /* LCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUtils.h; sourceTree = "<group>"; };
+		E7837043213E1CFC00000F28 /* LCUserFeedbackThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackThread.h; sourceTree = "<group>"; };
+		E7837044213E1CFC00000F28 /* LCUserFeedbackThread_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackThread_Internal.h; sourceTree = "<group>"; };
+		E7837045213E1CFC00000F28 /* LCUserFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackViewController.h; sourceTree = "<group>"; };
+		E7837047213E1CFC00000F28 /* LCUserFeedbackReply_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply_Internal.h; sourceTree = "<group>"; };
 		E78FCDEF21339C1900C72EB4 /* MySettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySettingCell.h; sourceTree = "<group>"; };
 		E78FCDF021339C1900C72EB4 /* MySettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySettingCell.m; sourceTree = "<group>"; };
 		E78FCDF221339DE200C72EB4 /* MyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyViewModel.h; sourceTree = "<group>"; };
@@ -453,6 +496,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E783702A213E1CFC00000F28 /* LeanCloudFeedback */,
 				E7B798AD21363E6900348A7E /* ZHDBManager */,
 				E704A4022135216C00A4EAEF /* DZNEmptyDataSet */,
 				E704A3FE2134F25100A4EAEF /* HBHud */,
@@ -884,6 +928,48 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		E783702A213E1CFC00000F28 /* LeanCloudFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				E783703D213E1CFC00000F28 /* LeanCloudFeedback.h */,
+				E783703E213E1CFC00000F28 /* LCUserFeedbackAgent.h */,
+				E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */,
+				E7837045213E1CFC00000F28 /* LCUserFeedbackViewController.h */,
+				E7837030213E1CFC00000F28 /* LCUserFeedbackViewController.m */,
+				E783702B213E1CFC00000F28 /* LCUserFeedbackReply.h */,
+				E783703F213E1CFC00000F28 /* LCUserFeedbackReply.m */,
+				E783703C213E1CFC00000F28 /* LCHttpClient.h */,
+				E783702D213E1CFC00000F28 /* LCHttpClient.m */,
+				E783702E213E1CFC00000F28 /* LCUserFeedbackReplyCell.h */,
+				E7837041213E1CFC00000F28 /* LCUserFeedbackReplyCell.m */,
+				E7837040213E1CFC00000F28 /* LCUserFeedbackImageViewController.h */,
+				E783702F213E1CFC00000F28 /* LCUserFeedbackImageViewController.m */,
+				E7837043213E1CFC00000F28 /* LCUserFeedbackThread.h */,
+				E7837031213E1CFC00000F28 /* LCUserFeedbackThread.m */,
+				E7837042213E1CFC00000F28 /* LCUtils.h */,
+				E7837032213E1CFC00000F28 /* LCUtils.m */,
+				E7837047213E1CFC00000F28 /* LCUserFeedbackReply_Internal.h */,
+				E7837044213E1CFC00000F28 /* LCUserFeedbackThread_Internal.h */,
+				E7837033213E1CFC00000F28 /* resources */,
+			);
+			path = LeanCloudFeedback;
+			sourceTree = "<group>";
+		};
+		E7837033213E1CFC00000F28 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				E7837034213E1CFC00000F28 /* feedback_warning@2x.png */,
+				E7837035213E1CFC00000F28 /* feedback_back@2x.png */,
+				E7837036213E1CFC00000F28 /* feedback_bg_2@2x.png */,
+				E7837037213E1CFC00000F28 /* feedback_btn_new@2x.png */,
+				E7837038213E1CFC00000F28 /* feedback_btn@2x.png */,
+				E7837039213E1CFC00000F28 /* LeanCloudFeedback.strings */,
+				E783703A213E1CFC00000F28 /* feedback_add_image@2x.png */,
+				E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		E78FCDED21339BD700C72EB4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1095,11 +1181,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */,
+				E7837054213E1CFC00000F28 /* feedback_add_image@2x.png in Resources */,
+				E7837053213E1CFC00000F28 /* LeanCloudFeedback.strings in Resources */,
 				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
 				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
+				E7837051213E1CFC00000F28 /* feedback_btn_new@2x.png in Resources */,
+				E783704E213E1CFC00000F28 /* feedback_warning@2x.png in Resources */,
+				E7837052213E1CFC00000F28 /* feedback_btn@2x.png in Resources */,
+				E7837050213E1CFC00000F28 /* feedback_bg_2@2x.png in Resources */,
+				E7837055213E1CFC00000F28 /* feedback_bg_1@2x.png in Resources */,
+				E783704F213E1CFC00000F28 /* feedback_back@2x.png in Resources */,
 				E73C65DB21379EEC007D656A /* DiaryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1204,7 +1298,9 @@
 				E7E98C8E213911FB0070313D /* DIYDiaryListViewModel.m in Sources */,
 				E70443842100754C000239C1 /* UIViewController+EasyNavigationExt.m in Sources */,
 				E700FE01212A936500A9C330 /* EvtTagModel.m in Sources */,
+				E783704C213E1CFC00000F28 /* LCUserFeedbackThread.m in Sources */,
 				E7044395210078F3000239C1 /* EvtEventTarget.m in Sources */,
+				E7837057213E1CFC00000F28 /* LCUserFeedbackReplyCell.m in Sources */,
 				E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */,
 				E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */,
 				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
@@ -1225,6 +1321,7 @@
 				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
 				E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
+				E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
@@ -1238,12 +1335,14 @@
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
 				E704A408213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m in Sources */,
 				E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */,
+				E7837048213E1CFC00000F28 /* LCUserFeedbackAgent.m in Sources */,
 				E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */,
 				E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
 				E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */,
+				E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
@@ -1269,12 +1368,14 @@
 				E73C65F42138080C007D656A /* ZHDiaryApi.m in Sources */,
 				E704437D2100754C000239C1 /* EasyNavigationView+LeftButton.m in Sources */,
 				E798B0EA2125764600578F24 /* NSDate+ZHDate.m in Sources */,
+				E7837056213E1CFC00000F28 /* LCUserFeedbackReply.m in Sources */,
 				E76B115A21002AF60067E577 /* AppDelegate.m in Sources */,
 				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
 				E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
+				E783704B213E1CFC00000F28 /* LCUserFeedbackViewController.m in Sources */,
 				E798B0E121252A5B00578F24 /* UITableViewCell+ZHViewModel.m in Sources */,
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
 				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
@@ -1283,6 +1384,7 @@
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
 				E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */,
+				E783704D213E1CFC00000F28 /* LCUtils.m in Sources */,
 				E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */,
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
@@ -1437,7 +1539,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.remember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";
@@ -1458,7 +1563,10 @@
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/ZHRemember/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.remember;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";

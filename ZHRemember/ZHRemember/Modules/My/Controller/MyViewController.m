@@ -11,6 +11,7 @@
 #import "MyViewModel.h"
 #import "MySettingCell.h"
 #import "MyThemeColorViewController.h"
+#import "LCUserFeedbackAgent.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -89,7 +90,9 @@
     }
 }
 - (void)navigateToFeedback{
+    LCUserFeedbackAgent *agent = [LCUserFeedbackAgent sharedInstance];
     
+    [agent showConversations:self title:@"意见反馈" contact:nil];
 }
 - (void)navigateToThemeColorViewController{
     UIViewController *themeVC = [MyThemeColorViewController themeColorViewController];
