@@ -8,6 +8,7 @@
 
 #import "AppDelegate+ZHThirdPart.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
 #define AVOSCloudAppId @"OWMbwAs72wWfNRHS51jV5Tso-gzGzoHsz"
 #define AVOSCloudAppkey @"LeFEoxaulIkxlIQx37YvadqU"
@@ -18,5 +19,7 @@
     [AVOSCloud setApplicationId:AVOSCloudAppId clientKey:AVOSCloudAppkey];
     [AVOSCloud setAllLogsEnabled:NO];
 }
-
+- (void)zh_setupAdmobService{
+    [GADMobileAds configureWithApplicationID:AdMobId];
+}
 @end

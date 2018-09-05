@@ -12,11 +12,14 @@
 #import "MySettingCell.h"
 #import "MyThemeColorViewController.h"
 #import "LCUserFeedbackAgent.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,GADBannerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   MyViewModel     *viewModel;
+/** <#desc#>*/
+@property (nonatomic, strong)   GADBannerView     *bannerView;
 
 @end
 
@@ -32,6 +35,7 @@
 - (void)setupUI{
     self.title = @"设置";
     self.tableView.rowHeight = [self.viewModel itemHeight];
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 #pragma mark - UITableViewDataSource
@@ -122,6 +126,40 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+#pragma mark - adDelegate
+/// Tells the delegate an ad request loaded an ad.
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    self.tableView.tableHeaderView = self.bannerView;
+}
+
+/// Tells the delegate an ad request failed.
+- (void)adView:(GADBannerView *)adView
+didFailToReceiveAdWithError:(GADRequestError *)error {
+    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
+}
+
+/// Tells the delegate that a full-screen view will be presented in response
+/// to the user clicking on an ad.
+- (void)adViewWillPresentScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillPresentScreen");
+}
+
+/// Tells the delegate that the full-screen view will be dismissed.
+- (void)adViewWillDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewWillDismissScreen");
+}
+
+/// Tells the delegate that the full-screen view has been dismissed.
+- (void)adViewDidDismissScreen:(GADBannerView *)adView {
+    NSLog(@"adViewDidDismissScreen");
+}
+
+/// Tells the delegate that a user click will open another app (such as
+/// the App Store), backgrounding the current app.
+- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
+    NSLog(@"adViewWillLeaveApplication");
+}
 #pragma mark - getter
 - (MyViewModel *)viewModel{
     if (!_viewModel) {
@@ -129,5 +167,13 @@
     }
     return _viewModel;
 }
-
+- (GADBannerView *)bannerView{
+    if (!_bannerView) {
+        _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        _bannerView.adUnitID = AdMobBannerId;
+        self.bannerView.rootViewController = self;
+        self.bannerView.delegate = self;
+    }
+    return _bannerView;
+}
 @end

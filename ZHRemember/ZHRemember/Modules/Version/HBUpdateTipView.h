@@ -14,9 +14,9 @@
 @interface HBUpdateTipView : UIView
 
 /** 点击确定按钮后的回调事件*/
-@property (nonatomic, copy) void(^confirmAction)();
+@property (nonatomic, copy) void(^confirmAction)(void);
 /** 点击确定按钮后的回调事件*/
-@property (nonatomic, copy) void(^cancelAction)();
+@property (nonatomic, copy) void(^cancelAction)(void);
 
 /**
  弹出更新提示界面

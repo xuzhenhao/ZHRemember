@@ -15,4 +15,9 @@
  */
 - (void)zh_setupLeanCloudService;
 
+/**
+ 启动广告服务
+ */
+- (void)zh_setupAdmobService;
+
 @end

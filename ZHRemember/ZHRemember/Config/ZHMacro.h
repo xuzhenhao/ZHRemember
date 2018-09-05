@@ -22,6 +22,10 @@
 
 
 extern NSString *AppStoreLinkURL;
+extern NSString *AdMobId;
+extern NSString *AdMobBannerId;//横幅类型的广告id
+extern NSString *AdMobMovieId;//视频广告，解决项目用
+
 @interface ZHMacro : NSObject
 
 @end

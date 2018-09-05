@@ -22,5 +22,6 @@ pod 'mob_smssdk'
 pod 'MBProgressHUD'
 pod 'FMDB'
 pod 'YYText'
+pod 'Google-Mobile-Ads-SDK'
 
 end

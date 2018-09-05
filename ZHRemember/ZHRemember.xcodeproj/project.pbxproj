@@ -77,6 +77,8 @@
 		E7624BB5213F845200A57B47 /* UIView+ZHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB4213F845200A57B47 /* UIView+ZHLayout.m */; };
 		E7624BB8213F851400A57B47 /* UILabel+ZHSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB7213F851400A57B47 /* UILabel+ZHSpace.m */; };
 		E7624BBB213F857D00A57B47 /* HBUpdateTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBA213F857D00A57B47 /* HBUpdateTipView.m */; };
+		E7624BC0213FD83500A57B47 /* WSColorImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBF213FD83500A57B47 /* WSColorImageView.m */; };
+		E7624BC2213FD87D00A57B47 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = E7624BC1213FD87D00A57B47 /* palette.png */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
@@ -288,6 +290,9 @@
 		E7624BB7213F851400A57B47 /* UILabel+ZHSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+ZHSpace.m"; sourceTree = "<group>"; };
 		E7624BB9213F857D00A57B47 /* HBUpdateTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBUpdateTipView.h; sourceTree = "<group>"; };
 		E7624BBA213F857D00A57B47 /* HBUpdateTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBUpdateTipView.m; sourceTree = "<group>"; };
+		E7624BBE213FD83500A57B47 /* WSColorImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSColorImageView.h; sourceTree = "<group>"; };
+		E7624BBF213FD83500A57B47 /* WSColorImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSColorImageView.m; sourceTree = "<group>"; };
+		E7624BC1213FD87D00A57B47 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E7624BBD213FD7FA00A57B47 /* ColorSelectView */,
 				E783702A213E1CFC00000F28 /* LeanCloudFeedback */,
 				E7B798AD21363E6900348A7E /* ZHDBManager */,
 				E704A4022135216C00A4EAEF /* DZNEmptyDataSet */,
@@ -839,6 +845,16 @@
 				E7624BB7213F851400A57B47 /* UILabel+ZHSpace.m */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		E7624BBD213FD7FA00A57B47 /* ColorSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				E7624BC1213FD87D00A57B47 /* palette.png */,
+				E7624BBE213FD83500A57B47 /* WSColorImageView.h */,
+				E7624BBF213FD83500A57B47 /* WSColorImageView.m */,
+			);
+			path = ColorSelectView;
 			sourceTree = "<group>";
 		};
 		E76B114C21002AF60067E577 = {
@@ -1304,6 +1320,7 @@
 				E7837064213E66B700000F28 /* IAPStoryboard.storyboard in Resources */,
 				E7837053213E1CFC00000F28 /* LeanCloudFeedback.strings in Resources */,
 				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
+				E7624BC2213FD87D00A57B47 /* palette.png in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
 				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
@@ -1514,6 +1531,7 @@
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
 				E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */,
 				E7837067213E677800000F28 /* IAPConfig.m in Sources */,
+				E7624BC0213FD83500A57B47 /* WSColorImageView.m in Sources */,
 				E7624BAC213F757900A57B47 /* ZHVersionManager.m in Sources */,
 				E783704D213E1CFC00000F28 /* LCUtils.m in Sources */,
 				E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */,
