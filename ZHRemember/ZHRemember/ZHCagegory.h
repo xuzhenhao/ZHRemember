@@ -9,6 +9,8 @@
 #ifndef ZHCagegory_h
 #define ZHCagegory_h
 
+#import "UIView+ZHLayout.h"
+#import "UILabel+ZHSpace.h"
 #import "UIImage+ZHExt.h"
 #import "UIColor+ZHTheme.h"
 #import "UIViewController+ZHStoryBoard.h"

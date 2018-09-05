@@ -8,6 +8,8 @@
 
 #import "ZHMacro.h"
 
+NSString *AppStoreLinkURL = @"https://itunes.apple.com/cn/app/id1435122591?mt=8";
+
 @implementation ZHMacro
 
 @end

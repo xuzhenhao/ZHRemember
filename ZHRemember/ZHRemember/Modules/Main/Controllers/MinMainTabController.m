@@ -7,6 +7,8 @@
 //
 
 #import "MinMainTabController.h"
+#import "ZHVersionManager.h"
+#import "HBUpdateTipView.h"
 
 @interface MinMainTabController ()
 
@@ -22,7 +24,11 @@
     [super viewDidLoad];
     [self initialSetup];
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self checkVersionUpdate];
+}
 #pragma mark - UI
 - (void)initialSetup{
     
@@ -44,5 +50,17 @@
     self.viewControllers = @[eventsNC,diaryNC,settingNC];
 }
 
+#pragma mark - private method
+- (void)checkVersionUpdate{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[ZHVersionManager sharedManager] checkUpdateVersionWithDoneHandler:^(BOOL isNewVersion, NSString *versionDesc) {
+            if (isNewVersion) {
+                [HBUpdateTipView showWithTitle:@"升级提示" contents:versionDesc done:^{
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreLinkURL]];
+                }];
+            }
+        }];
+    });
+}
 
 @end
