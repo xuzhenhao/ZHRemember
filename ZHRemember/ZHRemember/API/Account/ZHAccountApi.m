@@ -8,6 +8,7 @@
 
 #import "ZHAccountApi.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "AVObject+ApiExt.h"
 
 @implementation ZHAccountApi
 
@@ -20,9 +21,30 @@
     user.mobilePhoneNumber = account;
     [user setObject:pwd forKey:@"token"];//重置密码时使用
     
+    __weak typeof(self)weakself = self;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         doneHandler(succeeded,nil);
+        if (succeeded) {
+            [weakself _updateUserExtsTableWithUserId:user.objectId userName:user.username];
+        }
     }];
+}
+
+/**
+ 更新用户扩展表
+
+ @param userId 用户id
+ */
++ (void)_updateUserExtsTableWithUserId:(NSString *)userId userName:(NSString *)userName{
+    AVObject *userExt = [AVObject objectWithClassName:UserExtClassName];
+    [userExt setObject:userId forKey:UserExtUserIdKey];
+    //昵称默认为手机号，可修改
+    [userExt setObject:userName forKey:UserExtNickNameKey];
+    //代币，默认0
+    [userExt setObject:@"0" forKey:UserExtMoneyKey];
+    [userExt setObject:@"" forKey:UserExtAvatarKey];
+    
+    [userExt saveInBackground];
 }
 + (void)LoginWithAccount:(NSString *)account
                 password:(NSString *)pwd
@@ -60,6 +82,18 @@
         }];
         
         
+    }];
+}
++ (void)getUserInfoWithDoneHandler:(void(^)(ZHUserModel *user,NSError *error))doneHandler{
+    AVQuery *query = [AVQuery queryWithClassName:UserExtClassName];
+    [query whereKey:UserExtUserIdKey equalTo:[AVUser currentUser].objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        AVObject *obj  =  objects.lastObject;
+        NSDictionary *dict = [obj zh_localData];
+        [dict setValue:obj.objectId forKey:AVObjectIdKey];
+        
+        ZHUserModel *user = [MTLJSONAdapter modelOfClass:[ZHUserModel class] fromJSONDictionary:dict error:&error];
+        doneHandler(user,error);
     }];
 }
 @end

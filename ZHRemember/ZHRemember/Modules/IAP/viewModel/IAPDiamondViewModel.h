@@ -17,7 +17,8 @@
 /**增加记忆结晶*/
 - (void)addDiamondWithNumber:(NSInteger)number;
 
-- (NSInteger)numberOfrows;
+- (NSInteger)numberOfSection;
+- (NSInteger)numberOfrowsInSection:(NSInteger)section;
 - (CGFloat)rowHeight;
 - (IAPDiamondCellViewModel *)viewModelOfIndexPath:(NSIndexPath *)path;
 

@@ -13,6 +13,6 @@
 
 - (void)bindViewModel:(IAPDiamondCellViewModel *)viewModel;
 
-@property (nonatomic, copy) void(^didClickBuyCallback)(NSString *goodsId);
+@property (nonatomic, copy) void(^didClickBuyCallback)(NSString *eventId);
 
 @end

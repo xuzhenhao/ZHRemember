@@ -15,7 +15,6 @@ typedef enum : NSUInteger {
     MySettingTypeDayTip,//每日提醒
     MySettingTypeRecommand,//推荐鼓励
     MySettingTypeFeedback,//意见反馈
-    MySettingTypeIAP,//记忆结晶(内购)
     MySettingTypeLogout,//登出
 } MySettingType;
 

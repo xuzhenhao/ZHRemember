@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const IAPEventBuySixRMB;//购买6元礼包
+extern NSString *const IAPEventBuyEighteenRMB;//购买18元礼包
+extern NSString *const IAPEventBuythirtyRMB;//购买30元礼包
+extern NSString *const IAPEventSign;//签到
+extern NSString *const IAPEventPublish;//发表日记
+extern NSString *const IAPEventWatchAds;//看广告
+
 @interface IAPDiamondCellViewModel : NSObject
 
 /** 商品标题*/
@@ -15,10 +22,10 @@
 /** 价格描述*/
 @property (nonatomic, copy,readonly)     NSString    *priceString;
 /** 商品id*/
-@property (nonatomic, copy,readonly)     NSString    *goodsId;
+@property (nonatomic, copy,readonly)     NSString    *eventId;
 
 + (instancetype)viewModelWithTitle:(NSString *)title
                              price:(NSString *)price
-                           goodsId:(NSString *)goodsId;
+                           eventId:(NSString *)eventId;
 
 @end

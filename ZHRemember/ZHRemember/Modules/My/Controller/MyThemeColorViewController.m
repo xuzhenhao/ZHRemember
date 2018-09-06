@@ -9,6 +9,7 @@
 #import "MyThemeColorViewController.h"
 #import "MyModuleHeader.h"
 #import "MyThemeColorEventCell.h"
+#import "MyCustomColorViewController.h"
 
 static CGFloat colorViewWidth = 50;
 
@@ -23,7 +24,8 @@ static CGFloat colorViewWidth = 50;
 @property (nonatomic, strong)   UIScrollView     *scrollView;
 /** 保存按钮*/
 @property (nonatomic, strong)   UIBarButtonItem     *saveItem;
-
+/** 自定义颜色按钮*/
+@property (nonatomic, strong)   UIButton     *customColorBtn;
 /** 可选择的颜色*/
 @property (nonatomic, strong)   NSArray<UIColor *>     *colors;
 
@@ -72,6 +74,11 @@ static CGFloat colorViewWidth = 50;
         [self.scrollView addSubview:view];
         xPos += (margin+colorViewWidth);
     }
+    //加上自定义颜色按钮
+    [self.scrollView addSubview:self.customColorBtn];
+    self.customColorBtn.ZH_x = xPos;
+    xPos += (margin+colorViewWidth);
+    
     self.scrollView.contentSize = CGSizeMake(xPos, colorViewWidth);
 }
 #pragma mark - acton
@@ -81,6 +88,11 @@ static CGFloat colorViewWidth = 50;
 - (void)didClickSaveItem:(UIBarButtonItem *)sender{
     [ZHCache cacheThemeColor:self.selectedColor];
     [HBHUDManager showMessage:@"保存成功，重启后生效哦~"];
+}
+- (void)didClickCustomColorButton:(UIButton *)sender{
+    MyCustomColorViewController *vc = [MyCustomColorViewController viewController];
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -126,17 +138,27 @@ static CGFloat colorViewWidth = 50;
     }
     return _saveItem;
 }
+- (UIButton *)customColorBtn{
+    if (!_customColorBtn) {
+        _customColorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _customColorBtn.frame = CGRectMake(0, 0, colorViewWidth, colorViewWidth);
+        [_customColorBtn setTitle:@"自定义" forState:UIControlStateNormal];
+        [_customColorBtn.titleLabel setFont:[UIFont systemFontOfSize:12]];
+        [_customColorBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_customColorBtn setBackgroundColor:[UIColor blackColor]];
+        _customColorBtn.layer.cornerRadius = colorViewWidth/ 2;
+        _customColorBtn.layer.masksToBounds = YES;
+        [_customColorBtn addTarget:self action:@selector(didClickCustomColorButton:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _customColorBtn;
+}
 - (NSArray<UIColor *> *)colors{
     if (!_colors) {
         _colors = @[
                     [UIColor zh_lightBlueColor],
-                    [UIColor zh_lightGrayColor],
-                    [UIColor zh_greenColor],
                     [UIColor zh_lightGreenColor],
                     [UIColor zh_pinkColor],
                     [UIColor zh_yellowColor],
-                    [UIColor blackColor],
-                    [UIColor blueColor],
                     [UIColor purpleColor],
                     ];
     }

@@ -79,6 +79,7 @@
 		E7624BBB213F857D00A57B47 /* HBUpdateTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBA213F857D00A57B47 /* HBUpdateTipView.m */; };
 		E7624BC0213FD83500A57B47 /* WSColorImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBF213FD83500A57B47 /* WSColorImageView.m */; };
 		E7624BC2213FD87D00A57B47 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = E7624BC1213FD87D00A57B47 /* palette.png */; };
+		E7624BC5213FE06500A57B47 /* MyCustomColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
@@ -141,6 +142,8 @@
 		E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHCache.m */; };
 		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
 		E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
+		E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A32140F81900C78D63 /* ZHUserModel.m */; };
+		E7E7B3A72141030800C78D63 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A62141030800C78D63 /* MainViewModel.m */; };
 		E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */; };
 		E7E98C8E213911FB0070313D /* DIYDiaryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */; };
 		E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
@@ -293,6 +296,8 @@
 		E7624BBE213FD83500A57B47 /* WSColorImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSColorImageView.h; sourceTree = "<group>"; };
 		E7624BBF213FD83500A57B47 /* WSColorImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSColorImageView.m; sourceTree = "<group>"; };
 		E7624BC1213FD87D00A57B47 /* palette.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palette.png; sourceTree = "<group>"; };
+		E7624BC3213FE06500A57B47 /* MyCustomColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCustomColorViewController.h; sourceTree = "<group>"; };
+		E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCustomColorViewController.m; sourceTree = "<group>"; };
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -411,6 +416,10 @@
 		E7B798AF21363E9B00348A7E /* ZHDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDBManager.m; sourceTree = "<group>"; };
 		E7B798B221364E9D00348A7E /* MyLogoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLogoutCell.h; sourceTree = "<group>"; };
 		E7B798B321364E9D00348A7E /* MyLogoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLogoutCell.m; sourceTree = "<group>"; };
+		E7E7B3A22140F81900C78D63 /* ZHUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHUserModel.h; sourceTree = "<group>"; };
+		E7E7B3A32140F81900C78D63 /* ZHUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHUserModel.m; sourceTree = "<group>"; };
+		E7E7B3A52141030800C78D63 /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
+		E7E7B3A62141030800C78D63 /* MainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewModel.m; sourceTree = "<group>"; };
 		E7E98C8921390FAE0070313D /* DIYDiaryListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryListCell.h; sourceTree = "<group>"; };
 		E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListCell.m; sourceTree = "<group>"; };
 		E7E98C8C213911FB0070313D /* DIYDiaryListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryListViewModel.h; sourceTree = "<group>"; };
@@ -471,6 +480,8 @@
 				E700FDEE212A679800A9C330 /* MyViewController.m */,
 				E7486652213546330032B948 /* MyThemeColorViewController.h */,
 				E7486653213546330032B948 /* MyThemeColorViewController.m */,
+				E7624BC3213FE06500A57B47 /* MyCustomColorViewController.h */,
+				E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -672,6 +683,7 @@
 		E70CFEED212FE26E004A6155 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				E7E7B3A12140F7EE00C78D63 /* models */,
 				E70CFEEE212FE2AA004A6155 /* ZHAccountApi.h */,
 				E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */,
 			);
@@ -962,6 +974,8 @@
 		E76B117A2100316B0067E577 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7E7B3A52141030800C78D63 /* MainViewModel.h */,
+				E7E7B3A62141030800C78D63 /* MainViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1254,6 +1268,15 @@
 			path = ZHDBManager;
 			sourceTree = "<group>";
 		};
+		E7E7B3A12140F7EE00C78D63 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				E7E7B3A22140F81900C78D63 /* ZHUserModel.h */,
+				E7E7B3A32140F81900C78D63 /* ZHUserModel.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1455,6 +1478,7 @@
 				E704A4012134F26200A4EAEF /* HBHUDManager.m in Sources */,
 				E70443792100754C000239C1 /* EasyNavigationOptions.m in Sources */,
 				E798B0DA2125223800578F24 /* EvtEventListCell.m in Sources */,
+				E7E7B3A72141030800C78D63 /* MainViewModel.m in Sources */,
 				E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */,
 				E78FCE002133F34100C72EB4 /* ZHMediator+ZHLogin.m in Sources */,
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
@@ -1463,6 +1487,7 @@
 				E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */,
+				E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
@@ -1472,6 +1497,7 @@
 				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E7624BBB213F857D00A57B47 /* HBUpdateTipView.m in Sources */,
+				E7624BC5213FE06500A57B47 /* MyCustomColorViewController.m in Sources */,
 				E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */,
 				E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */,
 				E7837076213E798400000F28 /* IAPDiamondCellViewModel.m in Sources */,

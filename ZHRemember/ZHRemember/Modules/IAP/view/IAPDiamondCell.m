@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *buyButton;
 /** 商品id*/
-@property (nonatomic, copy)     NSString    *goodsId;
+@property (nonatomic, copy)     NSString    *eventId;
 
 
 @end
@@ -34,7 +34,7 @@
 - (void)bindViewModel:(IAPDiamondCellViewModel *)viewModel{
     self.titleLabel.text = viewModel.titleString;
     [self.buyButton setTitle:viewModel.priceString forState:UIControlStateNormal];
-    self.goodsId = viewModel.goodsId;
+    self.eventId = viewModel.eventId;
 }
 - (IBAction)didClickBuyButton:(UIButton *)sender {
     sender.userInteractionEnabled = NO;
@@ -42,7 +42,7 @@
         sender.userInteractionEnabled = YES;
     });
     if (self.didClickBuyCallback) {
-        self.didClickBuyCallback(self.goodsId);
+        self.didClickBuyCallback(self.eventId);
     }
 }
 

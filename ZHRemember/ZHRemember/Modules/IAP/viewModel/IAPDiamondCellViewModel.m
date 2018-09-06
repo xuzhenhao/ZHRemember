@@ -8,13 +8,20 @@
 
 #import "IAPDiamondCellViewModel.h"
 
+NSString *const IAPEventBuySixRMB = @"IAPEventBuySixRMB";
+NSString *const IAPEventBuyEighteenRMB = @"IAPEventBuyEighteenRMB";
+NSString *const IAPEventBuythirtyRMB = @"IAPEventBuythirtyRMB";
+NSString *const IAPEventSign = @"IAPEventSign";
+NSString *const IAPEventPublish = @"IAPEventPublish";
+NSString *const IAPEventWatchAds = @"IAPEventWatchAds";
+
 @interface IAPDiamondCellViewModel()
 /** 商品标题*/
 @property (nonatomic, copy)     NSString    *titleString;
 /** 价格描述*/
 @property (nonatomic, copy)     NSString    *priceString;
 /** 商品id*/
-@property (nonatomic, copy)     NSString    *goodsId;
+@property (nonatomic, copy)     NSString    *eventId;
 
 @end
 
@@ -22,11 +29,11 @@
 
 + (instancetype)viewModelWithTitle:(NSString *)title
                              price:(NSString *)price
-                           goodsId:(NSString *)goodsId{
+                           eventId:(NSString *)eventId{
     IAPDiamondCellViewModel *viewModel = [IAPDiamondCellViewModel new];
     viewModel.titleString = title;
     viewModel.priceString = price;
-    viewModel.goodsId = goodsId;
+    viewModel.eventId = eventId;
     
     return viewModel;
 }

@@ -9,8 +9,11 @@
 #import "MinMainTabController.h"
 #import "ZHVersionManager.h"
 #import "HBUpdateTipView.h"
+#import "MainViewModel.h"
 
 @interface MinMainTabController ()
+
+@property (nonatomic, strong)   MainViewModel     *viewModel;
 
 @end
 
@@ -27,6 +30,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
+    [self.viewModel.syncUserCommand execute:nil];
     [self checkVersionUpdate];
 }
 #pragma mark - UI
@@ -61,6 +65,13 @@
             }
         }];
     });
+}
+#pragma mark- getter
+- (MainViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [MainViewModel new];
+    }
+    return _viewModel;
 }
 
 @end

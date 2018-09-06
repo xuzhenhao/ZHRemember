@@ -13,8 +13,9 @@
 #import "MyThemeColorViewController.h"
 #import "LCUserFeedbackAgent.h"
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import "ZHCache.h"
 
-@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,GADBannerViewDelegate>
+@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,GADRewardBasedVideoAdDelegate,GADBannerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   MyViewModel     *viewModel;
@@ -35,9 +36,19 @@
 - (void)setupUI{
     self.title = @"设置";
     self.tableView.rowHeight = [self.viewModel itemHeight];
-    [self.bannerView loadRequest:[GADRequest request]];
+    GADRequest *request = [GADRequest request];
+    request.testDevices = @[ @"d2d8d83c04a65e1143980cd07639b4fc" ];
+    [self.bannerView loadRequest:request];
+    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+//            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+//        }
+//    });
 }
-
+- (void)setupObserver{
+    
+}
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return [self.viewModel numberOfSections];
@@ -89,7 +100,7 @@
         case MySettingTypeFeedback:
             [self navigateToFeedback];
             break;
-        case MySettingTypeIAP:
+        case MySettingTypeAccount:
             [self navigateToIAP];
             break;
         default:
@@ -127,7 +138,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - adDelegate
+#pragma mark - banner adDelegate
 /// Tells the delegate an ad request loaded an ad.
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
     self.tableView.tableHeaderView = self.bannerView;
@@ -138,28 +149,16 @@
 didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
-
-/// Tells the delegate that a full-screen view will be presented in response
-/// to the user clicking on an ad.
-- (void)adViewWillPresentScreen:(GADBannerView *)adView {
-    NSLog(@"adViewWillPresentScreen");
+#pragma mark - video ad
+- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+   didRewardUserWithReward:(GADAdReward *)reward {
+    NSString *rewardMessage =
+    [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf",
+     reward.type,
+     [reward.amount doubleValue]];
 }
 
-/// Tells the delegate that the full-screen view will be dismissed.
-- (void)adViewWillDismissScreen:(GADBannerView *)adView {
-    NSLog(@"adViewWillDismissScreen");
-}
 
-/// Tells the delegate that the full-screen view has been dismissed.
-- (void)adViewDidDismissScreen:(GADBannerView *)adView {
-    NSLog(@"adViewDidDismissScreen");
-}
-
-/// Tells the delegate that a user click will open another app (such as
-/// the App Store), backgrounding the current app.
-- (void)adViewWillLeaveApplication:(GADBannerView *)adView {
-    NSLog(@"adViewWillLeaveApplication");
-}
 #pragma mark - getter
 - (MyViewModel *)viewModel{
     if (!_viewModel) {
@@ -171,6 +170,7 @@ didFailToReceiveAdWithError:(GADRequestError *)error {
     if (!_bannerView) {
         _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
         _bannerView.adUnitID = AdMobBannerId;
+        
         self.bannerView.rootViewController = self;
         self.bannerView.delegate = self;
     }

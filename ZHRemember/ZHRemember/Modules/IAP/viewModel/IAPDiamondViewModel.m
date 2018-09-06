@@ -10,6 +10,7 @@
 
 @interface IAPDiamondViewModel()
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *viewModels;
+@property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *freeViewModels;
 /** <#desc#>*/
 @property (nonatomic, assign)   NSInteger      diamondNum;
 
@@ -27,27 +28,47 @@
 - (void)initConfig{
     self.diamondNum = 0;
     
-    IAPDiamondCellViewModel *sixYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"180(120送60)" price:@"¥ 6" goodsId:@"xzh.remember6"];
-    IAPDiamondCellViewModel *eightYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"540(360送180)" price:@"¥ 18" goodsId:@"xzh.remember18"];
-    IAPDiamondCellViewModel *threeYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"900(600送300)" price:@"¥ 30" goodsId:@"xzh.remember30"];
+    IAPDiamondCellViewModel *sixYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"120记忆结晶" price:@"¥ 6" eventId:IAPEventBuySixRMB];
+    IAPDiamondCellViewModel *eightYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"540记忆结晶" price:@"¥ 18" eventId:IAPEventBuyEighteenRMB];
+    IAPDiamondCellViewModel *threeYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"900记忆结晶" price:@"¥ 30" eventId:IAPEventBuythirtyRMB];
     self.viewModels = @[sixYuanModel,eightYuanModel,threeYuanModel];
+    
+    IAPDiamondCellViewModel *signModel = [IAPDiamondCellViewModel viewModelWithTitle:@"签到(每日+2)" price:@"签到" eventId:IAPEventSign];
+    IAPDiamondCellViewModel *publishModel = [IAPDiamondCellViewModel viewModelWithTitle:@"发表日记(每日+5)" price:@"前往" eventId:IAPEventPublish];
+    IAPDiamondCellViewModel *adModel = [IAPDiamondCellViewModel viewModelWithTitle:@"看广告(每次+5)" price:@"前往" eventId:IAPEventWatchAds];
+    self.freeViewModels = @[signModel,publishModel,adModel];
 }
 
 - (void)addDiamondWithNumber:(NSInteger)number{
     self.diamondNum += number;
     self.diamondString = [NSString stringWithFormat:@"%zd",self.diamondNum];
 }
-- (NSInteger)numberOfrows{
-    return self.viewModels.count;
+- (NSInteger)numberOfSection{
+    return 2;
+}
+- (NSInteger)numberOfrowsInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return self.viewModels.count;
+            break;
+        case 1:
+            return self.freeViewModels.count;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 - (CGFloat)rowHeight{
     return 90;
 }
 - (IAPDiamondCellViewModel *)viewModelOfIndexPath:(NSIndexPath *)path{
-    if (path.row >= self.viewModels.count) {
-        return nil;
+    
+    if (path.section == 0) {
+        return self.viewModels[path.row];
     }
-    return self.viewModels[path.row];
+    return self.freeViewModels[path.row];
+    
 }
 
 #pragma mark - getter

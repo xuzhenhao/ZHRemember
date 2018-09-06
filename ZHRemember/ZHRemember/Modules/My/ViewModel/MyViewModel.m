@@ -21,17 +21,23 @@
     self = [super init];
     if (self) {
         [self initSetup];
+        [self _setupObserver];
     }
     return self;
 }
-
+- (void)_setupObserver{
+    @weakify(self)
+    [[RACObserve([ZHCache sharedInstance], currentUser.money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.refreshSubject sendNext:nil];
+    }];
+}
 - (void)initSetup{
-    NSString *userName = [AVUser currentUser].username;
+    NSString *money = [ZHCache sharedInstance].currentUser.money;
     
-    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"帐户" subTitle:userName type:MySettingTypeAccount showIndicator:NO showBottomLine:YES];
-    MySettingViewModel *iapItem = [MySettingViewModel viewModelWithName:@"记忆结晶" subTitle:@"0" type:MySettingTypeIAP showIndicator:YES showBottomLine:NO];
-    
-    MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"标签管理" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];
+    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:NO];
+
+    MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"事件标签" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];
     MySettingViewModel *colorItem = [MySettingViewModel viewModelWithName:@"主题色" subTitle:nil type:MySettingTypeThemeColor showIndicator:YES showBottomLine:YES];
     MySettingViewModel *tipItem = [MySettingViewModel viewModelWithName:@"每日提醒" subTitle:nil type:MySettingTypeDayTip showIndicator:YES showBottomLine:NO];
     
@@ -40,7 +46,7 @@
     
     MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"退出登录" subTitle:@"" type:MySettingTypeLogout showIndicator:NO showBottomLine:NO];
     
-    NSArray *sectionOne = @[accountItem,iapItem];
+    NSArray *sectionOne = @[accountItem];
     NSArray *sectionTwo = @[tagItem,colorItem,tipItem];
     NSArray *sectionThree = @[feedbackItem];
     NSArray *sectionFor = @[logOutItem];
@@ -68,6 +74,13 @@
 #pragma mark - public method
 - (void)logout{
     [AVUser logOut];
+}
+#pragma mark - getter
+- (RACSubject *)refreshSubject{
+    if (!_refreshSubject) {
+        _refreshSubject = [RACSubject new];
+    }
+    return _refreshSubject;
 }
 
 @end

@@ -32,7 +32,7 @@
     [self bindAction];
 }
 - (void)setupUI{
-    self.title = @"记忆结晶";
+    self.title = @"我的账户";
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 }
 - (void)bindAction{
@@ -45,8 +45,11 @@
     }];
 }
 #pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [self.viewModel numberOfSection];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.viewModel numberOfrows];
+    return [self.viewModel numberOfrowsInSection:section];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     IAPDiamondCell *cell = [tableView dequeueReusableCellWithIdentifier:[IAPDiamondCell reuseIdentify] forIndexPath:indexPath];
@@ -54,29 +57,41 @@
     [cell bindViewModel:viewModel];
     
     __weak typeof(self)weakself = self;
-    cell.didClickBuyCallback = ^(NSString *goodsId) {
-        [weakself processBuyActionWithGoodsId:goodsId];
+    cell.didClickBuyCallback = ^(NSString *eventId) {
+        [weakself processBuyActionWithEventId:eventId];
     };
     
     return cell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    return [UIView new];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 100, 20)];
+    [view addSubview:titleLabel];
+    titleLabel.text = section == 0 ? @"充值" : @"免费获取";
+    return view;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 80;
+    return 40;
 }
+
 #pragma mark - action
-- (void)processBuyActionWithGoodsId:(NSString *)goodsId{
-    //如果app允许applepay
-    if ([SKPaymentQueue canMakePayments]) {
-        // 请求苹果后台商品
-        [self getRequestAppleProductWithGoodsId:goodsId];
-    }
-    else
-    {
-        [HBHUDManager showMessage:@"您的程序没有打开付费购买"];
+- (void)processBuyActionWithEventId:(NSString *)eventId{
+    if ([eventId isEqualToString:IAPEventWatchAds]) {
+        //看广告
+    }else if ([eventId isEqualToString:IAPEventPublish]){
+        //写日记
+    }else if([eventId isEqualToString:IAPEventSign]){
+        //签到
+    }else{
+        if ([SKPaymentQueue canMakePayments]) {
+            // 请求苹果后台商品
+            [self getRequestAppleProductWithGoodsId:eventId];
+        }
+        else
+        {
+            [HBHUDManager showMessage:@"您的程序没有打开付费购买"];
+        }
     }
 }
 #pragma mark - request

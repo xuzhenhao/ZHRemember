@@ -24,4 +24,7 @@
 #pragma mark - public method
 - (void)logout;
 
+/** 需要刷新回调*/
+@property (nonatomic, strong)   RACSubject     *refreshSubject;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZHUserModel.h"
 
 @interface ZHAccountApi : NSObject
 
@@ -32,8 +33,20 @@
                    password:(NSString *)pwd
                        done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
 
+/**
+ 重置密码
+
+ @param mobile 手机号
+ @param pwd 新密码
+ @param doneHandler 完成回调
+ */
 + (void)ResetPwdWithMobile:(NSString *)mobile
                 password:(NSString *)pwd
                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+
+/**
+ 获取当前用户的用户信息
+ */
++ (void)getUserInfoWithDoneHandler:(void(^)(ZHUserModel *user,NSError *error))doneHandler;
 
 @end
