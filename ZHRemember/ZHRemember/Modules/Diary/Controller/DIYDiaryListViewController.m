@@ -12,7 +12,7 @@
 #import "DIYDiaryListViewModel.h"
 #import "DIYDiaryListCell.h"
 
-@interface DIYDiaryListViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface DIYDiaryListViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -51,6 +51,7 @@
     [[self.viewModel.requestCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         [self.tableView.mj_header endRefreshing];
+        self.tableView.emptyDataSetSource = self;
         [self.tableView reloadData];
     }];
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:DIYDiaryChangedNotification object:nil] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
@@ -93,7 +94,14 @@
     writeVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:writeVC animated:YES];
 }
+#pragma mark - DZNEmptyDataSetSource
 
+- (nullable NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
+    return [[NSAttributedString alloc] initWithString:@""];
+}
+- (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
+    return [[NSAttributedString alloc] initWithString:@"即刻留住每一份好时光"];
+}
 #pragma mark - getter
 - (UIButton *)writeDiaryButton{
     if (_writeDiaryButton == nil) {

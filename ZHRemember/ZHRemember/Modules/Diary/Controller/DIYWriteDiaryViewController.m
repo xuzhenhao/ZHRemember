@@ -14,6 +14,7 @@
 #import "DIYSelectMoodViewController.h"
 #import <TZImagePickerController/TZImagePickerController.h>
 #import <TZImagePreviewController/TZImagePreviewController.h>
+#import "DIYSelectWallPaperViewController.h"
 
 NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 
@@ -149,6 +150,12 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 
         [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:x] placeholderImage:[UIImage imageNamed:@"diary-photo-bg"]];
     }];
+    [[[RACObserve(self.viewModel, letterImageName) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
+        return value;
+    }] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.letterImageView.image = [UIImage imageNamed:x];
+    }];
     
     [RACObserve(self.textView, text) subscribeNext:^(id  _Nullable x) {
         @strongify(self)
@@ -266,6 +273,17 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     [self presentViewController:alertVC animated:YES completion:nil];
     
 }
+
+- (IBAction)didClickSelectLetter:(UIButton *)sender {
+    DIYSelectWallPaperViewController *paperVc = [DIYSelectWallPaperViewController paperViewController];
+    [self.navigationController pushViewController:paperVc animated:YES];
+    
+    __weak typeof(self)weakself = self;
+    paperVc.selectPaperCallback = ^(NSString *imageName) {
+        weakself.viewModel.letterImageName = imageName;
+    };
+}
+
 #pragma mark - getter
 - (YYTextView *)textView{
     if (_textView == nil) {
