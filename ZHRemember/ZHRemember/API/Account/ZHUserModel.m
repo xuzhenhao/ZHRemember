@@ -23,6 +23,7 @@ NSString *const UserExtSignKey = @"sign_time";
 NSString *const UserExtPublishKey = @"publish_time";
 /**用户购买了去广告服务键名*/
 NSString *const UserExtDisableAdsKey = @"ad_disable";
+NSString *const UserExtCustomColorKey = @"color_enable";
 
 @implementation ZHUserModel
 
@@ -36,6 +37,7 @@ NSString *const UserExtDisableAdsKey = @"ad_disable";
              @"signTime":UserExtSignKey,
              @"publishTime":UserExtPublishKey,
              @"isDisableAd":UserExtDisableAdsKey,
+             @"isEnableCustomColor":UserExtCustomColorKey,
              };
 }
 + (NSValueTransformer *)objectIdJSONTransformer{
@@ -74,6 +76,14 @@ NSString *const UserExtDisableAdsKey = @"ad_disable";
     }];
 }
 + (NSValueTransformer *)isDisableAdJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isEnableCustomColorJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         if ([value isEqualToString:@"1"]) {
             return @(YES);

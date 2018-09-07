@@ -10,6 +10,7 @@
 #import "MyModuleHeader.h"
 #import "MyThemeColorEventCell.h"
 #import "MyCustomColorViewController.h"
+#import "MyThemeColorViewModel.h"
 
 static CGFloat colorViewWidth = 50;
 
@@ -29,6 +30,7 @@ static CGFloat colorViewWidth = 50;
 /** 可选择的颜色*/
 @property (nonatomic, strong)   NSArray<UIColor *>     *colors;
 
+@property (nonatomic, strong)   MyThemeColorViewModel     *viewModel;
 
 @end
 
@@ -56,6 +58,16 @@ static CGFloat colorViewWidth = 50;
         self.addEventButton.backgroundColor = self.selectedColor;
         self.addEventButton.layer.shadowColor = self.selectedColor.CGColor;
         self.saveItem.enabled = YES;
+    }];
+    [[self.viewModel.unlockCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        BOOL success = [x boolValue];
+        if (success) {
+            [HBHUDManager showMessage:@"已解锁"];
+            [ZHCache sharedInstance].currentUser.isEnableCustomColor = YES;
+        }else{
+            [HBHUDManager showMessage:@"网络出错，请稍后重试"];
+        }
     }];
 }
 - (void)setupScrollView{
@@ -90,9 +102,41 @@ static CGFloat colorViewWidth = 50;
     [HBHUDManager showMessage:@"保存成功，重启后生效哦~"];
 }
 - (void)didClickCustomColorButton:(UIButton *)sender{
+    BOOL isEnable = [ZHCache sharedInstance].currentUser.isEnableCustomColor;
+    if (!isEnable) {
+        [self alertBuyItemTipView];
+        return;
+    }
+    
     MyCustomColorViewController *vc = [MyCustomColorViewController viewController];
+    __weak typeof(self)weakself = self;
+    vc.selectColorCallback = ^(UIColor *color) {
+        weakself.selectedColor = color;
+    };
     [self.navigationController pushViewController:vc animated:YES];
     
+}
+- (void)alertBuyItemTipView{
+    NSString *msg = [NSString stringWithFormat:@"%zd记忆水晶即可解锁调色盘，自由定制主题色哦~",IAPCustomColorPrice];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:msg
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+        
+        if (currentMoney < IAPCustomColorPrice) {
+            [HBHUDManager showMessage:@"结晶不够哦,可前往账户获取免费结晶"];
+            return;
+        }
+        
+        NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPCustomColorPrice)];
+        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [self.viewModel.unlockCommand execute:updateMoney];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -105,6 +149,12 @@ static CGFloat colorViewWidth = 50;
 }
 
 #pragma mark - getter
+- (MyThemeColorViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [MyThemeColorViewModel new];
+    }
+    return _viewModel;
+}
 - (UIButton *)addEventButton{
     if (_addEventButton == nil) {
         _addEventButton = [UIButton buttonWithType:UIButtonTypeCustom];

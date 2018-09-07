@@ -25,6 +25,8 @@ extern NSString *const UserExtSignKey;
 extern NSString *const UserExtPublishKey;
 /**用户购买了去广告服务键名*/
 extern NSString *const UserExtDisableAdsKey;
+/**用户购买了自定义主题色键名*/
+extern NSString *const UserExtCustomColorKey;
 
 @interface ZHUserModel : MTLModel<MTLJSONSerializing>
 /** 对象id*/
@@ -43,5 +45,7 @@ extern NSString *const UserExtDisableAdsKey;
 @property (nonatomic, copy)     NSString    *publishTime;
 /** 是否去广告*/
 @property (nonatomic, assign)   BOOL      isDisableAd;
+/** 是否解锁自定义主题色*/
+@property (nonatomic, assign)   BOOL      isEnableCustomColor;
 
 @end

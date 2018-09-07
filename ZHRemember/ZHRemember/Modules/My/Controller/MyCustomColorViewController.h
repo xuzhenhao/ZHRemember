@@ -15,4 +15,6 @@
 
 + (instancetype)viewController;
 
+@property (nonatomic, copy) void(^selectColorCallback)(UIColor *color);
+
 @end

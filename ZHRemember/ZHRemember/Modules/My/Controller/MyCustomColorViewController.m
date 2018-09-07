@@ -14,6 +14,9 @@
 @property (nonatomic, strong)   WSColorImageView     *colorView;
 
 @property (nonatomic, strong)   UIView     *resultView;
+@property (nonatomic, strong)   UIBarButtonItem     *saveItem;
+/** 选择的颜色*/
+@property (nonatomic, strong)   UIColor     *selectedColor;
 
 @end
 
@@ -28,15 +31,23 @@
 }
 - (void)setupUI{
     self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = self.saveItem;
+    
     [self.view addSubview:self.colorView];
     __weak typeof(self)weakself = self;
     self.colorView.currentColorBlock = ^(UIColor *color, NSString *rgbStr) {
         weakself.resultView.backgroundColor = color;
+        weakself.selectedColor = color;
     };
     [self.view addSubview:self.resultView];
     self.resultView.ZH_y = self.colorView.ZH_bottom + 20;
 }
-
+- (void)didClickSaveItem:(UIBarButtonItem *)sender{
+    if (self.selectColorCallback) {
+        self.selectColorCallback(self.selectedColor);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark - getter
 - (WSColorImageView *)colorView{
     if (!_colorView) {
@@ -53,5 +64,10 @@
     }
     return _resultView;
 }
-
+- (UIBarButtonItem *)saveItem{
+    if (!_saveItem) {
+        _saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(didClickSaveItem:)];
+    }
+    return _saveItem;
+}
 @end

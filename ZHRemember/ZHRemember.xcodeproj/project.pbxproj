@@ -72,6 +72,7 @@
 		E73C65F821380872007D656A /* ZHDiaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F721380872007D656A /* ZHDiaryModel.m */; };
 		E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
 		E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
+		E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F87FE2142691E00F04C19 /* MyThemeColorViewModel.m */; };
 		E7624BAC213F757900A57B47 /* ZHVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BAB213F757900A57B47 /* ZHVersionManager.m */; };
 		E7624BB1213F77EB00A57B47 /* ZHVersionApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB0213F77EB00A57B47 /* ZHVersionApi.m */; };
 		E7624BB5213F845200A57B47 /* UIView+ZHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB4213F845200A57B47 /* UIView+ZHLayout.m */; };
@@ -283,6 +284,8 @@
 		E7486653213546330032B948 /* MyThemeColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewController.m; sourceTree = "<group>"; };
 		E7486655213548F00032B948 /* MyThemeColorEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorEventCell.h; sourceTree = "<group>"; };
 		E7486656213548F00032B948 /* MyThemeColorEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorEventCell.m; sourceTree = "<group>"; };
+		E74F87FD2142691E00F04C19 /* MyThemeColorViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorViewModel.h; sourceTree = "<group>"; };
+		E74F87FE2142691E00F04C19 /* MyThemeColorViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewModel.m; sourceTree = "<group>"; };
 		E7624BAA213F757900A57B47 /* ZHVersionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHVersionManager.h; sourceTree = "<group>"; };
 		E7624BAB213F757900A57B47 /* ZHVersionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHVersionManager.m; sourceTree = "<group>"; };
 		E7624BAF213F77EB00A57B47 /* ZHVersionApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHVersionApi.h; sourceTree = "<group>"; };
@@ -1139,6 +1142,8 @@
 				E78FCDF321339DE200C72EB4 /* MyViewModel.m */,
 				E78FCDF521339FF800C72EB4 /* MySettingViewModel.h */,
 				E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */,
+				E74F87FD2142691E00F04C19 /* MyThemeColorViewModel.h */,
+				E74F87FE2142691E00F04C19 /* MyThemeColorViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1492,6 +1497,7 @@
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
+				E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
 				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
 				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
