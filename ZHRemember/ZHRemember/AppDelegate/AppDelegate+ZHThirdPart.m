@@ -22,8 +22,8 @@
 - (void)zh_setupAdmobService{
     [GADMobileAds configureWithApplicationID:AdMobId];
     GADRequest *request = [GADRequest request];
-    NSString *testId = @"ca-app-pub-3940256099942544/1712485313";
+    NSString *UnitId = [ZHCache isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
-                                           withAdUnitID:testId];
+                                           withAdUnitID:UnitId];
 }
 @end

@@ -8,7 +8,7 @@
 
 #import "IAPDiamondCellViewModel.h"
 
-NSString *const IAPEventBuySixRMB = @"IAPEventBuySixRMB";
+NSString *const IAPEventBuySixRMB = @"xzh.remember6";
 NSString *const IAPEventBuyEighteenRMB = @"IAPEventBuyEighteenRMB";
 NSString *const IAPEventBuythirtyRMB = @"IAPEventBuythirtyRMB";
 NSString *const IAPEventSign = @"IAPEventSign";

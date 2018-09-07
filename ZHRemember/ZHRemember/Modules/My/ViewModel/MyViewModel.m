@@ -27,13 +27,13 @@
 }
 - (void)_setupObserver{
     @weakify(self)
-    [[RACObserve([ZHCache sharedInstance], currentUser.money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[RACObserve([ZHCache sharedInstance], money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         [self.refreshSubject sendNext:nil];
     }];
 }
 - (void)initSetup{
-    NSString *money = [ZHCache sharedInstance].currentUser.money;
+    NSString *money = [ZHCache sharedInstance].money;
     
     MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:NO];
 

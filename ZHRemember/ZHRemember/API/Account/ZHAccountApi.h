@@ -49,4 +49,24 @@
  */
 + (void)getUserInfoWithDoneHandler:(void(^)(ZHUserModel *user,NSError *error))doneHandler;
 
+/**
+ 更新用户的签到时间
+
+ @param objectId 用户扩展表对象id
+ @param signTime 签到时间,mm-dd
+ */
++ (void)updateUserSignTimeWithObjectId:(NSString *)objectId
+                              signTime:(NSString *)signTime done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
+
+/**
+ 更新用户的钱数
+
+ @param money 钱数
+ @param objectId 用户扩展表对象id
+ @param doneHandler 完成回调
+ */
++ (void)updateUserMoney:(NSString *)money
+               objectId:(NSString *)objectId
+                   done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
+
 @end

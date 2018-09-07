@@ -96,4 +96,27 @@
         doneHandler(user,error);
     }];
 }
++ (void)updateUserSignTimeWithObjectId:(NSString *)objectId
+                              signTime:(NSString *)signTime done:(void (^)(BOOL isSuccess, NSError *error))doneHandler{
+    if (!objectId || !signTime) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    [userObj setObject:signTime forKey:UserExtSignKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
++ (void)updateUserMoney:(NSString *)money
+               objectId:(NSString *)objectId
+                   done:(void(^)(BOOL isSuccess,NSError *error))doneHandler{
+    if (!objectId || !money) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    [userObj setObject:money forKey:UserExtMoneyKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
 @end

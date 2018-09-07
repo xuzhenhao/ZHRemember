@@ -7,12 +7,11 @@
 //
 
 #import "IAPDiamondViewModel.h"
+#import "ZHAccountApi.h"
 
 @interface IAPDiamondViewModel()
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *viewModels;
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *freeViewModels;
-/** <#desc#>*/
-@property (nonatomic, assign)   NSInteger      diamondNum;
 
 @end
 
@@ -26,7 +25,6 @@
     return self;
 }
 - (void)initConfig{
-    self.diamondNum = 0;
     
     IAPDiamondCellViewModel *sixYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"120记忆结晶" price:@"¥ 6" eventId:IAPEventBuySixRMB];
     IAPDiamondCellViewModel *eightYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"540记忆结晶" price:@"¥ 18" eventId:IAPEventBuyEighteenRMB];
@@ -38,11 +36,27 @@
     IAPDiamondCellViewModel *adModel = [IAPDiamondCellViewModel viewModelWithTitle:@"看广告(每次+5)" price:@"前往" eventId:IAPEventWatchAds];
     self.freeViewModels = @[signModel,publishModel,adModel];
 }
-
-- (void)addDiamondWithNumber:(NSInteger)number{
-    self.diamondNum += number;
-    self.diamondString = [NSString stringWithFormat:@"%zd",self.diamondNum];
+- (NSString *)getRewardMoneyForAction:(NSString *)action{
+    //原本的钱
+    NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+    NSInteger rewardMoney = 0;
+    if ([action isEqualToString:IAPEventBuySixRMB]) {
+        rewardMoney = 120;
+    }else if ([action isEqualToString:IAPEventBuyEighteenRMB]){
+        rewardMoney = 540;
+    }else if ([action isEqualToString:IAPEventBuythirtyRMB]){
+        rewardMoney = 900;
+    }else if ([action isEqualToString:IAPEventSign]){
+        rewardMoney = 2;
+    }else if ([action isEqualToString:IAPEventPublish]){
+        rewardMoney = 5;
+    }else if ([action isEqualToString:IAPEventWatchAds]){
+        rewardMoney = 5;
+    }
+    
+    return [NSString stringWithFormat:@"%zd",(currentMoney + rewardMoney)];
 }
+#pragma mark- tableView
 - (NSInteger)numberOfSection{
     return 2;
 }
@@ -60,7 +74,7 @@
     return 0;
 }
 - (CGFloat)rowHeight{
-    return 90;
+    return 65;
 }
 - (IAPDiamondCellViewModel *)viewModelOfIndexPath:(NSIndexPath *)path{
     
@@ -72,4 +86,43 @@
 }
 
 #pragma mark - getter
+- (RACCommand *)signCommand{
+    if (!_signCommand) {
+        _signCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                NSString *nowTime = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];
+                [ZHAccountApi updateUserSignTimeWithObjectId:[ZHCache sharedInstance].currentUser.objectId signTime:nowTime done:^(BOOL isSuccess, NSError *error) {
+                    [subscriber sendNext:@(isSuccess)];
+                    [subscriber sendCompleted];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _signCommand;
+}
+- (RACCommand *)updateMoneyCommand{
+    if (!_updateMoneyCommand) {
+        _updateMoneyCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                if (!input) {
+                    [subscriber sendNext:@(NO)];
+                    [subscriber sendCompleted];
+                    return nil;
+                }
+                
+                [ZHAccountApi updateUserMoney:input objectId:[ZHCache sharedInstance].currentUser.objectId done:^(BOOL isSuccess, NSError *error) {
+                    [subscriber sendNext:@(isSuccess)];
+                    [subscriber sendCompleted];
+                }];
+                
+                return nil;
+            }];
+        }];
+    }
+    return _updateMoneyCommand;
+}
 @end

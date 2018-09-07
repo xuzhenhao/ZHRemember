@@ -14,6 +14,7 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 
 @interface ZHCache()
 @property (nonatomic, strong)   ZHUserModel     *currentUser;
+@property (nonatomic, copy)     NSString    *money;
 @property (nonatomic, assign)   BOOL      isSigned;
 @property (nonatomic, assign)   BOOL      isPublished;
 
@@ -31,12 +32,29 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     });
     return manager;
 }
+
++ (void)setProductEnvironmentEnable:(BOOL)isEnable{
+    [[NSUserDefaults standardUserDefaults] setBool:isEnable forKey:@"environment"];
+    [[NSUserDefaults standardUserDefaults] synchronize];;
+}
++ (BOOL)isProductEnvironment{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:@"environment"];
+}
 #pragma mark - user
 - (void)updateUser:(ZHUserModel *)user{
     self.currentUser = user;
     if (!self.isSigned || !self.isPublished) {
         [self _checkIfSigned];
     }
+    self.money = user.money;
+}
+- (void)updateUserMoney:(NSString *)money{
+    self.money = money;
+    self.currentUser.money = money;
+    
+}
+- (void)setUserSigned{
+    self.isSigned = YES;
 }
 - (void)_checkIfSigned{
     NSString *now = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];

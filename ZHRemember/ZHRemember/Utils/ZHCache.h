@@ -16,15 +16,27 @@
 
 + (instancetype)sharedInstance;
 
+/**
+ 配置是否为生产环境
+
+ @param isEnable 是否为生产环境
+ */
++ (void)setProductEnvironmentEnable:(BOOL)isEnable;
++ (BOOL)isProductEnvironment;
 #pragma mark - user
 /** 缓存的当前用户模型*/
 @property (nonatomic, strong,readonly)   ZHUserModel     *currentUser;
+/** 缓存当前用的钱*/
+@property (nonatomic, copy,readonly)     NSString    *money;
 /** 当日是否已签到*/
 @property (nonatomic, assign,readonly)   BOOL      isSigned;
 /** 当前是否已发表日记*/
 @property (nonatomic, assign,readonly)   BOOL      isPublished;
 
 - (void)updateUser:(ZHUserModel *)user;
+- (void)updateUserMoney:(NSString *)money;
+/**设置用户已签到*/
+- (void)setUserSigned;
 
 #pragma mark - theme color
 /**

@@ -10,13 +10,21 @@
 #import "IAPDiamondCellViewModel.h"
 
 @interface IAPDiamondViewModel : NSObject
-/** 余额*/
-@property (nonatomic, copy)     NSString    *diamondString;
+
+/** 签到*/
+@property (nonatomic, strong)   RACCommand     *signCommand;
+/** 更新钱,需传入新的钱数*/
+@property (nonatomic, strong)   RACCommand     *updateMoneyCommand;
 
 
-/**增加记忆结晶*/
-- (void)addDiamondWithNumber:(NSInteger)number;
+/**
+ 获取执行操作后，增加后钱的值
 
+ @param action 操作id
+ @return 返回新的钱数
+ */
+- (NSString *)getRewardMoneyForAction:(NSString *)action;
+#pragma mark - tableView
 - (NSInteger)numberOfSection;
 - (NSInteger)numberOfrowsInSection:(NSInteger)section;
 - (CGFloat)rowHeight;

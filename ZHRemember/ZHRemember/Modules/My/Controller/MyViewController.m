@@ -39,12 +39,7 @@
     GADRequest *request = [GADRequest request];
     request.testDevices = @[ @"d2d8d83c04a65e1143980cd07639b4fc" ];
     [self.bannerView loadRequest:request];
-    [GADRewardBasedVideoAd sharedInstance].delegate = self;
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-//            [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-//        }
-//    });
+    
 }
 - (void)setupObserver{
     
@@ -149,14 +144,7 @@
 didFailToReceiveAdWithError:(GADRequestError *)error {
     NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
 }
-#pragma mark - video ad
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-   didRewardUserWithReward:(GADAdReward *)reward {
-    NSString *rewardMessage =
-    [NSString stringWithFormat:@"Reward received with currency %@ , amount %lf",
-     reward.type,
-     [reward.amount doubleValue]];
-}
+
 
 
 #pragma mark - getter
