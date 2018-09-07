@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "IAPDiamondCellViewModel.h"
+/**去广告服务售价*/
+extern NSInteger IAPDisableAdPrice;
 
 @interface IAPDiamondViewModel : NSObject
 
@@ -15,7 +17,8 @@
 @property (nonatomic, strong)   RACCommand     *signCommand;
 /** 更新钱,需传入新的钱数*/
 @property (nonatomic, strong)   RACCommand     *updateMoneyCommand;
-
+/** 去广告*/
+@property (nonatomic, strong)   RACCommand     *disableAdCommand;
 
 /**
  获取执行操作后，增加后钱的值

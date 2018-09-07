@@ -12,15 +12,12 @@
 #import "MySettingCell.h"
 #import "MyThemeColorViewController.h"
 #import "LCUserFeedbackAgent.h"
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "ZHCache.h"
 
-@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource,GADRewardBasedVideoAdDelegate,GADBannerViewDelegate>
+@interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   MyViewModel     *viewModel;
-/** <#desc#>*/
-@property (nonatomic, strong)   GADBannerView     *bannerView;
 
 @end
 
@@ -36,9 +33,6 @@
 - (void)setupUI{
     self.title = @"设置";
     self.tableView.rowHeight = [self.viewModel itemHeight];
-    GADRequest *request = [GADRequest request];
-    request.testDevices = @[ @"d2d8d83c04a65e1143980cd07639b4fc" ];
-    [self.bannerView loadRequest:request];
     
 }
 - (void)setupObserver{
@@ -133,35 +127,11 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-#pragma mark - banner adDelegate
-/// Tells the delegate an ad request loaded an ad.
-- (void)adViewDidReceiveAd:(GADBannerView *)adView {
-    self.tableView.tableHeaderView = self.bannerView;
-}
-
-/// Tells the delegate an ad request failed.
-- (void)adView:(GADBannerView *)adView
-didFailToReceiveAdWithError:(GADRequestError *)error {
-    NSLog(@"adView:didFailToReceiveAdWithError: %@", [error localizedDescription]);
-}
-
-
-
 #pragma mark - getter
 - (MyViewModel *)viewModel{
     if (!_viewModel) {
         _viewModel = [MyViewModel new];
     }
     return _viewModel;
-}
-- (GADBannerView *)bannerView{
-    if (!_bannerView) {
-        _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        _bannerView.adUnitID = AdMobBannerId;
-        
-        self.bannerView.rootViewController = self;
-        self.bannerView.delegate = self;
-    }
-    return _bannerView;
 }
 @end

@@ -69,4 +69,15 @@
                objectId:(NSString *)objectId
                    done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
 
+/**
+ 设置用户去广告
+
+ @param objectId 用户扩展表对象id
+ @param money 购买后待更新的钱数
+ @param doneHandler 完成回调
+ */
++ (void)updateUserDisalbeAdWithObjectId:(NSString *)objectId
+                                  money:(NSString *)money
+                            done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
+
 @end

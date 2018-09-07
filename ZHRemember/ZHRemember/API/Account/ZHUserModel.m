@@ -21,6 +21,8 @@ NSString *const UserExtAvatarKey = @"avatar";
 NSString *const UserExtSignKey = @"sign_time";
 /**用户发表日记日期键名*/
 NSString *const UserExtPublishKey = @"publish_time";
+/**用户购买了去广告服务键名*/
+NSString *const UserExtDisableAdsKey = @"ad_disable";
 
 @implementation ZHUserModel
 
@@ -33,6 +35,7 @@ NSString *const UserExtPublishKey = @"publish_time";
              @"avatarURL":UserExtAvatarKey,
              @"signTime":UserExtSignKey,
              @"publishTime":UserExtPublishKey,
+             @"isDisableAd":UserExtDisableAdsKey,
              };
 }
 + (NSValueTransformer *)objectIdJSONTransformer{
@@ -68,6 +71,14 @@ NSString *const UserExtPublishKey = @"publish_time";
 + (NSValueTransformer *)publishTimeJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         return [NSString stringWithFormat:@"%@",value];
+    }];
+}
++ (NSValueTransformer *)isDisableAdJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
     }];
 }
 

@@ -11,14 +11,17 @@
 #import "EvtEditEventController.h"
 #import "EvtEventListViewModel.h"
 #import "EvtEventDetailController.h"
+#import <GoogleMobileAds/GoogleMobileAds.h>
 
-@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource>
+@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,GADBannerViewDelegate>
 
 @property (nonatomic, strong)   EvtEventListViewModel     *viewModel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 /** 添加事件按钮*/
 @property (nonatomic, strong)   UIButton     *addEventButton;
+
+@property (nonatomic, strong)   GADBannerView     *bannerView;
 
 @end
 
@@ -33,6 +36,12 @@
     [self initialSetup];
     [self bindActions];
 }
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    if ([ZHCache sharedInstance].currentUser.isDisableAd) {
+        self.tableView.tableHeaderView = nil;
+    }
+}
 #pragma mark - UI
 - (void)initialSetup{
     self.view.backgroundColor = [UIColor yellowColor];
@@ -45,6 +54,18 @@
         [self.viewModel.loadDataCommand execute:nil];
     }];
     [self.tableView.mj_header beginRefreshing];
+    
+    if (!([ZHCache sharedInstance].currentUser.isDisableAd)) {
+        [self setupAdBanner];
+    }
+}
+- (void)setupAdBanner{
+    GADRequest *request = [GADRequest request];
+    if (![ZHCache isProductEnvironment]) {
+        request.testDevices = @[ @"d2d8d83c04a65e1143980cd07639b4fc" ];
+    }
+    [self.bannerView loadRequest:request];
+    
 }
 - (void)bindActions{
     @weakify(self)
@@ -113,7 +134,11 @@
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
     return [[NSAttributedString alloc] initWithString:@"试着写下自己的第一个纪念日吧!"];
 }
-
+#pragma mark - banner adDelegate
+- (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    self.tableView.tableHeaderView = self.bannerView;
+    self.tableView.contentOffset = CGPointMake(0, self.bannerView.ZH_height);
+}
 #pragma mark - getter
 - (EvtEventListViewModel *)viewModel{
     if (!_viewModel) {
@@ -137,6 +162,16 @@
         [_addEventButton addTarget:self action:@selector(didClickAddEventButton:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _addEventButton;
+}
+- (GADBannerView *)bannerView{
+    if (!_bannerView) {
+        _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
+        _bannerView.adUnitID = [ZHCache isProductEnvironment] ? AdMobBannerId : AdMobBannerTestId;
+        
+        self.bannerView.rootViewController = self;
+        self.bannerView.delegate = self;
+    }
+    return _bannerView;
 }
 
 @end

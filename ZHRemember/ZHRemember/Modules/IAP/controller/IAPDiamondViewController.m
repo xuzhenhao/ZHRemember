@@ -16,6 +16,8 @@
 @interface IAPDiamondViewController ()<UITableViewDataSource,UITableViewDelegate,SKProductsRequestDelegate,SKPaymentTransactionObserver,GADRewardBasedVideoAdDelegate>
 /**用户当前余额*/
 @property (weak, nonatomic) IBOutlet UILabel *diamondLabel;
+/** 去广告按钮*/
+@property (nonatomic, strong)   UIBarButtonItem     *adItem;
 
 @property (nonatomic, strong)   IAPDiamondViewModel     *viewModel;
 /** 当前正在购买商品的id*/
@@ -38,6 +40,7 @@
     self.title = @"我的账户";
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
+    self.navigationItem.rightBarButtonItem = self.adItem;
 }
 - (void)bindAction{
     @weakify(self)
@@ -57,6 +60,14 @@
             [[ZHCache sharedInstance] updateUserMoney:money];
             [[ZHCache sharedInstance] setUserSigned];
             [self.viewModel.updateMoneyCommand execute:money];
+        }
+    }];
+
+    [[self.viewModel.disableAdCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        BOOL success = [x boolValue];
+        if (success) {
+            [HBHUDManager showMessage:@"已为您去除广告"];
+            [ZHCache sharedInstance].currentUser.isDisableAd = YES;
         }
     }];
 }
@@ -143,6 +154,32 @@
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:
      [GADRequest request] withAdUnitID:UnitId];
 }
+- (void)didClickDisableItem:(UIBarButtonItem *)sender{
+    NSString *msg = [NSString stringWithFormat:@"您确定要花费%zd记忆结晶购买去广告项目?",IAPDisableAdPrice];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:msg
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+        if ([ZHCache sharedInstance].currentUser.isDisableAd) {
+            [HBHUDManager showMessage:@"您已去除过广告，无需重复购买"];
+            return;
+        }
+        if (currentMoney < IAPDisableAdPrice) {
+            [HBHUDManager showMessage:@"结晶不够哦~"];
+            return;
+        }
+        
+        NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPDisableAdPrice)];
+        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [self.viewModel.disableAdCommand execute:updateMoney];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 #pragma mark - request
 - (void)getRequestAppleProductWithGoodsId:(NSString *)goodsId
 {
@@ -225,7 +262,12 @@
     }
     return _viewModel;
 }
-
+- (UIBarButtonItem *)adItem{
+    if (!_adItem) {
+        _adItem = [[UIBarButtonItem alloc] initWithTitle:@"去广告" style:UIBarButtonItemStylePlain target:self action:@selector(didClickDisableItem:)];
+    }
+    return _adItem;
+}
 @end
 
 

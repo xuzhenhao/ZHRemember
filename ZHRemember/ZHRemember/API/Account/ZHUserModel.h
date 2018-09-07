@@ -23,6 +23,8 @@ extern NSString *const UserExtAvatarKey;
 extern NSString *const UserExtSignKey;
 /**用户发表日记日期键名*/
 extern NSString *const UserExtPublishKey;
+/**用户购买了去广告服务键名*/
+extern NSString *const UserExtDisableAdsKey;
 
 @interface ZHUserModel : MTLModel<MTLJSONSerializing>
 /** 对象id*/
@@ -39,5 +41,7 @@ extern NSString *const UserExtPublishKey;
 @property (nonatomic, copy)     NSString    *signTime;
 /** 最近发表日记时间,mm-dd*/
 @property (nonatomic, copy)     NSString    *publishTime;
+/** 是否去广告*/
+@property (nonatomic, assign)   BOOL      isDisableAd;
 
 @end

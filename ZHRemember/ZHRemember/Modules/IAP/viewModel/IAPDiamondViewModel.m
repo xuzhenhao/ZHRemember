@@ -9,6 +9,8 @@
 #import "IAPDiamondViewModel.h"
 #import "ZHAccountApi.h"
 
+extern NSInteger IAPDisableAdPrice = 200;
+
 @interface IAPDiamondViewModel()
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *viewModels;
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *freeViewModels;
@@ -124,5 +126,20 @@
         }];
     }
     return _updateMoneyCommand;
+}
+- (RACCommand *)disableAdCommand{
+    if (!_disableAdCommand) {
+        _disableAdCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                [ZHAccountApi updateUserDisalbeAdWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
+                    [subscriber sendNext:@(isSuccess)];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _disableAdCommand;
 }
 @end
