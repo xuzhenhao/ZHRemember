@@ -19,5 +19,6 @@
  启动广告服务
  */
 - (void)zh_setupAdmobService;
+- (void)zh_setupLocalPushService;
 
 @end

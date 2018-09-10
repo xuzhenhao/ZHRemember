@@ -24,6 +24,7 @@
     [self zh_setupAppearance];
     [self zh_setupLeanCloudService];
     [self zh_setupAdmobService];
+    [self zh_setupLocalPushService];
     
     return YES;
 }
