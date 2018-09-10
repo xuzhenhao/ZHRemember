@@ -24,6 +24,7 @@ NSString *const UserExtPublishKey = @"publish_time";
 /**用户购买了去广告服务键名*/
 NSString *const UserExtDisableAdsKey = @"ad_disable";
 NSString *const UserExtCustomColorKey = @"color_enable";
+NSString *const UserExtUnlockLetterKey = @"letter_unlock";
 
 @implementation ZHUserModel
 
@@ -38,6 +39,7 @@ NSString *const UserExtCustomColorKey = @"color_enable";
              @"publishTime":UserExtPublishKey,
              @"isDisableAd":UserExtDisableAdsKey,
              @"isEnableCustomColor":UserExtCustomColorKey,
+             @"isUnlockLetter":UserExtUnlockLetterKey,
              };
 }
 + (NSValueTransformer *)objectIdJSONTransformer{
@@ -84,6 +86,14 @@ NSString *const UserExtCustomColorKey = @"color_enable";
     }];
 }
 + (NSValueTransformer *)isEnableCustomColorJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isUnlockLetterJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         if ([value isEqualToString:@"1"]) {
             return @(YES);

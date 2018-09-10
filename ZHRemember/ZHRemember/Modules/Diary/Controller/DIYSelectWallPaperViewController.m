@@ -11,6 +11,8 @@
 #import "DIYSelectWallPaperViewModel.h"
 #import "DIYSelectPaperCell.h"
 
+NSInteger IAPUnlockLetterPirce = 200;
+
 @interface DIYSelectWallPaperViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -25,9 +27,20 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self bindAction];
 }
-
+- (void)bindAction{
+    [[self.viewModel.unlockLetterCommand.executionSignals.switchToLatest deliverOnMainThread]
+      subscribeNext:^(id  _Nullable x) {
+          BOOL isSuccess = [x boolValue];
+          if (isSuccess) {
+              [HBHUDManager showMessage:@"解锁成功"];
+              [[ZHCache sharedInstance] setUserUnlockLetter];
+          }else{
+              [HBHUDManager showMessage:@"交易失败，请稍后重试"];
+          }
+    }];
+}
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -55,12 +68,49 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.section == 1) {
+        //判断是否已购买付费信纸
+        if (![self _checkIfUnlockLetter]) {
+            [self _alertBuyItemTipView];
+            return;
+        }
+    }
     NSString *imageName = [self.viewModel imageNameOfIndex:indexPath];
     if (self.selectPaperCallback) {
         self.selectPaperCallback(imageName);
     }
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+#pragma mark - privat method
+- (BOOL)_checkIfUnlockLetter{
+    if ([ZHCache sharedInstance].isUnlockLetter) {
+        return YES;
+    }
+    return NO;
+}
+- (void)_alertBuyItemTipView{
+    NSString *msg = [NSString stringWithFormat:@"%zd记忆水晶即可解锁付费信纸~",IAPUnlockLetterPirce];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil
+                                                                   message:msg
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消"
+                                              style:UIAlertActionStyleCancel
+                                            handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+        
+        if (currentMoney < IAPUnlockLetterPirce) {
+            [HBHUDManager showMessage:@"结晶不够哦,可前往账户获取免费结晶"];
+            return;
+        }
+        
+        NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPUnlockLetterPirce)];
+        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [self.viewModel.unlockLetterCommand execute:updateMoney];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 #pragma mark - getter
 - (DIYSelectWallPaperViewModel *)viewModel{

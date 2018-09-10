@@ -13,4 +13,6 @@
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString *)imageNameOfIndex:(NSIndexPath *)path;
 
+@property (nonatomic, strong)   RACCommand     *unlockLetterCommand;
+
 @end

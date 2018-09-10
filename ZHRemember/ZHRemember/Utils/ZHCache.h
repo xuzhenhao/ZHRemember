@@ -35,8 +35,11 @@
 
 - (void)updateUser:(ZHUserModel *)user;
 - (void)updateUserMoney:(NSString *)money;
+- (void)setUserUnlockLetter;
 /**设置用户已签到*/
 - (void)setUserSigned;
+/**当前用户是否已解锁付费信纸*/
+- (BOOL)isUnlockLetter;
 
 #pragma mark - theme color
 /**

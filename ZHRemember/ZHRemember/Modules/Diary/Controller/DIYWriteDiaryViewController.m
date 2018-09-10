@@ -74,7 +74,13 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 #pragma mark - setupUI
 - (void)setupUI{
     self.title = @"写日记";
-    self.navigationItem.rightBarButtonItems = @[self.saveItem,self.deleteItem];
+    
+    if (self.viewModel.diaryId) {
+        self.navigationItem.rightBarButtonItems = @[self.saveItem,self.deleteItem];
+    }else{
+        self.navigationItem.rightBarButtonItem = self.saveItem;
+    }
+    
     [self setupStatusView];
     [self setupContentView];
     [self bindAction];
@@ -289,7 +295,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     if (_textView == nil) {
         _textView = [YYTextView new];
         
-        _textView.placeholderText = @"每一段时光都值得纪念";
+        _textView.placeholderText = @"此刻想说点什么?";
         _textView.placeholderFont = [UIFont systemFontOfSize:16];
         _textView.placeholderTextColor = RGBColor(178, 178, 178);
         _textView.delegate = self;

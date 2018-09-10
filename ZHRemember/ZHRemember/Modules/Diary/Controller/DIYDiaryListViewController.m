@@ -100,7 +100,7 @@
     return [[NSAttributedString alloc] initWithString:@""];
 }
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
-    return [[NSAttributedString alloc] initWithString:@"即刻留住每一份好时光"];
+    return [[NSAttributedString alloc] initWithString:@"即刻用文字留住当下时光"];
 }
 #pragma mark - getter
 - (UIButton *)writeDiaryButton{

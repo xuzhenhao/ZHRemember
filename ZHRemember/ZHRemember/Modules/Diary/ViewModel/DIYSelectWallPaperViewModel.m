@@ -7,6 +7,7 @@
 //
 
 #import "DIYSelectWallPaperViewModel.h"
+#import "ZHAccountApi.h"
 
 @implementation DIYSelectWallPaperViewModel
 
@@ -28,13 +29,31 @@
         name = [NSString stringWithFormat:@"%@%zd",name,path.item];
     }else if (path.section == 1){
         NSInteger index = path.item;
-        if (index < 10) {
+//        if (index < 10) {
             index += 10;
-        }
-        name = [NSString stringWithFormat:@"%@%zd",name,path.item];
+//        }
+        name = [NSString stringWithFormat:@"%@%zd",name,index];
     }
     
     return name;
     
 }
+#pragma mark - getter
+- (RACCommand *)unlockLetterCommand{
+    if (!_unlockLetterCommand) {
+        _unlockLetterCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                [ZHAccountApi unlockLetterWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
+                    [subscriber sendNext:@(isSuccess)];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _unlockLetterCommand;
+}
+
 @end

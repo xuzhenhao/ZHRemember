@@ -53,6 +53,9 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     self.currentUser.money = money;
     
 }
+- (void)setUserUnlockLetter{
+    self.currentUser.isUnlockLetter = YES;
+}
 - (void)setUserSigned{
     self.isSigned = YES;
 }
@@ -64,6 +67,9 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     if ([self.currentUser.publishTime isEqualToString:now]) {
         self.isPublished = YES;
     }
+}
+- (BOOL)isUnlockLetter{
+    return self.currentUser.isUnlockLetter;
 }
 #pragma mark - theme color
 + (void)cacheThemeColor:(UIColor *)themeColor{

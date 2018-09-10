@@ -146,4 +146,18 @@
         doneHandler(succeeded,error);
     }];
 }
+
++ (void)unlockLetterWithObjectId:(NSString *)objectId
+                           money:(NSString *)money
+                            done:(void(^)(BOOL isSuccess,NSError *error))doneHandler{
+    if (!objectId) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    [userObj setObject:@"1" forKey:UserExtUnlockLetterKey];
+    [userObj setObject:money forKey:UserExtMoneyKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
 @end
