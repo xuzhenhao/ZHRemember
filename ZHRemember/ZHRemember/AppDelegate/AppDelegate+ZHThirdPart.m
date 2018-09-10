@@ -10,13 +10,21 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
 
-#define AVOSCloudAppId @"OWMbwAs72wWfNRHS51jV5Tso-gzGzoHsz"
-#define AVOSCloudAppkey @"LeFEoxaulIkxlIQx37YvadqU"
+#define AVOSCloudAppTestId @"OWMbwAs72wWfNRHS51jV5Tso-gzGzoHsz"
+#define AVOSCloudAppTestkey @"LeFEoxaulIkxlIQx37YvadqU"
+
+#define AVOSCloudAppId @"Rv5XVMDxCfhGBekEcGENDBoE-gzGzoHsz"
+#define AVOSCloudAppkey @"y3cttoOTBQ4d4yc8Ccoood8l"
 
 @implementation AppDelegate (ZHThirdPart)
 
 - (void)zh_setupLeanCloudService{
-    [AVOSCloud setApplicationId:AVOSCloudAppId clientKey:AVOSCloudAppkey];
+    if ([ZHCache isProductEnvironment]) {
+        [AVOSCloud setApplicationId:AVOSCloudAppId clientKey:AVOSCloudAppkey];
+    }else{
+        [AVOSCloud setApplicationId:AVOSCloudAppTestId clientKey:AVOSCloudAppTestkey];
+    }
+    
     [AVOSCloud setAllLogsEnabled:NO];
 }
 - (void)zh_setupAdmobService{

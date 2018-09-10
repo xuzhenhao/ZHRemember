@@ -154,7 +154,9 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
     }];
     [[RACObserve(self.viewModel, diaryImageURL) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
-
+        if (!x) {
+            return ;
+        }
         [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:x] placeholderImage:[UIImage imageNamed:@"diary-photo-bg"]];
     }];
     [[[RACObserve(self.viewModel, letterImageName) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {

@@ -35,6 +35,9 @@
 }
 
 - (void)updateCurrentTagWithIndex:(NSInteger)index{
+    if (self.tags.count < 1) {
+        return;
+    }
     self.currentTag = self.tags[index];
 }
 - (void)requestTags{
