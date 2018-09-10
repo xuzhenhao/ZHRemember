@@ -9,7 +9,7 @@
 #import "IAPDiamondViewModel.h"
 #import "ZHAccountApi.h"
 
-extern NSInteger IAPDisableAdPrice = 200;
+NSInteger IAPDisableAdPrice = 200;
 
 @interface IAPDiamondViewModel()
 @property (nonatomic, strong)   NSArray<IAPDiamondCellViewModel *>     *viewModels;

@@ -158,7 +158,7 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
         [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:x] placeholderImage:[UIImage imageNamed:@"diary-photo-bg"]];
     }];
     [[[RACObserve(self.viewModel, letterImageName) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
-        return value;
+        return [value stringValue].length > 0;
     }] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.letterImageView.image = [UIImage imageNamed:x];
@@ -200,7 +200,7 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
      subscribeNext:^(id  _Nullable x) {
          BOOL isSuccess = [x boolValue];
          if (isSuccess) {
-             [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%zd",PublishDiaryReward]];
+             [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
              [[ZHCache sharedInstance] setUserPublished];
          }
     }];
@@ -305,7 +305,7 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
         return;
     }
     NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
-    NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney + PublishDiaryReward)];
+    NSString *updateMoney = [NSString stringWithFormat:@"%ld",(currentMoney + PublishDiaryReward)];
     [[ZHCache sharedInstance] updateUserMoney:updateMoney];
     [self.viewModel.rewardCommand execute:updateMoney];
 }

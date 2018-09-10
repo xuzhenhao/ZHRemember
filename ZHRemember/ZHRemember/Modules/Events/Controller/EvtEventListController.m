@@ -139,6 +139,9 @@
     self.tableView.tableHeaderView = self.bannerView;
     self.tableView.contentOffset = CGPointMake(0, self.bannerView.ZH_height);
 }
+- (BOOL)prefersHomeIndicatorAutoHidden{
+    return YES;
+}
 #pragma mark - getter
 - (EvtEventListViewModel *)viewModel{
     if (!_viewModel) {
