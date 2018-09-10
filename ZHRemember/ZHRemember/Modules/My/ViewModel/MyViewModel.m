@@ -29,6 +29,9 @@
     @weakify(self)
     [[RACObserve([ZHCache sharedInstance], money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
+        NSArray *section = self.sections.firstObject;
+        MySettingViewModel *accountVM = section.firstObject;
+        accountVM.subTitle = x;
         [self.refreshSubject sendNext:nil];
     }];
 }

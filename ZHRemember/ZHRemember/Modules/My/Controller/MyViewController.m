@@ -34,9 +34,14 @@
     self.title = @"设置";
     self.tableView.rowHeight = [self.viewModel itemHeight];
     
+    [self bindActon];
 }
-- (void)setupObserver{
-    
+- (void)bindActon{
+    @weakify(self)
+    [[self.viewModel.refreshSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.tableView reloadData];
+    }];
 }
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
