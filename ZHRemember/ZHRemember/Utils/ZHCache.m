@@ -29,6 +29,7 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
         manager = [[self alloc] init];
         manager.isSigned = NO;
         manager.isPublished = NO;
+        manager.money = @"0";
     });
     return manager;
 }
@@ -46,7 +47,10 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     if (!self.isSigned || !self.isPublished) {
         [self _checkIfSigned];
     }
-    self.money = user.money;
+    
+    if ([user.money integerValue] > 0) {
+        self.money = user.money;
+    }
 }
 - (void)updateUserMoney:(NSString *)money{
     self.money = money;
@@ -58,6 +62,9 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 }
 - (void)setUserSigned{
     self.isSigned = YES;
+}
+- (void)setUserPublished{
+    self.isPublished = YES;
 }
 - (void)_checkIfSigned{
     NSString *now = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];

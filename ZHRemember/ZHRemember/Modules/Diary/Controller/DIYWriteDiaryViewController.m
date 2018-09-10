@@ -17,6 +17,7 @@
 #import "DIYSelectWallPaperViewController.h"
 
 NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
+NSInteger PublishDiaryReward = 5;//发表日记奖励
 
 @interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
 /**头部状态栏视图*/
@@ -177,7 +178,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
                 [[NSNotificationCenter defaultCenter] postNotificationName:DIYDiaryChangedNotification object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             }];
-            
+            [self checkIfNeedUpdateMoney];
         }else{
             [HBHUDManager showMessage:@"保存失败"];
         }
@@ -194,6 +195,14 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         }else{
             [HBHUDManager showMessage:@"删除失败,请稍后重试"];
         }
+    }];
+    [[self.viewModel.rewardCommand.executionSignals.switchToLatest deliverOnMainThread]
+     subscribeNext:^(id  _Nullable x) {
+         BOOL isSuccess = [x boolValue];
+         if (isSuccess) {
+             [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%zd",PublishDiaryReward]];
+             [[ZHCache sharedInstance] setUserPublished];
+         }
     }];
 }
 #pragma mark - action
@@ -288,6 +297,17 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     paperVc.selectPaperCallback = ^(NSString *imageName) {
         weakself.viewModel.letterImageName = imageName;
     };
+}
+#pragma mark - utils
+- (void)checkIfNeedUpdateMoney{
+    //如果是第一次发表，更新账户金钱
+    if ([ZHCache sharedInstance].isPublished) {
+        return;
+    }
+    NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+    NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney + PublishDiaryReward)];
+    [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+    [self.viewModel.rewardCommand execute:updateMoney];
 }
 
 #pragma mark - getter

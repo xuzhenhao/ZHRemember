@@ -59,6 +59,19 @@
                               signTime:(NSString *)signTime done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
 
 /**
+ 更新用户的发表日记奖励
+
+ @param money 用户待更新的钱
+ @param objectId 用户扩展表对象id
+ @param publishTime 发表日记时间
+ @param doneHandler 完成回调
+ */
++ (void)updateUserPublishRewardWithObjectId:(NSString *)objectId
+                                      money:(NSString *)money
+                              publishTime:(NSString *)publishTime
+                                           done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
+
+/**
  更新用户的钱数
 
  @param money 钱数

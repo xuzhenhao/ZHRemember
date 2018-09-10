@@ -107,6 +107,20 @@
         doneHandler(succeeded,error);
     }];
 }
++ (void)updateUserPublishRewardWithObjectId:(NSString *)objectId
+                                      money:(NSString *)money
+                                publishTime:(NSString *)publishTime
+                                       done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;{
+    if (!objectId || !publishTime) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    [userObj setObject:publishTime forKey:UserExtPublishKey];
+    [userObj setObject:money forKey:UserExtMoneyKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
 + (void)updateUserMoney:(NSString *)money
                objectId:(NSString *)objectId
                    done:(void(^)(BOOL isSuccess,NSError *error))doneHandler{

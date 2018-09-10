@@ -9,6 +9,7 @@
 #import "DIYWriteDiaryViewModel.h"
 #import "ZHDiaryApi.h"
 #import "ZHCommonApi.h"
+#import "ZHAccountApi.h"
 
 @interface DIYWriteDiaryViewModel()
 /** 日记时间戳*/
@@ -121,5 +122,21 @@
         }];
     }
     return _deleteCommand;
+}
+- (RACCommand *)rewardCommand{
+    if (!_rewardCommand) {
+        _rewardCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                NSString *nowTime = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];
+                [ZHAccountApi updateUserPublishRewardWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input publishTime:nowTime done:^(BOOL isSuccess, NSError *error) {
+                    [subscriber sendNext:@(isSuccess)];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _rewardCommand;
 }
 @end

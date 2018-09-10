@@ -38,6 +38,8 @@
 @property (nonatomic, strong)   RACCommand     *saveDiaryCommand;
 /** 删除日记*/
 @property (nonatomic, strong)   RACCommand     *deleteCommand;
+/** 发布日记奖励*/
+@property (nonatomic, strong)   RACCommand     *rewardCommand;
 
 /**
  默认配置
