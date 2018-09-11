@@ -18,7 +18,7 @@ typedef enum : NSInteger {
  首页列表页对应的VM
  */
 @interface EvtEventListViewModel : NSObject
-
+/**加载数据*/
 @property (nonatomic, strong)   RACCommand     *loadDataCommand;
 
 #pragma mark - tableview datasource method

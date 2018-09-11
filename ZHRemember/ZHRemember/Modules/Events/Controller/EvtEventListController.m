@@ -61,9 +61,6 @@
 }
 - (void)setupAdBanner{
     GADRequest *request = [GADRequest request];
-    if (![ZHCache isProductEnvironment]) {
-        request.testDevices = @[ @"d2d8d83c04a65e1143980cd07639b4fc" ];
-    }
     [self.bannerView loadRequest:request];
     
 }
