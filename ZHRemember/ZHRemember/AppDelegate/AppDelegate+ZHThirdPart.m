@@ -39,6 +39,14 @@
     UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
     
+    // 获取该app上所有的本地推送
+    NSArray *allLocalNotifi = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    if (allLocalNotifi.count < 1) {
+        [self addLocalPush];
+    }
+    
+}
+- (void)addLocalPush{
     UILocalNotification *localNotifi = [[UILocalNotification alloc]init];
     // 设置触发时间
     localNotifi.fireDate = [NSDate dateWithString:@"21:30:00" formatString:@"HH:mm:ss"];
@@ -46,7 +54,7 @@
     localNotifi.timeZone = [NSTimeZone defaultTimeZone];
     // 设置推送 显示的内容
     localNotifi.alertTitle = @"温馨提示";
-    localNotifi.alertBody = @"今天有什么想说的呢?";
+    localNotifi.alertBody = @"今天有什么想记得的呢?";
     localNotifi.alertAction = @"alert提示框按钮文本";
     //是否显示额外的按钮，为no时alertAction消失
     localNotifi.hasAction = NO;
