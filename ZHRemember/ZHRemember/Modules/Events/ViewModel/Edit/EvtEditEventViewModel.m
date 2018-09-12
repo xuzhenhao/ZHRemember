@@ -8,9 +8,12 @@
 
 #import "EvtEditEventViewModel.h"
 #import "ZHTableViewItem.h"
-#import "EvtEventApi.h"
+#import "EvtEventStore.h"
 
 @interface EvtEditEventViewModel()
+@property (nonatomic, assign)   BOOL      isShowDeleteItem;
+@property (nonatomic, strong)   NSError     *error;
+
 /** 用于封装网络请求的数据*/
 @property (nonatomic, strong)   EvtEventModel     *eventModel;
 
@@ -19,6 +22,8 @@
 @implementation EvtEditEventViewModel
 + (instancetype)viewModelWithModel:(EvtEventModel *)model{
     EvtEditEventViewModel *vm = [EvtEditEventViewModel new];
+    vm.isShowDeleteItem = model ? YES : NO;
+    
     [vm initConfigWithModel:model];
     [vm racConfig];
     
@@ -68,26 +73,58 @@
 }
 
 - (void)racConfig{
-    @weakify(self);
-    _saveCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-        
-        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            //网络请求保存数据
-            @strongify(self)
-            [EvtEventApi saveEvent:self.eventModel done:^(BOOL success, NSDictionary *result) {
-                if (success) {
-                    [subscriber sendNext:@(YES)];
-                }
-                [subscriber sendCompleted];
-            }];
-            
-            return nil;
-        }];
-    }];
+    
+    
 }
 
 
 #pragma mark - getter&setter
+- (RACCommand *)saveCommand{
+    if (!_saveCommand) {
+        @weakify(self);
+        _saveCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                @strongify(self)
+                if (self.eventModel.eventId) {
+                    //更新事件
+                    [[EvtEventStore shared] updateWithEvent:self.eventModel done:^(BOOL succeed, NSError *error) {
+                        self.error = error;
+                        [subscriber sendNext:nil];
+                        [subscriber sendCompleted];
+                    }];
+                }else{
+                    //新增事件
+                    [[EvtEventStore shared] addWithEvent:self.eventModel done:^(BOOL succeed, NSError *error) {
+                        self.error = error;
+                        [subscriber sendNext:nil];
+                        [subscriber sendCompleted];
+                    }];
+                }
+                
+                return nil;
+            }];
+        }];
+    }
+    return _saveCommand;
+}
+- (RACCommand *)deleteCommand{
+    if (!_deleteCommand) {
+        @weakify(self)
+        _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                @strongify(self)
+                [[EvtEventStore shared] deleteWithEventId:self.eventId done:^(BOOL succeed, NSError *error) {
+                    self.error = error;
+                    [subscriber sendNext:@(succeed)];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _deleteCommand;
+}
 - (RACSubject *)selectPhotoSubject{
     if (!_selectPhotoSubject) {
         _selectPhotoSubject = [RACSubject subject];

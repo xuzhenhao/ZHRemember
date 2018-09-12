@@ -31,6 +31,9 @@ extern NSString *AdMobMovieTestId;//视频广告测试id
 extern NSString *IAPSandboxURL;//沙盒测试环境验证
 extern NSString *IAPAppstoreURL;//正式环境验证
 
+#pragma mark - error
+extern NSString *NSErrorDescKey;//错误描述的key
+
 @interface ZHMacro : NSObject
 
 @end

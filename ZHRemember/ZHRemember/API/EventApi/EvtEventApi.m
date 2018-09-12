@@ -39,7 +39,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
 
 @implementation EvtEventApi
 + (void)saveEvent:(EvtEventModel *)event
-             done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+             done:(void(^)(BOOL success, NSError *error))doneHandler{
     AVObject *eventObj = [[AVObject alloc] initWithClassName:EvtClassName];
     //关联标签表
     AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:event.tagModel.tagId];
@@ -47,11 +47,11 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     
     [self fillObject:eventObj withEvent:event];
     [eventObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
     }];
 }
 + (void)getEventListsWithPage:(NSInteger)page
-                         done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSDictionary *result))doneHandler{
+                         done:(void(^)(NSArray<EvtEventModel *> *eventLists, NSError *error))doneHandler{
     NSMutableArray *tempM = [NSMutableArray array];
     
     AVQuery *query = [AVQuery queryWithClassName:EvtClassName];
@@ -72,14 +72,14 @@ NSString *const EvtTagClassNameKey = @"tag_name";
             [tempM addObject:dict];
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[EvtEventModel class] fromJSONArray:tempM error:nil];
-        doneHandler(lists,nil);
+        doneHandler(lists,error);
     }];
 }
 + (void)deleteWithEventId:(NSString *)eventId
-                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+                     done:(void(^)(BOOL success,NSError *error))doneHandler{
     AVObject *eventObj = [AVObject objectWithClassName:EvtClassName objectId:eventId];
     [eventObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
     }];
 }
 

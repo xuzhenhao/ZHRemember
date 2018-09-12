@@ -8,11 +8,13 @@
 
 #import "EvtEventListViewModel.h"
 #import "EvtEventListEventsViewModel.h"
-#import "EvtEventApi.h"
+#import "EvtEventStore.h"
 
 @interface EvtEventListViewModel()
 
 @property (nonatomic, strong)   NSArray<EvtEventListEventsViewModel *>     *eventViewModels;
+@property (nonatomic, strong)   NSError     *error;
+
 @end
 
 @implementation EvtEventListViewModel
@@ -20,28 +22,22 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        [self racConfig];
+        [self setupObserver];
+        
     }
     return self;
 }
 
-- (void)racConfig{
+- (void)setupObserver{
+    //监听model层
     @weakify(self)
-    
-    _loadDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-        return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-            
-            [EvtEventApi getEventListsWithPage:0 done:^(NSArray<EvtEventModel *> *eventLists, NSDictionary *result) {
-                @strongify(self)
-                self.eventViewModels = [EvtEventListEventsViewModel viewModelsWithModels:eventLists];
-                [subscriber sendNext:nil];
-                [subscriber sendCompleted];
-            }];
-            
-            return nil;
-        }];
+    [[[RACObserve([EvtEventStore shared], events) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.eventViewModels = [EvtEventListEventsViewModel viewModelsWithModels:x];
+        [self.dataRefreshSubject sendNext:nil];
     }];
 }
+
 #pragma mark - tableview datasource method
 - (NSInteger)SectionCount{
     return 1;
@@ -106,5 +102,30 @@
     }
     
     return model;
+}
+#pragma mark - getter
+- (RACCommand *)loadDataCommand{
+    if (!_loadDataCommand) {
+        @weakify(self)
+        _loadDataCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                
+                [[EvtEventStore shared] loadDataWithPage:0 done:^(BOOL succeed, NSError *error) {
+                    @strongify(self)
+                    self.error = error;
+                    [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
+                }];
+                return nil;
+            }];
+        }];
+    }
+    return _loadDataCommand;
+}
+- (RACSubject *)dataRefreshSubject{
+    if (!_dataRefreshSubject) {
+        _dataRefreshSubject = [RACSubject new];
+    }
+    return _dataRefreshSubject;
 }
 @end

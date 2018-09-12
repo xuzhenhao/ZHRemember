@@ -12,6 +12,7 @@
 /**编辑/保存事件成功通知*/
 extern NSString *EvtEditEventSuccessNotification;
 
+/**编辑/保存事件页面*/
 @interface EvtEditEventController : UIViewController
 
 + (instancetype)editEventController;

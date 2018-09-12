@@ -22,13 +22,10 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong)   EvtEditEventViewModel     *viewModel;
-@property (nonatomic, strong)   EvtEventDetailViewModel     *detailViewModel;
 /** 保存按钮*/
 @property (nonatomic, strong)   UIBarButtonItem     *saveItem;
 /** 删除按钮*/
 @property (nonatomic, strong)   UIBarButtonItem     *deleteItem;
-/** 是否编辑，编辑时显示删除按钮*/
-@property (nonatomic, assign)   BOOL      isEditStatus;
 
 @end
 
@@ -41,7 +38,6 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 + (instancetype)editEventControllerWithModel:(EvtEventModel *)model{
     EvtEditEventController *vc = [self viewControllerWithStoryBoard:EvtEventStoryboard];
     vc.viewModel = [EvtEditEventViewModel viewModelWithModel:model];
-    vc.isEditStatus = model ? YES : NO;
     
     return vc;
 }
@@ -49,20 +45,18 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self bindActions];
+    [self setupObserver];
 }
 
 #pragma mark - setupUI
 - (void)setupUI{
     self.view.backgroundColor = [UIColor whiteColor];
     
-    RAC(self.saveItem,enabled) = RACObserve(self.viewModel, isSaveEnable);
-    if (!self.isEditStatus) {
+    if (!self.viewModel.isShowDeleteItem) {
         self.navigationItem.rightBarButtonItem = self.saveItem;
     }else{
         self.navigationItem.rightBarButtonItems = @[self.saveItem,self.deleteItem];
     }
-    
     
     [self configDataSource];
 }
@@ -76,7 +70,9 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     [self.tableView zh_addItems:self.viewModel.dataSource atSection:0];
     [self.tableView reloadData];
 }
-- (void)bindActions{
+- (void)setupObserver{
+    RAC(self.saveItem,enabled) = RACObserve(self.viewModel, isSaveEnable);
+    
     @weakify(self)
     [self.viewModel.selectDateSubject subscribeNext:^(NSIndexPath *indexPath) {
         @strongify(self)
@@ -90,21 +86,23 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     [[self.viewModel.saveCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:EvtEditEventSuccessNotification object:nil];
         [self.navigationController popViewControllerAnimated:YES];
     }];
     
-    [[self.detailViewModel.deleteCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[self.viewModel.deleteCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         BOOL success = [x boolValue];
         if (success) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:EvtEditEventSuccessNotification object:nil];
             [HBHUDManager showMessage:@"已删除" done:^{
                 [self.navigationController popViewControllerAnimated:YES];
             }];
-        }else{
-            [HBHUDManager showMessage:@"删除失败，请稍后重试"];
         }
+    }];
+    [[[RACObserve(self.viewModel, error) filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        NSError *error = x;
+        [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
 }
 #pragma mark - UITableView Delegate
@@ -165,7 +163,7 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     [alert addAction:[UIAlertAction actionWithTitle:@"确定"
                                               style:UIAlertActionStyleDefault
                                             handler:^(UIAlertAction * _Nonnull action) {
-                                                [self.detailViewModel.deleteCommand execute:self.viewModel.eventId];
+                                                [self.viewModel.deleteCommand execute:nil];
                                             }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"取消"
                                               style:UIAlertActionStyleCancel
@@ -184,11 +182,5 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
         _deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStylePlain target:self action:@selector(didClickDeleteEventItem:)];
     }
     return _deleteItem;
-}
-- (EvtEventDetailViewModel *)detailViewModel{
-    if (!_detailViewModel) {
-        _detailViewModel = [EvtEventDetailViewModel new];
-    }
-    return _detailViewModel;
 }
 @end

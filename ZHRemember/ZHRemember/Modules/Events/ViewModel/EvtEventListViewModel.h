@@ -18,8 +18,12 @@ typedef enum : NSInteger {
  首页列表页对应的VM
  */
 @interface EvtEventListViewModel : NSObject
-/**加载数据*/
+/**加载数据,参数为索引page*/
 @property (nonatomic, strong)   RACCommand     *loadDataCommand;
+/** 数据更新回调*/
+@property (nonatomic, strong)   RACSubject     *dataRefreshSubject;
+/** 请求错误*/
+@property (nonatomic, strong,readonly)   NSError     *error;
 
 #pragma mark - tableview datasource method
 - (NSInteger)SectionCount;

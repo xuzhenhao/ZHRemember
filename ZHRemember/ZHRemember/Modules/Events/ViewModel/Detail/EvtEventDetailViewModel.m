@@ -19,7 +19,7 @@
         _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
-                [EvtEventApi deleteWithEventId:input done:^(BOOL success, NSDictionary *result) {
+                [EvtEventApi deleteWithEventId:input done:^(BOOL success, NSError *result) {
                     [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];

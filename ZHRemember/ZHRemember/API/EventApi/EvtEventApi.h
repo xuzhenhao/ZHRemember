@@ -22,7 +22,7 @@
  @param doneHandler 完成回调
  */
 + (void)saveEvent:(EvtEventModel *)event
-             done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+             done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  获取事件列表
@@ -31,7 +31,7 @@
  @param doneHandler 完成回调
  */
 + (void)getEventListsWithPage:(NSInteger)page
-                         done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSDictionary *result))doneHandler;
+                         done:(void(^)(NSArray<EvtEventModel *> *eventLists,NSError *error))doneHandler;
 
 /**
  删除事件
@@ -40,7 +40,7 @@
  @param doneHandler 完成回调
  */
 + (void)deleteWithEventId:(NSString *)eventId
-                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                     done:(void(^)(BOOL success,NSError *error))doneHandler;
 #pragma mark - tag
 /**
  保存（新增/修改）标签
@@ -58,7 +58,7 @@
  @param doneHandler 完成回调
  */
 + (void)deleteEventTag:(NSString *)tagId
-                  done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                  done:(void(^)(BOOL success,NSDictionary *error))doneHandler;
 
 /**
  获取所有标签列表(包括私人+共有)

@@ -33,8 +33,8 @@
 #pragma mark - lifeCycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initialSetup];
-    [self bindActions];
+    [self setupView];
+    [self setupObserver];
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
@@ -43,18 +43,19 @@
     }
 }
 #pragma mark - UI
-- (void)initialSetup{
-    self.view.backgroundColor = [UIColor yellowColor];
-    
+- (void)setupView{
     [self.view addSubview:self.addEventButton];
-    
+    //下拉刷新
     @weakify(self)
     [self.tableView configHeadRefreshControlWithRefreshBlock:^{
         @strongify(self)
-        [self.viewModel.loadDataCommand execute:nil];
+        [[[self.viewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+            //此处是刷新动作的完成。刷新UI在监听数据源的回调中
+            [self.tableView.mj_header endRefreshing];
+        }];
     }];
     [self.tableView.mj_header beginRefreshing];
-    
+    //加载banner广告
     if (!([ZHCache sharedInstance].currentUser.isDisableAd)) {
         [self setupAdBanner];
     }
@@ -62,19 +63,24 @@
 - (void)setupAdBanner{
     GADRequest *request = [GADRequest request];
     [self.bannerView loadRequest:request];
-    
 }
-- (void)bindActions{
+- (void)setupObserver{
     @weakify(self)
-    [[self.viewModel.loadDataCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    //todo通过监听数据源改变，自动刷新tableView。不用到处发通知
+//    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:EvtEditEventSuccessNotification object:nil] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
+//        
+//    }];
+    [[[self.viewModel.dataRefreshSubject skip:0] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
-        [self.tableView.mj_header endRefreshing];
         self.tableView.emptyDataSetSource = self;
         [self.tableView reloadData];
     }];
-    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:EvtEditEventSuccessNotification object:nil] subscribeNext:^(NSNotification * _Nullable x) {
-        @strongify(self)
-        [self.viewModel.loadDataCommand execute:nil];
+    //监听错误码弹窗提示用户
+    [[[[RACObserve(self.viewModel, error) skip:1] filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        NSError *error = x;
+        [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
 }
 #pragma mark - action
