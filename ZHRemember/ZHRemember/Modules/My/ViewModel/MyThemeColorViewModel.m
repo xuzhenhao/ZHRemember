@@ -20,7 +20,7 @@ NSInteger IAPCustomColorPrice = 100;
         _unlockCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
-                [ZHAccountApi unlockCustomThemeWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi unlockCustomThemeWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];

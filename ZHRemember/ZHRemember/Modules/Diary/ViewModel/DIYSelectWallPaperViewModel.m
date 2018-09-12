@@ -45,7 +45,7 @@
             
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
-                [ZHAccountApi unlockLetterWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi unlockLetterWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];

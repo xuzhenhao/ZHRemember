@@ -40,7 +40,7 @@ NSInteger IAPDisableAdPrice = 200;
 }
 - (NSString *)getRewardMoneyForAction:(NSString *)action{
     //原本的钱
-    NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+    NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
     NSInteger rewardMoney = 0;
     if ([action isEqualToString:IAPEventBuySixRMB]) {
         rewardMoney = 120;
@@ -94,7 +94,7 @@ NSInteger IAPDisableAdPrice = 200;
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
                 NSString *nowTime = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];
-                [ZHAccountApi updateUserSignTimeWithObjectId:[ZHCache sharedInstance].currentUser.objectId signTime:nowTime done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi updateUserSignTimeWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId signTime:nowTime done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];
@@ -116,7 +116,7 @@ NSInteger IAPDisableAdPrice = 200;
                     return nil;
                 }
                 
-                [ZHAccountApi updateUserMoney:input objectId:[ZHCache sharedInstance].currentUser.objectId done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi updateUserMoney:input objectId:[ZHGlobalStore sharedInstance].currentUser.objectId done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];
@@ -132,7 +132,7 @@ NSInteger IAPDisableAdPrice = 200;
         _disableAdCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [ZHAccountApi updateUserDisalbeAdWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi updateUserDisalbeAdWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];

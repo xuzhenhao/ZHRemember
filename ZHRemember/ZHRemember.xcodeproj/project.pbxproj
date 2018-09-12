@@ -144,7 +144,7 @@
 		E7AC852C212BF7BB006B92AA /* EvtEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */; };
 		E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
 		E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */; };
-		E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHCache.m */; };
+		E7B798AC21363DEA00348A7E /* ZHGlobalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */; };
 		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
 		E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
 		E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A32140F81900C78D63 /* ZHUserModel.m */; };
@@ -425,8 +425,8 @@
 		E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventDetailViewModel.m; sourceTree = "<group>"; };
 		E7B20048213A989B00EAD1F5 /* DIYSelectMoodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodCell.h; sourceTree = "<group>"; };
 		E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodCell.m; sourceTree = "<group>"; };
-		E7B798AA21363DEA00348A7E /* ZHCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCache.h; sourceTree = "<group>"; };
-		E7B798AB21363DEA00348A7E /* ZHCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHCache.m; sourceTree = "<group>"; };
+		E7B798AA21363DEA00348A7E /* ZHGlobalStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHGlobalStore.h; sourceTree = "<group>"; };
+		E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHGlobalStore.m; sourceTree = "<group>"; };
 		E7B798AE21363E9B00348A7E /* ZHDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDBManager.h; sourceTree = "<group>"; };
 		E7B798AF21363E9B00348A7E /* ZHDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDBManager.m; sourceTree = "<group>"; };
 		E7B798B221364E9D00348A7E /* MyLogoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLogoutCell.h; sourceTree = "<group>"; };
@@ -1286,8 +1286,8 @@
 		E7B798A921363DC300348A7E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E7B798AA21363DEA00348A7E /* ZHCache.h */,
-				E7B798AB21363DEA00348A7E /* ZHCache.m */,
+				E7B798AA21363DEA00348A7E /* ZHGlobalStore.h */,
+				E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1593,7 +1593,7 @@
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,
 				E764466E2147C24400AA310F /* EvtEventStore.m in Sources */,
 				E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */,
-				E7B798AC21363DEA00348A7E /* ZHCache.m in Sources */,
+				E7B798AC21363DEA00348A7E /* ZHGlobalStore.m in Sources */,
 				E7837067213E677800000F28 /* IAPConfig.m in Sources */,
 				E7624BC0213FD83500A57B47 /* WSColorImageView.m in Sources */,
 				E7624BAC213F757900A57B47 /* ZHVersionManager.m in Sources */,

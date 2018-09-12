@@ -27,7 +27,7 @@
 }
 - (void)_setupObserver{
     @weakify(self)
-    [[RACObserve([ZHCache sharedInstance], money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[RACObserve([ZHGlobalStore sharedInstance], money) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         NSArray *section = self.sections.firstObject;
         MySettingViewModel *accountVM = section.firstObject;
@@ -36,7 +36,7 @@
     }];
 }
 - (void)initSetup{
-    NSString *money = [ZHCache sharedInstance].money;
+    NSString *money = [ZHGlobalStore sharedInstance].money;
     
     MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:NO];
 

@@ -38,7 +38,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if ([ZHCache sharedInstance].currentUser.isDisableAd) {
+    if ([ZHGlobalStore sharedInstance].currentUser.isDisableAd) {
         self.tableView.tableHeaderView = nil;
     }
 }
@@ -56,7 +56,7 @@
     }];
     [self.tableView.mj_header beginRefreshing];
     //加载banner广告
-    if (!([ZHCache sharedInstance].currentUser.isDisableAd)) {
+    if (!([ZHGlobalStore sharedInstance].currentUser.isDisableAd)) {
         [self setupAdBanner];
     }
 }
@@ -172,7 +172,7 @@
 - (GADBannerView *)bannerView{
     if (!_bannerView) {
         _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
-        _bannerView.adUnitID = [ZHCache isProductEnvironment] ? AdMobBannerId : AdMobBannerTestId;
+        _bannerView.adUnitID = [ZHGlobalStore isProductEnvironment] ? AdMobBannerId : AdMobBannerTestId;
         
         self.bannerView.rootViewController = self;
         self.bannerView.delegate = self;

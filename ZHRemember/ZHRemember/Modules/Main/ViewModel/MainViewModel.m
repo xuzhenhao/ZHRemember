@@ -16,7 +16,7 @@
     if (!user) {
         return;
     }
-    [[ZHCache sharedInstance] updateUser:user];
+    [[ZHGlobalStore sharedInstance] updateUser:user];
 }
 #pragma mark - getter
 - (RACCommand *)syncUserCommand{

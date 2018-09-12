@@ -44,7 +44,7 @@
 }
 - (void)bindAction{
     @weakify(self)
-    [[[RACObserve([ZHCache sharedInstance], money) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
+    [[[RACObserve([ZHGlobalStore sharedInstance], money) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
         return value && [value integerValue] >= 0;
     }] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
@@ -57,8 +57,8 @@
         if (success) {
             [HBHUDManager showMessage:@"签到成功"];
             NSString *money = [self.viewModel getRewardMoneyForAction:IAPEventSign];
-            [[ZHCache sharedInstance] updateUserMoney:money];
-            [[ZHCache sharedInstance] setUserSigned];
+            [[ZHGlobalStore sharedInstance] updateUserMoney:money];
+            [[ZHGlobalStore sharedInstance] setUserSigned];
             [self.viewModel.updateMoneyCommand execute:money];
         }
     }];
@@ -67,7 +67,7 @@
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"已为您去除广告"];
-            [ZHCache sharedInstance].currentUser.isDisableAd = YES;
+            [ZHGlobalStore sharedInstance].currentUser.isDisableAd = YES;
         }
     }];
 }
@@ -111,7 +111,7 @@
         //写日记
     }else if([eventId isEqualToString:IAPEventSign]){
         //签到
-        if ([ZHCache sharedInstance].isSigned) {
+        if ([ZHGlobalStore sharedInstance].isSigned) {
             [HBHUDManager showMessage:@"今日已签到"];
         }else{
             [self.viewModel.signCommand execute:nil];
@@ -131,7 +131,7 @@
 - (void)finishBuyingEvent{
     NSString *money = [self.viewModel getRewardMoneyForAction:self.currentGoodsId];
     //本地先更新了
-    [[ZHCache sharedInstance] updateUserMoney:money];
+    [[ZHGlobalStore sharedInstance] updateUserMoney:money];
     [self.viewModel.updateMoneyCommand execute:money];
 }
 - (void)watchVideoAdsEvent{
@@ -145,12 +145,12 @@
 - (void)finishWatchAdsEvent{
     NSString *money = [self.viewModel getRewardMoneyForAction:IAPEventWatchAds];
     //本地先更新了
-    [[ZHCache sharedInstance] updateUserMoney:money];
+    [[ZHGlobalStore sharedInstance] updateUserMoney:money];
     [self.viewModel.updateMoneyCommand execute:money];
     [HBHUDManager showMessage:@"感谢支持，您已获得奖励"];
 }
 - (void)loadNextMovieAds{
-    NSString *UnitId = [ZHCache isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
+    NSString *UnitId = [ZHGlobalStore isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:
      [GADRequest request] withAdUnitID:UnitId];
 }
@@ -164,8 +164,8 @@
                                               style:UIAlertActionStyleCancel
                                             handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
-        if ([ZHCache sharedInstance].currentUser.isDisableAd) {
+        NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
+        if ([ZHGlobalStore sharedInstance].currentUser.isDisableAd) {
             [HBHUDManager showMessage:@"您已去除过广告，无需重复购买"];
             return;
         }
@@ -175,7 +175,7 @@
         }
         
         NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPDisableAdPrice)];
-        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
         [self.viewModel.disableAdCommand execute:updateMoney];
     }]];
     [self presentViewController:alert animated:YES completion:nil];

@@ -19,7 +19,7 @@
 @implementation AppDelegate (ZHThirdPart)
 
 - (void)zh_setupLeanCloudService{
-    if ([ZHCache isProductEnvironment]) {
+    if ([ZHGlobalStore isProductEnvironment]) {
         [AVOSCloud setApplicationId:AVOSCloudAppId clientKey:AVOSCloudAppkey];
     }else{
         [AVOSCloud setApplicationId:AVOSCloudAppTestId clientKey:AVOSCloudAppTestkey];
@@ -30,7 +30,7 @@
 - (void)zh_setupAdmobService{
     [GADMobileAds configureWithApplicationID:AdMobId];
     GADRequest *request = [GADRequest request];
-    NSString *UnitId = [ZHCache isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
+    NSString *UnitId = [ZHGlobalStore isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
                                            withAdUnitID:UnitId];
 }

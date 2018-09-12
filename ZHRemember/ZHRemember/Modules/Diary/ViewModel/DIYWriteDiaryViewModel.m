@@ -129,7 +129,7 @@
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
                 NSString *nowTime = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];
-                [ZHAccountApi updateUserPublishRewardWithObjectId:[ZHCache sharedInstance].currentUser.objectId money:input publishTime:nowTime done:^(BOOL isSuccess, NSError *error) {
+                [ZHAccountApi updateUserPublishRewardWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input publishTime:nowTime done:^(BOOL isSuccess, NSError *error) {
                     [subscriber sendNext:@(isSuccess)];
                     [subscriber sendCompleted];
                 }];

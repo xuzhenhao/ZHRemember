@@ -12,7 +12,7 @@
 #import "MySettingCell.h"
 #import "MyThemeColorViewController.h"
 #import "LCUserFeedbackAgent.h"
-#import "ZHCache.h"
+#import "ZHGlobalStore.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 

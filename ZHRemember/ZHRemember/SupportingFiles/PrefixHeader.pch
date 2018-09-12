@@ -24,6 +24,6 @@
 #import <MJRefresh/MJRefresh.h>
 #import "HBHUDManager.h"
 #import "UIScrollView+EmptyDataSet.h"
-#import "ZHCache.h"
+#import "ZHGlobalStore.h"
 
 #endif /* PrefixHeader_pch */

@@ -203,7 +203,7 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
          BOOL isSuccess = [x boolValue];
          if (isSuccess) {
              [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
-             [[ZHCache sharedInstance] setUserPublished];
+             [[ZHGlobalStore sharedInstance] setUserPublished];
          }
     }];
 }
@@ -303,12 +303,12 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
 #pragma mark - utils
 - (void)checkIfNeedUpdateMoney{
     //如果是第一次发表，更新账户金钱
-    if ([ZHCache sharedInstance].isPublished) {
+    if ([ZHGlobalStore sharedInstance].isPublished) {
         return;
     }
-    NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+    NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
     NSString *updateMoney = [NSString stringWithFormat:@"%ld",(currentMoney + PublishDiaryReward)];
-    [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+    [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
     [self.viewModel.rewardCommand execute:updateMoney];
 }
 

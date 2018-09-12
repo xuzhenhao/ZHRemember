@@ -12,7 +12,7 @@
 
 + (UIColor *)zh_themeColor{
 
-    UIColor *cacheColor = [ZHCache getThemeColor];
+    UIColor *cacheColor = [ZHGlobalStore getThemeColor];
     return cacheColor ? cacheColor : [UIColor zh_lightBlueColor];
 }
 + (UIColor *)zh_tabbarColor{

@@ -6,13 +6,13 @@
 //  Copyright © 2018年 xuzhenhao. All rights reserved.
 //
 
-#import "ZHCache.h"
+#import "ZHGlobalStore.h"
 #import "ZHDBManager.h"
 
 static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 
 
-@interface ZHCache()
+@interface ZHGlobalStore()
 @property (nonatomic, strong)   ZHUserModel     *currentUser;
 @property (nonatomic, copy)     NSString    *money;
 @property (nonatomic, assign)   BOOL      isSigned;
@@ -20,10 +20,10 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 
 @end
 
-@implementation ZHCache
+@implementation ZHGlobalStore
 
 + (instancetype)sharedInstance{
-    static ZHCache *manager = nil;
+    static ZHGlobalStore *manager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init];

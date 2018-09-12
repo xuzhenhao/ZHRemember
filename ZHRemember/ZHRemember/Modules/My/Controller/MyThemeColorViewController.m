@@ -64,7 +64,7 @@ static CGFloat colorViewWidth = 50;
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"已解锁"];
-            [ZHCache sharedInstance].currentUser.isEnableCustomColor = YES;
+            [ZHGlobalStore sharedInstance].currentUser.isEnableCustomColor = YES;
         }else{
             [HBHUDManager showMessage:@"网络出错，请稍后重试"];
         }
@@ -98,11 +98,11 @@ static CGFloat colorViewWidth = 50;
     self.selectedColor = sender.view.backgroundColor;
 }
 - (void)didClickSaveItem:(UIBarButtonItem *)sender{
-    [ZHCache cacheThemeColor:self.selectedColor];
+    [ZHGlobalStore cacheThemeColor:self.selectedColor];
     [HBHUDManager showMessage:@"保存成功，重启后生效哦~"];
 }
 - (void)didClickCustomColorButton:(UIButton *)sender{
-    BOOL isEnable = [ZHCache sharedInstance].currentUser.isEnableCustomColor;
+    BOOL isEnable = [ZHGlobalStore sharedInstance].currentUser.isEnableCustomColor;
     if (!isEnable) {
         [self alertBuyItemTipView];
         return;
@@ -125,7 +125,7 @@ static CGFloat colorViewWidth = 50;
                                               style:UIAlertActionStyleCancel
                                             handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+        NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
         
         if (currentMoney < IAPCustomColorPrice) {
             [HBHUDManager showMessage:@"结晶不够哦,可前往账户获取免费结晶"];
@@ -133,7 +133,7 @@ static CGFloat colorViewWidth = 50;
         }
         
         NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPCustomColorPrice)];
-        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
         [self.viewModel.unlockCommand execute:updateMoney];
     }]];
     [self presentViewController:alert animated:YES completion:nil];

@@ -35,7 +35,7 @@ NSInteger IAPUnlockLetterPirce = 200;
           BOOL isSuccess = [x boolValue];
           if (isSuccess) {
               [HBHUDManager showMessage:@"解锁成功"];
-              [[ZHCache sharedInstance] setUserUnlockLetter];
+              [[ZHGlobalStore sharedInstance] setUserUnlockLetter];
           }else{
               [HBHUDManager showMessage:@"交易失败，请稍后重试"];
           }
@@ -85,7 +85,7 @@ NSInteger IAPUnlockLetterPirce = 200;
 
 #pragma mark - privat method
 - (BOOL)_checkIfUnlockLetter{
-    if ([ZHCache sharedInstance].isUnlockLetter) {
+    if ([ZHGlobalStore sharedInstance].isUnlockLetter) {
         return YES;
     }
     return NO;
@@ -99,7 +99,7 @@ NSInteger IAPUnlockLetterPirce = 200;
                                               style:UIAlertActionStyleCancel
                                             handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSInteger currentMoney = [[ZHCache sharedInstance].money integerValue];
+        NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
         
         if (currentMoney < IAPUnlockLetterPirce) {
             [HBHUDManager showMessage:@"结晶不够哦,可前往账户获取免费结晶"];
@@ -107,7 +107,7 @@ NSInteger IAPUnlockLetterPirce = 200;
         }
         
         NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPUnlockLetterPirce)];
-        [[ZHCache sharedInstance] updateUserMoney:updateMoney];
+        [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
         [self.viewModel.unlockLetterCommand execute:updateMoney];
     }]];
     [self presentViewController:alert animated:YES completion:nil];

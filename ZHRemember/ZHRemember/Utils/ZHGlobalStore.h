@@ -12,7 +12,7 @@
 /**
  缓存业务数据，对外屏蔽存储是具体实现(NSUserDefaults,FMDB等)
  */
-@interface ZHCache : NSObject
+@interface ZHGlobalStore : NSObject
 
 + (instancetype)sharedInstance;
 
