@@ -7,7 +7,6 @@
 //
 
 #import "MainViewModel.h"
-#import "ZHAccountApi.h"
 
 @implementation MainViewModel
 
@@ -21,14 +20,11 @@
 #pragma mark - getter
 - (RACCommand *)syncUserCommand{
     if (!_syncUserCommand) {
-        @weakify(self)
         _syncUserCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                
-                [ZHAccountApi getUserInfoWithDoneHandler:^(ZHUserModel *user, NSError *error) {
-                    @strongify(self)
-                    [self _cacheUser:user];
-                }];
+                [[ZHGlobalStore sharedInstance] loadUser];
+                [subscriber sendNext:nil];
+                [subscriber sendCompleted];
                 return nil;
             }];
         }];
