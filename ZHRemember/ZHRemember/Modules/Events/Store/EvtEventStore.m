@@ -216,6 +216,9 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [[ZHDBManager manager] deleteAllAtTable:kEventStoreTable];
         for (EvtEventModel *model in eventLists) {
+            if (!model.eventId) {
+                continue;
+            }
             [[ZHDBManager manager] insertObject:model forKey:model.eventId atTable:kEventStoreTable];
         }
     });

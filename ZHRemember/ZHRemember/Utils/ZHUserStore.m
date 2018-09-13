@@ -45,7 +45,8 @@ static NSString *ZHStoreUserCacheKey = @"ZHStoreUserCacheKey";
     //加载网络数据
     __weak typeof(self)weakself = self;
     [ZHAccountApi getUserInfoWithDoneHandler:^(ZHUserModel *user, NSError *error) {
-        if (error) {
+        if (error || !user) {
+            [HBHUDManager showMessage:@"获取用户信息错误，请重新登录"];
             return ;
         }
         [weakself updateUser:user];

@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [ZHGlobalStore setProductEnvironmentEnable:NO];
+    [ZHGlobalStore setProductEnvironmentEnable:YES];
     [self zh_setupWindow];
     [self zh_setupAppearance];
     [self zh_setupLeanCloudService];
