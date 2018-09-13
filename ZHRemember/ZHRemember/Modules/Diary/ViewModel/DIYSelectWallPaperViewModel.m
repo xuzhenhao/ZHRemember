@@ -7,7 +7,7 @@
 //
 
 #import "DIYSelectWallPaperViewModel.h"
-#import "ZHAccountApi.h"
+#import "ZHUserStore.h"
 
 @implementation DIYSelectWallPaperViewModel
 
@@ -45,8 +45,8 @@
             
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
-                [ZHAccountApi unlockLetterWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
-                    [subscriber sendNext:@(isSuccess)];
+                [[ZHUserStore shared] enableCustomLettersWithCost:IAPUnlockLetterPirce done:^(BOOL success, NSError *error) {
+                    [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];
                 return nil;

@@ -7,7 +7,7 @@
 //
 
 #import "EvtEditEventTagViewModel.h"
-#import "EvtEventApi.h"
+#import "EvtEventStore.h"
 
 @interface EvtEditEventTagViewModel()
 /** 可选标签数组*/
@@ -42,9 +42,34 @@
 }
 - (void)requestTags{
     @weakify(self)
-    [EvtEventApi getTagListWithDone:^(NSArray<EvtTagModel *> *tagList, NSDictionary *result) {
+    
+    [[[RACSignal combineLatest:@[RACObserve([EvtEventStore shared], publicTags),
+                               RACObserve([EvtEventStore shared], privateTags)]] filter:^BOOL(RACTuple * _Nullable value) {
+        RACTupleUnpack(NSArray *publicTag,NSArray *privateTag) = value;
+        return publicTag.count > 0 || privateTag.count > 0;
+    }] subscribeNext:^(RACTuple * _Nullable x) {
         @strongify(self)
-        self.tags = tagList;
+        RACTupleUnpack(NSArray *publicTag,NSArray *privateTag) = x;
+        NSMutableArray *tempM = [NSMutableArray arrayWithArray:publicTag];
+        if (privateTag.count > 0) {
+            [tempM addObjectsFromArray:privateTag];
+        }
+        self.tags = [tempM copy];
+    }];
+    
+//    [[RACObserve([EvtEventStore shared], publicTags) filter:^BOOL(id  _Nullable value) {
+//        return value != nil;
+//    }] subscribeNext:^(id  _Nullable x) {
+//        @strongify(self)
+//        NSMutableArray *tempM = [NSMutableArray arrayWithArray:x];
+//        if ([EvtEventStore shared].privateTags.count > 0) {
+//            [tempM addObjectsFromArray:[EvtEventStore shared].privateTags];
+//        }
+//        self.tags = [tempM copy];
+//    }];
+
+    [[EvtEventStore shared] getEventTagsWithDone:^(BOOL succeed, NSError *error) {
+        
     }];
 }
 - (NSInteger)tagCount{

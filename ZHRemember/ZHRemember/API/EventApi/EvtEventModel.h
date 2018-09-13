@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
 
 @interface EvtEventModel : MTLModel<MTLJSONSerializing>
 
+/** 表主键id*/
+@property (nonatomic, copy)     NSString    *objectId;
 /** 事件id*/
 @property (nonatomic, copy)     NSString    *eventId;
 /** 事件名*/

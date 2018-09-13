@@ -31,6 +31,7 @@
 }
 
 - (void)initConfigWithModel:(EvtEventModel *)model{
+    self.eventModel.objectId = model.objectId;
     self.eventModel.eventId = model.eventId;
     
     EvtEditEventTitleViewModel *titleVM = [EvtEditEventTitleViewModel viewModelWithEventName:model.eventName];
@@ -114,7 +115,7 @@
         _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 @strongify(self)
-                [[EvtEventStore shared] deleteWithEventId:self.eventId done:^(BOOL succeed, NSError *error) {
+                [[EvtEventStore shared] deleteWithObjectId:self.objectId eventId:self.eventModel.eventId done:^(BOOL succeed, NSError *error) {
                     self.error = error;
                     [subscriber sendNext:@(succeed)];
                     [subscriber sendCompleted];
@@ -143,7 +144,7 @@
     }
     return _eventModel;
 }
-- (NSString *)eventId{
-    return self.eventModel.eventId;
+- (NSString *)objectId{
+    return self.eventModel.objectId;
 }
 @end

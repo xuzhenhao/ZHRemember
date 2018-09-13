@@ -25,5 +25,6 @@
 #import "HBHUDManager.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "ZHGlobalStore.h"
+#import "ZHUserStore.h"
 
 #endif /* PrefixHeader_pch */

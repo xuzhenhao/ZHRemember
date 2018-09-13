@@ -193,7 +193,7 @@ static NSString *kDBName = @"com.zh.dbManager.db";
     
     if ([self isTableExists:tableName]) {
         [_queue inDatabase:^(FMDatabase *_db) {
-            FMResultSet *rs = [_db executeQuery:[NSString stringWithFormat:@"SELECT object FROM %@ ORDER BY createDate Desc",tableName]];
+            FMResultSet *rs = [_db executeQuery:[NSString stringWithFormat:@"SELECT object FROM %@ ORDER BY createDate asc",tableName]];
             while ([rs next]) {
                 NSData *data = [[NSData alloc] initWithBase64EncodedString:[rs stringForColumn:@"object"]
                                                                    options:NSDataBase64DecodingIgnoreUnknownCharacters];

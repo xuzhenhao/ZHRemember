@@ -31,8 +31,12 @@ extern NSString *AdMobMovieTestId;//视频广告测试id
 extern NSString *IAPSandboxURL;//沙盒测试环境验证
 extern NSString *IAPAppstoreURL;//正式环境验证
 
+extern NSInteger IAPUnlockLetterPirce;//解锁信纸费用
 #pragma mark - error
 extern NSString *NSErrorDescKey;//错误描述的key
+
+#pragma mark - reward
+extern NSInteger PublishDiaryReward;//发布日记奖励
 
 @interface ZHMacro : NSObject
 

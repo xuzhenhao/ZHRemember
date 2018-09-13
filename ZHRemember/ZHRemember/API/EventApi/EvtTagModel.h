@@ -8,16 +8,22 @@
 
 #import <Mantle/Mantle.h>
 
+typedef enum : NSUInteger {
+    EventTagTypePublic = 0,//公有标签
+    EventTagTypePrivate,
+} EventTagType;
 
 /**
  事件标签
  */
 @interface EvtTagModel : MTLModel<MTLJSONSerializing>
+
+@property (nonatomic, copy)     NSString    *objectId;
 /** 标签id*/
 @property (nonatomic, copy)     NSString    *tagId;
 /** 标签名*/
 @property (nonatomic, copy)     NSString    *tagName;
 /** 标签类型*/
-@property (nonatomic, assign)   NSInteger    tagType;
+@property (nonatomic, assign)   EventTagType    tagType;
 
 @end

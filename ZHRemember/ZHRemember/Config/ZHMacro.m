@@ -17,9 +17,12 @@ NSString *AdMobMovieTestId = @"ca-app-pub-3940256099942544/1712485313";
 
 NSString *IAPSandboxURL = @"https://sandbox.itunes.apple.com/verifyReceipt";
 NSString *IAPAppstoreURL = @"https://buy.itunes.apple.com/verifyReceipt";
+NSInteger IAPUnlockLetterPirce = 200;
 
 #pragma mark - error
 NSString *NSErrorDescKey = @"NSLocalizedDescription";
+#pragma mark - reward
+NSInteger PublishDiaryReward = 5;
 
 @implementation ZHMacro
 

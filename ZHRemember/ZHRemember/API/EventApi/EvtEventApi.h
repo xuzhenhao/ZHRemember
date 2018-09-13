@@ -36,10 +36,10 @@
 /**
  删除事件
 
- @param eventId 事件id
+ @param objectId 事件表主键id
  @param doneHandler 完成回调
  */
-+ (void)deleteWithEventId:(NSString *)eventId
++ (void)deleteEventWithObjectId:(NSString *)objectId
                      done:(void(^)(BOOL success,NSError *error))doneHandler;
 #pragma mark - tag
 /**
@@ -49,23 +49,23 @@
  @param doneHandler 完成回调
  */
 + (void)saveEventTag:(EvtTagModel *)tagModel
-                       done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                       done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  删除标签
 
- @param tagId 标签id
+ @param objectId 标签表主键id
  @param doneHandler 完成回调
  */
-+ (void)deleteEventTag:(NSString *)tagId
-                  done:(void(^)(BOOL success,NSDictionary *error))doneHandler;
++ (void)deleteTagWithObjectId:(NSString *)objectId
+                  done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  获取所有标签列表(包括私人+共有)
 
  @param doneHandler 完成回调
  */
-+ (void)getTagListWithDone:(void(^)(NSArray<EvtTagModel *> *tagList,NSDictionary *result))doneHandler;
++ (void)getTagListWithDone:(void(^)(NSArray<EvtTagModel *> *tagList,NSError *error))doneHandler;
 
 /**
  获取个人标签列表

@@ -27,8 +27,8 @@
 @property (nonatomic, strong)   NSArray     *dataSource;
 /** 是否可以保存*/
 @property (nonatomic, assign)   BOOL      isSaveEnable;
-/** 事件id*/
-@property (nonatomic, copy,readonly)     NSString    *eventId;
+/** 事件表id*/
+@property (nonatomic, copy,readonly)     NSString    *objectId;
 
 
 /** 选择照片*/

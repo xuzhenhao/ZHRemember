@@ -18,6 +18,9 @@ NSString *const EvtTagClassName = @"Event_Tag";
 NSString *const EvtObjectIdKey = @"objectId";
 /**每张表的用户id字段*/
 NSString *const EvtUserIdKey = @"user_id";
+
+/**事件表-事件id字段*/
+NSString *const EvtEventClassIdKey = @"event_id";
 /**事件表-标签字段*/
 NSString *const EvtEventClassTagKey = @"event_tag";
 /**事件表-名字字段*/
@@ -31,6 +34,8 @@ NSString *const EvtEventClassCoverKey = @"event_cover";
 /**事件表-重复周期字段*/
 NSString *const EvtEventClassCycleKey = @"event_cycle";
 
+/**标签表-标签id字段*/
+NSString *const EvtTagClassIdKey = @"tag_id";
 /**标签表-标签类型字段*/
 NSString *const EvtTagClassTypeKey = @"tag_type";
 /**标签表-标签名字段*/
@@ -42,7 +47,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
              done:(void(^)(BOOL success, NSError *error))doneHandler{
     AVObject *eventObj = [[AVObject alloc] initWithClassName:EvtClassName];
     //关联标签表
-    AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:event.tagModel.tagId];
+    AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:event.tagModel.objectId];
     [eventObj setObject:tagObj forKey:EvtEventClassTagKey];
     
     [self fillObject:eventObj withEvent:event];
@@ -59,6 +64,8 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     [query includeKey:EvtEventClassTagKey];
     //查询条件为用户id
     [query whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
+    [query orderByDescending:@"createdAt"];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
             NSDictionary *dict = [obj zh_localData];
@@ -75,9 +82,9 @@ NSString *const EvtTagClassNameKey = @"tag_name";
         doneHandler(lists,error);
     }];
 }
-+ (void)deleteWithEventId:(NSString *)eventId
-                     done:(void(^)(BOOL success,NSError *error))doneHandler{
-    AVObject *eventObj = [AVObject objectWithClassName:EvtClassName objectId:eventId];
++ (void)deleteEventWithObjectId:(NSString *)objectId
+                           done:(void(^)(BOOL success,NSError *error))doneHandler{
+    AVObject *eventObj = [AVObject objectWithClassName:EvtClassName objectId:objectId];
     [eventObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         doneHandler(succeeded,error);
     }];
@@ -85,21 +92,21 @@ NSString *const EvtTagClassNameKey = @"tag_name";
 
 #pragma mark - tag
 + (void)saveEventTag:(EvtTagModel *)tagModel
-                done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+                done:(void(^)(BOOL success,NSError *error))doneHandler{
     AVObject *tagObj = [[AVObject alloc] initWithClassName:EvtTagClassName];
     [self fillObject:tagObj withTag:tagModel];
     [tagObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
     }];
 }
-+ (void)deleteEventTag:(NSString *)tagId
-                  done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
-    AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:tagId];
++ (void)deleteTagWithObjectId:(NSString *)objectId
+                         done:(void(^)(BOOL success,NSError *error))doneHandler{
+    AVObject *tagObj = [AVObject objectWithClassName:EvtTagClassName objectId:objectId];
     [tagObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         doneHandler(succeeded,nil);
     }];
 }
-+ (void)getTagListWithDone:(void(^)(NSArray<EvtTagModel *> *tagList,NSDictionary *result))doneHandler{
++ (void)getTagListWithDone:(void(^)(NSArray<EvtTagModel *> *tagList,NSError *error))doneHandler{
     NSMutableArray *tempM = [NSMutableArray array];
     //查询共有标签
     AVQuery *pubicQuery = [AVQuery queryWithClassName:EvtTagClassName];
@@ -140,15 +147,17 @@ NSString *const EvtTagClassNameKey = @"tag_name";
 #pragma mark - utils
 + (void)fillObject:(AVObject *)tagObj withTag:(EvtTagModel *)tagModel{
     [tagObj setObject:[AVUser currentUser].objectId forKey:EvtUserIdKey];
-    [tagObj setValue:tagModel.tagId forKey:EvtObjectIdKey];
+    [tagObj setValue:tagModel.objectId forKey:EvtObjectIdKey];
+    [tagObj setObject:tagModel.tagId forKey:EvtTagClassIdKey];
     [tagObj setObject:tagModel.tagName forKey:EvtTagClassNameKey];
-    //标记为公有标签
+    //标记为私有标签
     [tagObj setObject:@"1" forKey:EvtTagClassTypeKey];
 }
 
 + (void)fillObject:(AVObject *)eventObj withEvent:(EvtEventModel *)eventModel{
     [eventObj setObject:[AVUser currentUser].objectId forKey:EvtUserIdKey];
-    [eventObj setValue:eventModel.eventId forKey:EvtObjectIdKey];
+    [eventObj setValue:eventModel.objectId forKey:EvtObjectIdKey];
+    [eventObj setObject:eventModel.eventId forKey:EvtEventClassIdKey];
     [eventObj setObject:eventModel.eventName forKey:EvtEventClassNameKey];
     [eventObj setObject:eventModel.beginTime forKey:EvtEventClassTimeKey];
     [eventObj setObject:eventModel.remarks forKey:EvtEventClassRemarkKey];

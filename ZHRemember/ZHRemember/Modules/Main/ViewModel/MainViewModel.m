@@ -10,19 +10,12 @@
 
 @implementation MainViewModel
 
-
-- (void)_cacheUser:(ZHUserModel *)user{
-    if (!user) {
-        return;
-    }
-    [[ZHGlobalStore sharedInstance] updateUser:user];
-}
 #pragma mark - getter
 - (RACCommand *)syncUserCommand{
     if (!_syncUserCommand) {
         _syncUserCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [[ZHGlobalStore sharedInstance] loadUser];
+                [[ZHUserStore shared] loadUser];
                 [subscriber sendNext:nil];
                 [subscriber sendCompleted];
                 return nil;

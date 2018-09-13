@@ -55,7 +55,7 @@
  @param objectId 用户扩展表对象id
  @param signTime 签到时间,mm-dd
  */
-+ (void)updateUserSignTimeWithObjectId:(NSString *)objectId
++ (void)updateUserSignTimeWithObjectId:(NSString *)objectId money:(NSString *)money
                               signTime:(NSString *)signTime done:(void(^)(BOOL isSuccess,NSError *error))doneHandler;
 
 /**

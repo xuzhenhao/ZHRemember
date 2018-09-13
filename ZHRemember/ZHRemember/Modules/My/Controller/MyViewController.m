@@ -28,15 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self setupObserver];
 }
 
 - (void)setupUI{
     self.title = @"设置";
     self.tableView.rowHeight = [self.viewModel itemHeight];
-    
-    [self bindActon];
 }
-- (void)bindActon{
+- (void)setupObserver{
     @weakify(self)
     [[self.viewModel.refreshSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)

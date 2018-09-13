@@ -12,7 +12,8 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"tagId":@"objectId",
+             @"objectId":@"objectId",
+             @"tagId":@"tag_id",
              @"tagName":@"tag_name",
              @"tagType":@"tag_type",
              };

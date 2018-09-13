@@ -11,7 +11,7 @@
 #import "ZHAccountApi.h"
 
 static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
-static NSString *ZHStoreUserCacheKey = @"ZHStoreUserCacheKey";
+
 
 @interface ZHGlobalStore()
 @property (nonatomic, strong)   ZHUserModel     *currentUser;
@@ -43,35 +43,8 @@ static NSString *ZHStoreUserCacheKey = @"ZHStoreUserCacheKey";
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"environment"];
 }
 #pragma mark - user
-- (void)loadUser{
-    //加载本地用户数据
-    ZHUserModel *user = [[ZHDBManager manager] objectForKey:ZHStoreUserCacheKey atTable:ZHStoreUserCacheKey].lastObject;
-    if (user) {
-        [self updateUser:user];
-    }
-    
-    //加载网络数据
-    __weak typeof(self)weakself = self;
-    [ZHAccountApi getUserInfoWithDoneHandler:^(ZHUserModel *user, NSError *error) {
-        if (error) {
-            return ;
-        }
-        [weakself updateUser:user];
-        //缓存到本地
-        [[ZHDBManager manager] deleteAllAtTable:ZHStoreUserCacheKey];
-        [[ZHDBManager manager] insertObject:user forKey:ZHStoreUserCacheKey atTable:ZHStoreUserCacheKey];
-    }];
-}
-- (void)updateUser:(ZHUserModel *)user{
-    self.currentUser = user;
-    if (!self.isSigned || !self.isPublished) {
-        [self _checkIfSigned];
-    }
-    
-    if ([user.money integerValue] > 0) {
-        self.money = user.money;
-    }
-}
+
+
 - (void)updateUserMoney:(NSString *)money{
     self.money = money;
     self.currentUser.money = money;

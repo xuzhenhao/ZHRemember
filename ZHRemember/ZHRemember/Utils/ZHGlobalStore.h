@@ -24,29 +24,16 @@
 + (void)setProductEnvironmentEnable:(BOOL)isEnable;
 + (BOOL)isProductEnvironment;
 #pragma mark - user
-/** 缓存的当前用户模型*/
-@property (nonatomic, strong,readonly)   ZHUserModel     *currentUser;
-/** 用户表objectId*/
-@property (nonatomic, copy,readonly)     NSString    *userObjectId;
-/** 缓存当前用的钱*/
-@property (nonatomic, copy,readonly)     NSString    *money;
-/** 用户当日是否已签到*/
-@property (nonatomic, assign,readonly)   BOOL      isSigned;
-/** 用户当前是否已发表日记*/
-@property (nonatomic, assign,readonly)   BOOL      isPublished;
 
-/**
- 加载用户数据
- */
-- (void)loadUser;
-- (void)updateUser:(ZHUserModel *)user;
-- (void)updateUserMoney:(NSString *)money;
-- (void)setUserUnlockLetter;
-- (void)setUserPublished;
-/**设置用户已签到*/
-- (void)setUserSigned;
-/**当前用户是否已解锁付费信纸*/
-- (BOOL)isUnlockLetter;
+
+//- (void)updateUser:(ZHUserModel *)user;
+//- (void)updateUserMoney:(NSString *)money;
+//- (void)setUserUnlockLetter;
+//- (void)setUserPublished;
+///**设置用户已签到*/
+//- (void)setUserSigned;
+///**当前用户是否已解锁付费信纸*/
+//- (BOOL)isUnlockLetter;
 
 #pragma mark - theme color
 /**

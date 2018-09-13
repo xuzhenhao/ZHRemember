@@ -9,7 +9,7 @@
 #import "DIYWriteDiaryViewModel.h"
 #import "ZHDiaryApi.h"
 #import "ZHCommonApi.h"
-#import "ZHAccountApi.h"
+#import "ZHUserStore.h"
 
 @interface DIYWriteDiaryViewModel()
 /** 日记时间戳*/
@@ -128,9 +128,8 @@
         _rewardCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
-                NSString *nowTime = [[NSDate date] formattedDateWithFormat:@"MM-dd" locale:[NSLocale systemLocale]];
-                [ZHAccountApi updateUserPublishRewardWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input publishTime:nowTime done:^(BOOL isSuccess, NSError *error) {
-                    [subscriber sendNext:@(isSuccess)];
+                [[ZHUserStore shared] setUserHavePublishedWithReward:PublishDiaryReward done:^(BOOL success, NSError *error) {
+                    [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];
                 return nil;

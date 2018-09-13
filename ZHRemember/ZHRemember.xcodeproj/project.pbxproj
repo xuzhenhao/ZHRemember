@@ -52,6 +52,7 @@
 		E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */; };
 		E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D6212EA64400F4BDB9 /* LoginConfig.m */; };
 		E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */; };
+		E7305255214A1183009B85D0 /* NSString+ZHID.m in Sources */ = {isa = PBXBuildFile; fileRef = E7305254214A1183009B85D0 /* NSString+ZHID.m */; };
 		E735FF8D213CCE2100B270E3 /* NSString+DiaryImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */; };
 		E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */; };
 		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
@@ -85,6 +86,7 @@
 		E7624BC2213FD87D00A57B47 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = E7624BC1213FD87D00A57B47 /* palette.png */; };
 		E7624BC5213FE06500A57B47 /* MyCustomColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */; };
 		E764466E2147C24400AA310F /* EvtEventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E764466D2147C24400AA310F /* EvtEventStore.m */; };
+		E764467221492B1E00AA310F /* ZHUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E764467121492B1E00AA310F /* ZHUserStore.m */; };
 		E76B115A21002AF60067E577 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
 		E76B116221002AF70067E577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
 		E76B116521002AF70067E577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
@@ -248,6 +250,8 @@
 		E72705D6212EA64400F4BDB9 /* LoginConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginConfig.m; sourceTree = "<group>"; };
 		E72705D8212EB86200F4BDB9 /* LGRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRegisterViewModel.h; sourceTree = "<group>"; };
 		E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRegisterViewModel.m; sourceTree = "<group>"; };
+		E7305253214A1183009B85D0 /* NSString+ZHID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ZHID.h"; sourceTree = "<group>"; };
+		E7305254214A1183009B85D0 /* NSString+ZHID.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ZHID.m"; sourceTree = "<group>"; };
 		E735FF8B213CCE2100B270E3 /* NSString+DiaryImageName.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+DiaryImageName.h"; sourceTree = "<group>"; };
 		E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+DiaryImageName.m"; sourceTree = "<group>"; };
 		E735FF91213CD52E00B270E3 /* DIYSelectMoodViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodViewModel.h; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 		E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCustomColorViewController.m; sourceTree = "<group>"; };
 		E764466C2147C24400AA310F /* EvtEventStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventStore.h; sourceTree = "<group>"; };
 		E764466D2147C24400AA310F /* EvtEventStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventStore.m; sourceTree = "<group>"; };
+		E764467021492B1E00AA310F /* ZHUserStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHUserStore.h; sourceTree = "<group>"; };
+		E764467121492B1E00AA310F /* ZHUserStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHUserStore.m; sourceTree = "<group>"; };
 		E76B115521002AF60067E577 /* ZHRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76B115821002AF60067E577 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E76B115921002AF60067E577 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -767,6 +773,8 @@
 			children = (
 				E735FF8B213CCE2100B270E3 /* NSString+DiaryImageName.h */,
 				E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */,
+				E7305253214A1183009B85D0 /* NSString+ZHID.h */,
+				E7305254214A1183009B85D0 /* NSString+ZHID.m */,
 			);
 			path = String;
 			sourceTree = "<group>";
@@ -1288,6 +1296,8 @@
 			children = (
 				E7B798AA21363DEA00348A7E /* ZHGlobalStore.h */,
 				E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */,
+				E764467021492B1E00AA310F /* ZHUserStore.h */,
+				E764467121492B1E00AA310F /* ZHUserStore.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1529,6 +1539,7 @@
 				E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
 				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
+				E7305255214A1183009B85D0 /* NSString+ZHID.m in Sources */,
 				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E7624BBB213F857D00A57B47 /* HBUpdateTipView.m in Sources */,
@@ -1588,6 +1599,7 @@
 				E704434D21003805000239C1 /* UIImage+ZHExt.m in Sources */,
 				E72705DA212EB86200F4BDB9 /* LGRegisterViewModel.m in Sources */,
 				E783706A213E683000000F28 /* IAPTarget.m in Sources */,
+				E764467221492B1E00AA310F /* ZHUserStore.m in Sources */,
 				E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,

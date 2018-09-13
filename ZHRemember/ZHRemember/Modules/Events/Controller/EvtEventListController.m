@@ -36,12 +36,6 @@
     [self setupView];
     [self setupObserver];
 }
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    if ([ZHGlobalStore sharedInstance].currentUser.isDisableAd) {
-        self.tableView.tableHeaderView = nil;
-    }
-}
 #pragma mark - UI
 - (void)setupView{
     [self.view addSubview:self.addEventButton];
@@ -55,10 +49,6 @@
         }];
     }];
     [self.tableView.mj_header beginRefreshing];
-    //加载banner广告
-    if (!([ZHGlobalStore sharedInstance].currentUser.isDisableAd)) {
-        [self setupAdBanner];
-    }
 }
 - (void)setupAdBanner{
     GADRequest *request = [GADRequest request];
@@ -66,10 +56,16 @@
 }
 - (void)setupObserver{
     @weakify(self)
-    //todo通过监听数据源改变，自动刷新tableView。不用到处发通知
-//    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:EvtEditEventSuccessNotification object:nil] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
-//        
-//    }];
+    [[[RACObserve([ZHUserStore shared], currentUser.isDisableAd) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        BOOL hiddenAds = [x boolValue];
+        if (hiddenAds) {
+            self.tableView.tableHeaderView = nil;
+        }else{
+            [self setupAdBanner];
+        }
+    }];
+    //通过监听数据源改变，自动刷新tableView。不用到处发通知
     [[[self.viewModel.dataRefreshSubject skip:0] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.tableView.emptyDataSetSource = self;
@@ -139,6 +135,9 @@
 }
 #pragma mark - banner adDelegate
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
+    if ([ZHUserStore shared].currentUser.isDisableAd) {
+        return;
+    }
     self.tableView.tableHeaderView = self.bannerView;
     self.tableView.contentOffset = CGPointMake(0, self.bannerView.ZH_height);
 }

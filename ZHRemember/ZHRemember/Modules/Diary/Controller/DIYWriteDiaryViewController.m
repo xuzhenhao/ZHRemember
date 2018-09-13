@@ -17,7 +17,6 @@
 #import "DIYSelectWallPaperViewController.h"
 
 NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
-NSInteger PublishDiaryReward = 5;//发表日记奖励
 
 @interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
 /**头部状态栏视图*/
@@ -203,7 +202,7 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
          BOOL isSuccess = [x boolValue];
          if (isSuccess) {
              [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
-             [[ZHGlobalStore sharedInstance] setUserPublished];
+//             [[ZHUserStore shared] setUserPublished];
          }
     }];
 }
@@ -302,14 +301,11 @@ NSInteger PublishDiaryReward = 5;//发表日记奖励
 }
 #pragma mark - utils
 - (void)checkIfNeedUpdateMoney{
-    //如果是第一次发表，更新账户金钱
-    if ([ZHGlobalStore sharedInstance].isPublished) {
+    //如果是今日第一次发表，更新账户余额
+    if ([ZHUserStore shared].isPublished) {
         return;
     }
-    NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
-    NSString *updateMoney = [NSString stringWithFormat:@"%ld",(currentMoney + PublishDiaryReward)];
-    [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
-    [self.viewModel.rewardCommand execute:updateMoney];
+    [self.viewModel.rewardCommand execute:nil];
 }
 
 #pragma mark - getter

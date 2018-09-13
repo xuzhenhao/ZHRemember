@@ -12,7 +12,8 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"eventId":@"objectId",
+             @"objectId":@"objectId",
+             @"eventId":@"event_id",
              @"eventName":@"event_name",
              @"coverURLStr":@"event_cover",
              @"beginTime":@"time_begin",

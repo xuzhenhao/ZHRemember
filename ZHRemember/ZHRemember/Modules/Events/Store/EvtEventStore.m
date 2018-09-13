@@ -11,11 +11,15 @@
 #import "ZHDBManager.h"
 /**事件缓存表名*/
 #define kEventStoreTable @"EventStoreTableName"
-/**事件列表缓存键名*/
-#define kEventListStoreKey @"eventListStoreKeyName"
+/**标签缓存表名*/
+#define kTagStoreTable @"TagStoreTableName"
 
 @interface EvtEventStore()
 @property (nonatomic, strong)   NSArray<EvtEventModel *>     *events;
+/** 私有标签列表*/
+@property (nonatomic, strong)   NSArray<EvtTagModel *>     *privateTags;
+/** 公有标签列表*/
+@property (nonatomic, strong)   NSArray<EvtTagModel *>     *publicTags;
 
 @end
 
@@ -58,13 +62,15 @@
         done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
         return;
     }
+    //生成事件id
+    event.eventId = [NSString zh_onlyID];
     //先本地保存
     NSMutableArray *array = [NSMutableArray array];
     [array addObject:event];
     [array addObjectsFromArray:self.events];
     self.events = [array copy];
     done(YES,nil);
-//    [self cacheLocalEvents:self.events];//没有objectId
+    [self cacheLocalEvents:self.events];
     
     //同步到远程
     [EvtEventApi saveEvent:event done:^(BOOL success, NSError *error) {
@@ -95,8 +101,9 @@
         }
     }];
 }
-- (void)deleteWithEventId:(NSString *)eventId
-                     done:(void(^)(BOOL succeed,NSError *error))done{
+- (void)deleteWithObjectId:(NSString *)objectId
+                   eventId:(NSString *)eventId
+                      done:(void(^)(BOOL succeed,NSError *error))done{
     if (!eventId) {
         done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
         return;
@@ -110,11 +117,94 @@
         self.events = localEvents;
     }
     //同步到网络
-    [EvtEventApi deleteWithEventId:eventId done:^(BOOL success, NSError *error) {
+    if (objectId) {
+        [EvtEventApi deleteEventWithObjectId:objectId done:^(BOOL success, NSError *error) {
+            if (error) {
+                done(NO,error);
+            }
+        }];
+    }
+}
+#pragma mark - tags
+- (void)getEventTagsWithDone:(void(^)(BOOL succeed,NSError *error))done{
+    //先加载本地的
+    NSArray *localTags = [[ZHDBManager manager] objectsAtTable:kTagStoreTable];
+    if (localTags.count > 0) {
+        done(YES,nil);
+        [self filterAndUpdateTags:localTags];
+    }
+    //拉取网络的
+    __weak typeof(self)weakself = self;
+    [EvtEventApi getTagListWithDone:^(NSArray<EvtTagModel *> *tagList, NSError *error) {
+        if (error) {
+            done(NO,error);
+            return ;
+        }
+        done(YES,nil);
+        [weakself filterAndUpdateTags:tagList];
+        //缓存到本地
+        [weakself cacheLocalTags:tagList];
+    }];
+}
+- (void)saveTag:(EvtTagModel *)tag
+           done:(void(^)(BOOL succeed,NSError *error))done{
+    if (!tag) {
+        done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
+        return;
+    }
+    //先本地更新
+    if (!tag.tagId) {
+        //新增的
+        tag.tagId = [NSString zh_onlyID];
+        //先本地保存
+        NSMutableArray *array = [NSMutableArray array];
+        [array addObject:tag];
+        [array addObjectsFromArray:self.privateTags];
+        self.privateTags = [array copy];
+        done(YES,nil);
+        NSMutableArray *tempM = [NSMutableArray arrayWithArray:self.privateTags];
+        [tempM addObjectsFromArray:self.publicTags];
+        [self cacheLocalTags:[tempM copy]];
+    }else{
+        //更新
+        BOOL succeed = [[ZHDBManager manager] updateObject:tag forKey:tag.tagId atTable:kTagStoreTable];
+        if (succeed) {
+            //重新加载到内存
+            NSArray *localTags = [[ZHDBManager manager] objectsAtTable:kTagStoreTable];
+            [self filterAndUpdateTags:localTags];
+            done(YES,nil);
+        }
+    }
+    //同步网络
+    [EvtEventApi saveEventTag:tag done:^(BOOL success, NSError *error) {
         if (error) {
             done(NO,error);
         }
     }];
+}
+- (void)deleteTagWithObjectId:(NSString *)objectId
+                        tagId:(NSString *)tagId
+                         done:(void(^)(BOOL succeed,NSError *error))done{
+    if (!tagId) {
+        done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
+        return;
+    }
+    //先本地删除
+    BOOL succeed = [[ZHDBManager manager] deleteObjectForKey:tagId atTable:kTagStoreTable];
+    if (succeed) {
+        //重新加载到内存
+        NSArray *localTags = [[ZHDBManager manager] objectsAtTable:kTagStoreTable];
+        done(YES,nil);
+        [self filterAndUpdateTags:localTags];
+    }
+    if (objectId) {
+        //同步网络
+        [EvtEventApi deleteTagWithObjectId:objectId done:^(BOOL success, NSError *error) {
+            if (error) {
+                done(NO,error);
+            }
+        }];
+    }
 }
 #pragma mark - helper
 - (void)cacheLocalEvents:(NSArray<EvtEventModel *> *)eventLists{
@@ -125,4 +215,30 @@
         }
     });
 }
+//标签分类更新
+- (void)filterAndUpdateTags:(NSArray<EvtTagModel *> *)tags{
+    NSMutableArray *privateTags = [NSMutableArray array];
+    NSMutableArray *publicTags = [NSMutableArray array];
+    for (EvtTagModel *tag in tags) {
+        if (tag.tagType == EventTagTypePublic) {
+            [publicTags addObject:tag];
+        }else{
+            [privateTags addObject:tag];
+        }
+    }
+    self.publicTags = [publicTags copy];
+    self.privateTags = [privateTags copy];
+}
+- (void)cacheLocalTags:(NSArray<EvtTagModel *> *)tags{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [[ZHDBManager manager] deleteAllAtTable:kTagStoreTable];
+        for (EvtTagModel *model in tags) {
+            if (!model.tagId) {
+                continue;
+            }
+            [[ZHDBManager manager] insertObject:model forKey:model.tagId atTable:kTagStoreTable];
+        }
+    });
+}
+
 @end

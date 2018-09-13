@@ -7,7 +7,7 @@
 //
 
 #import "MyThemeColorViewModel.h"
-#import "ZHAccountApi.h"
+#import "ZHUserStore.h"
 
 NSInteger IAPCustomColorPrice = 100;
 
@@ -19,9 +19,8 @@ NSInteger IAPCustomColorPrice = 100;
     if (!_unlockCommand) {
         _unlockCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                
-                [ZHAccountApi unlockCustomThemeWithObjectId:[ZHGlobalStore sharedInstance].currentUser.objectId money:input done:^(BOOL isSuccess, NSError *error) {
-                    [subscriber sendNext:@(isSuccess)];
+                [[ZHUserStore shared] enableCustomColorWithCost:IAPCustomColorPrice done:^(BOOL success, NSError *error) {
+                    [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];
                 return nil;

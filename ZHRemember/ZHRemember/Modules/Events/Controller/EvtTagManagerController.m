@@ -30,16 +30,24 @@
     [super viewDidLoad];
     
     [self setupUI];
-    [self bindEvent];
-    [self.viewModel.requestCommand execute:nil];
+    [self setupOberver];
 }
 
 #pragma mark - setup UI
 - (void)setupUI{
     self.tableView.rowHeight = 60;
     
+    @weakify(self)
+    [self.tableView configHeadRefreshControlWithRefreshBlock:^{
+        @strongify(self)
+        [[[self.viewModel.requestCommand execute:nil] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+            //此处是刷新动作的完成。刷新UI在监听数据源的回调中
+            [self.tableView.mj_header endRefreshing];
+        }];
+    }];
+    [self.tableView.mj_header beginRefreshing];
 }
-- (void)bindEvent{
+- (void)setupOberver{
     @weakify(self)
     
     RAC(self.addTagButton,enabled) = [self.inputTextField.rac_textSignal map:^id _Nullable(NSString * _Nullable value) {
@@ -50,7 +58,7 @@
         [self.view endEditing:YES];
         [self.viewModel.addCommand execute:self.inputTextField.text];
     }];
-    [[self.viewModel.requestCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[self.viewModel.dataRefreshSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         [self.tableView reloadData];
     }];
@@ -59,14 +67,19 @@
         BOOL success = [x boolValue];
         if (success) {
             self.inputTextField.text = nil;
-            [self.viewModel.requestCommand execute:nil];
         }
     }];
     [[self.viewModel.delCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         BOOL success = [x boolValue];
         if (success) {
-            [self.viewModel.requestCommand execute:nil];
+            [HBHUDManager showMessage:@"已删除"];
         }
+    }];
+    [[[RACObserve(self.viewModel, error) filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        NSError *error = x;
+        [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
 }
 
@@ -91,7 +104,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         EvtTagModel *model = [self.viewModel modelOfRow:indexPath.row];
-        [self.viewModel.delCommand execute:model.tagId];
+        [self.viewModel.delCommand execute:model];
     }
 }
 

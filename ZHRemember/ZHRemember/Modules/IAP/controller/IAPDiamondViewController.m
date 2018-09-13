@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self bindAction];
+    [self setupObserver];
 }
 - (void)setupUI{
     self.title = @"我的账户";
@@ -42,24 +42,19 @@
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
     self.navigationItem.rightBarButtonItem = self.adItem;
 }
-- (void)bindAction{
+- (void)setupObserver{
     @weakify(self)
-    [[[RACObserve([ZHGlobalStore sharedInstance], money) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
-        return value && [value integerValue] >= 0;
+    [[[RACObserve([ZHUserStore shared], money) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
+        return value != nil;
     }] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.diamondLabel.text = x;
     }];
     
     [[self.viewModel.signCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
-        @strongify(self)
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"签到成功"];
-            NSString *money = [self.viewModel getRewardMoneyForAction:IAPEventSign];
-            [[ZHGlobalStore sharedInstance] updateUserMoney:money];
-            [[ZHGlobalStore sharedInstance] setUserSigned];
-            [self.viewModel.updateMoneyCommand execute:money];
         }
     }];
 
@@ -67,7 +62,6 @@
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"已为您去除广告"];
-            [ZHGlobalStore sharedInstance].currentUser.isDisableAd = YES;
         }
     }];
 }
@@ -109,9 +103,11 @@
         [self watchVideoAdsEvent];
     }else if ([eventId isEqualToString:IAPEventPublish]){
         //写日记
+        UIViewController *publishVc = [[ZHMediator sharedInstance] zh_diaryListViewController];
+        [self.navigationController pushViewController:publishVc animated:YES];
     }else if([eventId isEqualToString:IAPEventSign]){
         //签到
-        if ([ZHGlobalStore sharedInstance].isSigned) {
+        if ([ZHUserStore shared].isSigned) {
             [HBHUDManager showMessage:@"今日已签到"];
         }else{
             [self.viewModel.signCommand execute:nil];
@@ -130,9 +126,7 @@
 }
 - (void)finishBuyingEvent{
     NSString *money = [self.viewModel getRewardMoneyForAction:self.currentGoodsId];
-    //本地先更新了
-    [[ZHGlobalStore sharedInstance] updateUserMoney:money];
-    [self.viewModel.updateMoneyCommand execute:money];
+    [self.viewModel.addMoneyCommand execute:money];
 }
 - (void)watchVideoAdsEvent{
     if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
@@ -144,9 +138,7 @@
 }
 - (void)finishWatchAdsEvent{
     NSString *money = [self.viewModel getRewardMoneyForAction:IAPEventWatchAds];
-    //本地先更新了
-    [[ZHGlobalStore sharedInstance] updateUserMoney:money];
-    [self.viewModel.updateMoneyCommand execute:money];
+    [self.viewModel.addMoneyCommand execute:money];
     [HBHUDManager showMessage:@"感谢支持，您已获得奖励"];
 }
 - (void)loadNextMovieAds{
@@ -164,8 +156,8 @@
                                               style:UIAlertActionStyleCancel
                                             handler:nil]];
     [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSInteger currentMoney = [[ZHGlobalStore sharedInstance].money integerValue];
-        if ([ZHGlobalStore sharedInstance].currentUser.isDisableAd) {
+        NSInteger currentMoney = [[ZHUserStore shared].money integerValue];
+        if ([ZHUserStore shared].currentUser.isDisableAd) {
             [HBHUDManager showMessage:@"您已去除过广告，无需重复购买"];
             return;
         }
@@ -174,9 +166,7 @@
             return;
         }
         
-        NSString *updateMoney = [NSString stringWithFormat:@"%zd",(currentMoney - IAPDisableAdPrice)];
-        [[ZHGlobalStore sharedInstance] updateUserMoney:updateMoney];
-        [self.viewModel.disableAdCommand execute:updateMoney];
+        [self.viewModel.disableAdCommand execute:nil];
     }]];
     [self presentViewController:alert animated:YES completion:nil];
 }
