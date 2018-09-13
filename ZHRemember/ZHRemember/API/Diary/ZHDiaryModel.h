@@ -10,6 +10,8 @@
 
 @interface ZHDiaryModel : MTLModel<MTLJSONSerializing>
 
+/** 主键id*/
+@property (nonatomic, copy)     NSString    *objectId;
 /** 日记id*/
 @property (nonatomic, copy)     NSString    *diaryId;
 /** 时间戳*/

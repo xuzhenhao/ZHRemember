@@ -18,7 +18,7 @@
  @param doneHandler 完成回调
  */
 + (void)saveDiary:(ZHDiaryModel *)diary
-             done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+             done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  删除日记
@@ -27,7 +27,7 @@
  @param doneHandler 完成回调
  */
 + (void)deleteDiaryWithId:(NSString *)diaryId
-                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                     done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  获取日记列表
@@ -36,6 +36,6 @@
  @param doneHandler 完成回调
  */
 + (void)getDiaryListWithPage:(NSInteger)page
-                        done:(void(^)(NSArray<ZHDiaryModel *> *diaryList,NSDictionary *result))doneHandler;
+                        done:(void(^)(NSArray<ZHDiaryModel *> *diaryList,NSError *error))doneHandler;
 
 @end

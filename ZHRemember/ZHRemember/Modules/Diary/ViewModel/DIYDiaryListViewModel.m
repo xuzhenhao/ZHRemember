@@ -7,17 +7,32 @@
 //
 
 #import "DIYDiaryListViewModel.h"
-#import "ZHDiaryApi.h"
+#import "DIYDiaryStore.h"
 
 @interface DIYDiaryListViewModel()
 /** <#desc#>*/
 @property (nonatomic, strong)   NSArray<DIYDiaryListCellViewModel *>     *diaryViewModels;
-/** 当前索引页*/
-@property (nonatomic, assign)   NSInteger      page;
+
+@property (nonatomic, strong)   NSError     *error;
 
 @end
 
 @implementation DIYDiaryListViewModel
+
+- (instancetype)init{
+    if (self == [super init]) {
+        [self setupObserver];
+    }
+    return self;
+}
+- (void)setupObserver{
+    @weakify(self)
+    [RACObserve([DIYDiaryStore shared], diarys) subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self refreshDataWithModels:x];
+        [self.refreshSubject sendNext:nil];
+    }];
+}
 
 #pragma mark - UITableView
 - (NSInteger)numOfRows{
@@ -51,9 +66,7 @@
 /**更新数据*/
 - (void)refreshDataWithModels:(NSArray<ZHDiaryModel *> *)diaryList{
     NSArray<DIYDiaryListCellViewModel *> *viewModels = [self adapterViewModelsWithModels:diaryList];
-    if (self.page < 1) {
         self.diaryViewModels = viewModels;
-    }
 }
 /**同月份的，不显示月份信息。同一天的，不显示天信息*/
 - (void)calcuteViewModelTimeWithVM:(DIYDiaryListCellViewModel *)viewModel VMTime:(NSString *)vmTime lastTime:(NSString *)lastTime{
@@ -89,12 +102,10 @@
         @weakify(self)
         _requestCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             
-            NSInteger page = [input integerValue];
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-                [ZHDiaryApi getDiaryListWithPage:page done:^(NSArray<ZHDiaryModel *> *diaryList, NSDictionary *result) {
+                [[DIYDiaryStore shared] loadDataWithPage:0 done:^(BOOL succeed, NSError *error) {
                     @strongify(self)
-                    self.page = page;
-                    [self refreshDataWithModels:diaryList];
+                    self.error = error;
                     [subscriber sendNext:nil];
                     [subscriber sendCompleted];
                 }];
@@ -104,5 +115,10 @@
     }
     return _requestCommand;
 }
-
+- (RACSubject *)refreshSubject{
+    if (!_refreshSubject) {
+        _refreshSubject = [RACSubject new];
+    }
+    return _refreshSubject;
+}
 @end

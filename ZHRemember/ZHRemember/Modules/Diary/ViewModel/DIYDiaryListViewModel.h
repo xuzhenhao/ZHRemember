@@ -12,6 +12,11 @@
 /**日记列表页VM*/
 @interface DIYDiaryListViewModel : NSObject
 
+/** 请求错误*/
+@property (nonatomic, strong,readonly)   NSError     *error;
+/** 数据刷新回调*/
+@property (nonatomic, strong)   RACSubject     *refreshSubject;
+
 #pragma mark - UITableView
 - (NSInteger)numOfRows;
 - (DIYDiaryListCellViewModel *)viewModelOfRow:(NSInteger)row section:(NSInteger)section;

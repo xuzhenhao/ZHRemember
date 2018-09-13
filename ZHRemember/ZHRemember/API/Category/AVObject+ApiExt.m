@@ -10,7 +10,7 @@
 
 NSString *const AVUserIdKey = @"user_id";
 NSString *const AVObjectIdKey = @"objectId";
-NSInteger AVPerPageCount = 100;
+NSInteger AVPerPageCount = 1000;
 
 @implementation AVObject (ApiExt)
 - (NSDictionary *)zh_localData{

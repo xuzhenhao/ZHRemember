@@ -69,6 +69,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
+    [self setupObserver];
 }
 
 #pragma mark - setupUI
@@ -83,7 +84,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     
     [self setupStatusView];
     [self setupContentView];
-    [self bindAction];
+    
 }
 - (void)setupStatusView{
     self.statusView.layer.cornerRadius = 5;
@@ -132,7 +133,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         make.edges.mas_equalTo(self.contentView);
     }];
 }
-- (void)bindAction{
+- (void)setupObserver{
     RAC(self,monthDescLabel.text) = RACObserve(self.viewModel, monthDesc);
     RAC(self,dayDescLabel.text) = RACObserve(self.viewModel, dayDesc);
     RAC(self,hourDescLabel.text) = RACObserve(self.viewModel, hourDesc);
@@ -176,7 +177,6 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"保存成功" done:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:DIYDiaryChangedNotification object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             }];
             [self checkIfNeedUpdateMoney];
@@ -190,7 +190,6 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"已删除" done:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:DIYDiaryChangedNotification object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             }];
         }else{
@@ -202,7 +201,6 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
          BOOL isSuccess = [x boolValue];
          if (isSuccess) {
              [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
-//             [[ZHUserStore shared] setUserPublished];
          }
     }];
 }

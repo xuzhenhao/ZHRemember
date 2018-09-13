@@ -7,7 +7,7 @@
 //
 
 #import "DIYWriteDiaryViewModel.h"
-#import "ZHDiaryApi.h"
+#import "DIYDiaryStore.h"
 #import "ZHCommonApi.h"
 #import "ZHUserStore.h"
 
@@ -19,6 +19,9 @@
 
 /** 日记id*/
 @property (nonatomic, copy)     NSString    *diaryId;
+/** 对象id*/
+@property (nonatomic, copy)     NSString    *objectId;
+
 
 @end
 
@@ -43,6 +46,7 @@
     vm.diaryImageURL = model.diaryImageURL;
     vm.diaryText = model.diaryText;
     vm.diaryId = model.diaryId;
+    vm.objectId = model.objectId;
     
     return vm;
 }
@@ -64,6 +68,7 @@
 /**将数据拼成网络请求用的模型*/
 - (ZHDiaryModel *)getParamModel{
     ZHDiaryModel *model = [ZHDiaryModel new];
+    model.objectId = self.objectId;
     model.diaryId = self.diaryId;
     model.unixTime = self.unixTime;
     model.diaryText = self.diaryText;
@@ -96,8 +101,8 @@
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 
                 @strongify(self)
-                [ZHDiaryApi saveDiary:[self getParamModel] done:^(BOOL success, NSDictionary *result) {
-                    [subscriber sendNext:@(success)];
+                [[DIYDiaryStore shared] saveDiary:[self getParamModel] done:^(BOOL succeed, NSError *error) {
+                    [subscriber sendNext:@(succeed)];
                     [subscriber sendCompleted];
                 }];
                 
@@ -113,10 +118,11 @@
         _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 @strongify(self)
-                [ZHDiaryApi deleteDiaryWithId:self.diaryId done:^(BOOL success, NSDictionary *result) {
-                    [subscriber sendNext:@(success)];
+                [[DIYDiaryStore shared] deleteDiaryWithObjectId:self.objectId diaryId:self.diaryId done:^(BOOL succeed, NSError *error) {
+                    [subscriber sendNext:@(succeed)];
                     [subscriber sendCompleted];
                 }];
+                
                 return nil;
             }];
         }];

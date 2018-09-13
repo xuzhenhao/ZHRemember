@@ -46,6 +46,7 @@
 		E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
 		E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */; };
 		E712E745214A817200BBC25D /* ZHNotificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E744214A817200BBC25D /* ZHNotificationConfig.m */; };
+		E712E749214A861D00BBC25D /* DIYDiaryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E748214A861D00BBC25D /* DIYDiaryStore.m */; };
 		E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */; };
 		E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */; };
 		E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */; };
@@ -240,6 +241,8 @@
 		E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ZHRouter.m"; sourceTree = "<group>"; };
 		E712E743214A817200BBC25D /* ZHNotificationConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHNotificationConfig.h; sourceTree = "<group>"; };
 		E712E744214A817200BBC25D /* ZHNotificationConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHNotificationConfig.m; sourceTree = "<group>"; };
+		E712E747214A861D00BBC25D /* DIYDiaryStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYDiaryStore.h; sourceTree = "<group>"; };
+		E712E748214A861D00BBC25D /* DIYDiaryStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryStore.m; sourceTree = "<group>"; };
 		E71ED416212282F3000E18F2 /* EvtEditEventCoverViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCoverViewModel.h; sourceTree = "<group>"; };
 		E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCoverViewModel.m; sourceTree = "<group>"; };
 		E71ED4192122843C000E18F2 /* EvtEditEventDateViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventDateViewModel.h; sourceTree = "<group>"; };
@@ -717,6 +720,15 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		E712E746214A860600BBC25D /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				E712E747214A861D00BBC25D /* DIYDiaryStore.h */,
+				E712E748214A861D00BBC25D /* DIYDiaryStore.m */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		E72705CB212EA34900F4BDB9 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,6 +799,7 @@
 		E73C65D621379EAE007D656A /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				E712E746214A860600BBC25D /* Store */,
 				E73C65D921379ED3007D656A /* View */,
 				E73C65D821379ECB007D656A /* Controller */,
 				E73C65D721379EC1007D656A /* ViewModel */,
@@ -1620,6 +1633,7 @@
 				E7837073213E788F00000F28 /* IAPDiamondViewModel.m in Sources */,
 				E73B4FD02106D3AA00B6243B /* EvtEditEventRemarkCell.m in Sources */,
 				E704437F2100754C000239C1 /* EasyNavigationView+RightButton.m in Sources */,
+				E712E749214A861D00BBC25D /* DIYDiaryStore.m in Sources */,
 				E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */,
 				E735FF8D213CCE2100B270E3 /* NSString+DiaryImageName.m in Sources */,
 				E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */,

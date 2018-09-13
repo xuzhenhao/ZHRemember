@@ -12,7 +12,8 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{
-             @"diaryId":@"objectId",
+             @"objectId":@"objectId",
+             @"diaryId":@"diary_id",
              @"unixTime":@"create_time",
              @"diaryText":@"diary_text",
              @"diaryImageURL":@"diary_image",

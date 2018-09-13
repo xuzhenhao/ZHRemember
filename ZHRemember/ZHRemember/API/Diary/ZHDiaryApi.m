@@ -12,6 +12,8 @@
 
 /**日记表名*/
 NSString *const DiaryClassName = @"Diary";
+/**日记表，日记Id key*/
+NSString *const DiaryClassIdKey = @"diary_id";
 /**日记表，日记文字key*/
 NSString *const DiaryClassTextKey = @"diary_text";
 /**日记表，时间key*/
@@ -29,23 +31,23 @@ NSString *const DiaryClassDiaryPhotoKey = @"diary_image";
 @implementation ZHDiaryApi
 
 + (void)saveDiary:(ZHDiaryModel *)diary
-             done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+             done:(void(^)(BOOL success,NSError *error))doneHandler{
     AVObject *diaryObj = [[AVObject alloc] initWithClassName:DiaryClassName];
     
     [self fillObject:diaryObj withDiary:diary];
     [diaryObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
     }];
 }
 + (void)deleteDiaryWithId:(NSString *)diaryId
-                     done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+                     done:(void(^)(BOOL success,NSError *error))doneHandler{
     AVObject *diaryObj = [AVObject objectWithClassName:DiaryClassName objectId:diaryId];
     [diaryObj deleteInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
     }];
 }
 + (void)getDiaryListWithPage:(NSInteger)page
-                        done:(void(^)(NSArray<ZHDiaryModel *> *diaryList,NSDictionary *result))doneHandler{
+                        done:(void(^)(NSArray<ZHDiaryModel *> *diaryList,NSError *error))doneHandler{
     AVQuery *query = [AVQuery queryWithClassName:DiaryClassName];
     [query whereKey:AVUserIdKey equalTo:[AVUser currentUser].objectId];
     
@@ -61,14 +63,15 @@ NSString *const DiaryClassDiaryPhotoKey = @"diary_image";
             [tempM addObject:dict];
         }
         NSArray *lists = [MTLJSONAdapter modelsOfClass:[ZHDiaryModel class] fromJSONArray:tempM error:nil];
-        doneHandler(lists,nil);
+        doneHandler(lists,error);
     }];
 }
 
 #pragma mark - utils
 + (void)fillObject:(AVObject *)diaryObj withDiary:(ZHDiaryModel *)diaryModel{
     [diaryObj setObject:[AVUser currentUser].objectId forKey:AVUserIdKey];
-    [diaryObj setValue:diaryModel.diaryId forKey:AVObjectIdKey];
+    [diaryObj setValue:diaryModel.objectId forKey:AVObjectIdKey];
+    [diaryObj setObject:diaryModel.diaryId forKey:DiaryClassIdKey];
     [diaryObj setObject:diaryModel.diaryText forKey:DiaryClassTextKey];
     [diaryObj setObject:diaryModel.unixTime forKey:DiaryClassTimeKey];
     [diaryObj setObject:diaryModel.weatherImageName forKey:DiaryClassWeatherKey];

@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self bindActions];
+    [self setupObserver];
     [self setupNotification];
 }
 #pragma mark - setupUI
@@ -42,17 +42,17 @@
     @weakify(self)
     [self.tableView configHeadRefreshControlWithRefreshBlock:^{
         @strongify(self)
-        [self.viewModel.requestCommand execute:nil];
+        [[[self.viewModel.requestCommand execute:nil] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+            [self.tableView.mj_header endRefreshing];
+            self.tableView.emptyDataSetSource = self;
+        }];
     }];
     [self.tableView.mj_header beginRefreshing];
 }
-- (void)bindActions{
-    
+- (void)setupObserver{
     @weakify(self)
-    [[self.viewModel.requestCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+    [[self.viewModel.refreshSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
-        [self.tableView.mj_header endRefreshing];
-        self.tableView.emptyDataSetSource = self;
         [self.tableView reloadData];
     }];
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:DIYDiaryChangedNotification object:nil] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
@@ -101,7 +101,7 @@
     return [[NSAttributedString alloc] initWithString:@""];
 }
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
-    return [[NSAttributedString alloc] initWithString:@"即刻用文字留住当下时光"];
+    return [[NSAttributedString alloc] initWithString:@"用文字留住当下时光"];
 }
 #pragma mark - notification
 - (void)setupNotification{

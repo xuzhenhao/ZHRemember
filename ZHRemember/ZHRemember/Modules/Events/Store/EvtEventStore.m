@@ -176,9 +176,14 @@
         }
     }
     //同步网络
+    __weak typeof(self)weakself = self;
     [EvtEventApi saveEventTag:tag done:^(BOOL success, NSError *error) {
         if (error) {
             done(NO,error);
+        }else{
+            [weakself loadDataWithPage:0 done:^(BOOL succeed, NSError *error) {
+                
+            }];
         }
     }];
 }
