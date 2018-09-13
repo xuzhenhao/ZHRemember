@@ -65,6 +65,9 @@
     self.remarkLabel.text = self.viewModel.remark;
     self.remindTypeTipLabel.text = self.viewModel.remindTypeTips;
     self.tagLabel.text = self.viewModel.tagName;
+    
+    self.remindTimeLabel.textColor = [UIColor zh_themeColor];
+    self.remindTimeDayLabel.textColor  = [UIColor zh_themeColor];
 }
 
 

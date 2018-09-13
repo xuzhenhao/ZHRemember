@@ -25,10 +25,20 @@
     [self zh_setupLeanCloudService];
     [self zh_setupAdmobService];
     [self zh_setupLocalPushService];
-    
+    [self setupNotification];
     return YES;
 }
-
+#pragma mark - notification
+- (void)setupNotification{
+    @weakify(self)
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
+       takeUntil:self.rac_willDeallocSignal]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * _Nullable x) {
+         @strongify(self)
+         [self zh_setupAppearance];
+     }];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

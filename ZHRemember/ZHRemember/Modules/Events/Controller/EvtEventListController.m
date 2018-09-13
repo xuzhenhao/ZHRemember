@@ -35,6 +35,7 @@
     [super viewDidLoad];
     [self setupView];
     [self setupObserver];
+    [self setupNotification];
 }
 #pragma mark - UI
 - (void)setupView{
@@ -144,6 +145,21 @@
 - (BOOL)prefersHomeIndicatorAutoHidden{
     return YES;
 }
+
+#pragma mark - notification
+- (void)setupNotification{
+    @weakify(self)
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
+       takeUntil:self.rac_willDeallocSignal]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * _Nullable x) {
+         @strongify(self)
+         self.addEventButton.backgroundColor = [UIColor zh_themeColor];
+         self.addEventButton.layer.shadowColor = [UIColor zh_themeColor].CGColor;
+         [self.tableView reloadData];
+     }];
+}
+
 #pragma mark - getter
 - (EvtEventListViewModel *)viewModel{
     if (!_viewModel) {

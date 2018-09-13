@@ -31,6 +31,7 @@
     [super viewDidLoad];
     [self setupUI];
     [self bindActions];
+    [self setupNotification];
 }
 #pragma mark - setupUI
 - (void)setupUI{
@@ -102,6 +103,19 @@
 - (NSAttributedString *)descriptionForEmptyDataSet:(UIScrollView *)scrollView{
     return [[NSAttributedString alloc] initWithString:@"即刻用文字留住当下时光"];
 }
+#pragma mark - notification
+- (void)setupNotification{
+    @weakify(self)
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
+       takeUntil:self.rac_willDeallocSignal]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * _Nullable x) {
+         @strongify(self)
+         self.writeDiaryButton.backgroundColor = [UIColor zh_themeColor];
+         self.writeDiaryButton.layer.shadowColor = [UIColor zh_themeColor].CGColor;
+     }];
+}
+
 #pragma mark - getter
 - (UIButton *)writeDiaryButton{
     if (_writeDiaryButton == nil) {

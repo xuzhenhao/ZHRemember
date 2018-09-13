@@ -99,7 +99,8 @@ static CGFloat colorViewWidth = 50;
 }
 - (void)didClickSaveItem:(UIBarButtonItem *)sender{
     [ZHGlobalStore cacheThemeColor:self.selectedColor];
-    [HBHUDManager showMessage:@"保存成功，重启后生效哦~"];
+    [[NSNotificationCenter defaultCenter]postNotificationName:themeColorChangedNotification object:nil];
+    [HBHUDManager showMessage:@"设置成功"];
 }
 - (void)didClickCustomColorButton:(UIButton *)sender{
     BOOL isEnable = [ZHUserStore shared].currentUser.isEnableCustomColor;

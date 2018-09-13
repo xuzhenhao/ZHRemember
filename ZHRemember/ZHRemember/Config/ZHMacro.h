@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ZHNotificationConfig.h"
 
 #pragma mark - Macro
 #define ZHScreenWidth [UIScreen mainScreen].bounds.size.width

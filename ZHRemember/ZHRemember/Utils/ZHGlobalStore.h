@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZHUserModel.h"
 
 /**
  提供全局共享的数据，对外屏蔽存储的具体实现(NSUserDefaults,FMDB等)
@@ -23,17 +22,6 @@
  */
 + (void)setProductEnvironmentEnable:(BOOL)isEnable;
 + (BOOL)isProductEnvironment;
-#pragma mark - user
-
-
-//- (void)updateUser:(ZHUserModel *)user;
-//- (void)updateUserMoney:(NSString *)money;
-//- (void)setUserUnlockLetter;
-//- (void)setUserPublished;
-///**设置用户已签到*/
-//- (void)setUserSigned;
-///**当前用户是否已解锁付费信纸*/
-//- (BOOL)isUnlockLetter;
 
 #pragma mark - theme color
 /**

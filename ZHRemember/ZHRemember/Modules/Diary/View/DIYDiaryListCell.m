@@ -46,6 +46,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self initSetup];
+    [self setupNotification];
 }
 - (void)initSetup{
     self.topLineView.backgroundColor = [UIColor zh_themeColor];
@@ -81,6 +82,17 @@
     self.weatherImageView.image = [UIImage imageNamed:viewModel.weatherImageName];
     self.moodImageView.image = [UIImage imageNamed:viewModel.moodImageName];
     [self.diaryPhotoImageView sd_setImageWithURL:[NSURL URLWithString:viewModel.diaryPhotoUrl]];
+}
+
+- (void)setupNotification{
+    @weakify(self)
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
+       takeUntil:self.rac_willDeallocSignal]
+      deliverOnMainThread]
+     subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+         [self initSetup];
+    }];
 }
 
 @end
