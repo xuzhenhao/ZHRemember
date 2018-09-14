@@ -87,6 +87,12 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
     } completed:^{
         [HBHUDManager hideNetworkLoading];
     }];
+    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillShowNotification object:nil] takeUntil:self.rac_willDeallocSignal] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        //解决键盘阻挡
+        CGRect keyboardBounds = [[[x userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        self.tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top, 0, keyboardBounds.size.height, 0);
+    }];
     
     [[self.viewModel.saveCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
