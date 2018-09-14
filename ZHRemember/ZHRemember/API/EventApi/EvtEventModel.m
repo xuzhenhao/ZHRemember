@@ -20,6 +20,7 @@
              @"remarks":@"event_remark",
              @"cycleType":@"event_cycle",
              @"tagModel": @"event_tag",
+             @"isPush": @"is_push",
              };
 }
 + (NSValueTransformer *)cycleTypeJSONTransformer{
@@ -35,5 +36,31 @@
         }
         return nil;
     }];
+}
++ (NSValueTransformer *)isPushJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return @(value.boolValue);
+    }];
+}
+
+- (NSCalendarUnit)CalendarUnitType{
+    switch (self.cycleType) {
+        case EvtEventCycleNone:
+            return NSCalendarUnitEra;
+            break;
+        case EvtEventCycleDay:
+            return NSCalendarUnitDay;
+            break;
+        case EvtEventCycleWeek:
+            return NSCalendarUnitWeekday;
+            break;
+        case EvtEventCycleMonth:
+            return NSCalendarUnitMonth;
+            break;
+        case EvtEventCycleYear:
+            return NSCalendarUnitYear;
+            break;
+            
+    }
 }
 @end

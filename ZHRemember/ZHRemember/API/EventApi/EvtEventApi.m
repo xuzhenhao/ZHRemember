@@ -33,6 +33,8 @@ NSString *const EvtEventClassRemarkKey = @"event_remark";
 NSString *const EvtEventClassCoverKey = @"event_cover";
 /**事件表-重复周期字段*/
 NSString *const EvtEventClassCycleKey = @"event_cycle";
+/**事件表-推送提醒字段*/
+NSString *const EvtEventClassPushKey = @"is_push";
 
 /**标签表-标签id字段*/
 NSString *const EvtTagClassIdKey = @"tag_id";
@@ -163,6 +165,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     [eventObj setObject:eventModel.remarks forKey:EvtEventClassRemarkKey];
     [eventObj setObject:eventModel.coverURLStr forKey:EvtEventClassCoverKey];
     [eventObj setObject:@(eventModel.cycleType) forKey:EvtEventClassCycleKey];
+    [eventObj setObject:@(eventModel.isPush) forKey:EvtEventClassPushKey];
 }
 
 

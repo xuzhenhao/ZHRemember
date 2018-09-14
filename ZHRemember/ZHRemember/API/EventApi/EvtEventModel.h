@@ -34,7 +34,7 @@ typedef enum : NSUInteger {
 /** 开始时间*/
 @property (nonatomic, copy)     NSString    *beginTime;
 /** 提醒周期*/
-@property (nonatomic, assign)   NSInteger   cycleType;
+@property (nonatomic, assign)   EvtEventCycleType   cycleType;
 /** 自定义周期天数,可空*/
 @property (nonatomic, copy)     NSString    *customCycleDay;
 /** 备注*/
@@ -43,5 +43,12 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy)     NSString    *orderNum;
 /** 标签模型*/
 @property (nonatomic, strong)   EvtTagModel     *tagModel;
+/** 是否推送提醒*/
+@property (nonatomic, assign)   BOOL      isPush;
+
+/**
+ 获取提醒周期的对应日历类型值
+ */
+- (NSCalendarUnit)CalendarUnitType;
 
 @end

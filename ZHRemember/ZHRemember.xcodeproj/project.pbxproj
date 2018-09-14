@@ -44,6 +44,10 @@
 		E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */; };
 		E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */; };
 		E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
+		E70EC9E9214BAD7000BA50FC /* EvtEditEventPushCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9E8214BAD7000BA50FC /* EvtEditEventPushCell.m */; };
+		E70EC9EC214BADBB00BA50FC /* EvtEditEventPushViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9EB214BADBB00BA50FC /* EvtEditEventPushViewModel.m */; };
+		E70EC9EF214BB60900BA50FC /* ZHAccessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9EE214BB60900BA50FC /* ZHAccessManager.m */; };
+		E70EC9F2214BBDAB00BA50FC /* ZHPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9F1214BBDAB00BA50FC /* ZHPushManager.m */; };
 		E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */; };
 		E712E745214A817200BBC25D /* ZHNotificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E744214A817200BBC25D /* ZHNotificationConfig.m */; };
 		E712E749214A861D00BBC25D /* DIYDiaryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E748214A861D00BBC25D /* DIYDiaryStore.m */; };
@@ -237,6 +241,14 @@
 		E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLoginViewController.m; sourceTree = "<group>"; };
 		E70CFEF6212FF7A5004A6155 /* LGLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginViewModel.h; sourceTree = "<group>"; };
 		E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGLoginViewModel.m; sourceTree = "<group>"; };
+		E70EC9E7214BAD7000BA50FC /* EvtEditEventPushCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventPushCell.h; sourceTree = "<group>"; };
+		E70EC9E8214BAD7000BA50FC /* EvtEditEventPushCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventPushCell.m; sourceTree = "<group>"; };
+		E70EC9EA214BADBB00BA50FC /* EvtEditEventPushViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventPushViewModel.h; sourceTree = "<group>"; };
+		E70EC9EB214BADBB00BA50FC /* EvtEditEventPushViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventPushViewModel.m; sourceTree = "<group>"; };
+		E70EC9ED214BB60900BA50FC /* ZHAccessManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHAccessManager.h; sourceTree = "<group>"; };
+		E70EC9EE214BB60900BA50FC /* ZHAccessManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHAccessManager.m; sourceTree = "<group>"; };
+		E70EC9F0214BBDAB00BA50FC /* ZHPushManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPushManager.h; sourceTree = "<group>"; };
+		E70EC9F1214BBDAB00BA50FC /* ZHPushManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPushManager.m; sourceTree = "<group>"; };
 		E70F6AFA2109B5A4006E816C /* UIResponder+ZHRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIResponder+ZHRouter.h"; sourceTree = "<group>"; };
 		E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+ZHRouter.m"; sourceTree = "<group>"; };
 		E712E743214A817200BBC25D /* ZHNotificationConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHNotificationConfig.h; sourceTree = "<group>"; };
@@ -1217,6 +1229,8 @@
 				E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */,
 				E73667C82123FCB600BC7652 /* EvtEditEventRemarkViewModel.h */,
 				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
+				E70EC9EA214BADBB00BA50FC /* EvtEditEventPushViewModel.h */,
+				E70EC9EB214BADBB00BA50FC /* EvtEditEventPushViewModel.m */,
 				E7AC8520212BAE04006B92AA /* EvtEditEventTagViewModel.h */,
 				E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */,
 			);
@@ -1238,6 +1252,8 @@
 				E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */,
 				E73B4FCE2106D3AA00B6243B /* EvtEditEventRemarkCell.h */,
 				E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */,
+				E70EC9E7214BAD7000BA50FC /* EvtEditEventPushCell.h */,
+				E70EC9E8214BAD7000BA50FC /* EvtEditEventPushCell.m */,
 				E791844521085C1B0033745D /* EvtEditEventCell.h */,
 				E791844621085C1B0033745D /* EvtEditEventCell.m */,
 			);
@@ -1316,6 +1332,10 @@
 				E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */,
 				E764467021492B1E00AA310F /* ZHUserStore.h */,
 				E764467121492B1E00AA310F /* ZHUserStore.m */,
+				E70EC9ED214BB60900BA50FC /* ZHAccessManager.h */,
+				E70EC9EE214BB60900BA50FC /* ZHAccessManager.m */,
+				E70EC9F0214BBDAB00BA50FC /* ZHPushManager.h */,
+				E70EC9F1214BBDAB00BA50FC /* ZHPushManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1530,6 +1550,7 @@
 				E783706D213E68D000000F28 /* ZHMediator+ZHIAP.m in Sources */,
 				E7AC8522212BAE04006B92AA /* EvtEditEventTagViewModel.m in Sources */,
 				E7A62232212188AB0093853A /* EvtEditEventTitleViewModel.m in Sources */,
+				E70EC9F2214BBDAB00BA50FC /* ZHPushManager.m in Sources */,
 				E7624BB1213F77EB00A57B47 /* ZHVersionApi.m in Sources */,
 				E73C65E72137CB44007D656A /* DIYDiaryTarget.m in Sources */,
 				E73C65F02137EBE4007D656A /* DIYWriteDiaryViewModel.m in Sources */,
@@ -1549,6 +1570,7 @@
 				E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
 				E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */,
+				E70EC9EF214BB60900BA50FC /* ZHAccessManager.m in Sources */,
 				E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
@@ -1578,6 +1600,7 @@
 				E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */,
 				E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
+				E70EC9E9214BAD7000BA50FC /* EvtEditEventPushCell.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
 				E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */,
@@ -1611,6 +1634,7 @@
 				E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */,
 				E74F88022142743B00F04C19 /* DIYSelectWallPaperViewController.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
+				E70EC9EC214BADBB00BA50FC /* EvtEditEventPushViewModel.m in Sources */,
 				E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E783704B213E1CFC00000F28 /* LCUserFeedbackViewController.m in Sources */,

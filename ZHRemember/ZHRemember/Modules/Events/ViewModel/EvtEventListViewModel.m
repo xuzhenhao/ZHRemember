@@ -9,6 +9,7 @@
 #import "EvtEventListViewModel.h"
 #import "EvtEventListEventsViewModel.h"
 #import "EvtEventStore.h"
+#import "ZHPushManager.h"
 
 @interface EvtEventListViewModel()
 
@@ -35,7 +36,23 @@
         @strongify(self)
         self.eventViewModels = [EvtEventListEventsViewModel viewModelsWithModels:x];
         [self.dataRefreshSubject sendNext:nil];
+        [self _setupPushNotificationWithModel:x];
     }];
+}
+#pragma mark - private method
+- (void)_setupPushNotificationWithModel:(NSArray<EvtEventModel *> *)models{
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (EvtEventModel *model in models) {
+            if (!model.isPush) {
+                continue;
+            }
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.beginTime integerValue]];
+            //设置早上8：30推送
+            date = [NSDate dateWithYear:date.year month:date.month day:date.day hour:8 minute:30 second:0];
+            NSString *msg = [NSString stringWithFormat:@"%@就在今天",model.eventName];
+            [ZHPushManager addLocalPushWithName:model.eventId date:date shouldRepead:model.cycleType repeat:[model CalendarUnitType] message:msg];
+        }
+    });
 }
 
 #pragma mark - tableview datasource method

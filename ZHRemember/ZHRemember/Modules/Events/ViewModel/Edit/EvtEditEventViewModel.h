@@ -13,6 +13,7 @@
 #import "EvtEditEventCycleViewModel.h"
 #import "EvtEditEventRemarkViewModel.h"
 #import "EvtEditEventTagViewModel.h"
+#import "EvtEditEventPushViewModel.h"
 
 /**
  EvtEditEventController对应的ViewModel

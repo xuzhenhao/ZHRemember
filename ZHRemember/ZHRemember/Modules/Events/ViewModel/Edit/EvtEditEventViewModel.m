@@ -30,6 +30,8 @@
 @property (nonatomic, strong)   EvtEditEventTagViewModel     *tagVM;
 /** 留言VM*/
 @property (nonatomic, strong)   EvtEditEventRemarkViewModel     *remarkVM;
+/** 推送提醒*/
+@property (nonatomic, strong)   EvtEditEventPushViewModel     *pushVM;
 
 @end
 
@@ -63,6 +65,8 @@
     
     _remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:model.remarks];
     
+    _pushVM = [EvtEditEventPushViewModel viewModelWithEnablePush:model.isPush];
+    
 }
 
 - (void)setupObserver{
@@ -79,6 +83,7 @@
     RAC(self.eventModel,coverURLStr) = RACObserve(_coverVM, coverURLString);
     RAC(self.eventModel,cycleType) = RACObserve(_cycleVM, cycleType);
     RAC(self.eventModel,tagModel) = RACObserve(_tagVM, currentTag);
+    RAC(self.eventModel,isPush) = RACObserve(_pushVM, isEnablePush);
 }
 
 
@@ -90,7 +95,8 @@
              [ZHTableViewItem itemWithData:_dateVM reuserId:@"EvtEditEventDateCell" height:60],
              [ZHTableViewItem itemWithData:_cycleVM reuserId:@"EvtEditEventCycleCell" height:60],
              [ZHTableViewItem itemWithData:_tagVM reuserId:@"EvtEditEventTagCell" height:60],
-             [ZHTableViewItem itemWithData:_remarkVM reuserId:@"EvtEditEventRemarkCell" height:60]
+             [ZHTableViewItem itemWithData:_remarkVM reuserId:@"EvtEditEventRemarkCell" height:60],
+             [ZHTableViewItem itemWithData:_pushVM reuserId:@"EvtEditEventPushCell" height:60]
              ];
 }
 - (RACCommand *)saveCommand{
