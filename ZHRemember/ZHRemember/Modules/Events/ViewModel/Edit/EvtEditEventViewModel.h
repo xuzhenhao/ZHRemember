@@ -22,18 +22,16 @@
 @property (nonatomic, assign,readonly)   BOOL      isShowDeleteItem;
 /** 请求错误*/
 @property (nonatomic, strong,readonly)   NSError     *error;
-
 /** 数据源*/
-@property (nonatomic, strong)   NSArray     *dataSource;
+@property (nonatomic, strong,readonly)   NSArray     *dataSource;
 /** 是否可以保存*/
-@property (nonatomic, assign)   BOOL      isSaveEnable;
-/** 事件表id*/
-@property (nonatomic, copy,readonly)     NSString    *objectId;
-
+@property (nonatomic, assign,readonly)   BOOL      isSaveEnable;
 
 /** 选择照片*/
 @property (nonatomic, strong)   RACSubject     *selectPhotoSubject;
-/** 选择照片*/
+/** 上传照片回调*/
+@property (nonatomic, strong)   RACSubject     *uploadPhotoSubject;
+/** 选择日期*/
 @property (nonatomic, strong)   RACSubject     *selectDateSubject;
 /**保存*/
 @property (nonatomic, strong)   RACCommand     *saveCommand;

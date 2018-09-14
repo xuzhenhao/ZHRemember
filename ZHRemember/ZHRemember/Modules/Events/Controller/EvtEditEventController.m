@@ -82,6 +82,11 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
         @strongify(self)
         [self selectPhotoEventWithIndexPath:x];
     }];
+    [[self.viewModel.uploadPhotoSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        [HBHUDManager showNetworkLoading];
+    } completed:^{
+        [HBHUDManager hideNetworkLoading];
+    }];
     
     [[self.viewModel.saveCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)

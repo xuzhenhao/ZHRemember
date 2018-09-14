@@ -34,23 +34,13 @@
                     done:(void(^)(BOOL succeed,NSError *error))done;
 
 /**
- 新增事件
+ 保存事件(新增/修改)
 
  @param event 事件模型
  @param done 完成回调
  */
-- (void)addWithEvent:(EvtEventModel *)event
+- (void)saveEvent:(EvtEventModel *)event
                 done:(void(^)(BOOL succeed,NSError *error))done;
-
-/**
- 更新事件
-
- @param event 事件模型
- @param done 完成回调
- */
-- (void)updateWithEvent:(EvtEventModel *)event
-                   done:(void(^)(BOOL succeed,NSError *error))done;
-
 /**
  删除事件
 

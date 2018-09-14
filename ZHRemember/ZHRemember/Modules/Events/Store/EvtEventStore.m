@@ -56,7 +56,25 @@
         [self cacheLocalEvents:eventLists];
     }];
 }
-- (void)addWithEvent:(EvtEventModel *)event
+- (void)saveEvent:(EvtEventModel *)event
+             done:(void(^)(BOOL succeed,NSError *error))done{
+    if (!event) {
+        done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
+        return;
+    }
+    if (event.eventId) {
+        //更新
+        [self _updateWithEvent:event done:^(BOOL succeed, NSError *error) {
+            done(succeed,error);
+        }];
+    }else{
+        //新增
+        [self _addWithEvent:event done:^(BOOL succeed, NSError *error) {
+            done(succeed,error);
+        }];
+    }
+}
+- (void)_addWithEvent:(EvtEventModel *)event
                 done:(void(^)(BOOL succeed,NSError *error))done{
     if (!event) {
         done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);
@@ -73,13 +91,18 @@
     [self cacheLocalEvents:self.events];
     
     //同步到远程
+    __weak typeof(self)weakself = self;
     [EvtEventApi saveEvent:event done:^(BOOL success, NSError *error) {
         if (error) {
             done(NO,error);
+        }else{
+            [weakself loadDataWithPage:0 done:^(BOOL succeed, NSError *error) {
+                
+            }];
         }
     }];
 }
-- (void)updateWithEvent:(EvtEventModel *)event
+- (void)_updateWithEvent:(EvtEventModel *)event
                    done:(void(^)(BOOL succeed,NSError *error))done{
     if (!event) {
         done(NO,[NSError errorWithDomain:@"" code:-1 userInfo:@{NSErrorDescKey:@"数据为空"}]);

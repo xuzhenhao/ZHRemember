@@ -12,10 +12,24 @@
 
 @interface EvtEditEventViewModel()
 @property (nonatomic, assign)   BOOL      isShowDeleteItem;
+@property (nonatomic, assign)   BOOL      isSaveEnable;
 @property (nonatomic, strong)   NSError     *error;
 
 /** 用于封装网络请求的数据*/
 @property (nonatomic, strong)   EvtEventModel     *eventModel;
+
+/** 事件名VM*/
+@property (nonatomic, strong)   EvtEditEventTitleViewModel     *titleVM;
+/** 封面VM*/
+@property (nonatomic, strong)   EvtEditEventCoverViewModel     *coverVM;
+/** 日期VM*/
+@property (nonatomic, strong)   EvtEditEventDateViewModel     *dateVM;
+/** 重复周期VM*/
+@property (nonatomic, strong)   EvtEditEventCycleViewModel     *cycleVM;
+/** 标签VM*/
+@property (nonatomic, strong)   EvtEditEventTagViewModel     *tagVM;
+/** 留言VM*/
+@property (nonatomic, strong)   EvtEditEventRemarkViewModel     *remarkVM;
 
 @end
 
@@ -23,63 +37,62 @@
 + (instancetype)viewModelWithModel:(EvtEventModel *)model{
     EvtEditEventViewModel *vm = [EvtEditEventViewModel new];
     vm.isShowDeleteItem = model ? YES : NO;
+    vm.eventModel.objectId = model.objectId;
+    vm.eventModel.eventId = model.eventId;
     
-    [vm initConfigWithModel:model];
-    [vm racConfig];
+    [vm setupViewModelWithModel:model];
+    [vm setupObserver];
     
     return vm;
 }
 
-- (void)initConfigWithModel:(EvtEventModel *)model{
-    self.eventModel.objectId = model.objectId;
-    self.eventModel.eventId = model.eventId;
+- (void)setupViewModelWithModel:(EvtEventModel *)model{
     
-    EvtEditEventTitleViewModel *titleVM = [EvtEditEventTitleViewModel viewModelWithEventName:model.eventName];
+    _titleVM = [EvtEditEventTitleViewModel viewModelWithEventName:model.eventName];
     
-    EvtEditEventCoverViewModel *coverVM = [EvtEditEventCoverViewModel viewModelWithCoverURL:model.coverURLStr];
-    coverVM.selectPhotoSubject = self.selectPhotoSubject;
+    _coverVM = [EvtEditEventCoverViewModel viewModelWithCoverURL:model.coverURLStr];
+    _coverVM.selectPhotoSubject = self.selectPhotoSubject;
+    _coverVM.uploadPhotoSubject = self.uploadPhotoSubject;
     
-    EvtEditEventDateViewModel *dateVM = [EvtEditEventDateViewModel viewModelWithDate:model.beginTime];
-    dateVM.selectDateSubject = self.selectDateSubject;
+    _dateVM = [EvtEditEventDateViewModel viewModelWithDate:model.beginTime];
+    _dateVM.selectDateSubject = self.selectDateSubject;
     
-    EvtEditEventCycleViewModel *cycleVM = [EvtEditEventCycleViewModel viewModelWithCycleType:model.cycleType];
+    _cycleVM = [EvtEditEventCycleViewModel viewModelWithCycleType:model.cycleType];
     
-    EvtEditEventTagViewModel *tagVM = [EvtEditEventTagViewModel viewModelWithTag:model.tagModel];
+    _tagVM = [EvtEditEventTagViewModel viewModelWithTag:model.tagModel];
     
-    EvtEditEventRemarkViewModel *remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:model.remarks];
+    _remarkVM = [EvtEditEventRemarkViewModel viewModelWithRemark:model.remarks];
     
-    NSArray *contents = @[
-                          [ZHTableViewItem itemWithData:titleVM reuserId:@"EvtEditEventTitleCell" height:60],
-                          [ZHTableViewItem itemWithData:coverVM reuserId:@"EvtEditEventCoverCell" height:100],
-                          [ZHTableViewItem itemWithData:dateVM reuserId:@"EvtEditEventDateCell" height:60],
-                          [ZHTableViewItem itemWithData:cycleVM reuserId:@"EvtEditEventCycleCell" height:60],
-                          [ZHTableViewItem itemWithData:tagVM reuserId:@"EvtEditEventTagCell" height:60],
-                          [ZHTableViewItem itemWithData:remarkVM reuserId:@"EvtEditEventRemarkCell" height:60]
-                          ];
-    self.dataSource = contents;
-    
+}
+
+- (void)setupObserver{
     RAC(self,isSaveEnable) = [[RACSignal combineLatest:@[
-                                                        RACObserve(titleVM, eventName)
-                                                        ,RACObserve(dateVM, dateFormat)
-                                                        ]] map:^id _Nullable(RACTuple * _Nullable value) {
+                                                         RACObserve(_titleVM, eventName)
+                                                         ,RACObserve(_dateVM, dateFormat)
+                                                         ]] map:^id _Nullable(RACTuple * _Nullable value) {
         RACTupleUnpack(NSString *eventName,NSString *dateString) = value;
         return @(eventName && dateString && eventName.length > 0 && dateString.length > 0);
     }];
-    RAC(self.eventModel,eventName) = RACObserve(titleVM, eventName);
-    RAC(self.eventModel,remarks) = RACObserve(remarkVM, remark);
-    RAC(self.eventModel,beginTime) = RACObserve(dateVM, unixTime);
-    RAC(self.eventModel,coverURLStr) = RACObserve(coverVM, coverURLString);
-    RAC(self.eventModel,cycleType) = RACObserve(cycleVM, cycleType);
-    RAC(self.eventModel,tagModel) = RACObserve(tagVM, currentTag);
-}
-
-- (void)racConfig{
-    
-    
+    RAC(self.eventModel,eventName) = RACObserve(_titleVM, eventName);
+    RAC(self.eventModel,remarks) = RACObserve(_remarkVM, remark);
+    RAC(self.eventModel,beginTime) = RACObserve(_dateVM, unixTime);
+    RAC(self.eventModel,coverURLStr) = RACObserve(_coverVM, coverURLString);
+    RAC(self.eventModel,cycleType) = RACObserve(_cycleVM, cycleType);
+    RAC(self.eventModel,tagModel) = RACObserve(_tagVM, currentTag);
 }
 
 
 #pragma mark - getter&setter
+- (NSArray *)dataSource{
+    return @[
+             [ZHTableViewItem itemWithData:_titleVM reuserId:@"EvtEditEventTitleCell" height:60],
+             [ZHTableViewItem itemWithData:_coverVM reuserId:@"EvtEditEventCoverCell" height:100],
+             [ZHTableViewItem itemWithData:_dateVM reuserId:@"EvtEditEventDateCell" height:60],
+             [ZHTableViewItem itemWithData:_cycleVM reuserId:@"EvtEditEventCycleCell" height:60],
+             [ZHTableViewItem itemWithData:_tagVM reuserId:@"EvtEditEventTagCell" height:60],
+             [ZHTableViewItem itemWithData:_remarkVM reuserId:@"EvtEditEventRemarkCell" height:60]
+             ];
+}
 - (RACCommand *)saveCommand{
     if (!_saveCommand) {
         @weakify(self);
@@ -87,21 +100,12 @@
             
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 @strongify(self)
-                if (self.eventModel.eventId) {
-                    //更新事件
-                    [[EvtEventStore shared] updateWithEvent:self.eventModel done:^(BOOL succeed, NSError *error) {
-                        self.error = error;
-                        [subscriber sendNext:nil];
-                        [subscriber sendCompleted];
-                    }];
-                }else{
-                    //新增事件
-                    [[EvtEventStore shared] addWithEvent:self.eventModel done:^(BOOL succeed, NSError *error) {
-                        self.error = error;
-                        [subscriber sendNext:nil];
-                        [subscriber sendCompleted];
-                    }];
-                }
+                
+                [[EvtEventStore shared] saveEvent:self.eventModel done:^(BOOL succeed, NSError *error) {
+                    self.error = error;
+                    [subscriber sendNext:nil];
+                    [subscriber sendCompleted];
+                }];
                 
                 return nil;
             }];
@@ -115,7 +119,7 @@
         _deleteCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 @strongify(self)
-                [[EvtEventStore shared] deleteWithObjectId:self.objectId eventId:self.eventModel.eventId done:^(BOOL succeed, NSError *error) {
+                [[EvtEventStore shared] deleteWithObjectId:self.eventModel.objectId eventId:self.eventModel.eventId done:^(BOOL succeed, NSError *error) {
                     self.error = error;
                     [subscriber sendNext:@(succeed)];
                     [subscriber sendCompleted];
@@ -132,6 +136,12 @@
     }
     return _selectPhotoSubject;
 }
+- (RACSubject *)uploadPhotoSubject{
+    if (!_uploadPhotoSubject) {
+        _uploadPhotoSubject = [RACSubject new];
+    }
+    return _uploadPhotoSubject;
+}
 - (RACSubject *)selectDateSubject{
     if (!_selectDateSubject) {
         _selectDateSubject = [RACSubject subject];
@@ -143,8 +153,5 @@
         _eventModel = [EvtEventModel new];
     }
     return _eventModel;
-}
-- (NSString *)objectId{
-    return self.eventModel.objectId;
 }
 @end

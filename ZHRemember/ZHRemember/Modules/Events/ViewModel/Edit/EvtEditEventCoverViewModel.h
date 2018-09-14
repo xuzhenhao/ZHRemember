@@ -19,7 +19,9 @@
 + (instancetype)viewModelWithCoverURL:(NSString *)coverString;
 
 - (void)setCoverImage:(UIImage *)image;
-
-@property (nonatomic, strong)   RACSubject     *selectPhotoSubject;
+/**点击了选择封面回调*/
+@property (nonatomic, weak)   RACSubject     *selectPhotoSubject;
+/** 上传封面回调*/
+@property (nonatomic, weak)   RACSubject     *uploadPhotoSubject;
 
 @end
