@@ -30,6 +30,7 @@
     [self zh_setupNavigationAppearance];
     [self zh_setupTabbarAppearance];
     [self iOS11Config];
+    [self _setupNotification];
 }
 - (void)zh_setupTabbarAppearance{
     [[UITabBar appearance] setTranslucent:NO];
@@ -52,6 +53,21 @@
         [UITableView appearance].estimatedSectionHeaderHeight = 0;
         [UITableView appearance].estimatedSectionFooterHeight = 0;
     }
+}
+
+#pragma mark - notification
+- (void)_setupNotification{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        @weakify(self)
+        [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
+           takeUntil:self.rac_willDeallocSignal]
+          deliverOnMainThread]
+         subscribeNext:^(NSNotification * _Nullable x) {
+             @strongify(self)
+             [self zh_setupAppearance];
+         }];
+    });
 }
 
 

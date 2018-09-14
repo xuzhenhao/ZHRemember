@@ -19,25 +19,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [ZHGlobalStore setProductEnvironmentEnable:YES];
+    [ZHGlobalStore setProductEnvironmentEnable:NO];
     [self zh_setupWindow];
     [self zh_setupAppearance];
     [self zh_setupLeanCloudService];
     [self zh_setupAdmobService];
     [self zh_setupLocalPushService];
-    [self setupNotification];
+    
     return YES;
-}
-#pragma mark - notification
-- (void)setupNotification{
-    @weakify(self)
-    [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:themeColorChangedNotification object:nil]
-       takeUntil:self.rac_willDeallocSignal]
-      deliverOnMainThread]
-     subscribeNext:^(NSNotification * _Nullable x) {
-         @strongify(self)
-         [self zh_setupAppearance];
-     }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
