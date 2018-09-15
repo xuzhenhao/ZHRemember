@@ -36,4 +36,13 @@
  */
 + (UIColor *)getThemeColor;
 
+#pragma mark - push
+/**事件当天推送，小时设置*/
++ (NSInteger)getEventPushHour;
+/**事件当天推送，分钟设置*/
++ (NSInteger)getEventPushMinute;
+
++ (NSInteger)getDiaryPushHour;
++ (NSInteger)getDiaryPushMinute;
+
 @end

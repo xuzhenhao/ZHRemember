@@ -11,7 +11,9 @@
 @implementation ZHPushManager
 
 + (void)addLocalPushWithName:(NSString *)name date:(NSDate *)date shouldRepead:(BOOL)shouldRepeat repeat:(NSCalendarUnit)type message:(NSString *)msg{
-    [self deleteLocalPushWithName:name];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self deleteLocalPushWithName:name];
+    });
     
     UILocalNotification *localNotifi = [[UILocalNotification alloc]init];
     // 设置触发时间
@@ -37,7 +39,10 @@
     // 设置推送的区别符
     localNotifi.userInfo = @{@"name":name};
     // 按照前面设置的计划 执行此通知
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotifi];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotifi];
+    });
+    
 }
 + (void)deleteLocalPushWithName:(NSString *)name{
     NSArray *allLocalNotifi = [[UIApplication sharedApplication] scheduledLocalNotifications];

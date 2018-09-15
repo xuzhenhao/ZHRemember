@@ -60,7 +60,6 @@ static CGFloat colorViewWidth = 50;
         self.saveItem.enabled = YES;
     }];
     [[self.viewModel.unlockCommand.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
-        @strongify(self)
         BOOL success = [x boolValue];
         if (success) {
             [HBHUDManager showMessage:@"已解锁"];

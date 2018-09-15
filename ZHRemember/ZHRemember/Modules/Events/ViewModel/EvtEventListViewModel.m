@@ -48,8 +48,8 @@
             }
             NSDate *date = [NSDate dateWithTimeIntervalSince1970:[model.beginTime integerValue]];
             //设置早上8：30推送
-            date = [NSDate dateWithYear:date.year month:date.month day:date.day hour:8 minute:30 second:0];
-            NSString *msg = [NSString stringWithFormat:@"%@就在今天",model.eventName];
+            date = [NSDate dateWithYear:date.year month:date.month day:date.day hour:[ZHGlobalStore getEventPushHour] minute:[ZHGlobalStore getEventPushMinute] second:0];
+            NSString *msg = [NSString stringWithFormat:@"%@就在今天哦~",model.eventName];
             [ZHPushManager addLocalPushWithName:model.eventId date:date shouldRepead:model.cycleType repeat:[model CalendarUnitType] message:msg];
         }
     });

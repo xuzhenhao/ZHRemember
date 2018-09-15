@@ -51,4 +51,18 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
     
     return color;
 }
+#pragma mark - push
++ (NSInteger)getEventPushHour{
+    return 8;
+}
++ (NSInteger)getEventPushMinute{
+    return 30;
+}
+
++ (NSInteger)getDiaryPushHour{
+    return 21;
+}
++ (NSInteger)getDiaryPushMinute{
+    return 30;
+}
 @end
