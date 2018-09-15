@@ -11,6 +11,7 @@
 #import "DIYDiaryConfig.h"
 #import "DIYDiaryListViewModel.h"
 #import "DIYDiaryListCell.h"
+#import "DIYExportPDFViewController.h"
 
 @interface DIYDiaryListViewController ()<UITableViewDataSource,UITableViewDelegate,DZNEmptyDataSetSource>
 
@@ -18,6 +19,8 @@
 
 /** 写日记按钮*/
 @property (nonatomic, strong)   UIButton     *writeDiaryButton;
+/** 导出pdf*/
+@property (nonatomic, strong)   UIBarButtonItem     *pdfItem;
 
 @property (nonatomic, strong)   DIYDiaryListViewModel     *viewModel;
 @end
@@ -36,7 +39,7 @@
 #pragma mark - setupUI
 - (void)setupUI{
     self.title = @"日记本";
-    
+    self.navigationItem.rightBarButtonItem = self.pdfItem;
     [self.view addSubview:self.writeDiaryButton];
     
     @weakify(self)
@@ -95,6 +98,10 @@
     writeVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:writeVC animated:YES];
 }
+- (void)didClickExportPdf:(UIBarButtonItem *)sender{
+    DIYExportPDFViewController *pdfVC = [DIYExportPDFViewController viewController];
+    [self.navigationController pushViewController:pdfVC animated:YES];
+}
 #pragma mark - DZNEmptyDataSetSource
 
 - (nullable NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView{
@@ -140,6 +147,11 @@
     }
     return _viewModel;
 }
-
+- (UIBarButtonItem *)pdfItem{
+    if (!_pdfItem) {
+        _pdfItem = [[UIBarButtonItem alloc] initWithTitle:@"导出PDF" style:UIBarButtonItemStyleDone target:self action:@selector(didClickExportPdf:)];
+    }
+    return _pdfItem;
+}
 
 @end
