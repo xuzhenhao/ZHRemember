@@ -233,7 +233,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     imagePickVC.showSelectBtn = NO;
     imagePickVC.allowCrop = YES;
     
-    CGFloat cropHeight = ZHScreenWidth ;
+    CGFloat cropHeight = ZHScreenWidth * 9 / 16 ;
     imagePickVC.cropRect = CGRectMake(0,(ZHScreenHeight - cropHeight)/2 ,ZHScreenWidth,cropHeight) ;
     
     @weakify(self)

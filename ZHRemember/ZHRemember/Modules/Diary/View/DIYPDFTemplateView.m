@@ -49,8 +49,21 @@ NSInteger margin = 20;
 }
 
 - (void)setupView{
-    self.yearTimeLabel.text = @"2018年9月30日 星期二";
-    self.hourTimeLabel.text = @"下午 18:30";
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.diary.unixTime.integerValue];
+    NSString *yearTimeFormat = [date formattedDateWithFormat:@"yyyy年MM月dd日" locale:[NSLocale systemLocale]];
+    NSString *weekTime = [date getWeekDay];
+    NSString *hourTimeFormat = [date formattedDateWithFormat:@"HH:mm" locale:[NSLocale systemLocale]];
+    NSString *dayFormat = nil;
+    if (date.hour < 12) {
+        dayFormat = @"早上";
+    }else if (date.hour < 18){
+        dayFormat = @"下午";
+    }else{
+        dayFormat = @"晚上";
+    }
+    
+    self.yearTimeLabel.text = [NSString stringWithFormat:@"%@ %@",yearTimeFormat,weekTime];
+    self.hourTimeLabel.text = [NSString stringWithFormat:@"%@ %@",hourTimeFormat,dayFormat];
     self.textLabel.text = self.diary.diaryText;
     if (self.diary.diaryImageURL) {
         self.diaryImageView.hidden = NO;
