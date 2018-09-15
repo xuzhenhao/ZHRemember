@@ -57,11 +57,13 @@
 }
 - (void)updateDiaryImage:(UIImage *)image{
     @weakify(self)
+    [self.uploadSubject sendNext:nil];
     [ZHCommonApi uploadImage:image done:^(NSString *urlString, NSDictionary *error) {
         @strongify(self)
         if (urlString) {
             self.diaryImageURL = urlString;
         }
+        [self.uploadSubject sendCompleted];
     }];
 }
 #pragma mark - utils
@@ -143,5 +145,11 @@
         }];
     }
     return _rewardCommand;
+}
+- (RACSubject *)uploadSubject{
+    if (!_uploadSubject) {
+        _uploadSubject = [RACSubject new];
+    }
+    return _uploadSubject;
 }
 @end

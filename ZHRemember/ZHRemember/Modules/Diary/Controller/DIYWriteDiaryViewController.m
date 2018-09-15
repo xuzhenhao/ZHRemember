@@ -203,6 +203,11 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
              [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
          }
     }];
+    [[self.viewModel.uploadSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        [HBHUDManager showNetworkLoading];
+    } completed:^{
+        [HBHUDManager hideNetworkLoading];
+    }];
 }
 #pragma mark - action
 - (void)didClickToolbarFinishAction:(UIBarButtonItem *)sender{

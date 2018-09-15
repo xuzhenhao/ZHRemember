@@ -40,6 +40,8 @@
 @property (nonatomic, strong)   RACCommand     *deleteCommand;
 /** 发布日记奖励*/
 @property (nonatomic, strong)   RACCommand     *rewardCommand;
+/** 上传图片回到*/
+@property (nonatomic, strong)   RACSubject     *uploadSubject;
 
 /**
  默认配置
