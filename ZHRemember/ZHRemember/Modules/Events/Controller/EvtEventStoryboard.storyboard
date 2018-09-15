@@ -569,6 +569,39 @@
                                             <outlet property="switchButton" destination="p8v-H1-pvB" id="z89-67-hdj"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EvtEditEventSetTopCell" rowHeight="60" id="Ht5-cB-5cC" customClass="EvtEditEventSetTopCell">
+                                        <rect key="frame" x="0.0" y="489" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ht5-cB-5cC" id="dQ1-qK-3e6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event-top-icon" translatesAutoresizingMaskIntoConstraints="NO" id="isZ-Fo-xYY">
+                                                    <rect key="frame" x="12" y="19.5" width="21" height="21"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="置顶" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjI-oM-MxR">
+                                                    <rect key="frame" x="40" y="18" width="34" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="17"/>
+                                                    <color key="textColor" red="0.36862745099999999" green="0.39607843139999999" blue="0.45098039220000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pdB-3w-xmA">
+                                                    <rect key="frame" x="314" y="15" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="isZ-Fo-xYY" firstAttribute="centerY" secondItem="dQ1-qK-3e6" secondAttribute="centerY" id="0Nm-BL-Btd"/>
+                                                <constraint firstItem="isZ-Fo-xYY" firstAttribute="leading" secondItem="dQ1-qK-3e6" secondAttribute="leading" constant="12" id="PQ4-2A-f4v"/>
+                                                <constraint firstItem="BjI-oM-MxR" firstAttribute="leading" secondItem="dQ1-qK-3e6" secondAttribute="leading" constant="40" id="ZXn-y5-JJR"/>
+                                                <constraint firstItem="pdB-3w-xmA" firstAttribute="centerY" secondItem="dQ1-qK-3e6" secondAttribute="centerY" id="aI5-Ib-vk9"/>
+                                                <constraint firstItem="BjI-oM-MxR" firstAttribute="centerY" secondItem="dQ1-qK-3e6" secondAttribute="centerY" id="ar7-cY-TvB"/>
+                                                <constraint firstAttribute="trailing" secondItem="pdB-3w-xmA" secondAttribute="trailing" constant="12" id="yCK-FF-udC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="switchButton" destination="pdB-3w-xmA" id="qPg-W3-4IN"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="delegate" destination="byl-Uo-g1D" id="MsY-t2-h70"/>
@@ -723,5 +756,6 @@
         <image name="event-remark-icon" width="21" height="21"/>
         <image name="event-tag" width="17" height="17"/>
         <image name="event-tag-icon" width="21" height="21"/>
+        <image name="event-top-icon" width="21" height="21"/>
     </resources>
 </document>

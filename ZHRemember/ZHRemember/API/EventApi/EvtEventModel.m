@@ -21,6 +21,7 @@
              @"cycleType":@"event_cycle",
              @"tagModel": @"event_tag",
              @"isPush": @"is_push",
+             @"isTop": @"is_top",
              };
 }
 + (NSValueTransformer *)cycleTypeJSONTransformer{
@@ -38,6 +39,11 @@
     }];
 }
 + (NSValueTransformer *)isPushJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return @(value.boolValue);
+    }];
+}
++ (NSValueTransformer *)isTopJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         return @(value.boolValue);
     }];

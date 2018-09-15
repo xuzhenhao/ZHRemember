@@ -35,6 +35,8 @@ NSString *const EvtEventClassCoverKey = @"event_cover";
 NSString *const EvtEventClassCycleKey = @"event_cycle";
 /**事件表-推送提醒字段*/
 NSString *const EvtEventClassPushKey = @"is_push";
+/**事件表-置顶字段*/
+NSString *const EvtEventClassTopKey = @"is_top";
 
 /**标签表-标签id字段*/
 NSString *const EvtTagClassIdKey = @"tag_id";
@@ -66,7 +68,9 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     [query includeKey:EvtEventClassTagKey];
     //查询条件为用户id
     [query whereKey:EvtUserIdKey equalTo:[AVUser currentUser].objectId];
-    [query orderByDescending:@"createdAt"];
+    //先查置顶的
+    [query addDescendingOrder:EvtEventClassTopKey];
+    [query addDescendingOrder:@"createdAt"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (AVObject *obj in objects) {
@@ -166,6 +170,7 @@ NSString *const EvtTagClassNameKey = @"tag_name";
     [eventObj setObject:eventModel.coverURLStr forKey:EvtEventClassCoverKey];
     [eventObj setObject:@(eventModel.cycleType) forKey:EvtEventClassCycleKey];
     [eventObj setObject:@(eventModel.isPush) forKey:EvtEventClassPushKey];
+    [eventObj setObject:@(eventModel.isTop) forKey:EvtEventClassTopKey];
 }
 
 

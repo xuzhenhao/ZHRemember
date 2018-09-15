@@ -45,6 +45,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong)   EvtTagModel     *tagModel;
 /** 是否推送提醒*/
 @property (nonatomic, assign)   BOOL      isPush;
+/** 是否置顶*/
+@property (nonatomic, assign)   BOOL      isTop;
 
 /**
  获取提醒周期的对应日历类型值

@@ -41,6 +41,8 @@
 		E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A3FC2134E4A700A4EAEF /* LGResetPwdViewModel.m */; };
 		E704A4012134F26200A4EAEF /* HBHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A4002134F26200A4EAEF /* HBHUDManager.m */; };
 		E704A408213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A407213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m */; };
+		E709ABFB214CA6A800989E24 /* EvtEditEventSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E709ABFA214CA6A800989E24 /* EvtEditEventSetTopCell.m */; };
+		E709ABFE214CA70800989E24 /* EvtEditEventSetTopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E709ABFD214CA70800989E24 /* EvtEditEventSetTopViewModel.m */; };
 		E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */; };
 		E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */; };
 		E70CFEF8212FF7A5004A6155 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
@@ -235,6 +237,10 @@
 		E704A4002134F26200A4EAEF /* HBHUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBHUDManager.m; sourceTree = "<group>"; };
 		E704A406213521FA00A4EAEF /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		E704A407213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		E709ABF9214CA6A800989E24 /* EvtEditEventSetTopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventSetTopCell.h; sourceTree = "<group>"; };
+		E709ABFA214CA6A800989E24 /* EvtEditEventSetTopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventSetTopCell.m; sourceTree = "<group>"; };
+		E709ABFC214CA70800989E24 /* EvtEditEventSetTopViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventSetTopViewModel.h; sourceTree = "<group>"; };
+		E709ABFD214CA70800989E24 /* EvtEditEventSetTopViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventSetTopViewModel.m; sourceTree = "<group>"; };
 		E70CFEEE212FE2AA004A6155 /* ZHAccountApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHAccountApi.h; sourceTree = "<group>"; };
 		E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHAccountApi.m; sourceTree = "<group>"; };
 		E70CFEF1212FEE53004A6155 /* LGLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGLoginViewController.h; sourceTree = "<group>"; };
@@ -1231,6 +1237,8 @@
 				E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */,
 				E70EC9EA214BADBB00BA50FC /* EvtEditEventPushViewModel.h */,
 				E70EC9EB214BADBB00BA50FC /* EvtEditEventPushViewModel.m */,
+				E709ABFC214CA70800989E24 /* EvtEditEventSetTopViewModel.h */,
+				E709ABFD214CA70800989E24 /* EvtEditEventSetTopViewModel.m */,
 				E7AC8520212BAE04006B92AA /* EvtEditEventTagViewModel.h */,
 				E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */,
 			);
@@ -1254,6 +1262,8 @@
 				E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */,
 				E70EC9E7214BAD7000BA50FC /* EvtEditEventPushCell.h */,
 				E70EC9E8214BAD7000BA50FC /* EvtEditEventPushCell.m */,
+				E709ABF9214CA6A800989E24 /* EvtEditEventSetTopCell.h */,
+				E709ABFA214CA6A800989E24 /* EvtEditEventSetTopCell.m */,
 				E791844521085C1B0033745D /* EvtEditEventCell.h */,
 				E791844621085C1B0033745D /* EvtEditEventCell.m */,
 			);
@@ -1566,6 +1576,8 @@
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E74F88052142818500F04C19 /* DIYSelectWallPaperViewModel.m in Sources */,
 				E7624BB8213F851400A57B47 /* UILabel+ZHSpace.m in Sources */,
+				E709ABFB214CA6A800989E24 /* EvtEditEventSetTopCell.m in Sources */,
+				E709ABFE214CA70800989E24 /* EvtEditEventSetTopViewModel.m in Sources */,
 				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
 				E73C65E42137C82F007D656A /* DIYWriteDiaryViewController.m in Sources */,
 				E70443832100754C000239C1 /* EasyCustomBackGestureDelegate.m in Sources */,
