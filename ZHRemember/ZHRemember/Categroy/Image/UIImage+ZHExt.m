@@ -25,5 +25,16 @@
     
     return image;
 }
-
++ (UIImage *)zh_snapshotOfView:(UIView *)view{
+    if (!view || view.bounds.size.width == 0 || view.bounds.size.height == 0) {
+        return nil;
+    }
+    
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0);
+    [view drawViewHierarchyInRect:CGRectMake(0, 0, view.frame.size.width, view.frame.size.height) afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
 @end

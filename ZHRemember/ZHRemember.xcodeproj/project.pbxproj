@@ -66,6 +66,7 @@
 		E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */; };
 		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
 		E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
+		E7368318214CE3640023B032 /* ZHPDFCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = E7368317214CE3640023B032 /* ZHPDFCreater.m */; };
 		E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
 		E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */; };
 		E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
@@ -104,6 +105,8 @@
 		E76B1178210031590067E577 /* MainTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B1177210031590067E577 /* MainTarget.m */; };
 		E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117E210032E30067E577 /* ZHMediator+Main.m */; };
 		E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */; };
+		E7735D47214CF212000DAD9D /* DIYPDFTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */; };
+		E7735D4B214CFA18000DAD9D /* DIYPDFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */; };
 		E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
 		E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
 		E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
@@ -287,6 +290,8 @@
 		E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventRemarkViewModel.m; sourceTree = "<group>"; };
 		E73667CB2124095B00BC7652 /* EvtEventApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventApi.h; sourceTree = "<group>"; };
 		E73667CC2124095B00BC7652 /* EvtEventApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventApi.m; sourceTree = "<group>"; };
+		E7368316214CE3640023B032 /* ZHPDFCreater.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHPDFCreater.h; sourceTree = "<group>"; };
+		E7368317214CE3640023B032 /* ZHPDFCreater.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHPDFCreater.m; sourceTree = "<group>"; };
 		E73B4FC22106D22100B6243B /* EvtEditEventCoverCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCoverCell.h; sourceTree = "<group>"; };
 		E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCoverCell.m; sourceTree = "<group>"; };
 		E73B4FC52106D23700B6243B /* EvtEditEventTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventTitleCell.h; sourceTree = "<group>"; };
@@ -362,6 +367,10 @@
 		E76B117E210032E30067E577 /* ZHMediator+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+Main.m"; sourceTree = "<group>"; };
 		E76B11802100358D0067E577 /* AppDelegate+ZHAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZHAppearance.h"; sourceTree = "<group>"; };
 		E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHAppearance.m"; sourceTree = "<group>"; };
+		E7735D45214CF212000DAD9D /* DIYPDFTemplateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYPDFTemplateView.h; sourceTree = "<group>"; };
+		E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYPDFTemplateView.m; sourceTree = "<group>"; };
+		E7735D49214CFA18000DAD9D /* DIYPDFCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYPDFCalendarView.h; sourceTree = "<group>"; };
+		E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYPDFCalendarView.m; sourceTree = "<group>"; };
 		E778D80421017D2B00E9CEEB /* EvtEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEventModel.h; sourceTree = "<group>"; };
 		E778D80521017D2B00E9CEEB /* EvtEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEventModel.m; sourceTree = "<group>"; };
 		E778D8072101913700E9CEEB /* AppDelegate+ZHThirdPart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZHThirdPart.h"; sourceTree = "<group>"; };
@@ -876,6 +885,10 @@
 				E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */,
 				E74F88062142837900F04C19 /* DIYSelectPaperCell.h */,
 				E74F88072142837900F04C19 /* DIYSelectPaperCell.m */,
+				E7735D45214CF212000DAD9D /* DIYPDFTemplateView.h */,
+				E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */,
+				E7735D49214CFA18000DAD9D /* DIYPDFCalendarView.h */,
+				E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1351,6 +1364,8 @@
 				E70EC9EE214BB60900BA50FC /* ZHAccessManager.m */,
 				E70EC9F0214BBDAB00BA50FC /* ZHPushManager.h */,
 				E70EC9F1214BBDAB00BA50FC /* ZHPushManager.m */,
+				E7368316214CE3640023B032 /* ZHPDFCreater.h */,
+				E7368317214CE3640023B032 /* ZHPDFCreater.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1589,6 +1604,7 @@
 				E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */,
 				E70EC9EF214BB60900BA50FC /* ZHAccessManager.m in Sources */,
 				E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */,
+				E7368318214CE3640023B032 /* ZHPDFCreater.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
@@ -1653,6 +1669,7 @@
 				E74F88022142743B00F04C19 /* DIYSelectWallPaperViewController.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E70EC9EC214BADBB00BA50FC /* EvtEditEventPushViewModel.m in Sources */,
+				E7735D4B214CFA18000DAD9D /* DIYPDFCalendarView.m in Sources */,
 				E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,
 				E783704B213E1CFC00000F28 /* LCUserFeedbackViewController.m in Sources */,
@@ -1662,6 +1679,7 @@
 				E783706A213E683000000F28 /* IAPTarget.m in Sources */,
 				E764467221492B1E00AA310F /* ZHUserStore.m in Sources */,
 				E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */,
+				E7735D47214CF212000DAD9D /* DIYPDFTemplateView.m in Sources */,
 				E704437B2100754C000239C1 /* EasyNavigationView.m in Sources */,
 				E73C65ED2137D1E0007D656A /* DIYDiaryConfig.m in Sources */,
 				E764466E2147C24400AA310F /* EvtEventStore.m in Sources */,
