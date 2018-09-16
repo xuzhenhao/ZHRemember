@@ -25,6 +25,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"信纸";
     [self bindAction];
 }
 - (void)bindAction{
