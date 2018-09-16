@@ -76,7 +76,7 @@ NSInteger margin = 20;
     [self addSubview:self.letterImageView];
     [self addSubview:self.yearTimeLabel];
     
-    self.calendarView = [DIYPDFCalendarView calendarViewWithSize:CGSizeMake(50, 50) month:0 day:0];
+    self.calendarView = [DIYPDFCalendarView calendarViewWithSize:CGSizeMake(50, 50) month:date.month day:date.day];
     [self addSubview:self.calendarView];
     [self addSubview:self.lineView];
     

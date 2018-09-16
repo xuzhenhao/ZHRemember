@@ -48,13 +48,13 @@
     }];
     
     [monthContentView addSubview:self.monthLabel];
-    self.monthLabel.text = @"8月";
+    self.monthLabel.text = [NSString stringWithFormat:@"%ld月",self.month];
     [self.monthLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.mas_equalTo(monthContentView);
     }];
     
     [self addSubview:self.dayLabel];
-    self.dayLabel.text = @"18";
+    self.dayLabel.text = [NSString stringWithFormat:@"%ld",self.day];
     [self.dayLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.mas_equalTo(self);
         make.top.mas_equalTo(monthContentView.mas_bottom).
@@ -74,7 +74,7 @@
 - (UILabel *)dayLabel{
     if (!_dayLabel) {
         _dayLabel = [UILabel new];
-        _dayLabel.font = [UIFont systemFontOfSize:16];
+        _dayLabel.font = [UIFont systemFontOfSize:18];
         _dayLabel.textColor = [UIColor blackColor];
     }
     return _dayLabel;

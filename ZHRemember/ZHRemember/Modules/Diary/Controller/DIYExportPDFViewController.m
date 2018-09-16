@@ -14,6 +14,8 @@
 @interface DIYExportPDFViewController ()<UIDocumentInteractionControllerDelegate>
 
 @property (nonatomic, strong)   UIDocumentInteractionController     *documentVC;
+/** */
+@property (nonatomic, assign)   BOOL      isExported;
 @end
 
 @implementation DIYExportPDFViewController
@@ -22,10 +24,23 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupView];
     
 }
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
+    if (!self.isExported) {
+        [HBHUDManager showNetworkLoading];
+        [self exportDiary];
+        self.isExported = YES;
+    }
+}
+- (void)setupView{
+    self.title = @"导出日记本";
+    self.view.backgroundColor = [UIColor lightGrayColor];
+}
+- (void)exportDiary{
     NSMutableArray *images = [NSMutableArray array];
     
     NSArray *array = [DIYDiaryStore shared].diarys;
@@ -36,6 +51,8 @@
     }
     NSString *fileName = @"diary.pdf";
     [ZHPDFCreater createPDFWithImages:images fileName:fileName pageSize:CGSizeMake(320, 504)];
+    
+    [HBHUDManager hideNetworkLoading];
     [self sharePdfWithPath:[ZHPDFCreater filePathWithName:fileName]];
 }
 - (void)sharePdfWithPath:(NSString *)path{

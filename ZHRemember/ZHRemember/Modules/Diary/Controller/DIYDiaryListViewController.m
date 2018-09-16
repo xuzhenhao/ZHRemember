@@ -100,6 +100,7 @@
 }
 - (void)didClickExportPdf:(UIBarButtonItem *)sender{
     DIYExportPDFViewController *pdfVC = [DIYExportPDFViewController viewController];
+    pdfVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:pdfVC animated:YES];
 }
 #pragma mark - DZNEmptyDataSetSource
