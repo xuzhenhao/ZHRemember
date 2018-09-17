@@ -34,6 +34,9 @@
     vm.weathImageName = [NSString diary_weatherImageNameOfIndex:0];
     //默认微笑脸
     vm.moodImageName = [NSString diary_moodImageNameOfIndex:0];
+    vm.diaryFontName = FontPingFangRegaular;
+    vm.diaryFontSize = 18;
+    vm.diaryFontColor = @"#000000";
     
     return vm;
 }
@@ -47,6 +50,9 @@
     vm.diaryText = model.diaryText;
     vm.diaryId = model.diaryId;
     vm.objectId = model.objectId;
+    vm.diaryFontName = model.fontName;
+    vm.diaryFontSize = model.fontSize;
+    vm.diaryFontColor = model.fontColor;
     
     return vm;
 }

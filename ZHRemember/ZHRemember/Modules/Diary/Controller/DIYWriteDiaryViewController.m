@@ -317,15 +317,15 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         _textView = [YYTextView new];
         
         _textView.placeholderText = @"此刻想说点什么?";
-        _textView.placeholderFont = [UIFont systemFontOfSize:16];
+        _textView.placeholderFont = [UIFont systemFontOfSize:self.viewModel.diaryFontSize];
         _textView.placeholderTextColor = RGBColor(178, 178, 178);
         _textView.delegate = self;
         
-        _textView.font = [UIFont systemFontOfSize:16];
-        _textView.textColor = RGBColor(0, 0, 0);
-        YYTextLinePositionSimpleModifier *mod = [YYTextLinePositionSimpleModifier new];
-        mod.fixedLineHeight = 24;
-        _textView.linePositionModifier = mod;
+        _textView.font = [UIFont fontWithName:self.viewModel.diaryFontName size:self.viewModel.diaryFontSize];
+        _textView.textColor = [UIColor zh_colorWithHexString:self.viewModel.diaryFontColor];
+//        YYTextLinePositionSimpleModifier *mod = [YYTextLinePositionSimpleModifier new];
+//        mod.fixedLineHeight = 24;
+//        _textView.linePositionModifier = mod;
         
         _textView.inputAccessoryView = self.toolBar;
 //        _textView.textParser = [HBTWriteRecordTextParser new];

@@ -13,6 +13,7 @@
 #import "UILabel+ZHSpace.h"
 #import "UIImage+ZHExt.h"
 #import "UIColor+ZHTheme.h"
+#import "UIColor+ZHHex.h"
 #import "UIViewController+ZHStoryBoard.h"
 #import "UIResponder+ZHRouter.h"
 #import "UITableViewCell+ZHViewModel.h"

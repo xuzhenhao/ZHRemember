@@ -20,6 +20,9 @@
              @"weatherImageName":@"weather_image",
              @"moodImageName":@"mood_image",
              @"wallPaperName":@"paper_image",
+             @"fontName":@"font",
+             @"fontSize":@"font_size",
+             @"fontColor":@"font_color",
              };
 }
 + (NSValueTransformer *)diaryIdJSONTransformer{
@@ -53,6 +56,21 @@
     }];
 }
 + (NSValueTransformer *)moodImageNameJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return [NSString stringWithFormat:@"%@",value];
+    }];
+}
++ (NSValueTransformer *)fontNameJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return [NSString stringWithFormat:@"%@",value];
+    }];
+}
++ (NSValueTransformer *)fontSizeJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        return @(value.integerValue);
+    }];
+}
++ (NSValueTransformer *)fontColorJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         return [NSString stringWithFormat:@"%@",value];
     }];

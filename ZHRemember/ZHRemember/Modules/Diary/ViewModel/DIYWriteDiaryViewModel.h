@@ -32,6 +32,14 @@
 @property (nonatomic, copy)     NSString    *diaryImageURL;
 /** 日记文本*/
 @property (nonatomic, copy)     NSString    *diaryText;
+/** 日记字体*/
+@property (nonatomic, copy)     NSString    *diaryFontName;
+/** 字体大小*/
+@property (nonatomic, assign)   NSInteger      diaryFontSize;
+/** 字体颜色*/
+@property (nonatomic, copy)     NSString    *diaryFontColor;
+
+
 @property (nonatomic, copy,readonly)     NSString    *diaryId;
 
 /** 保存日记*/

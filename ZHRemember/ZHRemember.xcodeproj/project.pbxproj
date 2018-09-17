@@ -167,6 +167,7 @@
 		E7E98C8E213911FB0070313D /* DIYDiaryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */; };
 		E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
 		E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */; };
+		E7F12C91214FA4FE00B482BB /* UIColor+ZHHex.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F12C90214FA4FE00B482BB /* UIColor+ZHHex.m */; };
 		E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */; };
 		E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24235214F83E000E0F3EA /* ZHFontConfig.m */; };
 		E7F2423A214F8A1800E0F3EA /* hksn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7F24239214F8A1800E0F3EA /* hksn.ttf */; };
@@ -488,6 +489,8 @@
 		E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListCellViewModel.m; sourceTree = "<group>"; };
 		E7E98C92213944E40070313D /* DIYSelectMoodViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodViewController.h; sourceTree = "<group>"; };
 		E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodViewController.m; sourceTree = "<group>"; };
+		E7F12C8F214FA4FE00B482BB /* UIColor+ZHHex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+ZHHex.h"; sourceTree = "<group>"; };
+		E7F12C90214FA4FE00B482BB /* UIColor+ZHHex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ZHHex.m"; sourceTree = "<group>"; };
 		E7F24231214F546D00E0F3EA /* NSError+ZHLocailzed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ZHLocailzed.h"; sourceTree = "<group>"; };
 		E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ZHLocailzed.m"; sourceTree = "<group>"; };
 		E7F24234214F83E000E0F3EA /* ZHFontConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHFontConfig.h; sourceTree = "<group>"; };
@@ -613,6 +616,8 @@
 			children = (
 				E70443512100399E000239C1 /* UIColor+ZHTheme.h */,
 				E70443522100399E000239C1 /* UIColor+ZHTheme.m */,
+				E7F12C8F214FA4FE00B482BB /* UIColor+ZHHex.h */,
+				E7F12C90214FA4FE00B482BB /* UIColor+ZHHex.m */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -1685,6 +1690,7 @@
 				E712E745214A817200BBC25D /* ZHNotificationConfig.m in Sources */,
 				E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */,
 				E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */,
+				E7F12C91214FA4FE00B482BB /* UIColor+ZHHex.m in Sources */,
 				E70443822100754C000239C1 /* UIScrollView+EasyNavigationExt.m in Sources */,
 				E78FCDF721339FF800C72EB4 /* MySettingViewModel.m in Sources */,
 				E798B0E421254B7D00578F24 /* ZHCommonApi.m in Sources */,

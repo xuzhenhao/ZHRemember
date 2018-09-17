@@ -26,7 +26,12 @@ NSString *const DiaryClassMoodKey = @"mood_image";
 NSString *const DiaryClassWallPaperKey = @"paper_image";
 /**日记表，日记图片key*/
 NSString *const DiaryClassDiaryPhotoKey = @"diary_image";
-
+/**日记表，文字字体名称key*/
+NSString *const DiaryClassDiaryFontKey = @"font";
+/**日记表，文字字体大小key*/
+NSString *const DiaryClassDiaryFontSizeKey = @"font_size";
+/**日记表，文字字体颜色key*/
+NSString *const DiaryClassDiaryFontColorKey = @"font_color";
 
 @implementation ZHDiaryApi
 
@@ -78,5 +83,8 @@ NSString *const DiaryClassDiaryPhotoKey = @"diary_image";
     [diaryObj setObject:diaryModel.moodImageName forKey:DiaryClassMoodKey];
     [diaryObj setObject:diaryModel.wallPaperName forKey:DiaryClassWallPaperKey];
     [diaryObj setObject:diaryModel.diaryImageURL forKey:DiaryClassDiaryPhotoKey];
+    [diaryObj setObject:diaryModel.fontName forKey:DiaryClassDiaryFontKey];
+    [diaryObj setObject:@(diaryModel.fontSize) forKey:DiaryClassDiaryFontSizeKey];
+    [diaryObj setObject:diaryModel.fontColor forKey:DiaryClassDiaryFontColorKey];
 }
 @end

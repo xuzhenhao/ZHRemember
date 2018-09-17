@@ -26,6 +26,11 @@
 @property (nonatomic, copy)     NSString    *moodImageName;
 /** 信纸图片名称*/
 @property (nonatomic, copy)     NSString    *wallPaperName;
-
+/** 字体名称，默认苹方*/
+@property (nonatomic, copy)     NSString    *fontName;
+/** 字体大小，默认18*/
+@property (nonatomic, assign)   NSInteger      fontSize;
+/** 字体颜色*/
+@property (nonatomic, copy)     NSString    *fontColor;
 
 @end
