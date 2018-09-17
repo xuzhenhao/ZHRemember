@@ -168,6 +168,8 @@
 		E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
 		E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */; };
 		E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */; };
+		E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24235214F83E000E0F3EA /* ZHFontConfig.m */; };
+		E7F2423A214F8A1800E0F3EA /* hksn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7F24239214F8A1800E0F3EA /* hksn.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -488,6 +490,9 @@
 		E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodViewController.m; sourceTree = "<group>"; };
 		E7F24231214F546D00E0F3EA /* NSError+ZHLocailzed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ZHLocailzed.h"; sourceTree = "<group>"; };
 		E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ZHLocailzed.m"; sourceTree = "<group>"; };
+		E7F24234214F83E000E0F3EA /* ZHFontConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHFontConfig.h; sourceTree = "<group>"; };
+		E7F24235214F83E000E0F3EA /* ZHFontConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHFontConfig.m; sourceTree = "<group>"; };
+		E7F24239214F8A1800E0F3EA /* hksn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hksn.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +602,8 @@
 				E7044355210039F1000239C1 /* ZHMacro.m */,
 				E712E743214A817200BBC25D /* ZHNotificationConfig.h */,
 				E712E744214A817200BBC25D /* ZHNotificationConfig.m */,
+				E7F24234214F83E000E0F3EA /* ZHFontConfig.h */,
+				E7F24235214F83E000E0F3EA /* ZHFontConfig.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -986,6 +993,7 @@
 		E76B115721002AF60067E577 /* ZHRemember */ = {
 			isa = PBXGroup;
 			children = (
+				E7F24237214F89EE00E0F3EA /* Resource */,
 				E7B798A921363DC300348A7E /* Utils */,
 				E778D8012101770500E9CEEB /* API */,
 				E704435921007493000239C1 /* Lib */,
@@ -1393,6 +1401,22 @@
 			name = models;
 			sourceTree = "<group>";
 		};
+		E7F24237214F89EE00E0F3EA /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E7F24238214F89F700E0F3EA /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E7F24238214F89F700E0F3EA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E7F24239214F8A1800E0F3EA /* hksn.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1462,6 +1486,7 @@
 				E7624BC2213FD87D00A57B47 /* palette.png in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
 				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
+				E7F2423A214F8A1800E0F3EA /* hksn.ttf in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
 				E7837051213E1CFC00000F28 /* feedback_btn_new@2x.png in Resources */,
@@ -1610,6 +1635,7 @@
 				E70EC9EF214BB60900BA50FC /* ZHAccessManager.m in Sources */,
 				E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */,
 				E7368318214CE3640023B032 /* ZHPDFCreater.m in Sources */,
+				E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
