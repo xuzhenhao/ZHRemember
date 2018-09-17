@@ -16,6 +16,7 @@
 @property (nonatomic, strong)   RACSignal     *registEnableSignal;
 /** 验证码倒计时秒数*/
 @property (nonatomic, assign)   NSInteger      countDownNum;
+@property (nonatomic, strong)   NSError     *error;
 
 @end
 
@@ -50,9 +51,11 @@
         @strongify(self)
         if (error) {
             doneHandler(NO);
+            self.error = [error zh_localized];
         }else{
-            [ZHAccountApi registerWithAccount:self.mobilePhone password:self.password done:^(BOOL success, NSDictionary *result) {
+            [ZHAccountApi registerWithAccount:self.mobilePhone password:self.password done:^(BOOL success, NSError *error) {
                 doneHandler(success);
+                self.error = [error zh_localized];
             }];
         }
     }];
@@ -60,8 +63,9 @@
 
 #pragma mark - utils
 - (void)getRegisterSmsCode{
+    __weak typeof(self)weakself = self;
     [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.mobilePhone zone:@"86" template:nil result:^(NSError *error) {
-        
+        weakself.error = error;
     }];
 }
 - (void)startSmsCountDown{

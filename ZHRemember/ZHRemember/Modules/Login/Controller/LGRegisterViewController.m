@@ -81,9 +81,14 @@
             [HBHUDManager showMessage:@"注册成功" done:^{
                 [self navigateToLoginViewController];
             }];
-        }else{
-            [HBHUDManager showMessage:@"注册失败，请检查后重试"];
         }
+    }];
+    
+    [[[RACObserve(self.viewModel, error) filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        NSError *error = x;
+        [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
 }
 

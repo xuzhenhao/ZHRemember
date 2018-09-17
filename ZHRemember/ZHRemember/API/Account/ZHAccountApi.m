@@ -14,7 +14,7 @@
 
 + (void)registerWithAccount:(NSString *)account
                    password:(NSString *)pwd
-                       done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+                       done:(void(^)(BOOL success,NSError *error))doneHandler{
     AVUser *user = [AVUser user];
     user.username = account;
     user.password = pwd;
@@ -23,7 +23,7 @@
     
     __weak typeof(self)weakself = self;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        doneHandler(succeeded,nil);
+        doneHandler(succeeded,error);
         if (succeeded) {
             [weakself _updateUserExtsTableWithUserId:user.objectId userName:user.username];
         }
@@ -48,10 +48,10 @@
 }
 + (void)LoginWithAccount:(NSString *)account
                 password:(NSString *)pwd
-                    done:(void(^)(BOOL success,NSDictionary *result))doneHandler{
+                    done:(void(^)(BOOL success,NSError *error))doneHandler{
     [AVUser logInWithUsernameInBackground:account password:pwd block:^(AVUser * _Nullable user, NSError * _Nullable error) {
         BOOL succeed = error ? NO : YES;
-        doneHandler(succeed,nil);
+        doneHandler(succeed,error);
     }];
 }
 + (void)ResetPwdWithMobile:(NSString *)mobile

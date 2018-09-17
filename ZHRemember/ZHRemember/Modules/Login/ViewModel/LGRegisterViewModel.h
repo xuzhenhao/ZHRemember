@@ -18,6 +18,9 @@
 @property (nonatomic, copy)     NSString    *smsCode;
 /** 验证码按钮描述*/
 @property (nonatomic, copy)     NSString    *smsBtnDesc;
+/** 错误信息*/
+@property (nonatomic, strong,readonly)   NSError     *error;
+
 
 /**注册事件指令*/
 @property (nonatomic, strong)   RACCommand     *registCommad;

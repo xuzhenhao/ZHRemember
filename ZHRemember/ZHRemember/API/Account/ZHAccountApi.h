@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZHUserModel.h"
+#import "NSError+ZHLocailzed.h"
 
 @interface ZHAccountApi : NSObject
 
@@ -20,7 +21,7 @@
  */
 + (void)registerWithAccount:(NSString *)account
                    password:(NSString *)pwd
-                       done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                       done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  登录
@@ -31,7 +32,7 @@
  */
 + (void)LoginWithAccount:(NSString *)account
                    password:(NSString *)pwd
-                       done:(void(^)(BOOL success,NSDictionary *result))doneHandler;
+                       done:(void(^)(BOOL success,NSError *error))doneHandler;
 
 /**
  重置密码

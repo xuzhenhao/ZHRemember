@@ -12,6 +12,7 @@
 @interface LGLoginViewModel()
 /** 可以登录信用*/
 @property (nonatomic, strong)   RACSignal     *loginEnableSignal;
+@property (nonatomic, strong)   NSError     *error;
 
 @end
 
@@ -26,8 +27,8 @@
             
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
                 @strongify(self)
-                [ZHAccountApi LoginWithAccount:self.account password:self.password done:^(BOOL success, NSDictionary *result) {
-                    
+                [ZHAccountApi LoginWithAccount:self.account password:self.password done:^(BOOL success, NSError *error) {
+                    self.error = [error zh_localized];
                     [subscriber sendNext:@(success)];
                     [subscriber sendCompleted];
                 }];

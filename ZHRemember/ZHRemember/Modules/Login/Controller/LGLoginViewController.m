@@ -56,8 +56,6 @@
             //登录成功
             UIViewController *mainVC = [[ZHMediator sharedInstance] zh_mainTabbarController];
             [UIViewController changeRootViewController:mainVC];
-        }else{
-            [HBHUDManager showMessage:@"登录失败，请检查后重试"];
         }
     }];
     [[[self.resetPwdButton rac_signalForControlEvents:UIControlEventTouchUpInside] deliverOnMainThread] subscribeNext:^(__kindof UIControl * _Nullable x) {
@@ -70,6 +68,12 @@
         BOOL isHidePwd = self.pwdTextField.secureTextEntry;
         self.pwdTextField.secureTextEntry = !isHidePwd;
         self.showPwdButton.selected = isHidePwd;
+    }];
+    [[[RACObserve(self.viewModel, error) filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        NSError *error = x;
+        [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
 }
 

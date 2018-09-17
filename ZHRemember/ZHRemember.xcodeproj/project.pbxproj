@@ -167,6 +167,7 @@
 		E7E98C8E213911FB0070313D /* DIYDiaryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */; };
 		E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
 		E7E98C94213944E40070313D /* DIYSelectMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */; };
+		E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -485,6 +486,8 @@
 		E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYDiaryListCellViewModel.m; sourceTree = "<group>"; };
 		E7E98C92213944E40070313D /* DIYSelectMoodViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectMoodViewController.h; sourceTree = "<group>"; };
 		E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectMoodViewController.m; sourceTree = "<group>"; };
+		E7F24231214F546D00E0F3EA /* NSError+ZHLocailzed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+ZHLocailzed.h"; sourceTree = "<group>"; };
+		E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+ZHLocailzed.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1340,6 +1343,8 @@
 			children = (
 				E7AC8527212BE65F006B92AA /* AVObject+ApiExt.h */,
 				E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */,
+				E7F24231214F546D00E0F3EA /* NSError+ZHLocailzed.h */,
+				E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1630,6 +1635,7 @@
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
 				E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
+				E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */,
 				E7B2004A213A989B00EAD1F5 /* DIYSelectMoodCell.m in Sources */,
 				E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,

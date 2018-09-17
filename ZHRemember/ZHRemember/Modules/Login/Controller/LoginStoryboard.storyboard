@@ -57,7 +57,7 @@
                                 <rect key="frame" x="16" y="162" width="343" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ps0-dr-q5C">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="243" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
@@ -87,7 +87,7 @@
                                     <constraint firstItem="GES-jM-ugr" firstAttribute="top" secondItem="fNP-1t-SeR" secondAttribute="bottom" id="bN6-nH-eJj"/>
                                     <constraint firstItem="Ps0-dr-q5C" firstAttribute="leading" secondItem="3PI-F3-6Pj" secondAttribute="leading" id="eYg-OT-eZP"/>
                                     <constraint firstAttribute="bottom" secondItem="GES-jM-ugr" secondAttribute="bottom" id="jiW-Zp-FAr"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ps0-dr-q5C" secondAttribute="trailing" constant="12" id="szN-ca-xQb"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ps0-dr-q5C" secondAttribute="trailing" constant="100" id="szN-ca-xQb"/>
                                     <constraint firstItem="GES-jM-ugr" firstAttribute="leading" secondItem="3PI-F3-6Pj" secondAttribute="leading" id="yVv-mv-xlC"/>
                                 </constraints>
                             </view>

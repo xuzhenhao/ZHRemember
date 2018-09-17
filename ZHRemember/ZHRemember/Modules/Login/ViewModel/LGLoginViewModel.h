@@ -17,7 +17,8 @@
 @property (nonatomic, copy)     NSString    *account;
 /** 密码*/
 @property (nonatomic, copy)     NSString    *password;
-
+/** 错误信息*/
+@property (nonatomic, strong,readonly)   NSError     *error;
 
 /** 登录命令*/
 @property (nonatomic, strong)   RACCommand     *loginCommand;
