@@ -44,6 +44,12 @@
     });
     
 }
++ (void)clearLocalPushs{
+   NSArray *allLocalNotifi = [[UIApplication sharedApplication] scheduledLocalNotifications];
+    for (UILocalNotification *item in allLocalNotifi) {
+        [[UIApplication sharedApplication] cancelLocalNotification:item];
+    }
+}
 + (void)deleteLocalPushWithName:(NSString *)name{
     NSArray *allLocalNotifi = [[UIApplication sharedApplication] scheduledLocalNotifications];
     

@@ -8,6 +8,7 @@
 
 #import "MyViewModel.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "ZHPushManager.h"
 
 @interface MyViewModel()
 /** 数据源*/
@@ -76,6 +77,7 @@
 #pragma mark - public method
 - (void)logout{
     [AVUser logOut];
+    [ZHPushManager clearLocalPushs];
 }
 #pragma mark - getter
 - (RACSubject *)refreshSubject{

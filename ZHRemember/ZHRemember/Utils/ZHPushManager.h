@@ -22,4 +22,10 @@
  @param msg 提示语
  */
 + (void)addLocalPushWithName:(NSString *)name date:(NSDate *)date shouldRepead:(BOOL)shouldRepeat repeat:(NSCalendarUnit)type message:(NSString *)msg;
+
+/**
+ 清空本地推送(当前用户退出登录后需清空)
+ */
++ (void)clearLocalPushs;
+
 @end
