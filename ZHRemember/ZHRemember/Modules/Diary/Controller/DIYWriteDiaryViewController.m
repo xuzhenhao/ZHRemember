@@ -15,6 +15,8 @@
 #import <TZImagePickerController/TZImagePickerController.h>
 #import <TZImagePreviewController/TZImagePreviewController.h>
 #import "DIYSelectWallPaperViewController.h"
+#import "DIYSelectFontViewController.h"
+#import "HBTCustomPresentationController.h"
 
 NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 
@@ -160,7 +162,7 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         [self.pictureImageView sd_setImageWithURL:[NSURL URLWithString:x] placeholderImage:[UIImage imageNamed:@"diary-photo-bg"]];
     }];
     [[[RACObserve(self.viewModel, letterImageName) deliverOnMainThread] filter:^BOOL(id  _Nullable value) {
-        return [value stringValue].length > 0;
+        return value != nil;
     }] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
         self.letterImageView.image = [UIImage imageNamed:x];
@@ -207,6 +209,18 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         [HBHUDManager showNetworkLoading];
     } completed:^{
         [HBHUDManager hideNetworkLoading];
+    }];
+    [[[RACObserve(self.viewModel, diaryFontName) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.textView.font = [UIFont fontWithName:self.viewModel.diaryFontName size:self.viewModel.diaryFontSize];
+    }];
+    [[[RACObserve(self.viewModel, diaryFontSize) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.textView.font = [UIFont fontWithName:self.viewModel.diaryFontName size:self.viewModel.diaryFontSize];
+    }];
+    [[[RACObserve(self.viewModel, diaryFontColor) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.textView.textColor = [UIColor zh_colorWithHexString:self.viewModel.diaryFontColor];
     }];
 }
 #pragma mark - action
@@ -302,6 +316,32 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         weakself.viewModel.letterImageName = imageName;
     };
 }
+- (IBAction)didClickFontButton:(UIButton *)sender {
+    DIYSelectFontViewController *fontVc = [DIYSelectFontViewController fontViewController];
+    HBTCustomPresentationController *presentVC = [[HBTCustomPresentationController alloc] initWithPresentedViewController:fontVc presentingViewController:self];
+    presentVC.isHideMask = YES;
+    fontVc.transitioningDelegate = presentVC;
+    [self presentViewController:fontVc animated:YES completion:nil];
+    
+    @weakify(self)
+    [[[fontVc.fontNameSubject deliverOnMainThread] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        NSString *fontName = [NSString stringWithFormat:@"%@",x];
+        self.viewModel.diaryFontName = fontName;
+    }];
+    [[[fontVc.fontSizeSubject deliverOnMainThread] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        NSInteger fontSize = [x integerValue];
+        self.viewModel.diaryFontSize = fontSize;
+    }];
+    [[[fontVc.fontColorSubject deliverOnMainThread] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        NSString *fontColor = [NSString stringWithFormat:@"%@",x];
+        self.viewModel.diaryFontColor = fontColor;
+    }];
+    
+}
+
 #pragma mark - utils
 - (void)checkIfNeedUpdateMoney{
     //如果是今日第一次发表，更新账户余额

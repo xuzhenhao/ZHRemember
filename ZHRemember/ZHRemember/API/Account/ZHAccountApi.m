@@ -175,4 +175,48 @@
         doneHandler(succeeded,error);
     }];
 }
++ (void)unlockFontWithObjectId:(NSString *)objectId
+                      fontName:(ZHCustomFontType)fontType
+                         money:(NSString *)money
+                          done:(void(^)(BOOL isSuccess,NSError *error))doneHandler{
+    if (!objectId) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    NSString *fontKey = nil;
+    switch (fontType) {
+        case ZHCustomFontSn:
+            fontKey = UserExtUnlockFontSnKey;
+            break;
+        case ZHCustomFontJYY:
+            fontKey = UserExtUnlockFontJYYKey;
+            break;
+        case ZHCustomFontGirl:
+            fontKey = UserExtUnlockFontGirlKey;
+            break;
+        case ZHCustomFontCat:
+            fontKey = UserExtUnlockFontCatKey;
+            break;
+    }
+    
+    [userObj setObject:@"1" forKey:fontKey];
+    [userObj setObject:money forKey:UserExtMoneyKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
+
++ (void)unlockFontColorWithObjectId:(NSString *)objectId
+                              money:(NSString *)money
+                               done:(void(^)(BOOL isSuccess,NSError *error))doneHandler{
+    if (!objectId) {
+        doneHandler(NO,nil);
+    }
+    AVObject *userObj = [AVObject objectWithClassName:UserExtClassName objectId:objectId];
+    [userObj setObject:@"1" forKey:UserExtUnlockFontColorKey];
+    [userObj setObject:money forKey:UserExtMoneyKey];
+    [userObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        doneHandler(succeeded,error);
+    }];
+}
 @end

@@ -86,4 +86,24 @@
 - (void)enableCustomLettersWithCost:(NSInteger)cost
                              done:(void(^)(BOOL success,NSError *error))done;
 
+/**
+ 花费余额解锁自定义字体
+
+ @param font 字体名称
+ @param cost 费用
+ @param done 完成回调
+ */
+- (void)enableCustomFont:(NSString *)font
+                    cost:(NSInteger)cost
+                    done:(void(^)(BOOL success,NSError *error))done;
+
+/**
+ 花费余额解锁付费字体颜色
+
+ @param cost 费用
+ @param done 完成回调
+ */
+- (void)enableCustomFontColorWithCost:(NSInteger)cost
+                    done:(void(^)(BOOL success,NSError *error))done;
+
 @end

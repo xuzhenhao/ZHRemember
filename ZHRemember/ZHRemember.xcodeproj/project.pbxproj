@@ -81,6 +81,8 @@
 		E73C65F02137EBE4007D656A /* DIYWriteDiaryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65EF2137EBE4007D656A /* DIYWriteDiaryViewModel.m */; };
 		E73C65F42138080C007D656A /* ZHDiaryApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F32138080C007D656A /* ZHDiaryApi.m */; };
 		E73C65F821380872007D656A /* ZHDiaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F721380872007D656A /* ZHDiaryModel.m */; };
+		E74259192150978D005B2659 /* DIYFontColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E74259182150978D005B2659 /* DIYFontColorCell.m */; };
+		E742591D2150982A005B2659 /* DIYFontColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E742591C2150982A005B2659 /* DIYFontColorModel.m */; };
 		E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
 		E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
 		E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F87FE2142691E00F04C19 /* MyThemeColorViewModel.m */; };
@@ -105,6 +107,13 @@
 		E76B1178210031590067E577 /* MainTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B1177210031590067E577 /* MainTarget.m */; };
 		E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117E210032E30067E577 /* ZHMediator+Main.m */; };
 		E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */; };
+		E76F783A2151F91A003CB6D9 /* DIYFontFamilyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */; };
+		E76F783D2151FA2E003CB6D9 /* DIYFontFamilyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783C2151FA2E003CB6D9 /* DIYFontFamilyModel.m */; };
+		E76F78402151FCB6003CB6D9 /* DIYSelectFontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783F2151FCB6003CB6D9 /* DIYSelectFontViewModel.m */; };
+		E773291121511D850003567D /* GB2312.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290D21511D830003567D /* GB2312.ttf */; };
+		E773291221511D850003567D /* snFontP2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290E21511D840003567D /* snFontP2.ttf */; };
+		E773291321511D850003567D /* jianyayi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290F21511D840003567D /* jianyayi.ttf */; };
+		E773291421511D850003567D /* loliCat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773291021511D840003567D /* loliCat.ttf */; };
 		E7735D47214CF212000DAD9D /* DIYPDFTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */; };
 		E7735D4B214CFA18000DAD9D /* DIYPDFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */; };
 		E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
@@ -161,6 +170,8 @@
 		E7B798AC21363DEA00348A7E /* ZHGlobalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */; };
 		E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
 		E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
+		E7CA03F2214FD46300660EA9 /* DIYSelectFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA03F1214FD46300660EA9 /* DIYSelectFontViewController.m */; };
+		E7CA03F5214FD70400660EA9 /* HBTCustomPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA03F4214FD70400660EA9 /* HBTCustomPresentationController.m */; };
 		E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A32140F81900C78D63 /* ZHUserModel.m */; };
 		E7E7B3A72141030800C78D63 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A62141030800C78D63 /* MainViewModel.m */; };
 		E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */; };
@@ -324,6 +335,10 @@
 		E73C65F32138080C007D656A /* ZHDiaryApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDiaryApi.m; sourceTree = "<group>"; };
 		E73C65F621380872007D656A /* ZHDiaryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHDiaryModel.h; sourceTree = "<group>"; };
 		E73C65F721380872007D656A /* ZHDiaryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDiaryModel.m; sourceTree = "<group>"; };
+		E74259172150978D005B2659 /* DIYFontColorCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontColorCell.h; sourceTree = "<group>"; };
+		E74259182150978D005B2659 /* DIYFontColorCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYFontColorCell.m; sourceTree = "<group>"; };
+		E742591B2150982A005B2659 /* DIYFontColorModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontColorModel.h; sourceTree = "<group>"; };
+		E742591C2150982A005B2659 /* DIYFontColorModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYFontColorModel.m; sourceTree = "<group>"; };
 		E7486652213546330032B948 /* MyThemeColorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorViewController.h; sourceTree = "<group>"; };
 		E7486653213546330032B948 /* MyThemeColorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyThemeColorViewController.m; sourceTree = "<group>"; };
 		E7486655213548F00032B948 /* MyThemeColorEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyThemeColorEventCell.h; sourceTree = "<group>"; };
@@ -371,6 +386,16 @@
 		E76B117E210032E30067E577 /* ZHMediator+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+Main.m"; sourceTree = "<group>"; };
 		E76B11802100358D0067E577 /* AppDelegate+ZHAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZHAppearance.h"; sourceTree = "<group>"; };
 		E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHAppearance.m"; sourceTree = "<group>"; };
+		E76F78382151F91A003CB6D9 /* DIYFontFamilyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontFamilyCell.h; sourceTree = "<group>"; };
+		E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYFontFamilyCell.m; sourceTree = "<group>"; };
+		E76F783B2151FA2E003CB6D9 /* DIYFontFamilyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontFamilyModel.h; sourceTree = "<group>"; };
+		E76F783C2151FA2E003CB6D9 /* DIYFontFamilyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYFontFamilyModel.m; sourceTree = "<group>"; };
+		E76F783E2151FCB6003CB6D9 /* DIYSelectFontViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectFontViewModel.h; sourceTree = "<group>"; };
+		E76F783F2151FCB6003CB6D9 /* DIYSelectFontViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectFontViewModel.m; sourceTree = "<group>"; };
+		E773290D21511D830003567D /* GB2312.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GB2312.ttf; sourceTree = "<group>"; };
+		E773290E21511D840003567D /* snFontP2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = snFontP2.ttf; sourceTree = "<group>"; };
+		E773290F21511D840003567D /* jianyayi.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = jianyayi.ttf; sourceTree = "<group>"; };
+		E773291021511D840003567D /* loliCat.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = loliCat.ttf; sourceTree = "<group>"; };
 		E7735D45214CF212000DAD9D /* DIYPDFTemplateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYPDFTemplateView.h; sourceTree = "<group>"; };
 		E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYPDFTemplateView.m; sourceTree = "<group>"; };
 		E7735D49214CFA18000DAD9D /* DIYPDFCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYPDFCalendarView.h; sourceTree = "<group>"; };
@@ -477,6 +502,10 @@
 		E7B798AF21363E9B00348A7E /* ZHDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHDBManager.m; sourceTree = "<group>"; };
 		E7B798B221364E9D00348A7E /* MyLogoutCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyLogoutCell.h; sourceTree = "<group>"; };
 		E7B798B321364E9D00348A7E /* MyLogoutCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyLogoutCell.m; sourceTree = "<group>"; };
+		E7CA03F0214FD46300660EA9 /* DIYSelectFontViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYSelectFontViewController.h; sourceTree = "<group>"; };
+		E7CA03F1214FD46300660EA9 /* DIYSelectFontViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYSelectFontViewController.m; sourceTree = "<group>"; };
+		E7CA03F3214FD70400660EA9 /* HBTCustomPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBTCustomPresentationController.h; sourceTree = "<group>"; };
+		E7CA03F4214FD70400660EA9 /* HBTCustomPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBTCustomPresentationController.m; sourceTree = "<group>"; };
 		E7E7B3A22140F81900C78D63 /* ZHUserModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHUserModel.h; sourceTree = "<group>"; };
 		E7E7B3A32140F81900C78D63 /* ZHUserModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHUserModel.m; sourceTree = "<group>"; };
 		E7E7B3A52141030800C78D63 /* MainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewModel.h; sourceTree = "<group>"; };
@@ -844,6 +873,7 @@
 		E73C65D621379EAE007D656A /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				E742591A21509811005B2659 /* Model */,
 				E712E746214A860600BBC25D /* Store */,
 				E73C65D921379ED3007D656A /* View */,
 				E73C65D821379ECB007D656A /* Controller */,
@@ -869,6 +899,8 @@
 				E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */,
 				E74F88032142818500F04C19 /* DIYSelectWallPaperViewModel.h */,
 				E74F88042142818500F04C19 /* DIYSelectWallPaperViewModel.m */,
+				E76F783E2151FCB6003CB6D9 /* DIYSelectFontViewModel.h */,
+				E76F783F2151FCB6003CB6D9 /* DIYSelectFontViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -887,6 +919,10 @@
 				E74F88012142743B00F04C19 /* DIYSelectWallPaperViewController.m */,
 				E709ABFF214CB66800989E24 /* DIYExportPDFViewController.h */,
 				E709AC00214CB66800989E24 /* DIYExportPDFViewController.m */,
+				E7CA03F0214FD46300660EA9 /* DIYSelectFontViewController.h */,
+				E7CA03F1214FD46300660EA9 /* DIYSelectFontViewController.m */,
+				E7CA03F3214FD70400660EA9 /* HBTCustomPresentationController.h */,
+				E7CA03F4214FD70400660EA9 /* HBTCustomPresentationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -904,6 +940,10 @@
 				E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */,
 				E7735D49214CFA18000DAD9D /* DIYPDFCalendarView.h */,
 				E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */,
+				E74259172150978D005B2659 /* DIYFontColorCell.h */,
+				E74259182150978D005B2659 /* DIYFontColorCell.m */,
+				E76F78382151F91A003CB6D9 /* DIYFontFamilyCell.h */,
+				E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -925,6 +965,17 @@
 				E73C65F721380872007D656A /* ZHDiaryModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E742591A21509811005B2659 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E742591B2150982A005B2659 /* DIYFontColorModel.h */,
+				E742591C2150982A005B2659 /* DIYFontColorModel.m */,
+				E76F783B2151FA2E003CB6D9 /* DIYFontFamilyModel.h */,
+				E76F783C2151FA2E003CB6D9 /* DIYFontFamilyModel.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E7624BA9213F74A500A57B47 /* Version */ = {
@@ -1417,6 +1468,10 @@
 		E7F24238214F89F700E0F3EA /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				E773290D21511D830003567D /* GB2312.ttf */,
+				E773290F21511D840003567D /* jianyayi.ttf */,
+				E773291021511D840003567D /* loliCat.ttf */,
+				E773290E21511D840003567D /* snFontP2.ttf */,
 				E7F24239214F8A1800E0F3EA /* hksn.ttf */,
 			);
 			path = Font;
@@ -1487,13 +1542,17 @@
 				E7837054213E1CFC00000F28 /* feedback_add_image@2x.png in Resources */,
 				E7837064213E66B700000F28 /* IAPStoryboard.storyboard in Resources */,
 				E7837053213E1CFC00000F28 /* LeanCloudFeedback.strings in Resources */,
+				E773291321511D850003567D /* jianyayi.ttf in Resources */,
 				E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */,
 				E7624BC2213FD87D00A57B47 /* palette.png in Resources */,
 				E76B116221002AF70067E577 /* Assets.xcassets in Resources */,
 				E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */,
 				E7F2423A214F8A1800E0F3EA /* hksn.ttf in Resources */,
 				E704438D210076EC000239C1 /* EvtEventStoryboard.storyboard in Resources */,
+				E773291221511D850003567D /* snFontP2.ttf in Resources */,
 				E70443802100754C000239C1 /* EasyNavButton.bundle in Resources */,
+				E773291421511D850003567D /* loliCat.ttf in Resources */,
+				E773291121511D850003567D /* GB2312.ttf in Resources */,
 				E7837051213E1CFC00000F28 /* feedback_btn_new@2x.png in Resources */,
 				E783704E213E1CFC00000F28 /* feedback_warning@2x.png in Resources */,
 				E7837052213E1CFC00000F28 /* feedback_btn@2x.png in Resources */,
@@ -1631,6 +1690,7 @@
 				E70443782100754C000239C1 /* NSObject+EasyKVO.m in Sources */,
 				E74F88052142818500F04C19 /* DIYSelectWallPaperViewModel.m in Sources */,
 				E7624BB8213F851400A57B47 /* UILabel+ZHSpace.m in Sources */,
+				E76F783A2151F91A003CB6D9 /* DIYFontFamilyCell.m in Sources */,
 				E709ABFB214CA6A800989E24 /* EvtEditEventSetTopCell.m in Sources */,
 				E709ABFE214CA70800989E24 /* EvtEditEventSetTopViewModel.m in Sources */,
 				E7AC851E212BAC17006B92AA /* EvtEditEventTagCell.m in Sources */,
@@ -1639,15 +1699,19 @@
 				E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */,
 				E70EC9EF214BB60900BA50FC /* ZHAccessManager.m in Sources */,
 				E7E7B3A42140F81900C78D63 /* ZHUserModel.m in Sources */,
+				E742591D2150982A005B2659 /* DIYFontColorModel.m in Sources */,
 				E7368318214CE3640023B032 /* ZHPDFCreater.m in Sources */,
 				E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
+				E7CA03F2214FD46300660EA9 /* DIYSelectFontViewController.m in Sources */,
+				E76F783D2151FA2E003CB6D9 /* DIYFontFamilyModel.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
 				E7B798B021363E9B00348A7E /* ZHDBManager.m in Sources */,
+				E74259192150978D005B2659 /* DIYFontColorCell.m in Sources */,
 				E7305255214A1183009B85D0 /* NSString+ZHID.m in Sources */,
 				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
@@ -1671,6 +1735,7 @@
 				E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E70EC9E9214BAD7000BA50FC /* EvtEditEventPushCell.m in Sources */,
+				E76F78402151FCB6003CB6D9 /* DIYSelectFontViewModel.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
 				E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */,
@@ -1687,6 +1752,7 @@
 				E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */,
 				E76B116821002AF70067E577 /* main.m in Sources */,
 				E76B1178210031590067E577 /* MainTarget.m in Sources */,
+				E7CA03F5214FD70400660EA9 /* HBTCustomPresentationController.m in Sources */,
 				E712E745214A817200BBC25D /* ZHNotificationConfig.m in Sources */,
 				E704439221007833000239C1 /* UIViewController+ZHStoryBoard.m in Sources */,
 				E78FCDF121339C1900C72EB4 /* MySettingCell.m in Sources */,

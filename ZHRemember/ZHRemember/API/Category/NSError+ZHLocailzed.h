@@ -12,8 +12,6 @@
 
 /**
  根据错误码添加本地化错误提示信息
-
- @param code 错误码
  */
 - (NSError *)zh_localized;
 

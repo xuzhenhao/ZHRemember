@@ -11,4 +11,6 @@
 @interface UIColor (ZHHex)
 /**16进制字符串转颜色*/
 +(UIColor *)zh_colorWithHexString:(NSString *)hexString;
+- (NSString *)zh_hexString;
+
 @end

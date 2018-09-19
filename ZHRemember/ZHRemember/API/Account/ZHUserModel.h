@@ -9,6 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <Mantle/Mantle.h>
 
+typedef enum : NSUInteger {
+    ZHCustomFontSn = 1,
+    ZHCustomFontJYY,
+    ZHCustomFontGirl,
+    ZHCustomFontCat,
+} ZHCustomFontType;
+
 /**用户扩展表名*/
 extern NSString *const UserExtClassName;
 /**用户id键名*/
@@ -29,6 +36,16 @@ extern NSString *const UserExtDisableAdsKey;
 extern NSString *const UserExtCustomColorKey;
 /**用户购买了付费信纸键名*/
 extern NSString *const UserExtUnlockLetterKey;
+/**用户购买了小猫体*/
+extern NSString *const UserExtUnlockFontCatKey;
+/**用户购买了华康少女体*/
+extern NSString *const UserExtUnlockFontGirlKey;
+/**用户购买了字体简雅艺*/
+extern NSString *const UserExtUnlockFontJYYKey;
+/**用户购买了字体Sn*/
+extern NSString *const UserExtUnlockFontSnKey;
+/**用户购买了字体颜色*/
+extern NSString *const UserExtUnlockFontColorKey;
 
 @interface ZHUserModel : MTLModel<MTLJSONSerializing>
 /** 对象id*/
@@ -51,5 +68,16 @@ extern NSString *const UserExtUnlockLetterKey;
 @property (nonatomic, assign)   BOOL      isEnableCustomColor;
 /** 是否解锁了付费信纸*/
 @property (nonatomic, assign)   BOOL      isUnlockLetter;
+
+/** 是否解锁了小猫体*/
+@property (nonatomic, assign)   BOOL      isUnlockCatFont;
+/** 是否解锁了华康少女体*/
+@property (nonatomic, assign)   BOOL      isUnlockGirlFont;
+/** 是否解锁了迷你简雅艺字体*/
+@property (nonatomic, assign)   BOOL      isUnlockJYYFont;
+/** 是否解锁了SnFont字体*/
+@property (nonatomic, assign)   BOOL      isUnlockSnFont;
+/** 是否解锁了自定义字体颜色*/
+@property (nonatomic, assign)   BOOL      isUnlockFontColor;
 
 @end

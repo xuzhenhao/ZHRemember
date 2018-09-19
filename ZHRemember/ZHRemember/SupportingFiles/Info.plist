@@ -5,6 +5,10 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>hksn.ttf</string>
+		<string>GB2312.ttf</string>
+		<string>jianyayi.ttf</string>
+		<string>loliCat.ttf</string>
+		<string>snFontP2.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>

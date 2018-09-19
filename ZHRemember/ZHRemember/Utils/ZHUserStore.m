@@ -158,6 +158,62 @@ static NSString *ZHStoreUserCacheKey = @"ZHStoreUserCacheKey";
         done(isSuccess,error);
     }];
 }
+- (void)enableCustomFont:(NSString *)font
+                    cost:(NSInteger)cost
+                    done:(void(^)(BOOL success,NSError *error))done{
+
+    ZHCustomFontType fontType = 0;
+    if ([font isEqualToString:FontSnP2]) {
+        fontType = ZHCustomFontSn;
+    }else if ([font isEqualToString:FontJianyayi]){
+        fontType = ZHCustomFontJYY;
+    }else if ([font isEqualToString:FontHuaKangShaoNv]){
+        fontType = ZHCustomFontGirl;
+    }else if ([font isEqualToString:FontLoliCat]){
+        fontType = ZHCustomFontCat;
+    }else{
+        done(NO,nil);
+    }
+    [self _addMoney:-cost];
+    
+    __weak typeof(self)weakself = self;
+    [ZHAccountApi unlockFontWithObjectId:self.userObjectId fontName:fontType money:self.money done:^(BOOL isSuccess, NSError *error) {
+        if (!error) {
+            switch (fontType) {
+                case ZHCustomFontCat:
+                    weakself.currentUser.isUnlockCatFont = YES;
+                    break;
+                case ZHCustomFontGirl:
+                    weakself.currentUser.isUnlockGirlFont = YES;
+                    break;
+                case ZHCustomFontJYY:
+                    weakself.currentUser.isUnlockJYYFont = YES;
+                    break;
+                case ZHCustomFontSn:
+                    weakself.currentUser.isUnlockSnFont = YES;
+                    break;
+            }
+        }else{
+            [weakself _addMoney:cost];
+            [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
+        }
+        done(isSuccess,error);
+    }];
+}
+- (void)enableCustomFontColorWithCost:(NSInteger)cost
+                                 done:(void(^)(BOOL success,NSError *error))done{
+    [self _addMoney:-cost];
+    __weak typeof(self)weakself = self;
+    [ZHAccountApi unlockFontColorWithObjectId:self.userObjectId money:self.money done:^(BOOL isSuccess, NSError *error) {
+        if (!error) {
+            weakself.currentUser.isUnlockFontColor = YES;
+        }else{
+            [weakself _addMoney:cost];
+            [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
+        }
+        done(isSuccess,error);
+    }];
+}
 #pragma mark - private method
 - (void)_addMoney:(NSInteger)money{
     NSInteger currentMoney = [self.money integerValue];

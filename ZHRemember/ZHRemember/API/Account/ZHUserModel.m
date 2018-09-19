@@ -26,6 +26,15 @@ NSString *const UserExtDisableAdsKey = @"ad_disable";
 NSString *const UserExtCustomColorKey = @"color_enable";
 NSString *const UserExtUnlockLetterKey = @"letter_unlock";
 
+NSString *const UserExtUnlockFontCatKey = @"font_cat";
+/**用户购买了华康少女体*/
+NSString *const UserExtUnlockFontGirlKey = @"font_girl";
+/**用户购买了字体简雅艺*/
+NSString *const UserExtUnlockFontJYYKey = @"font_jyy";
+/**用户购买了字体Sn*/
+NSString *const UserExtUnlockFontSnKey = @"font_sn";
+NSString *const UserExtUnlockFontColorKey = @"font_color_unlock";
+
 @implementation ZHUserModel
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey{
@@ -40,6 +49,11 @@ NSString *const UserExtUnlockLetterKey = @"letter_unlock";
              @"isDisableAd":UserExtDisableAdsKey,
              @"isEnableCustomColor":UserExtCustomColorKey,
              @"isUnlockLetter":UserExtUnlockLetterKey,
+             @"isUnlockCatFont":UserExtUnlockFontCatKey,
+             @"isUnlockGirlFont":UserExtUnlockFontGirlKey,
+             @"isUnlockJYYFont":UserExtUnlockFontJYYKey,
+             @"isUnlockSnFont":UserExtUnlockFontSnKey,
+             @"isUnlockFontColor":UserExtUnlockFontColorKey,
              };
 }
 + (NSValueTransformer *)objectIdJSONTransformer{
@@ -94,6 +108,47 @@ NSString *const UserExtUnlockLetterKey = @"letter_unlock";
     }];
 }
 + (NSValueTransformer *)isUnlockLetterJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
+
++ (NSValueTransformer *)isUnlockCatFontJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isUnlockGirlFontJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isUnlockJYYFontJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isUnlockSnFontJSONTransformer{
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
+        if ([value isEqualToString:@"1"]) {
+            return @(YES);
+        }
+        return @(NO);
+    }];
+}
++ (NSValueTransformer *)isUnlockFontColorJSONTransformer{
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString * value, BOOL *success, NSError *__autoreleasing *error) {
         if ([value isEqualToString:@"1"]) {
             return @(YES);

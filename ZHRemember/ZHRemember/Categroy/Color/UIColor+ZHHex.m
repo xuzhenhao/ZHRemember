@@ -56,4 +56,14 @@
     return hexComponent / 255.0;
 }
 
+- (NSString *)zh_hexString{
+    UIColor *color = self;
+    CGFloat r, g, b, a;
+    
+    [color getRed:&r green:&g blue:&b alpha:&a];
+    
+    NSInteger rgb = (NSInteger) (r * 255.0f)<<16 | (NSInteger) (g * 255.0f)<<8 | (NSInteger) (b * 255.0f)<<0;
+    
+    return [NSString stringWithFormat:@"#%06lx", (long)rgb];
+}
 @end

@@ -36,6 +36,8 @@ extern NSString *IAPSandboxURL;//沙盒测试环境验证
 extern NSString *IAPAppstoreURL;//正式环境验证
 
 extern NSInteger IAPUnlockLetterPirce;//解锁信纸费用
+extern NSInteger IAPUnlockFontPrice;//解锁自定义字体费用
+extern NSInteger IAPUnlockFontColorPrice;//解锁自定义字体颜色
 #pragma mark - error
 extern NSString *NSErrorDescKey;//错误描述的key
 

@@ -47,6 +47,9 @@
         self.selectColorCallback(self.selectedColor);
     }
     [self.navigationController popViewControllerAnimated:YES];
+    if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 #pragma mark - getter
 - (WSColorImageView *)colorView{

@@ -84,6 +84,9 @@
     model.moodImageName = self.moodImageName;
     model.diaryImageURL = self.diaryImageURL;
     model.wallPaperName = self.letterImageName;
+    model.fontName = self.diaryFontName;
+    model.fontSize = self.diaryFontSize;
+    model.fontColor = self.diaryFontColor;
     
     return model;
 }
