@@ -40,6 +40,6 @@
     UIUserNotificationSettings *setting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
     [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
     //本地提醒
-    [ZHPushManager addLocalPushWithName:@"loaclPushOne" date:[NSDate dateWithYear:2018 month:1 day:1 hour:[ZHGlobalStore getDiaryPushHour] minute:[ZHGlobalStore getDiaryPushMinute] second:0] shouldRepead:YES repeat:NSCalendarUnitDay message:@"今天有什么想记得呢?"];
+    [ZHPushManager addLocalPushWithName:@"loaclPushOne" date:[NSDate dateWithYear:2018 month:1 day:1 hour:[ZHGlobalStore getDiaryPushHour] minute:[ZHGlobalStore getDiaryPushMinute] second:0] shouldRepead:YES repeat:NSCalendarUnitDay message:@"今天你记了吗?"];
 }
 @end

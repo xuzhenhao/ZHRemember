@@ -27,7 +27,7 @@
 }
 
 - (void)updateView{
-    self.contentLabel.font = [UIFont fontWithName:self.model.fontName size:20];
+    self.contentLabel.font = [UIFont fontWithName:self.model.fontName size:15];
     if (self.model.isLock) {
         self.unlockButton.hidden = NO;
     }else{

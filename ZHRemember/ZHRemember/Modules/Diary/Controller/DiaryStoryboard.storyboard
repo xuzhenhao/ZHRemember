@@ -10,8 +10,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="jianyayi.ttf">
-            <string>GJJZHYJW--GB1-0</string>
+        <array key="loliCat.ttf">
+            <string>xiaomaomi</string>
         </array>
     </customFonts>
     <scenes>
@@ -549,9 +549,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日记字体样例" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-bb-jXg">
-                                                    <rect key="frame" x="10" y="11" width="120" height="22"/>
-                                                    <fontDescription key="fontDescription" name="GJJZHYJW--GB1-0" family="GJJZhiYi-M12S" pointSize="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日记字体样例:心情如何..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFf-bb-jXg">
+                                                    <rect key="frame" x="10" y="14" width="192" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="xiaomaomi" family="xiaomaomi" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
