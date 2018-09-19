@@ -65,6 +65,8 @@ NSInteger margin = 20;
     self.yearTimeLabel.text = [NSString stringWithFormat:@"%@ %@",yearTimeFormat,weekTime];
     self.hourTimeLabel.text = [NSString stringWithFormat:@"%@ %@",hourTimeFormat,dayFormat];
     self.textLabel.text = self.diary.diaryText;
+    self.textLabel.textColor = [UIColor zh_colorWithHexString:self.diary.fontColor];
+    self.textLabel.font = [UIFont fontWithName:self.diary.fontName size:self.diary.fontSize];
     if (self.diary.diaryImageURL) {
         self.diaryImageView.hidden = NO;
         [self.diaryImageView sd_setImageWithURL:[NSURL URLWithString:self.diary.diaryImageURL]];
@@ -198,9 +200,9 @@ NSInteger margin = 20;
         _textLabel.textColor = [UIColor blackColor];
         _textLabel.numberOfLines = 0;
         _textLabel.preferredMaxLayoutWidth = 320 - 2 *margin;
-        YYTextLinePositionSimpleModifier *mod = [YYTextLinePositionSimpleModifier new];
-        mod.fixedLineHeight = 24;
-        _textLabel.linePositionModifier = mod;
+//        YYTextLinePositionSimpleModifier *mod = [YYTextLinePositionSimpleModifier new];
+//        mod.fixedLineHeight = 24;
+//        _textLabel.linePositionModifier = mod;
     }
     return _textLabel;
 }

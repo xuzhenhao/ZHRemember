@@ -47,6 +47,9 @@ static NSString *ZHStoreUserCacheKey = @"ZHStoreUserCacheKey";
     [ZHAccountApi getUserInfoWithDoneHandler:^(ZHUserModel *user, NSError *error) {
         if (error || !user) {
             [HBHUDManager showMessage:@"获取用户信息错误，请重新登录"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [UIViewController changeRootToRegisterViewController];
+            });
             return ;
         }
         [weakself updateUser:user];
