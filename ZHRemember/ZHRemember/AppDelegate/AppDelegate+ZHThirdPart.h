@@ -10,6 +10,7 @@
 
 @interface AppDelegate (ZHThirdPart)
 
+- (void)zh_showGesturePwd;
 /**
  启动友盟服务
  */

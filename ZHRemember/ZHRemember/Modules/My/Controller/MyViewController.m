@@ -13,6 +13,7 @@
 #import "MyThemeColorViewController.h"
 #import "LCUserFeedbackAgent.h"
 #import "ZHGlobalStore.h"
+#import "MyGestureViewController.h"
 
 @interface MyViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -96,6 +97,9 @@
         case MySettingTypeAccount:
             [self navigateToIAP];
             break;
+        case MySettingTypeGesture:
+            [self gesturePwdAction];
+            break;
         default:
             break;
     }
@@ -130,7 +134,45 @@
     
     [self presentViewController:alert animated:YES completion:nil];
 }
-
+- (void)gesturePwdAction{
+    if (![ZHGlobalStore isGestureExist]) {
+        [self navigateToSetupGesturePassword];
+        return;
+    }
+    
+    __weak typeof(self)weakself = self;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"手势解锁" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"修改" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        MyGestureViewController *vc = [MyGestureViewController gestureViewControllerWithType:GestureControllerTypeVerify];
+        vc.verifyCallback = ^(BOOL result) {
+            if (result) {
+                [weakself navigateToSetupGesturePassword];
+            }
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"停用" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        MyGestureViewController *vc = [MyGestureViewController gestureViewControllerWithType:GestureControllerTypeVerify];
+        vc.verifyCallback = ^(BOOL result) {
+            if (result) {
+                [ZHGlobalStore saveGesturePassword:nil];
+                [HBHUDManager showMessage:@"已停用"];
+            }
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+- (void)navigateToSetupGesturePassword{
+    MyGestureViewController *vc = [MyGestureViewController gestureViewControllerWithType:GestureControllerTypeSetting];
+    vc.settingCallback = ^(BOOL result, NSString * _Nonnull pwd) {
+        if (result) {
+            [ZHGlobalStore saveGesturePassword:pwd];
+        }
+    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
 #pragma mark - getter
 - (MyViewModel *)viewModel{
     if (!_viewModel) {

@@ -93,6 +93,9 @@
         [dict setValue:obj.objectId forKey:AVObjectIdKey];
         
         ZHUserModel *user = [MTLJSONAdapter modelOfClass:[ZHUserModel class] fromJSONDictionary:dict error:&error];
+        if (user) {
+            user.password = [[AVUser currentUser] objectForKey:@"token"];
+        }
         doneHandler(user,error);
     }];
 }

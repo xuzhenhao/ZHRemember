@@ -52,6 +52,8 @@ extern NSString *const UserExtUnlockFontColorKey;
 @property (nonatomic, copy)     NSString    *objectId;
 /** 用户id*/
 @property (nonatomic, copy)     NSString    *userId;
+/** 密码*/
+@property (nonatomic, copy)     NSString    *password;
 /** 昵称*/
 @property (nonatomic, copy)     NSString    *nickName;
 /** 代币*/

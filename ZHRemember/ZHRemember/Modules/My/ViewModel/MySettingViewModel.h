@@ -10,6 +10,7 @@
 
 typedef enum : NSUInteger {
     MySettingTypeAccount,//账户
+    MySettingTypeGesture,//手势解锁
     MySettingTypeTag,//标签管理
     MySettingTypeThemeColor,//主题色
     MySettingTypeDayTip,//每日提醒

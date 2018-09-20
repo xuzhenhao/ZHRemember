@@ -23,6 +23,10 @@
 + (void)setProductEnvironmentEnable:(BOOL)isEnable;
 + (BOOL)isProductEnvironment;
 
+#pragma mark - Gesture password
++ (BOOL)isGestureExist;
++ (void)saveGesturePassword:(NSString *)pwd;
+
 #pragma mark - theme color
 /**
  缓存用户选择的主题色

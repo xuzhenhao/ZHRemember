@@ -194,6 +194,13 @@
 		E7F74E6221534BDA00C0DBDF /* SecurityEnvSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E6021534BD900C0DBDF /* SecurityEnvSDK.framework */; };
 		E7F74E6621534BE300C0DBDF /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E6421534BE300C0DBDF /* UMCommonLog.framework */; };
 		E7F74E6721534BE300C0DBDF /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7F74E6521534BE300C0DBDF /* UMCommonLog.bundle */; };
+		E7F74E6A2153865000C0DBDF /* MyGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E692153865000C0DBDF /* MyGestureViewController.m */; };
+		E7F74E7521538BBD00C0DBDF /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E6F21538BBC00C0DBDF /* PCCircleViewConst.m */; };
+		E7F74E7621538BBD00C0DBDF /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7121538BBD00C0DBDF /* PCCircleView.m */; };
+		E7F74E7721538BBD00C0DBDF /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7321538BBD00C0DBDF /* PCCircle.m */; };
+		E7F74E7C21538BCB00C0DBDF /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7921538BCB00C0DBDF /* PCLockLabel.m */; };
+		E7F74E7D21538BCB00C0DBDF /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7A21538BCB00C0DBDF /* PCCircleInfoView.m */; };
+		E7F74E8121538C1200C0DBDF /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7F21538C1200C0DBDF /* CALayer+Anim.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -552,6 +559,21 @@
 		E7F74E6021534BD900C0DBDF /* SecurityEnvSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SecurityEnvSDK.framework; sourceTree = "<group>"; };
 		E7F74E6421534BE300C0DBDF /* UMCommonLog.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommonLog.framework; sourceTree = "<group>"; };
 		E7F74E6521534BE300C0DBDF /* UMCommonLog.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMCommonLog.bundle; sourceTree = "<group>"; };
+		E7F74E682153864F00C0DBDF /* MyGestureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyGestureViewController.h; sourceTree = "<group>"; };
+		E7F74E692153865000C0DBDF /* MyGestureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyGestureViewController.m; sourceTree = "<group>"; };
+		E7F74E6F21538BBC00C0DBDF /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
+		E7F74E7021538BBC00C0DBDF /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
+		E7F74E7121538BBD00C0DBDF /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
+		E7F74E7221538BBD00C0DBDF /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
+		E7F74E7321538BBD00C0DBDF /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
+		E7F74E7421538BBD00C0DBDF /* PCCircleViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleViewConst.h; sourceTree = "<group>"; };
+		E7F74E7821538BCA00C0DBDF /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleInfoView.h; sourceTree = "<group>"; };
+		E7F74E7921538BCB00C0DBDF /* PCLockLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLockLabel.m; sourceTree = "<group>"; };
+		E7F74E7A21538BCB00C0DBDF /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleInfoView.m; sourceTree = "<group>"; };
+		E7F74E7B21538BCB00C0DBDF /* PCLockLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLockLabel.h; sourceTree = "<group>"; };
+		E7F74E7E21538BF800C0DBDF /* PCGestureUnlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCGestureUnlock.h; sourceTree = "<group>"; };
+		E7F74E7F21538C1200C0DBDF /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		E7F74E8021538C1200C0DBDF /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -616,6 +638,8 @@
 				E7486653213546330032B948 /* MyThemeColorViewController.m */,
 				E7624BC3213FE06500A57B47 /* MyCustomColorViewController.h */,
 				E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */,
+				E7F74E682153864F00C0DBDF /* MyGestureViewController.h */,
+				E7F74E692153865000C0DBDF /* MyGestureViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -691,6 +715,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E7F74E6E21538B9300C0DBDF /* PCGestureUnlock */,
 				E7F74E4121534BA800C0DBDF /* UMeng */,
 				E7624BBD213FD7FA00A57B47 /* ColorSelectView */,
 				E783702A213E1CFC00000F28 /* LeanCloudFeedback */,
@@ -1625,6 +1650,26 @@
 			path = umcommonlog_ios_1.0.0;
 			sourceTree = "<group>";
 		};
+		E7F74E6E21538B9300C0DBDF /* PCGestureUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				E7F74E8021538C1200C0DBDF /* CALayer+Anim.h */,
+				E7F74E7F21538C1200C0DBDF /* CALayer+Anim.m */,
+				E7F74E7021538BBC00C0DBDF /* PCCircle.h */,
+				E7F74E7321538BBD00C0DBDF /* PCCircle.m */,
+				E7F74E7221538BBD00C0DBDF /* PCCircleView.h */,
+				E7F74E7121538BBD00C0DBDF /* PCCircleView.m */,
+				E7F74E7421538BBD00C0DBDF /* PCCircleViewConst.h */,
+				E7F74E6F21538BBC00C0DBDF /* PCCircleViewConst.m */,
+				E7F74E7821538BCA00C0DBDF /* PCCircleInfoView.h */,
+				E7F74E7A21538BCB00C0DBDF /* PCCircleInfoView.m */,
+				E7F74E7B21538BCB00C0DBDF /* PCLockLabel.h */,
+				E7F74E7921538BCB00C0DBDF /* PCLockLabel.m */,
+				E7F74E7E21538BF800C0DBDF /* PCGestureUnlock.h */,
+			);
+			path = PCGestureUnlock;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1818,6 +1863,7 @@
 				E7837070213E782D00000F28 /* IAPDiamondCell.m in Sources */,
 				E7837057213E1CFC00000F28 /* LCUserFeedbackReplyCell.m in Sources */,
 				E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */,
+				E7F74E6A2153865000C0DBDF /* MyGestureViewController.m in Sources */,
 				E7B798B421364E9D00348A7E /* MyLogoutCell.m in Sources */,
 				E7AC8530212C15C3006B92AA /* EvtEventDetailViewModel.m in Sources */,
 				E704438B210076C9000239C1 /* EvtEventListController.m in Sources */,
@@ -1857,6 +1903,7 @@
 				E76F783D2151FA2E003CB6D9 /* DIYFontFamilyModel.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
+				E7F74E7C21538BCB00C0DBDF /* PCLockLabel.m in Sources */,
 				E7A6222C212178740093853A /* EvtEditEventViewModel.m in Sources */,
 				E74F87FF2142691E00F04C19 /* MyThemeColorViewModel.m in Sources */,
 				E78FCE062134056C00C72EB4 /* LGResetPwdViewController.m in Sources */,
@@ -1864,6 +1911,7 @@
 				E74259192150978D005B2659 /* DIYFontColorCell.m in Sources */,
 				E7305255214A1183009B85D0 /* NSString+ZHID.m in Sources */,
 				E735FF93213CD52E00B270E3 /* DIYSelectMoodViewModel.m in Sources */,
+				E7F74E8121538C1200C0DBDF /* CALayer+Anim.m in Sources */,
 				E798B0F22127F14E00578F24 /* UIViewController+AOPBase.m in Sources */,
 				E7624BBB213F857D00A57B47 /* HBUpdateTipView.m in Sources */,
 				E7624BC5213FE06500A57B47 /* MyCustomColorViewController.m in Sources */,
@@ -1878,6 +1926,7 @@
 				E7624BB5213F845200A57B47 /* UIView+ZHLayout.m in Sources */,
 				E7486654213546330032B948 /* MyThemeColorViewController.m in Sources */,
 				E70443532100399E000239C1 /* UIColor+ZHTheme.m in Sources */,
+				E7F74E7721538BBD00C0DBDF /* PCCircle.m in Sources */,
 				E7E98C8B21390FAE0070313D /* DIYDiaryListCell.m in Sources */,
 				E700FDF6212A694B00A9C330 /* ZHMediator+My.m in Sources */,
 				E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */,
@@ -1885,6 +1934,7 @@
 				E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */,
 				E76B117421002E1D0067E577 /* MinMainTabController.m in Sources */,
 				E70EC9E9214BAD7000BA50FC /* EvtEditEventPushCell.m in Sources */,
+				E7F74E7521538BBD00C0DBDF /* PCCircleViewConst.m in Sources */,
 				E76F78402151FCB6003CB6D9 /* DIYSelectFontViewModel.m in Sources */,
 				E798B0DD212527BC00578F24 /* EvtEventListEventsViewModel.m in Sources */,
 				E704439821007963000239C1 /* ZHMediator+ZHEvent.m in Sources */,
@@ -1895,6 +1945,7 @@
 				E798B0F72127F76000578F24 /* UITableView+ZHRefresh.m in Sources */,
 				E70F6AFC2109B5A4006E816C /* UIResponder+ZHRouter.m in Sources */,
 				E70443812100754C000239C1 /* EasyNavigationButton.m in Sources */,
+				E7F74E7621538BBD00C0DBDF /* PCCircleView.m in Sources */,
 				E7E98C91213912140070313D /* DIYDiaryListCellViewModel.m in Sources */,
 				E73C65F821380872007D656A /* ZHDiaryModel.m in Sources */,
 				E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */,
@@ -1923,6 +1974,7 @@
 				E74F88022142743B00F04C19 /* DIYSelectWallPaperViewController.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E70EC9EC214BADBB00BA50FC /* EvtEditEventPushViewModel.m in Sources */,
+				E7F74E7D21538BCB00C0DBDF /* PCCircleInfoView.m in Sources */,
 				E7735D4B214CFA18000DAD9D /* DIYPDFCalendarView.m in Sources */,
 				E7AC8529212BE65F006B92AA /* AVObject+ApiExt.m in Sources */,
 				E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */,

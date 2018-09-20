@@ -39,7 +39,8 @@
 }
 - (void)initSetup{
     NSString *money = [ZHUserStore shared].money;
-    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:NO];
+    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:YES];
+    MySettingViewModel *gestureItem = [MySettingViewModel viewModelWithName:@"手势解锁" subTitle:@"" type:MySettingTypeGesture showIndicator:YES showBottomLine:NO];
 
     MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"事件标签" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];
     MySettingViewModel *colorItem = [MySettingViewModel viewModelWithName:@"主题色" subTitle:nil type:MySettingTypeThemeColor showIndicator:YES showBottomLine:YES];
@@ -50,7 +51,7 @@
     
     MySettingViewModel *logOutItem = [MySettingViewModel viewModelWithName:@"退出登录" subTitle:@"" type:MySettingTypeLogout showIndicator:NO showBottomLine:NO];
     
-    NSArray *sectionOne = @[accountItem];
+    NSArray *sectionOne = @[accountItem,gestureItem];
     NSArray *sectionTwo = @[tagItem,colorItem];
     NSArray *sectionThree = @[feedbackItem];
     NSArray *sectionFor = @[logOutItem];

@@ -12,6 +12,7 @@
 #import "ZHPushManager.h"
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
+#import "MyGestureViewController.h"
 
 #define AVOSCloudAppTestId @"OWMbwAs72wWfNRHS51jV5Tso-gzGzoHsz"
 #define AVOSCloudAppTestkey @"LeFEoxaulIkxlIQx37YvadqU"
@@ -22,7 +23,16 @@
 #define UMengAppId @"5ba31320b465f56c140000bc"
 
 @implementation AppDelegate (ZHThirdPart)
-
+- (void)zh_showGesturePwd{
+    if (![AVUser currentUser]) {
+        return;
+    }
+    if (![ZHGlobalStore isGestureExist]) {
+        return;
+    }
+    MyGestureViewController *gestureVC = [MyGestureViewController gestureViewControllerWithType:GestureControllerTypeLogin];
+    [self.window.rootViewController presentViewController:gestureVC animated:YES completion:nil];
+}
 - (void)zh_setupUmengService{
     [UMConfigure initWithAppkey:UMengAppId channel:@"App Store"];
 }

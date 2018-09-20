@@ -35,6 +35,21 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 + (BOOL)isProductEnvironment{
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"environment"];
 }
+#pragma mark - Gesture password
++ (BOOL)isGestureExist{
+    NSString *pwd = [self gesturePassword];
+    return pwd.length > 0 ;
+}
++ (void)saveGesturePassword:(NSString *)pwd{
+    pwd = pwd ?: @"";
+    
+    [[NSUserDefaults standardUserDefaults] setObject:pwd forKey:[NSString stringWithFormat:@"ZHGesturePwd%@",[ZHUserStore shared].currentUser.userId]];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
++ (NSString *)gesturePassword{
+    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"ZHGesturePwd%@",[ZHUserStore shared].currentUser.userId]];
+    return pwd;
+}
 #pragma mark - theme color
 + (void)cacheThemeColor:(UIColor *)themeColor{
     if (!themeColor) {
