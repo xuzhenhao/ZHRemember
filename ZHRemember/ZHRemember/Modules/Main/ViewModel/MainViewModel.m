@@ -7,9 +7,12 @@
 //
 
 #import "MainViewModel.h"
+#import <UMAnalytics/MobClick.h>
 
 @implementation MainViewModel
-
+- (void)AnalyticsUserStart{
+    [MobClick profileSignInWithPUID:[ZHUserStore shared].currentUser.userId];
+}
 #pragma mark - getter
 - (RACCommand *)syncUserCommand{
     if (!_syncUserCommand) {

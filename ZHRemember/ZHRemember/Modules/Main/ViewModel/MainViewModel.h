@@ -13,4 +13,9 @@
 /** 同步服务端用户信息*/
 @property (nonatomic, strong)   RACCommand     *syncUserCommand;
 
+/**
+ 开始统计活跃用户
+ */
+- (void)AnalyticsUserStart;
+
 @end

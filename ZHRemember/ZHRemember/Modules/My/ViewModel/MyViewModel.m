@@ -9,6 +9,7 @@
 #import "MyViewModel.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "ZHPushManager.h"
+#import <UMAnalytics/MobClick.h>
 
 @interface MyViewModel()
 /** 数据源*/
@@ -76,6 +77,7 @@
 }
 #pragma mark - public method
 - (void)logout{
+    [MobClick profileSignOff];
     [AVUser logOut];
     [ZHPushManager clearLocalPushs];
 }

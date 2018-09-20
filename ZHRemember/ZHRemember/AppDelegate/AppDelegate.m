@@ -25,6 +25,7 @@
     [self zh_setupLeanCloudService];
     [self zh_setupAdmobService];
     [self zh_setupLocalPushService];
+    [self zh_setupUmengService];
     
     return YES;
 }

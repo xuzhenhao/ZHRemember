@@ -10,6 +10,7 @@
 #import "LoginConfig.h"
 #import "LGRegisterViewModel.h"
 #import "LGLoginViewController.h"
+#import <UMAnalytics/MobClick.h>
 
 @interface LGRegisterViewController ()
 

@@ -11,6 +11,10 @@
 @interface AppDelegate (ZHThirdPart)
 
 /**
+ 启动友盟服务
+ */
+- (void)zh_setupUmengService;
+/**
  启动融云服务
  */
 - (void)zh_setupLeanCloudService;
