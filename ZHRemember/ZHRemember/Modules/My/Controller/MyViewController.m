@@ -105,9 +105,13 @@
     }
 }
 - (void)navigateToIAP{
+#ifdef Pro
+//    [HBHUDManager showMessage:@"更多功能，敬请期待"];
+#else
     UIViewController *diamondVC = [[ZHMediator sharedInstance] zh_diamondViewController];
     diamondVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:diamondVC animated:YES];
+#endif
 }
 - (void)navigateToFeedback{
     LCUserFeedbackAgent *agent = [LCUserFeedbackAgent sharedInstance];

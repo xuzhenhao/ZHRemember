@@ -36,8 +36,13 @@
     }];
 }
 - (void)initSetup{
+    BOOL showAccountIndicator = YES;
+#ifdef Pro
+    showAccountIndicator = NO;
+#endif
+    
     NSString *money = [ZHUserStore shared].money;
-    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:YES showBottomLine:YES];
+    MySettingViewModel *accountItem = [MySettingViewModel viewModelWithName:@"账户" subTitle:money type:MySettingTypeAccount showIndicator:showAccountIndicator showBottomLine:YES];
     MySettingViewModel *gestureItem = [MySettingViewModel viewModelWithName:@"手势解锁" subTitle:@"" type:MySettingTypeGesture showIndicator:YES showBottomLine:NO];
 
     MySettingViewModel *tagItem = [MySettingViewModel viewModelWithName:@"事件标签" subTitle:@"" type:MySettingTypeTag showIndicator:YES showBottomLine:YES];

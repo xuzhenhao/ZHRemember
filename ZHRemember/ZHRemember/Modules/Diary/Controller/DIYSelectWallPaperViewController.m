@@ -56,11 +56,16 @@
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     UICollectionReusableView *view = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"test" forIndexPath:indexPath];
     UILabel *titleLabel = [view viewWithTag:10086];
+#ifdef Pro
+    titleLabel.text = @"精美信纸";
+#else
     if (indexPath.section == 0) {
         titleLabel.text = @"免费信纸";
     }else{
         titleLabel.text = @"付费信纸";
     }
+#endif
+    
     return view;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
