@@ -49,6 +49,7 @@ NSInteger margin = 20;
 }
 
 - (void)setupView{
+    self.letterImageView.image = [UIImage imageNamed:self.diary.wallPaperName];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:self.diary.unixTime.integerValue];
     NSString *yearTimeFormat = [date formattedDateWithFormat:@"yyyy年MM月dd日" locale:[NSLocale systemLocale]];
     NSString *weekTime = [date getWeekDay];
