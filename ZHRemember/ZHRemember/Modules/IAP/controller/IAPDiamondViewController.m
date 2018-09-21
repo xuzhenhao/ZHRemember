@@ -11,9 +11,12 @@
 #import "IAPDiamondCell.h"
 #import "IAPDiamondViewModel.h"
 #import <StoreKit/StoreKit.h>
+#ifdef Pro
+#else
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#endif
 
-@interface IAPDiamondViewController ()<UITableViewDataSource,UITableViewDelegate,SKProductsRequestDelegate,SKPaymentTransactionObserver,GADRewardBasedVideoAdDelegate>
+@interface IAPDiamondViewController ()<UITableViewDataSource,UITableViewDelegate,SKProductsRequestDelegate,SKPaymentTransactionObserver>
 /**用户当前余额*/
 @property (weak, nonatomic) IBOutlet UILabel *diamondLabel;
 /** 去广告按钮*/
@@ -39,8 +42,11 @@
 - (void)setupUI{
     self.title = @"我的账户";
     [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+#ifdef Pro
+#else
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
     self.navigationItem.rightBarButtonItem = self.adItem;
+#endif
 }
 - (void)setupObserver{
     @weakify(self)
@@ -100,7 +106,10 @@
 - (void)processBuyActionWithEventId:(NSString *)eventId{
     if ([eventId isEqualToString:IAPEventWatchAds]) {
         //看广告
+#ifdef Pro
+#else
         [self watchVideoAdsEvent];
+#endif
     }else if ([eventId isEqualToString:IAPEventPublish]){
         //写日记
         UIViewController *publishVc = [[ZHMediator sharedInstance] zh_diaryListViewController];
@@ -128,6 +137,8 @@
     NSString *money = [self.viewModel getRewardMoneyForAction:self.currentGoodsId];
     [self.viewModel.addMoneyCommand execute:money];
 }
+#ifdef Pro
+#else
 - (void)watchVideoAdsEvent{
     if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
         [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
@@ -136,6 +147,7 @@
         [self loadNextMovieAds];
     }
 }
+
 - (void)finishWatchAdsEvent{
     NSString *money = [self.viewModel getRewardMoneyForAction:IAPEventWatchAds];
     [self.viewModel.addMoneyCommand execute:money];
@@ -146,6 +158,7 @@
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:
      [GADRequest request] withAdUnitID:UnitId];
 }
+#endif
 - (void)didClickDisableItem:(UIBarButtonItem *)sender{
     NSString *msg = [NSString stringWithFormat:@"您确定要花费%zd记忆结晶购买去广告项目?",IAPDisableAdPrice];
     
@@ -231,6 +244,8 @@
     }
 }
 #pragma mark - video ad
+#ifdef Pro
+#else
 - (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
    didRewardUserWithReward:(GADAdReward *)reward {
     [self finishWatchAdsEvent];
@@ -239,6 +254,7 @@
     //请求下一个广告
     [self loadNextMovieAds];
 }
+#endif
 
 //结束后一定要销毁
 - (void)dealloc

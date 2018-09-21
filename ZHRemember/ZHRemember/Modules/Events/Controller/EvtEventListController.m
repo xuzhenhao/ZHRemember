@@ -11,9 +11,12 @@
 #import "EvtEditEventController.h"
 #import "EvtEventListViewModel.h"
 #import "EvtEventDetailController.h"
+#ifdef Pro
+#else
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#endif
 
-@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource,GADBannerViewDelegate>
+@interface EvtEventListController ()<UITableViewDelegate,UITableViewDataSource,DZNEmptyDataSetSource>
 
 @property (nonatomic, strong)   EvtEventListViewModel     *viewModel;
 
@@ -21,7 +24,11 @@
 /** 添加事件按钮*/
 @property (nonatomic, strong)   UIButton     *addEventButton;
 
+#ifdef Pro
+#else
 @property (nonatomic, strong)   GADBannerView     *bannerView;
+#endif
+
 
 @end
 
@@ -52,8 +59,12 @@
     [self.tableView.mj_header beginRefreshing];
 }
 - (void)setupAdBanner{
+#ifdef Pro
+#else
     GADRequest *request = [GADRequest request];
     [self.bannerView loadRequest:request];
+#endif
+    
 }
 - (void)setupObserver{
     @weakify(self)
@@ -135,6 +146,8 @@
     return [[NSAttributedString alloc] initWithString:@"试着写下自己的第一个纪念日吧!"];
 }
 #pragma mark - banner adDelegate
+#ifdef Pro
+#else
 - (void)adViewDidReceiveAd:(GADBannerView *)adView {
     if ([ZHUserStore shared].currentUser.isDisableAd) {
         return;
@@ -142,6 +155,7 @@
     self.tableView.tableHeaderView = self.bannerView;
     self.tableView.contentOffset = CGPointMake(0, self.bannerView.ZH_height);
 }
+#endif
 - (BOOL)prefersHomeIndicatorAutoHidden{
     return YES;
 }
@@ -184,6 +198,8 @@
     }
     return _addEventButton;
 }
+#ifdef Pro
+#else
 - (GADBannerView *)bannerView{
     if (!_bannerView) {
         _bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeBanner];
@@ -194,5 +210,6 @@
     }
     return _bannerView;
 }
+#endif
 
 @end

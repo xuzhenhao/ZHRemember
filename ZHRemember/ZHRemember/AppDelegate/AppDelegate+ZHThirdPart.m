@@ -8,11 +8,14 @@
 
 #import "AppDelegate+ZHThirdPart.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import <GoogleMobileAds/GoogleMobileAds.h>
 #import "ZHPushManager.h"
 #import <UMCommon/UMCommon.h>
 #import <UMAnalytics/MobClick.h>
 #import "MyGestureViewController.h"
+#ifdef Pro
+#else
+#import <GoogleMobileAds/GoogleMobileAds.h>
+#endif
 
 #ifdef Pro
 #define AVOSCloudAppId @"GVNyhmwinRVaEnsvbALRFC0u-gzGzoHsz"
@@ -51,11 +54,15 @@
     [AVOSCloud setAllLogsEnabled:NO];
 }
 - (void)zh_setupAdmobService{
+#ifdef Pro
+#else
     [GADMobileAds configureWithApplicationID:AdMobId];
     GADRequest *request = [GADRequest request];
     NSString *UnitId = [ZHGlobalStore isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
     [[GADRewardBasedVideoAd sharedInstance] loadRequest:request
                                            withAdUnitID:UnitId];
+#endif
+    
 }
 - (void)zh_setupLocalPushService{
     //通知授权

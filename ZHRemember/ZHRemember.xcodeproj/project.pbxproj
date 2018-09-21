@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03B68BF8662D1D10F4CB6C8A /* Pods_rememberPro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A927EEAB9516715A0F82B2 /* Pods_rememberPro.framework */; };
 		98AABF8C02DE73D3F5FB294A /* Pods_ZHRemember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */; };
 		E700FDE8212A671800A9C330 /* EvtTagManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDE7212A671800A9C330 /* EvtTagManagerController.m */; };
 		E700FDEC212A677700A9C330 /* MyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */; };
@@ -67,6 +68,7 @@
 		E73667CA2123FCB600BC7652 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
 		E73667CD2124095B00BC7652 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
 		E7368318214CE3640023B032 /* ZHPDFCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = E7368317214CE3640023B032 /* ZHPDFCreater.m */; };
+		E739C2CF2154D0B6007D78FC /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E76E15EA2154CFF900D43BEE /* libsqlite3.tbd */; };
 		E73B4FC42106D22100B6243B /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
 		E73B4FC72106D23700B6243B /* EvtEditEventTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */; };
 		E73B4FCA2106D2FD00B6243B /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
@@ -107,6 +109,7 @@
 		E76B1178210031590067E577 /* MainTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B1177210031590067E577 /* MainTarget.m */; };
 		E76B117F210032E30067E577 /* ZHMediator+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117E210032E30067E577 /* ZHMediator+Main.m */; };
 		E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */; };
+		E76E15EB2154CFF900D43BEE /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E76E15EA2154CFF900D43BEE /* libsqlite3.tbd */; };
 		E76F783A2151F91A003CB6D9 /* DIYFontFamilyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */; };
 		E76F783D2151FA2E003CB6D9 /* DIYFontFamilyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783C2151FA2E003CB6D9 /* DIYFontFamilyModel.m */; };
 		E76F78402151FCB6003CB6D9 /* DIYSelectFontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783F2151FCB6003CB6D9 /* DIYSelectFontViewModel.m */; };
@@ -398,9 +401,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07A927EEAB9516715A0F82B2 /* Pods_rememberPro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rememberPro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHRemember.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember.debug.xcconfig"; sourceTree = "<group>"; };
 		7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZHRemember.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember.release.xcconfig"; sourceTree = "<group>"; };
 		8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZHRemember.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F56A81E554E4464EB022E79 /* Pods-rememberPro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rememberPro.release.xcconfig"; path = "Pods/Target Support Files/Pods-rememberPro/Pods-rememberPro.release.xcconfig"; sourceTree = "<group>"; };
+		D41F6D262FD0731919AEFC62 /* Pods-rememberPro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rememberPro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-rememberPro/Pods-rememberPro.debug.xcconfig"; sourceTree = "<group>"; };
 		E700FDE6212A671800A9C330 /* EvtTagManagerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtTagManagerController.h; sourceTree = "<group>"; };
 		E700FDE7212A671800A9C330 /* EvtTagManagerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtTagManagerController.m; sourceTree = "<group>"; };
 		E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStoryboard.storyboard; sourceTree = "<group>"; };
@@ -599,6 +605,7 @@
 		E76B117E210032E30067E577 /* ZHMediator+Main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ZHMediator+Main.m"; sourceTree = "<group>"; };
 		E76B11802100358D0067E577 /* AppDelegate+ZHAppearance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+ZHAppearance.h"; sourceTree = "<group>"; };
 		E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHAppearance.m"; sourceTree = "<group>"; };
+		E76E15EA2154CFF900D43BEE /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E76F78382151F91A003CB6D9 /* DIYFontFamilyCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontFamilyCell.h; sourceTree = "<group>"; };
 		E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DIYFontFamilyCell.m; sourceTree = "<group>"; };
 		E76F783B2151FA2E003CB6D9 /* DIYFontFamilyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DIYFontFamilyModel.h; sourceTree = "<group>"; };
@@ -777,6 +784,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E739C2CF2154D0B6007D78FC /* libsqlite3.tbd in Frameworks */,
 				E7F74E5D21534BD100C0DBDF /* libSocialQQ.a in Frameworks */,
 				E7F74E6221534BDA00C0DBDF /* SecurityEnvSDK.framework in Frameworks */,
 				E7F74E5921534BD100C0DBDF /* UShareUI.framework in Frameworks */,
@@ -795,6 +803,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E76E15EB2154CFF900D43BEE /* libsqlite3.tbd in Frameworks */,
 				E7F432D521548C6B002B91E0 /* libSocialQQ.a in Frameworks */,
 				E7F432D621548C6B002B91E0 /* SecurityEnvSDK.framework in Frameworks */,
 				E7F432D721548C6B002B91E0 /* UShareUI.framework in Frameworks */,
@@ -806,6 +815,7 @@
 				E7F432DD21548C6B002B91E0 /* libSocialWeChat.a in Frameworks */,
 				E7F432DE21548C6B002B91E0 /* UMShare.framework in Frameworks */,
 				E7F432DF21548C6B002B91E0 /* UTDID.framework in Frameworks */,
+				03B68BF8662D1D10F4CB6C8A /* Pods_rememberPro.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,7 +825,9 @@
 		CD8054A17CD416F4E515055B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E76E15EA2154CFF900D43BEE /* libsqlite3.tbd */,
 				8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */,
+				07A927EEAB9516715A0F82B2 /* Pods_rememberPro.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -825,6 +837,8 @@
 			children = (
 				4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */,
 				7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */,
+				D41F6D262FD0731919AEFC62 /* Pods-rememberPro.debug.xcconfig */,
+				8F56A81E554E4464EB022E79 /* Pods-rememberPro.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2108,7 +2122,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ZHRemember-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-rememberPro-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2121,7 +2135,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-rememberPro/Pods-rememberPro-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
 				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
@@ -2162,7 +2176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-rememberPro/Pods-rememberPro-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7F432FA21548C6B002B91E0 /* [CP] Copy Pods Resources */ = {
@@ -2180,7 +2194,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-rememberPro/Pods-rememberPro-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA5381F70850B0BBDBF43F55 /* [CP] Copy Pods Resources */ = {
@@ -2739,7 +2753,7 @@
 		};
 		E7F432FC21548C6B002B91E0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */;
+			baseConfigurationReference = D41F6D262FD0731919AEFC62 /* Pods-rememberPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPRO;
 				CLANG_ENABLE_MODULES = YES;
@@ -2783,7 +2797,7 @@
 		};
 		E7F432FD21548C6B002B91E0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */;
+			baseConfigurationReference = 8F56A81E554E4464EB022E79 /* Pods-rememberPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconPRO;
 				CLANG_ENABLE_MODULES = YES;
