@@ -182,6 +182,200 @@
 		E7F24233214F546D00E0F3EA /* NSError+ZHLocailzed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */; };
 		E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24235214F83E000E0F3EA /* ZHFontConfig.m */; };
 		E7F2423A214F8A1800E0F3EA /* hksn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7F24239214F8A1800E0F3EA /* hksn.ttf */; };
+		E7F4323521548C6B002B91E0 /* EvtEditEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E791844621085C1B0033745D /* EvtEditEventCell.m */; };
+		E7F4323621548C6B002B91E0 /* DIYDiaryListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8D213911FB0070313D /* DIYDiaryListViewModel.m */; };
+		E7F4323721548C6B002B91E0 /* UIViewController+EasyNavigationExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443762100754C000239C1 /* UIViewController+EasyNavigationExt.m */; };
+		E7F4323821548C6B002B91E0 /* EvtTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FE00212A936500A9C330 /* EvtTagModel.m */; };
+		E7F4323921548C6B002B91E0 /* LCUserFeedbackThread.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837031213E1CFC00000F28 /* LCUserFeedbackThread.m */; };
+		E7F4323A21548C6B002B91E0 /* EvtEventTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044394210078F3000239C1 /* EvtEventTarget.m */; };
+		E7F4323B21548C6B002B91E0 /* IAPDiamondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E783706F213E782D00000F28 /* IAPDiamondCell.m */; };
+		E7F4323C21548C6B002B91E0 /* LCUserFeedbackReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837041213E1CFC00000F28 /* LCUserFeedbackReplyCell.m */; };
+		E7F4323D21548C6B002B91E0 /* LGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */; };
+		E7F4323E21548C6B002B91E0 /* MyGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E692153865000C0DBDF /* MyGestureViewController.m */; };
+		E7F4323F21548C6B002B91E0 /* MyLogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798B321364E9D00348A7E /* MyLogoutCell.m */; };
+		E7F4324021548C6B002B91E0 /* EvtEventDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852F212C15C3006B92AA /* EvtEventDetailViewModel.m */; };
+		E7F4324121548C6B002B91E0 /* EvtEventListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E704438A210076C9000239C1 /* EvtEventListController.m */; };
+		E7F4324221548C6B002B91E0 /* ZHMediator+ZHIAP.m in Sources */ = {isa = PBXBuildFile; fileRef = E783706C213E68D000000F28 /* ZHMediator+ZHIAP.m */; };
+		E7F4324321548C6B002B91E0 /* EvtEditEventTagViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8521212BAE04006B92AA /* EvtEditEventTagViewModel.m */; };
+		E7F4324421548C6B002B91E0 /* EvtEditEventTitleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A62231212188AB0093853A /* EvtEditEventTitleViewModel.m */; };
+		E7F4324521548C6B002B91E0 /* ZHPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9F1214BBDAB00BA50FC /* ZHPushManager.m */; };
+		E7F4324621548C6B002B91E0 /* ZHVersionApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB0213F77EB00A57B47 /* ZHVersionApi.m */; };
+		E7F4324721548C6B002B91E0 /* DIYDiaryTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E62137CB44007D656A /* DIYDiaryTarget.m */; };
+		E7F4324821548C6B002B91E0 /* DIYWriteDiaryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65EF2137EBE4007D656A /* DIYWriteDiaryViewModel.m */; };
+		E7F4324921548C6B002B91E0 /* LoginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D6212EA64400F4BDB9 /* LoginConfig.m */; };
+		E7F4324A21548C6B002B91E0 /* ZHMediator+ZHDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E92137CB97007D656A /* ZHMediator+ZHDiary.m */; };
+		E7F4324B21548C6B002B91E0 /* EvtEditEventCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */; };
+		E7F4324C21548C6B002B91E0 /* HBHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A4002134F26200A4EAEF /* HBHUDManager.m */; };
+		E7F4324D21548C6B002B91E0 /* EasyNavigationOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443602100754C000239C1 /* EasyNavigationOptions.m */; };
+		E7F4324E21548C6B002B91E0 /* EvtEventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D92125223800578F24 /* EvtEventListCell.m */; };
+		E7F4324F21548C6B002B91E0 /* MainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A62141030800C78D63 /* MainViewModel.m */; };
+		E7F4325021548C6B002B91E0 /* EvtEditEventDateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */; };
+		E7F4325121548C6B002B91E0 /* ZHMediator+ZHLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDFF2133F34100C72EB4 /* ZHMediator+ZHLogin.m */; };
+		E7F4325221548C6B002B91E0 /* NSObject+EasyKVO.m in Sources */ = {isa = PBXBuildFile; fileRef = E704435D2100754C000239C1 /* NSObject+EasyKVO.m */; };
+		E7F4325321548C6B002B91E0 /* DIYSelectWallPaperViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F88042142818500F04C19 /* DIYSelectWallPaperViewModel.m */; };
+		E7F4325421548C6B002B91E0 /* UILabel+ZHSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB7213F851400A57B47 /* UILabel+ZHSpace.m */; };
+		E7F4325521548C6B002B91E0 /* DIYFontFamilyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F78392151F91A003CB6D9 /* DIYFontFamilyCell.m */; };
+		E7F4325621548C6B002B91E0 /* EvtEditEventSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E709ABFA214CA6A800989E24 /* EvtEditEventSetTopCell.m */; };
+		E7F4325721548C6B002B91E0 /* EvtEditEventSetTopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E709ABFD214CA70800989E24 /* EvtEditEventSetTopViewModel.m */; };
+		E7F4325821548C6B002B91E0 /* EvtEditEventTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC851D212BAC17006B92AA /* EvtEditEventTagCell.m */; };
+		E7F4325921548C6B002B91E0 /* DIYWriteDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E32137C82F007D656A /* DIYWriteDiaryViewController.m */; };
+		E7F4325A21548C6B002B91E0 /* EasyCustomBackGestureDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443742100754C000239C1 /* EasyCustomBackGestureDelegate.m */; };
+		E7F4325B21548C6B002B91E0 /* LCUserFeedbackImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702F213E1CFC00000F28 /* LCUserFeedbackImageViewController.m */; };
+		E7F4325C21548C6B002B91E0 /* ZHAccessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9EE214BB60900BA50FC /* ZHAccessManager.m */; };
+		E7F4325D21548C6B002B91E0 /* ZHUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E7B3A32140F81900C78D63 /* ZHUserModel.m */; };
+		E7F4325E21548C6B002B91E0 /* DIYFontColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E742591C2150982A005B2659 /* DIYFontColorModel.m */; };
+		E7F4325F21548C6B002B91E0 /* ZHPDFCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = E7368317214CE3640023B032 /* ZHPDFCreater.m */; };
+		E7F4326021548C6B002B91E0 /* ZHFontConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24235214F83E000E0F3EA /* ZHFontConfig.m */; };
+		E7F4326121548C6B002B91E0 /* UIViewController+AOPIntercepter.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0EF2127F14D00578F24 /* UIViewController+AOPIntercepter.m */; };
+		E7F4326221548C6B002B91E0 /* DIYSelectFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA03F1214FD46300660EA9 /* DIYSelectFontViewController.m */; };
+		E7F4326321548C6B002B91E0 /* DIYFontFamilyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783C2151FA2E003CB6D9 /* DIYFontFamilyModel.m */; };
+		E7F4326421548C6B002B91E0 /* MyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF321339DE200C72EB4 /* MyViewModel.m */; };
+		E7F4326521548C6B002B91E0 /* DIYDiaryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65E02137BD29007D656A /* DIYDiaryListViewController.m */; };
+		E7F4326621548C6B002B91E0 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7921538BCB00C0DBDF /* PCLockLabel.m */; };
+		E7F4326721548C6B002B91E0 /* EvtEditEventViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A6222B212178740093853A /* EvtEditEventViewModel.m */; };
+		E7F4326821548C6B002B91E0 /* MyThemeColorViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F87FE2142691E00F04C19 /* MyThemeColorViewModel.m */; };
+		E7F4326921548C6B002B91E0 /* LGResetPwdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCE052134056C00C72EB4 /* LGResetPwdViewController.m */; };
+		E7F4326A21548C6B002B91E0 /* ZHDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AF21363E9B00348A7E /* ZHDBManager.m */; };
+		E7F4326B21548C6B002B91E0 /* DIYFontColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E74259182150978D005B2659 /* DIYFontColorCell.m */; };
+		E7F4326C21548C6B002B91E0 /* NSString+ZHID.m in Sources */ = {isa = PBXBuildFile; fileRef = E7305254214A1183009B85D0 /* NSString+ZHID.m */; };
+		E7F4326D21548C6B002B91E0 /* DIYSelectMoodViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF92213CD52E00B270E3 /* DIYSelectMoodViewModel.m */; };
+		E7F4326E21548C6B002B91E0 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7F21538C1200C0DBDF /* CALayer+Anim.m */; };
+		E7F4326F21548C6B002B91E0 /* UIViewController+AOPBase.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0EE2127F14D00578F24 /* UIViewController+AOPBase.m */; };
+		E7F4327021548C6B002B91E0 /* HBUpdateTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBA213F857D00A57B47 /* HBUpdateTipView.m */; };
+		E7F4327121548C6B002B91E0 /* MyCustomColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BC4213FE06500A57B47 /* MyCustomColorViewController.m */; };
+		E7F4327221548C6B002B91E0 /* EvtEditEventDateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC92106D2FD00B6243B /* EvtEditEventDateCell.m */; };
+		E7F4327321548C6B002B91E0 /* LGResetPwdViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A3FC2134E4A700A4EAEF /* LGResetPwdViewModel.m */; };
+		E7F4327421548C6B002B91E0 /* IAPDiamondCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837075213E798400000F28 /* IAPDiamondCellViewModel.m */; };
+		E7F4327521548C6B002B91E0 /* AppDelegate+ZHAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B11812100358D0067E577 /* AppDelegate+ZHAppearance.m */; };
+		E7F4327621548C6B002B91E0 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E704A407213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m */; };
+		E7F4327721548C6B002B91E0 /* ZHAccountApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEEF212FE2AA004A6155 /* ZHAccountApi.m */; };
+		E7F4327821548C6B002B91E0 /* LCUserFeedbackAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */; };
+		E7F4327921548C6B002B91E0 /* EvtTagManagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDE7212A671800A9C330 /* EvtTagManagerController.m */; };
+		E7F4327A21548C6B002B91E0 /* UIView+ZHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BB4213F845200A57B47 /* UIView+ZHLayout.m */; };
+		E7F4327B21548C6B002B91E0 /* MyThemeColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486653213546330032B948 /* MyThemeColorViewController.m */; };
+		E7F4327C21548C6B002B91E0 /* UIColor+ZHTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443522100399E000239C1 /* UIColor+ZHTheme.m */; };
+		E7F4327D21548C6B002B91E0 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7321538BBD00C0DBDF /* PCCircle.m */; };
+		E7F4327E21548C6B002B91E0 /* DIYDiaryListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C8A21390FAE0070313D /* DIYDiaryListCell.m */; };
+		E7F4327F21548C6B002B91E0 /* ZHMediator+My.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF5212A694B00A9C330 /* ZHMediator+My.m */; };
+		E7F4328021548C6B002B91E0 /* NSError+ZHLocailzed.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F24232214F546D00E0F3EA /* NSError+ZHLocailzed.m */; };
+		E7F4328121548C6B002B91E0 /* DIYSelectMoodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B20049213A989B00EAD1F5 /* DIYSelectMoodCell.m */; };
+		E7F4328221548C6B002B91E0 /* LCHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702D213E1CFC00000F28 /* LCHttpClient.m */; };
+		E7F4328321548C6B002B91E0 /* MinMainTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117321002E1D0067E577 /* MinMainTabController.m */; };
+		E7F4328421548C6B002B91E0 /* EvtEditEventPushCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9E8214BAD7000BA50FC /* EvtEditEventPushCell.m */; };
+		E7F4328521548C6B002B91E0 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E6F21538BBC00C0DBDF /* PCCircleViewConst.m */; };
+		E7F4328621548C6B002B91E0 /* DIYSelectFontViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E76F783F2151FCB6003CB6D9 /* DIYSelectFontViewModel.m */; };
+		E7F4328721548C6B002B91E0 /* EvtEventListEventsViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0DC212527BC00578F24 /* EvtEventListEventsViewModel.m */; };
+		E7F4328821548C6B002B91E0 /* ZHMediator+ZHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439721007963000239C1 /* ZHMediator+ZHEvent.m */; };
+		E7F4328921548C6B002B91E0 /* EvtEditEventTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC62106D23700B6243B /* EvtEditEventTitleCell.m */; };
+		E7F4328A21548C6B002B91E0 /* UIView+EasyNavigationExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443632100754C000239C1 /* UIView+EasyNavigationExt.m */; };
+		E7F4328B21548C6B002B91E0 /* ZHMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = E7044355210039F1000239C1 /* ZHMacro.m */; };
+		E7F4328C21548C6B002B91E0 /* IAPDiamondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837061213E660000000F28 /* IAPDiamondViewController.m */; };
+		E7F4328D21548C6B002B91E0 /* UITableView+ZHRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0F62127F76000578F24 /* UITableView+ZHRefresh.m */; };
+		E7F4328E21548C6B002B91E0 /* UIResponder+ZHRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = E70F6AFB2109B5A4006E816C /* UIResponder+ZHRouter.m */; };
+		E7F4328F21548C6B002B91E0 /* EasyNavigationButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E704436D2100754C000239C1 /* EasyNavigationButton.m */; };
+		E7F4329021548C6B002B91E0 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7121538BBD00C0DBDF /* PCCircleView.m */; };
+		E7F4329121548C6B002B91E0 /* DIYDiaryListCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C90213912140070313D /* DIYDiaryListCellViewModel.m */; };
+		E7F4329221548C6B002B91E0 /* ZHDiaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F721380872007D656A /* ZHDiaryModel.m */; };
+		E7F4329321548C6B002B91E0 /* EvtEventApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667CC2124095B00BC7652 /* EvtEventApi.m */; };
+		E7F4329421548C6B002B91E0 /* EvtEventDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC852B212BF7BB006B92AA /* EvtEventDetailController.m */; };
+		E7F4329521548C6B002B91E0 /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
+		E7F4329621548C6B002B91E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B116721002AF70067E577 /* main.m */; };
+		E7F4329721548C6B002B91E0 /* MainTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B1177210031590067E577 /* MainTarget.m */; };
+		E7F4329821548C6B002B91E0 /* HBTCustomPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA03F4214FD70400660EA9 /* HBTCustomPresentationController.m */; };
+		E7F4329921548C6B002B91E0 /* ZHNotificationConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E744214A817200BBC25D /* ZHNotificationConfig.m */; };
+		E7F4329A21548C6B002B91E0 /* UIViewController+ZHStoryBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E704439121007833000239C1 /* UIViewController+ZHStoryBoard.m */; };
+		E7F4329B21548C6B002B91E0 /* MySettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF021339C1900C72EB4 /* MySettingCell.m */; };
+		E7F4329C21548C6B002B91E0 /* UIColor+ZHHex.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F12C90214FA4FE00B482BB /* UIColor+ZHHex.m */; };
+		E7F4329D21548C6B002B91E0 /* UIScrollView+EasyNavigationExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E704436E2100754C000239C1 /* UIScrollView+EasyNavigationExt.m */; };
+		E7F4329E21548C6B002B91E0 /* MySettingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCDF621339FF800C72EB4 /* MySettingViewModel.m */; };
+		E7F4329F21548C6B002B91E0 /* ZHCommonApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E321254B7D00578F24 /* ZHCommonApi.m */; };
+		E7F432A021548C6B002B91E0 /* LGLoginTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E78FCE022133F3C600C72EB4 /* LGLoginTarget.m */; };
+		E7F432A121548C6B002B91E0 /* ZHDiaryApi.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65F32138080C007D656A /* ZHDiaryApi.m */; };
+		E7F432A221548C6B002B91E0 /* EasyNavigationView+LeftButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443662100754C000239C1 /* EasyNavigationView+LeftButton.m */; };
+		E7F432A321548C6B002B91E0 /* DIYSelectPaperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F88072142837900F04C19 /* DIYSelectPaperCell.m */; };
+		E7F432A421548C6B002B91E0 /* NSDate+ZHDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E92125764600578F24 /* NSDate+ZHDate.m */; };
+		E7F432A521548C6B002B91E0 /* LCUserFeedbackReply.m in Sources */ = {isa = PBXBuildFile; fileRef = E783703F213E1CFC00000F28 /* LCUserFeedbackReply.m */; };
+		E7F432A621548C6B002B91E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B115921002AF60067E577 /* AppDelegate.m */; };
+		E7F432A721548C6B002B91E0 /* DIYExportPDFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E709AC00214CB66800989E24 /* DIYExportPDFViewController.m */; };
+		E7F432A821548C6B002B91E0 /* EvtEditEventCycleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */; };
+		E7F432A921548C6B002B91E0 /* MyTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF1212A67FB00A9C330 /* MyTarget.m */; };
+		E7F432AA21548C6B002B91E0 /* DIYSelectWallPaperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E74F88012142743B00F04C19 /* DIYSelectWallPaperViewController.m */; };
+		E7F432AB21548C6B002B91E0 /* EasyNavigationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443682100754C000239C1 /* EasyNavigationUtils.m */; };
+		E7F432AC21548C6B002B91E0 /* EvtEditEventPushViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70EC9EB214BADBB00BA50FC /* EvtEditEventPushViewModel.m */; };
+		E7F432AD21548C6B002B91E0 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7F74E7A21538BCB00C0DBDF /* PCCircleInfoView.m */; };
+		E7F432AE21548C6B002B91E0 /* DIYPDFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D4A214CFA18000DAD9D /* DIYPDFCalendarView.m */; };
+		E7F432AF21548C6B002B91E0 /* AVObject+ApiExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E7AC8528212BE65F006B92AA /* AVObject+ApiExt.m */; };
+		E7F432B021548C6B002B91E0 /* EvtEditEventCoverCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FC32106D22100B6243B /* EvtEditEventCoverCell.m */; };
+		E7F432B121548C6B002B91E0 /* LCUserFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837030213E1CFC00000F28 /* LCUserFeedbackViewController.m */; };
+		E7F432B221548C6B002B91E0 /* UITableViewCell+ZHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0E021252A5B00578F24 /* UITableViewCell+ZHViewModel.m */; };
+		E7F432B321548C6B002B91E0 /* UIImage+ZHExt.m in Sources */ = {isa = PBXBuildFile; fileRef = E704434C21003805000239C1 /* UIImage+ZHExt.m */; };
+		E7F432B421548C6B002B91E0 /* LGRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D9212EB86200F4BDB9 /* LGRegisterViewModel.m */; };
+		E7F432B521548C6B002B91E0 /* IAPTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837069213E683000000F28 /* IAPTarget.m */; };
+		E7F432B621548C6B002B91E0 /* ZHUserStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E764467121492B1E00AA310F /* ZHUserStore.m */; };
+		E7F432B721548C6B002B91E0 /* DIYSelectMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E98C93213944E40070313D /* DIYSelectMoodViewController.m */; };
+		E7F432B821548C6B002B91E0 /* DIYPDFTemplateView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7735D46214CF212000DAD9D /* DIYPDFTemplateView.m */; };
+		E7F432B921548C6B002B91E0 /* EasyNavigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443622100754C000239C1 /* EasyNavigationView.m */; };
+		E7F432BA21548C6B002B91E0 /* DIYDiaryConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E73C65EC2137D1E0007D656A /* DIYDiaryConfig.m */; };
+		E7F432BB21548C6B002B91E0 /* EvtEventStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E764466D2147C24400AA310F /* EvtEventStore.m */; };
+		E7F432BC21548C6B002B91E0 /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
+		E7F432BD21548C6B002B91E0 /* ZHGlobalStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E7B798AB21363DEA00348A7E /* ZHGlobalStore.m */; };
+		E7F432BE21548C6B002B91E0 /* IAPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837066213E677800000F28 /* IAPConfig.m */; };
+		E7F432BF21548C6B002B91E0 /* WSColorImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BBF213FD83500A57B47 /* WSColorImageView.m */; };
+		E7F432C021548C6B002B91E0 /* ZHVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E7624BAB213F757900A57B47 /* ZHVersionManager.m */; };
+		E7F432C121548C6B002B91E0 /* LCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837032213E1CFC00000F28 /* LCUtils.m */; };
+		E7F432C221548C6B002B91E0 /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
+		E7F432C321548C6B002B91E0 /* IAPDiamondViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E7837072213E788F00000F28 /* IAPDiamondViewModel.m */; };
+		E7F432C421548C6B002B91E0 /* EvtEditEventRemarkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCF2106D3AA00B6243B /* EvtEditEventRemarkCell.m */; };
+		E7F432C521548C6B002B91E0 /* EasyNavigationView+RightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443692100754C000239C1 /* EasyNavigationView+RightButton.m */; };
+		E7F432C621548C6B002B91E0 /* DIYDiaryStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E712E748214A861D00BBC25D /* DIYDiaryStore.m */; };
+		E7F432C721548C6B002B91E0 /* LGLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF7212FF7A5004A6155 /* LGLoginViewModel.m */; };
+		E7F432C821548C6B002B91E0 /* NSString+DiaryImageName.m in Sources */ = {isa = PBXBuildFile; fileRef = E735FF8C213CCE2100B270E3 /* NSString+DiaryImageName.m */; };
+		E7F432C921548C6B002B91E0 /* ZHMediator+Main.m in Sources */ = {isa = PBXBuildFile; fileRef = E76B117E210032E30067E577 /* ZHMediator+Main.m */; };
+		E7F432CA21548C6B002B91E0 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDEE212A679800A9C330 /* MyViewController.m */; };
+		E7F432CB21548C6B002B91E0 /* EvtEventListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E798B0D62125127C00578F24 /* EvtEventListViewModel.m */; };
+		E7F432CC21548C6B002B91E0 /* EasyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E704435C2100754C000239C1 /* EasyNavigationController.m */; };
+		E7F432CD21548C6B002B91E0 /* EvtEditEventRemarkViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E73667C92123FCB600BC7652 /* EvtEditEventRemarkViewModel.m */; };
+		E7F432CE21548C6B002B91E0 /* EvtTagManageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDFD212A8F8D00A9C330 /* EvtTagManageViewModel.m */; };
+		E7F432CF21548C6B002B91E0 /* EasyKVOInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E70443612100754C000239C1 /* EasyKVOInfo.m */; };
+		E7F432D021548C6B002B91E0 /* EvtTagListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E700FDF9212A6F3800A9C330 /* EvtTagListCell.m */; };
+		E7F432D121548C6B002B91E0 /* LGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E70CFEF2212FEE53004A6155 /* LGLoginViewController.m */; };
+		E7F432D221548C6B002B91E0 /* MyThemeColorEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E7486656213548F00032B948 /* MyThemeColorEventCell.m */; };
+		E7F432D321548C6B002B91E0 /* EvtEditEventCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E73B4FCC2106D33E00B6243B /* EvtEditEventCycleCell.m */; };
+		E7F432D521548C6B002B91E0 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E5721534BD100C0DBDF /* libSocialQQ.a */; };
+		E7F432D621548C6B002B91E0 /* SecurityEnvSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E6021534BD900C0DBDF /* SecurityEnvSDK.framework */; };
+		E7F432D721548C6B002B91E0 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4C21534BD100C0DBDF /* UShareUI.framework */; };
+		E7F432D821548C6B002B91E0 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4721534BC700C0DBDF /* UMCommon.framework */; };
+		E7F432D921548C6B002B91E0 /* Pods_ZHRemember.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE926C7D02356CB1B8F0D26 /* Pods_ZHRemember.framework */; };
+		E7F432DA21548C6B002B91E0 /* UMCommonLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E6421534BE300C0DBDF /* UMCommonLog.framework */; };
+		E7F432DB21548C6B002B91E0 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E5321534BD100C0DBDF /* libSocialSina.a */; };
+		E7F432DC21548C6B002B91E0 /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4321534BBE00C0DBDF /* UMAnalytics.framework */; };
+		E7F432DD21548C6B002B91E0 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E5021534BD100C0DBDF /* libSocialWeChat.a */; };
+		E7F432DE21548C6B002B91E0 /* UMShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4D21534BD100C0DBDF /* UMShare.framework */; };
+		E7F432DF21548C6B002B91E0 /* UTDID.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E5F21534BD900C0DBDF /* UTDID.framework */; };
+		E7F432E121548C6B002B91E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76B116321002AF70067E577 /* LaunchScreen.storyboard */; };
+		E7F432E221548C6B002B91E0 /* feedback_add_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E783703A213E1CFC00000F28 /* feedback_add_image@2x.png */; };
+		E7F432E321548C6B002B91E0 /* IAPStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7837063213E66B700000F28 /* IAPStoryboard.storyboard */; };
+		E7F432E421548C6B002B91E0 /* LeanCloudFeedback.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7837039213E1CFC00000F28 /* LeanCloudFeedback.strings */; };
+		E7F432E521548C6B002B91E0 /* jianyayi.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290F21511D840003567D /* jianyayi.ttf */; };
+		E7F432E621548C6B002B91E0 /* MyStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E700FDEB212A677700A9C330 /* MyStoryboard.storyboard */; };
+		E7F432E721548C6B002B91E0 /* palette.png in Resources */ = {isa = PBXBuildFile; fileRef = E7624BC1213FD87D00A57B47 /* palette.png */; };
+		E7F432E821548C6B002B91E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76B116121002AF70067E577 /* Assets.xcassets */; };
+		E7F432E921548C6B002B91E0 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */; };
+		E7F432EA21548C6B002B91E0 /* hksn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7F24239214F8A1800E0F3EA /* hksn.ttf */; };
+		E7F432EB21548C6B002B91E0 /* EvtEventStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E704438C210076EC000239C1 /* EvtEventStoryboard.storyboard */; };
+		E7F432EC21548C6B002B91E0 /* snFontP2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290E21511D840003567D /* snFontP2.ttf */; };
+		E7F432ED21548C6B002B91E0 /* EasyNavButton.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E704436A2100754C000239C1 /* EasyNavButton.bundle */; };
+		E7F432EE21548C6B002B91E0 /* loliCat.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773291021511D840003567D /* loliCat.ttf */; };
+		E7F432EF21548C6B002B91E0 /* GB2312.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E773290D21511D830003567D /* GB2312.ttf */; };
+		E7F432F021548C6B002B91E0 /* UMCommonLog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7F74E6521534BE300C0DBDF /* UMCommonLog.bundle */; };
+		E7F432F121548C6B002B91E0 /* feedback_btn_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837037213E1CFC00000F28 /* feedback_btn_new@2x.png */; };
+		E7F432F221548C6B002B91E0 /* feedback_warning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837034213E1CFC00000F28 /* feedback_warning@2x.png */; };
+		E7F432F321548C6B002B91E0 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7F74E4B21534BD100C0DBDF /* UMSocialSDKResources.bundle */; };
+		E7F432F421548C6B002B91E0 /* feedback_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837038213E1CFC00000F28 /* feedback_btn@2x.png */; };
+		E7F432F521548C6B002B91E0 /* feedback_bg_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837036213E1CFC00000F28 /* feedback_bg_2@2x.png */; };
+		E7F432F621548C6B002B91E0 /* feedback_bg_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E783703B213E1CFC00000F28 /* feedback_bg_1@2x.png */; };
+		E7F432F721548C6B002B91E0 /* feedback_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E7837035213E1CFC00000F28 /* feedback_back@2x.png */; };
+		E7F432F821548C6B002B91E0 /* DiaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73C65DA21379EEC007D656A /* DiaryStoryboard.storyboard */; };
 		E7F74E4421534BBE00C0DBDF /* UMAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4321534BBE00C0DBDF /* UMAnalytics.framework */; };
 		E7F74E4821534BC700C0DBDF /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7F74E4721534BC700C0DBDF /* UMCommon.framework */; };
 		E7F74E5821534BD100C0DBDF /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E7F74E4B21534BD100C0DBDF /* UMSocialSDKResources.bundle */; };
@@ -544,6 +738,8 @@
 		E7F24234214F83E000E0F3EA /* ZHFontConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHFontConfig.h; sourceTree = "<group>"; };
 		E7F24235214F83E000E0F3EA /* ZHFontConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHFontConfig.m; sourceTree = "<group>"; };
 		E7F24239214F8A1800E0F3EA /* hksn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hksn.ttf; sourceTree = "<group>"; };
+		E7F432FE21548C6B002B91E0 /* rememberPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = rememberPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7F432FF21548C6B002B91E0 /* ZHRemember copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ZHRemember copy-Info.plist"; path = "/Users/xuzhenhao/code/ZHRemember/ZHRemember/ZHRemember copy-Info.plist"; sourceTree = "<absolute>"; };
 		E7F74E4321534BBE00C0DBDF /* UMAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMAnalytics.framework; sourceTree = "<group>"; };
 		E7F74E4721534BC700C0DBDF /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
 		E7F74E4B21534BD100C0DBDF /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
@@ -592,6 +788,24 @@
 				E7F74E5B21534BD100C0DBDF /* libSocialWeChat.a in Frameworks */,
 				E7F74E5A21534BD100C0DBDF /* UMShare.framework in Frameworks */,
 				E7F74E6121534BDA00C0DBDF /* UTDID.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7F432D421548C6B002B91E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7F432D521548C6B002B91E0 /* libSocialQQ.a in Frameworks */,
+				E7F432D621548C6B002B91E0 /* SecurityEnvSDK.framework in Frameworks */,
+				E7F432D721548C6B002B91E0 /* UShareUI.framework in Frameworks */,
+				E7F432D821548C6B002B91E0 /* UMCommon.framework in Frameworks */,
+				E7F432D921548C6B002B91E0 /* Pods_ZHRemember.framework in Frameworks */,
+				E7F432DA21548C6B002B91E0 /* UMCommonLog.framework in Frameworks */,
+				E7F432DB21548C6B002B91E0 /* libSocialSina.a in Frameworks */,
+				E7F432DC21548C6B002B91E0 /* UMAnalytics.framework in Frameworks */,
+				E7F432DD21548C6B002B91E0 /* libSocialWeChat.a in Frameworks */,
+				E7F432DE21548C6B002B91E0 /* UMShare.framework in Frameworks */,
+				E7F432DF21548C6B002B91E0 /* UTDID.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,6 +1312,7 @@
 				E76B115621002AF60067E577 /* Products */,
 				CDCF7F43B09CF0BCBE18F93D /* Pods */,
 				CD8054A17CD416F4E515055B /* Frameworks */,
+				E7F432FF21548C6B002B91E0 /* ZHRemember copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1105,6 +1320,7 @@
 			isa = PBXGroup;
 			children = (
 				E76B115521002AF60067E577 /* ZHRemember.app */,
+				E7F432FE21548C6B002B91E0 /* rememberPro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1693,6 +1909,26 @@
 			productReference = E76B115521002AF60067E577 /* ZHRemember.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E7F4323221548C6B002B91E0 /* rememberPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7F432FB21548C6B002B91E0 /* Build configuration list for PBXNativeTarget "rememberPro" */;
+			buildPhases = (
+				E7F4323321548C6B002B91E0 /* [CP] Check Pods Manifest.lock */,
+				E7F4323421548C6B002B91E0 /* Sources */,
+				E7F432D421548C6B002B91E0 /* Frameworks */,
+				E7F432E021548C6B002B91E0 /* Resources */,
+				E7F432F921548C6B002B91E0 /* [CP] Embed Pods Frameworks */,
+				E7F432FA21548C6B002B91E0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rememberPro;
+			productName = ZHRemember;
+			productReference = E7F432FE21548C6B002B91E0 /* rememberPro.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1722,6 +1958,7 @@
 			projectRoot = "";
 			targets = (
 				E76B115421002AF60067E577 /* ZHRemember */,
+				E7F4323221548C6B002B91E0 /* rememberPro */,
 			);
 		};
 /* End PBXProject section */
@@ -1755,6 +1992,37 @@
 				E7837055213E1CFC00000F28 /* feedback_bg_1@2x.png in Resources */,
 				E783704F213E1CFC00000F28 /* feedback_back@2x.png in Resources */,
 				E73C65DB21379EEC007D656A /* DiaryStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7F432E021548C6B002B91E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7F432E121548C6B002B91E0 /* LaunchScreen.storyboard in Resources */,
+				E7F432E221548C6B002B91E0 /* feedback_add_image@2x.png in Resources */,
+				E7F432E321548C6B002B91E0 /* IAPStoryboard.storyboard in Resources */,
+				E7F432E421548C6B002B91E0 /* LeanCloudFeedback.strings in Resources */,
+				E7F432E521548C6B002B91E0 /* jianyayi.ttf in Resources */,
+				E7F432E621548C6B002B91E0 /* MyStoryboard.storyboard in Resources */,
+				E7F432E721548C6B002B91E0 /* palette.png in Resources */,
+				E7F432E821548C6B002B91E0 /* Assets.xcassets in Resources */,
+				E7F432E921548C6B002B91E0 /* LoginStoryboard.storyboard in Resources */,
+				E7F432EA21548C6B002B91E0 /* hksn.ttf in Resources */,
+				E7F432EB21548C6B002B91E0 /* EvtEventStoryboard.storyboard in Resources */,
+				E7F432EC21548C6B002B91E0 /* snFontP2.ttf in Resources */,
+				E7F432ED21548C6B002B91E0 /* EasyNavButton.bundle in Resources */,
+				E7F432EE21548C6B002B91E0 /* loliCat.ttf in Resources */,
+				E7F432EF21548C6B002B91E0 /* GB2312.ttf in Resources */,
+				E7F432F021548C6B002B91E0 /* UMCommonLog.bundle in Resources */,
+				E7F432F121548C6B002B91E0 /* feedback_btn_new@2x.png in Resources */,
+				E7F432F221548C6B002B91E0 /* feedback_warning@2x.png in Resources */,
+				E7F432F321548C6B002B91E0 /* UMSocialSDKResources.bundle in Resources */,
+				E7F432F421548C6B002B91E0 /* feedback_btn@2x.png in Resources */,
+				E7F432F521548C6B002B91E0 /* feedback_bg_2@2x.png in Resources */,
+				E7F432F621548C6B002B91E0 /* feedback_bg_1@2x.png in Resources */,
+				E7F432F721548C6B002B91E0 /* feedback_back@2x.png in Resources */,
+				E7F432F821548C6B002B91E0 /* DiaryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,6 +2095,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F4323321548C6B002B91E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ZHRemember-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F432F921548C6B002B91E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
+				"${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework",
+				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/JLRoutes/JLRoutes.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PGDatePicker/PGDatePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/PGPickerView/PGPickerView.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/TZImagePreviewController/TZImagePreviewController.framework",
+				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
+				"${BUILT_PRODUCTS_DIR}/ZHMediator/ZHMediator.framework",
+				"${BUILT_PRODUCTS_DIR}/ZHTableView/ZHTableView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DateTools.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLRoutes.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PGDatePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PGPickerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePreviewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZHMediator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZHTableView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F432FA21548C6B002B91E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-resources.sh",
+				"${PODS_ROOT}/AVOSCloud/AVOS/AVOSCloud/AVOSCloud_Art.inc",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AVOSCloud_Art.inc",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZHRemember/Pods-ZHRemember-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA5381F70850B0BBDBF43F55 /* [CP] Copy Pods Resources */ = {
@@ -2013,6 +2367,172 @@
 				E70CFEF3212FEE53004A6155 /* LGLoginViewController.m in Sources */,
 				E7486657213548F00032B948 /* MyThemeColorEventCell.m in Sources */,
 				E73B4FCD2106D33E00B6243B /* EvtEditEventCycleCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7F4323421548C6B002B91E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7F4323521548C6B002B91E0 /* EvtEditEventCell.m in Sources */,
+				E7F4323621548C6B002B91E0 /* DIYDiaryListViewModel.m in Sources */,
+				E7F4323721548C6B002B91E0 /* UIViewController+EasyNavigationExt.m in Sources */,
+				E7F4323821548C6B002B91E0 /* EvtTagModel.m in Sources */,
+				E7F4323921548C6B002B91E0 /* LCUserFeedbackThread.m in Sources */,
+				E7F4323A21548C6B002B91E0 /* EvtEventTarget.m in Sources */,
+				E7F4323B21548C6B002B91E0 /* IAPDiamondCell.m in Sources */,
+				E7F4323C21548C6B002B91E0 /* LCUserFeedbackReplyCell.m in Sources */,
+				E7F4323D21548C6B002B91E0 /* LGRegisterViewController.m in Sources */,
+				E7F4323E21548C6B002B91E0 /* MyGestureViewController.m in Sources */,
+				E7F4323F21548C6B002B91E0 /* MyLogoutCell.m in Sources */,
+				E7F4324021548C6B002B91E0 /* EvtEventDetailViewModel.m in Sources */,
+				E7F4324121548C6B002B91E0 /* EvtEventListController.m in Sources */,
+				E7F4324221548C6B002B91E0 /* ZHMediator+ZHIAP.m in Sources */,
+				E7F4324321548C6B002B91E0 /* EvtEditEventTagViewModel.m in Sources */,
+				E7F4324421548C6B002B91E0 /* EvtEditEventTitleViewModel.m in Sources */,
+				E7F4324521548C6B002B91E0 /* ZHPushManager.m in Sources */,
+				E7F4324621548C6B002B91E0 /* ZHVersionApi.m in Sources */,
+				E7F4324721548C6B002B91E0 /* DIYDiaryTarget.m in Sources */,
+				E7F4324821548C6B002B91E0 /* DIYWriteDiaryViewModel.m in Sources */,
+				E7F4324921548C6B002B91E0 /* LoginConfig.m in Sources */,
+				E7F4324A21548C6B002B91E0 /* ZHMediator+ZHDiary.m in Sources */,
+				E7F4324B21548C6B002B91E0 /* EvtEditEventCoverViewModel.m in Sources */,
+				E7F4324C21548C6B002B91E0 /* HBHUDManager.m in Sources */,
+				E7F4324D21548C6B002B91E0 /* EasyNavigationOptions.m in Sources */,
+				E7F4324E21548C6B002B91E0 /* EvtEventListCell.m in Sources */,
+				E7F4324F21548C6B002B91E0 /* MainViewModel.m in Sources */,
+				E7F4325021548C6B002B91E0 /* EvtEditEventDateViewModel.m in Sources */,
+				E7F4325121548C6B002B91E0 /* ZHMediator+ZHLogin.m in Sources */,
+				E7F4325221548C6B002B91E0 /* NSObject+EasyKVO.m in Sources */,
+				E7F4325321548C6B002B91E0 /* DIYSelectWallPaperViewModel.m in Sources */,
+				E7F4325421548C6B002B91E0 /* UILabel+ZHSpace.m in Sources */,
+				E7F4325521548C6B002B91E0 /* DIYFontFamilyCell.m in Sources */,
+				E7F4325621548C6B002B91E0 /* EvtEditEventSetTopCell.m in Sources */,
+				E7F4325721548C6B002B91E0 /* EvtEditEventSetTopViewModel.m in Sources */,
+				E7F4325821548C6B002B91E0 /* EvtEditEventTagCell.m in Sources */,
+				E7F4325921548C6B002B91E0 /* DIYWriteDiaryViewController.m in Sources */,
+				E7F4325A21548C6B002B91E0 /* EasyCustomBackGestureDelegate.m in Sources */,
+				E7F4325B21548C6B002B91E0 /* LCUserFeedbackImageViewController.m in Sources */,
+				E7F4325C21548C6B002B91E0 /* ZHAccessManager.m in Sources */,
+				E7F4325D21548C6B002B91E0 /* ZHUserModel.m in Sources */,
+				E7F4325E21548C6B002B91E0 /* DIYFontColorModel.m in Sources */,
+				E7F4325F21548C6B002B91E0 /* ZHPDFCreater.m in Sources */,
+				E7F4326021548C6B002B91E0 /* ZHFontConfig.m in Sources */,
+				E7F4326121548C6B002B91E0 /* UIViewController+AOPIntercepter.m in Sources */,
+				E7F4326221548C6B002B91E0 /* DIYSelectFontViewController.m in Sources */,
+				E7F4326321548C6B002B91E0 /* DIYFontFamilyModel.m in Sources */,
+				E7F4326421548C6B002B91E0 /* MyViewModel.m in Sources */,
+				E7F4326521548C6B002B91E0 /* DIYDiaryListViewController.m in Sources */,
+				E7F4326621548C6B002B91E0 /* PCLockLabel.m in Sources */,
+				E7F4326721548C6B002B91E0 /* EvtEditEventViewModel.m in Sources */,
+				E7F4326821548C6B002B91E0 /* MyThemeColorViewModel.m in Sources */,
+				E7F4326921548C6B002B91E0 /* LGResetPwdViewController.m in Sources */,
+				E7F4326A21548C6B002B91E0 /* ZHDBManager.m in Sources */,
+				E7F4326B21548C6B002B91E0 /* DIYFontColorCell.m in Sources */,
+				E7F4326C21548C6B002B91E0 /* NSString+ZHID.m in Sources */,
+				E7F4326D21548C6B002B91E0 /* DIYSelectMoodViewModel.m in Sources */,
+				E7F4326E21548C6B002B91E0 /* CALayer+Anim.m in Sources */,
+				E7F4326F21548C6B002B91E0 /* UIViewController+AOPBase.m in Sources */,
+				E7F4327021548C6B002B91E0 /* HBUpdateTipView.m in Sources */,
+				E7F4327121548C6B002B91E0 /* MyCustomColorViewController.m in Sources */,
+				E7F4327221548C6B002B91E0 /* EvtEditEventDateCell.m in Sources */,
+				E7F4327321548C6B002B91E0 /* LGResetPwdViewModel.m in Sources */,
+				E7F4327421548C6B002B91E0 /* IAPDiamondCellViewModel.m in Sources */,
+				E7F4327521548C6B002B91E0 /* AppDelegate+ZHAppearance.m in Sources */,
+				E7F4327621548C6B002B91E0 /* UIScrollView+EmptyDataSet.m in Sources */,
+				E7F4327721548C6B002B91E0 /* ZHAccountApi.m in Sources */,
+				E7F4327821548C6B002B91E0 /* LCUserFeedbackAgent.m in Sources */,
+				E7F4327921548C6B002B91E0 /* EvtTagManagerController.m in Sources */,
+				E7F4327A21548C6B002B91E0 /* UIView+ZHLayout.m in Sources */,
+				E7F4327B21548C6B002B91E0 /* MyThemeColorViewController.m in Sources */,
+				E7F4327C21548C6B002B91E0 /* UIColor+ZHTheme.m in Sources */,
+				E7F4327D21548C6B002B91E0 /* PCCircle.m in Sources */,
+				E7F4327E21548C6B002B91E0 /* DIYDiaryListCell.m in Sources */,
+				E7F4327F21548C6B002B91E0 /* ZHMediator+My.m in Sources */,
+				E7F4328021548C6B002B91E0 /* NSError+ZHLocailzed.m in Sources */,
+				E7F4328121548C6B002B91E0 /* DIYSelectMoodCell.m in Sources */,
+				E7F4328221548C6B002B91E0 /* LCHttpClient.m in Sources */,
+				E7F4328321548C6B002B91E0 /* MinMainTabController.m in Sources */,
+				E7F4328421548C6B002B91E0 /* EvtEditEventPushCell.m in Sources */,
+				E7F4328521548C6B002B91E0 /* PCCircleViewConst.m in Sources */,
+				E7F4328621548C6B002B91E0 /* DIYSelectFontViewModel.m in Sources */,
+				E7F4328721548C6B002B91E0 /* EvtEventListEventsViewModel.m in Sources */,
+				E7F4328821548C6B002B91E0 /* ZHMediator+ZHEvent.m in Sources */,
+				E7F4328921548C6B002B91E0 /* EvtEditEventTitleCell.m in Sources */,
+				E7F4328A21548C6B002B91E0 /* UIView+EasyNavigationExt.m in Sources */,
+				E7F4328B21548C6B002B91E0 /* ZHMacro.m in Sources */,
+				E7F4328C21548C6B002B91E0 /* IAPDiamondViewController.m in Sources */,
+				E7F4328D21548C6B002B91E0 /* UITableView+ZHRefresh.m in Sources */,
+				E7F4328E21548C6B002B91E0 /* UIResponder+ZHRouter.m in Sources */,
+				E7F4328F21548C6B002B91E0 /* EasyNavigationButton.m in Sources */,
+				E7F4329021548C6B002B91E0 /* PCCircleView.m in Sources */,
+				E7F4329121548C6B002B91E0 /* DIYDiaryListCellViewModel.m in Sources */,
+				E7F4329221548C6B002B91E0 /* ZHDiaryModel.m in Sources */,
+				E7F4329321548C6B002B91E0 /* EvtEventApi.m in Sources */,
+				E7F4329421548C6B002B91E0 /* EvtEventDetailController.m in Sources */,
+				E7F4329521548C6B002B91E0 /* EvtEventModel.m in Sources */,
+				E7F4329621548C6B002B91E0 /* main.m in Sources */,
+				E7F4329721548C6B002B91E0 /* MainTarget.m in Sources */,
+				E7F4329821548C6B002B91E0 /* HBTCustomPresentationController.m in Sources */,
+				E7F4329921548C6B002B91E0 /* ZHNotificationConfig.m in Sources */,
+				E7F4329A21548C6B002B91E0 /* UIViewController+ZHStoryBoard.m in Sources */,
+				E7F4329B21548C6B002B91E0 /* MySettingCell.m in Sources */,
+				E7F4329C21548C6B002B91E0 /* UIColor+ZHHex.m in Sources */,
+				E7F4329D21548C6B002B91E0 /* UIScrollView+EasyNavigationExt.m in Sources */,
+				E7F4329E21548C6B002B91E0 /* MySettingViewModel.m in Sources */,
+				E7F4329F21548C6B002B91E0 /* ZHCommonApi.m in Sources */,
+				E7F432A021548C6B002B91E0 /* LGLoginTarget.m in Sources */,
+				E7F432A121548C6B002B91E0 /* ZHDiaryApi.m in Sources */,
+				E7F432A221548C6B002B91E0 /* EasyNavigationView+LeftButton.m in Sources */,
+				E7F432A321548C6B002B91E0 /* DIYSelectPaperCell.m in Sources */,
+				E7F432A421548C6B002B91E0 /* NSDate+ZHDate.m in Sources */,
+				E7F432A521548C6B002B91E0 /* LCUserFeedbackReply.m in Sources */,
+				E7F432A621548C6B002B91E0 /* AppDelegate.m in Sources */,
+				E7F432A721548C6B002B91E0 /* DIYExportPDFViewController.m in Sources */,
+				E7F432A821548C6B002B91E0 /* EvtEditEventCycleViewModel.m in Sources */,
+				E7F432A921548C6B002B91E0 /* MyTarget.m in Sources */,
+				E7F432AA21548C6B002B91E0 /* DIYSelectWallPaperViewController.m in Sources */,
+				E7F432AB21548C6B002B91E0 /* EasyNavigationUtils.m in Sources */,
+				E7F432AC21548C6B002B91E0 /* EvtEditEventPushViewModel.m in Sources */,
+				E7F432AD21548C6B002B91E0 /* PCCircleInfoView.m in Sources */,
+				E7F432AE21548C6B002B91E0 /* DIYPDFCalendarView.m in Sources */,
+				E7F432AF21548C6B002B91E0 /* AVObject+ApiExt.m in Sources */,
+				E7F432B021548C6B002B91E0 /* EvtEditEventCoverCell.m in Sources */,
+				E7F432B121548C6B002B91E0 /* LCUserFeedbackViewController.m in Sources */,
+				E7F432B221548C6B002B91E0 /* UITableViewCell+ZHViewModel.m in Sources */,
+				E7F432B321548C6B002B91E0 /* UIImage+ZHExt.m in Sources */,
+				E7F432B421548C6B002B91E0 /* LGRegisterViewModel.m in Sources */,
+				E7F432B521548C6B002B91E0 /* IAPTarget.m in Sources */,
+				E7F432B621548C6B002B91E0 /* ZHUserStore.m in Sources */,
+				E7F432B721548C6B002B91E0 /* DIYSelectMoodViewController.m in Sources */,
+				E7F432B821548C6B002B91E0 /* DIYPDFTemplateView.m in Sources */,
+				E7F432B921548C6B002B91E0 /* EasyNavigationView.m in Sources */,
+				E7F432BA21548C6B002B91E0 /* DIYDiaryConfig.m in Sources */,
+				E7F432BB21548C6B002B91E0 /* EvtEventStore.m in Sources */,
+				E7F432BC21548C6B002B91E0 /* EvtEditEventController.m in Sources */,
+				E7F432BD21548C6B002B91E0 /* ZHGlobalStore.m in Sources */,
+				E7F432BE21548C6B002B91E0 /* IAPConfig.m in Sources */,
+				E7F432BF21548C6B002B91E0 /* WSColorImageView.m in Sources */,
+				E7F432C021548C6B002B91E0 /* ZHVersionManager.m in Sources */,
+				E7F432C121548C6B002B91E0 /* LCUtils.m in Sources */,
+				E7F432C221548C6B002B91E0 /* AppDelegate+ZHThirdPart.m in Sources */,
+				E7F432C321548C6B002B91E0 /* IAPDiamondViewModel.m in Sources */,
+				E7F432C421548C6B002B91E0 /* EvtEditEventRemarkCell.m in Sources */,
+				E7F432C521548C6B002B91E0 /* EasyNavigationView+RightButton.m in Sources */,
+				E7F432C621548C6B002B91E0 /* DIYDiaryStore.m in Sources */,
+				E7F432C721548C6B002B91E0 /* LGLoginViewModel.m in Sources */,
+				E7F432C821548C6B002B91E0 /* NSString+DiaryImageName.m in Sources */,
+				E7F432C921548C6B002B91E0 /* ZHMediator+Main.m in Sources */,
+				E7F432CA21548C6B002B91E0 /* MyViewController.m in Sources */,
+				E7F432CB21548C6B002B91E0 /* EvtEventListViewModel.m in Sources */,
+				E7F432CC21548C6B002B91E0 /* EasyNavigationController.m in Sources */,
+				E7F432CD21548C6B002B91E0 /* EvtEditEventRemarkViewModel.m in Sources */,
+				E7F432CE21548C6B002B91E0 /* EvtTagManageViewModel.m in Sources */,
+				E7F432CF21548C6B002B91E0 /* EasyKVOInfo.m in Sources */,
+				E7F432D021548C6B002B91E0 /* EvtTagListCell.m in Sources */,
+				E7F432D121548C6B002B91E0 /* LGLoginViewController.m in Sources */,
+				E7F432D221548C6B002B91E0 /* MyThemeColorEventCell.m in Sources */,
+				E7F432D321548C6B002B91E0 /* EvtEditEventCycleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2217,6 +2737,93 @@
 			};
 			name = Release;
 		};
+		E7F432FC21548C6B002B91E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E6791BB3CAAF94D5936C2C7 /* Pods-ZHRemember.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3X6AR78KA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/analytics_ios_5.5.1",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/common_ios_1.5.2/normal",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/UMSocialUI",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/thirdparties_ios_1.0.5",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/umcommonlog_ios_1.0.0",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"Pro=1",
+				);
+				INFOPLIST_FILE = "ZHRemember copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/QQ",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.rememberPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E7F432FD21548C6B002B91E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7DD1FA9A2CBA51B240BEE8EC /* Pods-ZHRemember.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F3X6AR78KA;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/analytics_ios_5.5.1",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/common_ios_1.5.2/normal",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/UMSocialUI",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/thirdparties_ios_1.0.5",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/umcommonlog_ios_1.0.0",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/ZHRemember/SupportingFiles/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"Pro=1",
+				);
+				INFOPLIST_FILE = "ZHRemember copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/ZHRemember/Lib/UMeng/share_ios_6.9.4/SocialLibraries/QQ",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xzh.rememberPro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZHRemember/SupportingFiles/ZHRemember-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2234,6 +2841,15 @@
 			buildConfigurations = (
 				E76B116C21002AF70067E577 /* Debug */,
 				E76B116D21002AF70067E577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7F432FB21548C6B002B91E0 /* Build configuration list for PBXNativeTarget "rememberPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7F432FC21548C6B002B91E0 /* Debug */,
+				E7F432FD21548C6B002B91E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

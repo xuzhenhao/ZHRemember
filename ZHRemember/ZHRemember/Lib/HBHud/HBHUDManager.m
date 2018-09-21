@@ -18,6 +18,9 @@
 }
 
 + (void)showMessage:(NSString *)message{
+    if (!message) {
+        return;
+    }
     [self showMessage:message done:nil];
 }
 
