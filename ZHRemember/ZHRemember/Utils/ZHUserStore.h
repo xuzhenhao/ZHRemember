@@ -106,4 +106,10 @@
 - (void)enableCustomFontColorWithCost:(NSInteger)cost
                     done:(void(^)(BOOL success,NSError *error))done;
 
+
+/**
+ 清空用户信息，退出登录时调用
+ */
+- (void)clearUserInfo;
+
 @end
