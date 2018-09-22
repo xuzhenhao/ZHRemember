@@ -42,7 +42,7 @@ static NSString *ZHThemeColorCacheKey = @"ZHThemeColorCacheKey";
 }
 + (void)saveGesturePassword:(NSString *)pwd{
     pwd = pwd ?: @"";
-    
+    //手势密码和用户id绑定
     [[NSUserDefaults standardUserDefaults] setObject:pwd forKey:[NSString stringWithFormat:@"ZHGesturePwd%@",[ZHUserStore shared].currentUser.userId]];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }

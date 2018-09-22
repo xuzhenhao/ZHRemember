@@ -17,6 +17,12 @@ NSString *AppStoreLinkURL = @"https://itunes.apple.com/cn/app/id1435122591?mt=8"
 #pragma mark - error
 NSString *NSErrorDescKey = @"NSLocalizedDescription";
 
+#pragma mark - zone code
+NSString *ChinaZoneCode = @"86";
+NSString *XiangGangZoneCode = @"852";
+NSString *TaiWangZoneCode = @"886";
+NSString *AoMengZoneCode = @"853";
+
 @implementation ZHMacro
 
 @end

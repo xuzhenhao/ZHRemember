@@ -10,10 +10,10 @@
 #import "LoginConfig.h"
 #import "LGRegisterViewModel.h"
 #import "LGLoginViewController.h"
-#import <UMAnalytics/MobClick.h>
 
 @interface LGRegisterViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *zoneButton;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumTextField;
 @property (weak, nonatomic) IBOutlet UITextField *smsTextField;
 @property (weak, nonatomic) IBOutlet UIButton *smsButton;
@@ -38,7 +38,7 @@
     [super viewDidLoad];
     
     [self setupUI];
-    [self bindViewModel];
+    [self setupObserver];
 }
 
 #pragma mark - setupUI
@@ -46,7 +46,7 @@
     self.registButton.layer.cornerRadius = 5;
     self.registButton.layer.masksToBounds = YES;
 }
-- (void)bindViewModel{
+- (void)setupObserver{
     RAC(self,viewModel.mobilePhone) = self.phoneNumTextField.rac_textSignal;
     RAC(self,viewModel.password) = self.pwdTextField.rac_textSignal;
     RAC(self,viewModel.smsCode) = self.smsTextField.rac_textSignal;
@@ -75,14 +75,16 @@
         [self.smsButton setTitle:x forState:UIControlStateNormal];
         [self.smsButton setTitle:x forState:UIControlStateDisabled];
     }];
-    [[self.viewModel.registCommad.executionSignals.switchToLatest deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
-        BOOL success = [x boolValue];
+    [[[self.viewModel.registCommad.executionSignals
+       .switchToLatest deliverOnMainThread]
+      filter:^BOOL(id  _Nullable value) {
+        return [value boolValue];
+    }]
+     subscribeNext:^(id  _Nullable x) {
         @strongify(self)
-        if (success) {
-            [HBHUDManager showMessage:@"注册成功" done:^{
+        [HBHUDManager showMessage:@"注册成功" done:^{
                 [self navigateToLoginViewController];
-            }];
-        }
+        }];
     }];
     
     [[[RACObserve(self.viewModel, error) filter:^BOOL(id  _Nullable value) {
@@ -91,6 +93,10 @@
         NSError *error = x;
         [HBHUDManager showMessage:error.userInfo[NSErrorDescKey]];
     }];
+    [[RACObserve(self.viewModel, zoneCodeDesc) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.zoneButton setTitle:[NSString stringWithFormat:@"%@",x] forState:UIControlStateNormal];
+    }];
 }
 
 #pragma mark - action
@@ -98,6 +104,25 @@
     LGLoginViewController *vc = [LGLoginViewController loginViewController];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)didClickZoneButton:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"手机号地区" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"中国大陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = ChinaZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"香港" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = XiangGangZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"澳门" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = AoMengZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"台湾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = TaiWangZoneCode;
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark - getter
 - (LGRegisterViewModel *)viewModel{

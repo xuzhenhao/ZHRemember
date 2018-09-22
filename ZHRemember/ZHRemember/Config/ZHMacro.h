@@ -28,6 +28,12 @@ extern NSString *AppStoreLinkURL;//appstore的链接地址
 #pragma mark - network error
 extern NSString *NSErrorDescKey;//错误描述的key
 
+#pragma mark - zone code
+extern NSString *ChinaZoneCode;
+extern NSString *XiangGangZoneCode;
+extern NSString *TaiWangZoneCode;
+extern NSString *AoMengZoneCode;
+
 @interface ZHMacro : NSObject
 
 @end
