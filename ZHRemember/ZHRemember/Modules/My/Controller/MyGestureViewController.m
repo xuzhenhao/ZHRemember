@@ -43,12 +43,6 @@
     [super viewDidLoad];
     [self setupUI];
 }
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//    // 进来先清空存的第一个密码
-//    [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
-//}
 #pragma mark - setupUI
 - (void)setupUI{
     [self.view setBackgroundColor:CircleViewBackgroundColor];
@@ -97,8 +91,13 @@
     [self.lockView setType:CircleViewTypeLogin];
 }
 - (void)setupPasswordVefiry{
+    CGFloat ypos = 60;
+    if (self.navigationController) {
+        ypos = 128;
+    }
+    
     UIButton *rightBtn = [UIButton new];
-    [self creatButton:rightBtn frame:CGRectMake(0, kScreenH - 60, kScreenW, 20) title:@"验证登录密码" alignment:UIControlContentHorizontalAlignmentCenter tag:0];
+    [self creatButton:rightBtn frame:CGRectMake(0, kScreenH - ypos, kScreenW, 20) title:@"验证登录密码" alignment:UIControlContentHorizontalAlignmentCenter tag:0];
 }
 #pragma mark - action
 - (void)didClickRightItem {
