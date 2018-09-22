@@ -32,7 +32,7 @@
 
 - (void)initSetup{
     self.countDownNum = 0;
-    self.zoneCode = @"86";
+    self.zoneCode = ChinaZoneCode;
     
     @weakify(self)
     [RACObserve(self, countDownNum) subscribeNext:^(id  _Nullable x) {

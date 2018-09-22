@@ -30,6 +30,7 @@
 
 - (void)initSetup{
     self.countDownNum = 0;
+    self.zoneCode = ChinaZoneCode;
     
     @weakify(self)
     [RACObserve(self, countDownNum) subscribeNext:^(id  _Nullable x) {
@@ -40,12 +41,18 @@
             self.smsBtnDesc = @"获取验证码";
         }
     }];
+    [[RACObserve(self, zoneCode) filter:^BOOL(id  _Nullable value) {
+        return value != nil;
+    }] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        self.zoneCodeDesc = [NSString stringWithFormat:@"+ %@",x];
+    }];
 }
 #pragma mark - request
 - (void)resetPwdActionWithHandler:(void(^)(BOOL result))doneHandler{
     //验证短信
     @weakify(self);
-    [SMSSDK commitVerificationCode:self.smsCode phoneNumber:self.mobilePhone zone:@"86" result:^(NSError *error) {
+    [SMSSDK commitVerificationCode:self.smsCode phoneNumber:self.mobilePhone zone:self.zoneCode result:^(NSError *error) {
         @strongify(self)
         if (error) {
             doneHandler(NO);
@@ -59,7 +66,7 @@
 
 #pragma mark - utils
 - (void)getRegisterSmsCode{
-    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.mobilePhone zone:@"86" template:nil result:^(NSError *error) {
+    [SMSSDK getVerificationCodeByMethod:SMSGetCodeMethodSMS phoneNumber:self.mobilePhone zone:self.zoneCode template:nil result:^(NSError *error) {
         
     }];
 }

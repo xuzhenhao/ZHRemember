@@ -12,7 +12,10 @@
  重设密码VM
  */
 @interface LGResetPwdViewModel : NSObject
-
+/** 手机号地区码*/
+@property (nonatomic, copy)     NSString    *zoneCode;
+/** 格式化*/
+@property (nonatomic, copy)     NSString    *zoneCodeDesc;
 /** 手机号*/
 @property (nonatomic, copy)     NSString    *mobilePhone;
 /** 密码*/

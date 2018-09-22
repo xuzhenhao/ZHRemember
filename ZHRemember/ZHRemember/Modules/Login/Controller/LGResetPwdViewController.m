@@ -12,6 +12,8 @@
 
 @interface LGResetPwdViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *zoneButton;
+
 @property (weak, nonatomic) IBOutlet UITextField *mobileTextField;
 @property (weak, nonatomic) IBOutlet UITextField *smsTextField;
 @property (weak, nonatomic) IBOutlet UIButton *smsButton;
@@ -75,6 +77,30 @@
         self.pwdTextField.secureTextEntry = !isHidePwd;
         self.showPwdButton.selected = isHidePwd;
     }];
+    [[RACObserve(self.viewModel, zoneCodeDesc) deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.zoneButton setTitle:[NSString stringWithFormat:@"%@",x] forState:UIControlStateNormal];
+    }];
+}
+#pragma mark - action
+
+- (IBAction)didClickZoneButton:(UIButton *)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"手机号地区" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"中国大陆" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = ChinaZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"香港" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = XiangGangZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"澳门" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = AoMengZoneCode;
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"台湾" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.viewModel.zoneCode = TaiWangZoneCode;
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - getter

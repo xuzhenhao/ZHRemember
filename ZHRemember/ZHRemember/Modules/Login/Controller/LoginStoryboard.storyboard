@@ -41,9 +41,9 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0s-Jn-SyG">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="59.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="tFT-d3-HfL"/>
+                                            <constraint firstAttribute="width" constant="55" id="tFT-d3-HfL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                                         <state key="normal" title="+ 86"/>
@@ -222,7 +222,7 @@
                                 <rect key="frame" x="16" y="102" width="347" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4v1-FK-4n9">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                                        <rect key="frame" x="60" y="0.0" width="275" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
@@ -234,16 +234,30 @@
                                             <constraint firstAttribute="height" constant="0.5" id="tdJ-dx-V6W"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ro9-lD-R7u">
+                                        <rect key="frame" x="0.0" y="0.0" width="55" height="59.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="55" id="edM-nb-6wa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
+                                        <state key="normal" title="+ 86"/>
+                                        <connections>
+                                            <action selector="didClickZoneButton:" destination="VZI-oV-Ow2" eventType="touchUpInside" id="CUZ-x2-cvr"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ghx-h1-bia" secondAttribute="bottom" id="3Q2-xH-gkV"/>
                                     <constraint firstAttribute="height" constant="60" id="Chi-YP-fBh"/>
                                     <constraint firstItem="4v1-FK-4n9" firstAttribute="top" secondItem="75C-Mo-fcv" secondAttribute="top" id="QGO-W4-NoZ"/>
-                                    <constraint firstItem="4v1-FK-4n9" firstAttribute="leading" secondItem="75C-Mo-fcv" secondAttribute="leading" id="Sx1-FH-OfD"/>
+                                    <constraint firstItem="4v1-FK-4n9" firstAttribute="leading" secondItem="75C-Mo-fcv" secondAttribute="leading" constant="60" id="Sx1-FH-OfD"/>
                                     <constraint firstAttribute="trailing" secondItem="4v1-FK-4n9" secondAttribute="trailing" constant="12" id="V6F-ir-8hk"/>
                                     <constraint firstItem="ghx-h1-bia" firstAttribute="leading" secondItem="75C-Mo-fcv" secondAttribute="leading" id="g3l-IL-DcI"/>
+                                    <constraint firstItem="ro9-lD-R7u" firstAttribute="leading" secondItem="75C-Mo-fcv" secondAttribute="leading" id="iar-LJ-jGT"/>
+                                    <constraint firstItem="ghx-h1-bia" firstAttribute="top" secondItem="ro9-lD-R7u" secondAttribute="bottom" id="mJs-nA-f48"/>
                                     <constraint firstAttribute="bottom" secondItem="4v1-FK-4n9" secondAttribute="bottom" id="tVH-Vn-Sbm"/>
+                                    <constraint firstItem="ro9-lD-R7u" firstAttribute="top" secondItem="75C-Mo-fcv" secondAttribute="top" id="vf6-V8-zQG"/>
                                     <constraint firstAttribute="trailing" secondItem="ghx-h1-bia" secondAttribute="trailing" id="yqc-cx-jEy"/>
                                 </constraints>
                             </view>
@@ -251,7 +265,7 @@
                                 <rect key="frame" x="16" y="162" width="343" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入短信验证码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RFh-eC-4JX">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="238" height="60"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done"/>
@@ -273,7 +287,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="jIz-9j-4z1" firstAttribute="top" secondItem="Is7-yo-ecL" secondAttribute="bottom" id="47O-xc-cOh"/>
-                                    <constraint firstAttribute="trailing" secondItem="RFh-eC-4JX" secondAttribute="trailing" constant="12" id="4Cc-iC-aiM"/>
+                                    <constraint firstAttribute="trailing" secondItem="RFh-eC-4JX" secondAttribute="trailing" constant="105" id="4Cc-iC-aiM"/>
                                     <constraint firstItem="jIz-9j-4z1" firstAttribute="leading" secondItem="aHr-Dd-yXO" secondAttribute="leading" id="6tl-pa-noY"/>
                                     <constraint firstAttribute="trailing" secondItem="jIz-9j-4z1" secondAttribute="trailing" id="IHo-ki-Iwo"/>
                                     <constraint firstAttribute="height" constant="60" id="RUr-oB-SWQ"/>
@@ -363,6 +377,7 @@
                         <outlet property="showPwdButton" destination="He0-j0-mXL" id="kua-FV-Ss7"/>
                         <outlet property="smsButton" destination="Is7-yo-ecL" id="gsa-mK-4VD"/>
                         <outlet property="smsTextField" destination="RFh-eC-4JX" id="vg6-AR-S65"/>
+                        <outlet property="zoneButton" destination="ro9-lD-R7u" id="sx9-h2-Hqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Czw-48-48h" userLabel="First Responder" sceneMemberID="firstResponder"/>
