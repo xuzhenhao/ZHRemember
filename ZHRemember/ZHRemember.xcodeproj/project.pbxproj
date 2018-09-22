@@ -58,6 +58,10 @@
 		E71ED418212282F3000E18F2 /* EvtEditEventCoverViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED417212282F3000E18F2 /* EvtEditEventCoverViewModel.m */; };
 		E71ED41B2122843C000E18F2 /* EvtEditEventDateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */; };
 		E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */; };
+		E723796E2155D8910022CC9C /* ZHThirdServiceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E723796D2155D8910022CC9C /* ZHThirdServiceConfig.m */; };
+		E723796F2155D8910022CC9C /* ZHThirdServiceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E723796D2155D8910022CC9C /* ZHThirdServiceConfig.m */; };
+		E72379732155D9F70022CC9C /* ZHIAPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72379722155D9F70022CC9C /* ZHIAPConfig.m */; };
+		E72379742155D9F70022CC9C /* ZHIAPConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72379722155D9F70022CC9C /* ZHIAPConfig.m */; };
 		E72705D1212EA38B00F4BDB9 /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */; };
 		E72705D4212EA5AD00F4BDB9 /* LGRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */; };
 		E72705D7212EA64400F4BDB9 /* LoginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E72705D6212EA64400F4BDB9 /* LoginConfig.m */; };
@@ -507,6 +511,11 @@
 		E71ED41A2122843C000E18F2 /* EvtEditEventDateViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventDateViewModel.m; sourceTree = "<group>"; };
 		E71ED4232122D3AA000E18F2 /* EvtEditEventCycleViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventCycleViewModel.h; sourceTree = "<group>"; };
 		E71ED4242122D3AA000E18F2 /* EvtEditEventCycleViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventCycleViewModel.m; sourceTree = "<group>"; };
+		E723796C2155D8910022CC9C /* ZHThirdServiceConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHThirdServiceConfig.h; sourceTree = "<group>"; };
+		E723796D2155D8910022CC9C /* ZHThirdServiceConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHThirdServiceConfig.m; sourceTree = "<group>"; };
+		E72379702155D8C00022CC9C /* ZHConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHConfig.h; sourceTree = "<group>"; };
+		E72379712155D9F70022CC9C /* ZHIAPConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHIAPConfig.h; sourceTree = "<group>"; };
+		E72379722155D9F70022CC9C /* ZHIAPConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHIAPConfig.m; sourceTree = "<group>"; };
 		E72705D0212EA38B00F4BDB9 /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		E72705D2212EA5AD00F4BDB9 /* LGRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LGRegisterViewController.h; sourceTree = "<group>"; };
 		E72705D3212EA5AD00F4BDB9 /* LGRegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LGRegisterViewController.m; sourceTree = "<group>"; };
@@ -919,12 +928,17 @@
 		E704434E210038AD000239C1 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				E72379702155D8C00022CC9C /* ZHConfig.h */,
 				E7044354210039F1000239C1 /* ZHMacro.h */,
 				E7044355210039F1000239C1 /* ZHMacro.m */,
 				E712E743214A817200BBC25D /* ZHNotificationConfig.h */,
 				E712E744214A817200BBC25D /* ZHNotificationConfig.m */,
 				E7F24234214F83E000E0F3EA /* ZHFontConfig.h */,
 				E7F24235214F83E000E0F3EA /* ZHFontConfig.m */,
+				E723796C2155D8910022CC9C /* ZHThirdServiceConfig.h */,
+				E723796D2155D8910022CC9C /* ZHThirdServiceConfig.m */,
+				E72379712155D9F70022CC9C /* ZHIAPConfig.h */,
+				E72379722155D9F70022CC9C /* ZHIAPConfig.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -2268,6 +2282,7 @@
 				E7F24236214F83E000E0F3EA /* ZHFontConfig.m in Sources */,
 				E798B0F32127F14E00578F24 /* UIViewController+AOPIntercepter.m in Sources */,
 				E7CA03F2214FD46300660EA9 /* DIYSelectFontViewController.m in Sources */,
+				E72379732155D9F70022CC9C /* ZHIAPConfig.m in Sources */,
 				E76F783D2151FA2E003CB6D9 /* DIYFontFamilyModel.m in Sources */,
 				E78FCDF421339DE200C72EB4 /* MyViewModel.m in Sources */,
 				E73C65E12137BD29007D656A /* DIYDiaryListViewController.m in Sources */,
@@ -2339,6 +2354,7 @@
 				E709AC01214CB66800989E24 /* DIYExportPDFViewController.m in Sources */,
 				E71ED4252122D3AA000E18F2 /* EvtEditEventCycleViewModel.m in Sources */,
 				E700FDF2212A67FB00A9C330 /* MyTarget.m in Sources */,
+				E723796E2155D8910022CC9C /* ZHThirdServiceConfig.m in Sources */,
 				E74F88022142743B00F04C19 /* DIYSelectWallPaperViewController.m in Sources */,
 				E704437E2100754C000239C1 /* EasyNavigationUtils.m in Sources */,
 				E70EC9EC214BADBB00BA50FC /* EvtEditEventPushViewModel.m in Sources */,
@@ -2434,6 +2450,7 @@
 				E7F4326021548C6B002B91E0 /* ZHFontConfig.m in Sources */,
 				E7F4326121548C6B002B91E0 /* UIViewController+AOPIntercepter.m in Sources */,
 				E7F4326221548C6B002B91E0 /* DIYSelectFontViewController.m in Sources */,
+				E72379742155D9F70022CC9C /* ZHIAPConfig.m in Sources */,
 				E7F4326321548C6B002B91E0 /* DIYFontFamilyModel.m in Sources */,
 				E7F4326421548C6B002B91E0 /* MyViewModel.m in Sources */,
 				E7F4326521548C6B002B91E0 /* DIYDiaryListViewController.m in Sources */,
@@ -2505,6 +2522,7 @@
 				E7F432A721548C6B002B91E0 /* DIYExportPDFViewController.m in Sources */,
 				E7F432A821548C6B002B91E0 /* EvtEditEventCycleViewModel.m in Sources */,
 				E7F432A921548C6B002B91E0 /* MyTarget.m in Sources */,
+				E723796F2155D8910022CC9C /* ZHThirdServiceConfig.m in Sources */,
 				E7F432AA21548C6B002B91E0 /* DIYSelectWallPaperViewController.m in Sources */,
 				E7F432AB21548C6B002B91E0 /* EasyNavigationUtils.m in Sources */,
 				E7F432AC21548C6B002B91E0 /* EvtEditEventPushViewModel.m in Sources */,

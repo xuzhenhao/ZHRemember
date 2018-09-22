@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZHNotificationConfig.h"
-#import "ZHFontConfig.h"
 
 #pragma mark - Macro
 #define ZHScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -24,25 +22,11 @@
 #define RGBHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
-#pragma mar - Ads
+#pragma mar - app
 extern NSString *AppStoreLinkURL;//appstore的链接地址
-extern NSString *AdMobId;
-extern NSString *AdMobBannerId;//横幅类型的广告id
-extern NSString *AdMobBannerTestId;//横幅类型的广告测试id
-extern NSString *AdMobMovieId;//视频广告id
-extern NSString *AdMobMovieTestId;//视频广告测试id
-#pragma mark - IAP
-extern NSString *IAPSandboxURL;//沙盒测试环境验证
-extern NSString *IAPAppstoreURL;//正式环境验证
 
-extern NSInteger IAPUnlockLetterPirce;//解锁信纸费用
-extern NSInteger IAPUnlockFontPrice;//解锁自定义字体费用
-extern NSInteger IAPUnlockFontColorPrice;//解锁自定义字体颜色
-#pragma mark - error
+#pragma mark - network error
 extern NSString *NSErrorDescKey;//错误描述的key
-
-#pragma mark - reward
-extern NSInteger PublishDiaryReward;//发布日记奖励
 
 @interface ZHMacro : NSObject
 

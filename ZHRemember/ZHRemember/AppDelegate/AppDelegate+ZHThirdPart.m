@@ -17,19 +17,6 @@
 #import <GoogleMobileAds/GoogleMobileAds.h>
 #endif
 
-#ifdef Pro
-#define AVOSCloudAppId @"GVNyhmwinRVaEnsvbALRFC0u-gzGzoHsz"
-#define AVOSCloudAppkey @"5ltwuDLDwxKOws9atwAl8MS6"
-#define UMengAppId @"5ba46204b465f5ce8b00023d"
-#else
-#define AVOSCloudAppId @"Rv5XVMDxCfhGBekEcGENDBoE-gzGzoHsz"
-#define AVOSCloudAppkey @"y3cttoOTBQ4d4yc8Ccoood8l"
-#define UMengAppId @"5ba31320b465f56c140000bc"
-#endif
-
-#define AVOSCloudAppTestId @"OWMbwAs72wWfNRHS51jV5Tso-gzGzoHsz"
-#define AVOSCloudAppTestkey @"LeFEoxaulIkxlIQx37YvadqU"
-
 @implementation AppDelegate (ZHThirdPart)
 - (void)zh_showGesturePwd{
     if (![AVUser currentUser]) {
