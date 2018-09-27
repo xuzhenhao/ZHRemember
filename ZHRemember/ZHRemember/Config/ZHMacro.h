@@ -23,6 +23,7 @@
 
 
 #pragma mar - app
+extern NSString *AppId;
 extern NSString *AppStoreLinkURL;//appstore的链接地址
 
 #pragma mark - network error

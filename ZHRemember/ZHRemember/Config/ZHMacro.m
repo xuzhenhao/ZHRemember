@@ -9,6 +9,12 @@
 #import "ZHMacro.h"
 
 #ifdef Pro
+NSString *AppId = @"1436942874";
+#else
+NSString *AppId = @"1435122591";
+#endif
+
+#ifdef Pro
 NSString *AppStoreLinkURL = @"https://itunes.apple.com/cn/app/id1436942874?mt=8";
 #else
 NSString *AppStoreLinkURL = @"https://itunes.apple.com/cn/app/id1435122591?mt=8";

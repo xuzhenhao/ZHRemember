@@ -17,10 +17,11 @@
 #import "DIYSelectWallPaperViewController.h"
 #import "DIYSelectFontViewController.h"
 #import "HBTCustomPresentationController.h"
+#import <StoreKit/StoreKit.h>
 
 NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
 
-@interface DIYWriteDiaryViewController ()<YYTextViewDelegate>
+@interface DIYWriteDiaryViewController ()<YYTextViewDelegate,SKStoreProductViewControllerDelegate>
 /**头部状态栏视图*/
 @property (weak, nonatomic) IBOutlet UIView *statusView;
 /**日历视图*/
@@ -200,9 +201,11 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
     }];
     [[self.viewModel.rewardCommand.executionSignals.switchToLatest deliverOnMainThread]
      subscribeNext:^(id  _Nullable x) {
+//         @strongify(self)
          BOOL isSuccess = [x boolValue];
          if (isSuccess) {
-             [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%ld",PublishDiaryReward]];
+             [HBHUDManager showMessage:[NSString stringWithFormat:@"记忆结晶+%zd",PublishDiaryReward]];
+//             [self loadAppStoreController];
          }
     }];
     [[self.viewModel.uploadSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
@@ -340,6 +343,25 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
         self.viewModel.diaryFontColor = fontColor;
     }];
     
+}
+- (void)loadAppStoreController{
+    SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
+    storeProductViewContorller.delegate=self;
+    
+    __weak typeof(self)weakself = self;
+    [storeProductViewContorller loadProductWithParameters:@{SKStoreProductParameterITunesItemIdentifier:AppId}completionBlock:^(BOOL result,NSError *error)   {
+        
+        if(error)  {
+            NSLog(@"error %@ with userInfo %@",error,[error userInfo]);
+        }else{
+            [weakself presentViewController:storeProductViewContorller animated:YES completion:nil];
+        }
+    }];
+}
+- (void)productViewControllerDidFinish:(SKStoreProductViewController*)viewController
+
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - utils
