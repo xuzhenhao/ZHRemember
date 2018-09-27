@@ -7,6 +7,7 @@
 //
 
 #import "UITableView+ZHRefresh.h"
+#import "MJRefreshAdHeader.h"
 
 @implementation UITableView (ZHRefresh)
 
@@ -21,4 +22,19 @@
     header.stateLabel.hidden = YES;
     self.mj_header = header;
 }
+- (void)configAdHeadRefreshControlWithBannerView:(UIView *)banner refreshBlock:(void (^)(void))block{
+    MJRefreshAdHeader *header = [MJRefreshAdHeader headerWithRefreshingBlock:^{
+        if (block) {
+            block();
+        }
+    }];
+    
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    self.mj_header = header;
+    header.adView = banner;
+}
+
+
 @end

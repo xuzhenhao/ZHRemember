@@ -45,7 +45,7 @@
 #ifdef Pro
 #else
     [GADRewardBasedVideoAd sharedInstance].delegate = self;
-    self.navigationItem.rightBarButtonItem = self.adItem;
+//    self.navigationItem.rightBarButtonItem = self.adItem;
 #endif
 }
 - (void)setupObserver{

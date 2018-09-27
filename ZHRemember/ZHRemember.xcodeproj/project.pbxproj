@@ -126,6 +126,8 @@
 		E778D80621017D2B00E9CEEB /* EvtEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80521017D2B00E9CEEB /* EvtEventModel.m */; };
 		E778D8092101913700E9CEEB /* AppDelegate+ZHThirdPart.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */; };
 		E778D80C2101BDE500E9CEEB /* EvtEditEventController.m in Sources */ = {isa = PBXBuildFile; fileRef = E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */; };
+		E78091DB215C7EF100C76E50 /* MJRefreshAdHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E78091DA215C7EF100C76E50 /* MJRefreshAdHeader.m */; };
+		E78091DC215C7EF100C76E50 /* MJRefreshAdHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E78091DA215C7EF100C76E50 /* MJRefreshAdHeader.m */; };
 		E7837048213E1CFC00000F28 /* LCUserFeedbackAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */; };
 		E7837049213E1CFC00000F28 /* LCHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702D213E1CFC00000F28 /* LCHttpClient.m */; };
 		E783704A213E1CFC00000F28 /* LCUserFeedbackImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E783702F213E1CFC00000F28 /* LCUserFeedbackImageViewController.m */; };
@@ -635,6 +637,8 @@
 		E778D8082101913700E9CEEB /* AppDelegate+ZHThirdPart.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+ZHThirdPart.m"; sourceTree = "<group>"; };
 		E778D80A2101BDE500E9CEEB /* EvtEditEventController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EvtEditEventController.h; sourceTree = "<group>"; };
 		E778D80B2101BDE500E9CEEB /* EvtEditEventController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EvtEditEventController.m; sourceTree = "<group>"; };
+		E78091D9215C7EF100C76E50 /* MJRefreshAdHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJRefreshAdHeader.h; sourceTree = "<group>"; };
+		E78091DA215C7EF100C76E50 /* MJRefreshAdHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAdHeader.m; sourceTree = "<group>"; };
 		E783702B213E1CFC00000F28 /* LCUserFeedbackReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCUserFeedbackReply.h; sourceTree = "<group>"; };
 		E783702C213E1CFC00000F28 /* LCUserFeedbackAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCUserFeedbackAgent.m; sourceTree = "<group>"; };
 		E783702D213E1CFC00000F28 /* LCHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHttpClient.m; sourceTree = "<group>"; };
@@ -957,6 +961,7 @@
 		E704435921007493000239C1 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				E78091D8215C7EBF00C76E50 /* MJRefreshExt */,
 				E7F74E6E21538B9300C0DBDF /* PCGestureUnlock */,
 				E7F74E4121534BA800C0DBDF /* UMeng */,
 				E7624BBD213FD7FA00A57B47 /* ColorSelectView */,
@@ -1498,6 +1503,15 @@
 				E700FE00212A936500A9C330 /* EvtTagModel.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E78091D8215C7EBF00C76E50 /* MJRefreshExt */ = {
+			isa = PBXGroup;
+			children = (
+				E78091D9215C7EF100C76E50 /* MJRefreshAdHeader.h */,
+				E78091DA215C7EF100C76E50 /* MJRefreshAdHeader.m */,
+			);
+			path = MJRefreshExt;
 			sourceTree = "<group>";
 		};
 		E783702A213E1CFC00000F28 /* LeanCloudFeedback */ = {
@@ -2302,6 +2316,7 @@
 				E704A3FD2134E4A700A4EAEF /* LGResetPwdViewModel.m in Sources */,
 				E7837076213E798400000F28 /* IAPDiamondCellViewModel.m in Sources */,
 				E76B11822100358D0067E577 /* AppDelegate+ZHAppearance.m in Sources */,
+				E78091DB215C7EF100C76E50 /* MJRefreshAdHeader.m in Sources */,
 				E704A408213521FA00A4EAEF /* UIScrollView+EmptyDataSet.m in Sources */,
 				E70CFEF0212FE2AA004A6155 /* ZHAccountApi.m in Sources */,
 				E7837048213E1CFC00000F28 /* LCUserFeedbackAgent.m in Sources */,
@@ -2470,6 +2485,7 @@
 				E7F4327321548C6B002B91E0 /* LGResetPwdViewModel.m in Sources */,
 				E7F4327421548C6B002B91E0 /* IAPDiamondCellViewModel.m in Sources */,
 				E7F4327521548C6B002B91E0 /* AppDelegate+ZHAppearance.m in Sources */,
+				E78091DC215C7EF100C76E50 /* MJRefreshAdHeader.m in Sources */,
 				E7F4327621548C6B002B91E0 /* UIScrollView+EmptyDataSet.m in Sources */,
 				E7F4327721548C6B002B91E0 /* ZHAccountApi.m in Sources */,
 				E7F4327821548C6B002B91E0 /* LCUserFeedbackAgent.m in Sources */,

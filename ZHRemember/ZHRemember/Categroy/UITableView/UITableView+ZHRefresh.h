@@ -11,5 +11,6 @@
 @interface UITableView (ZHRefresh)
 
 - (void)configHeadRefreshControlWithRefreshBlock:(void(^)(void))block;
+- (void)configAdHeadRefreshControlWithBannerView:(UIView *)banner refreshBlock:(void (^)(void))block;
 
 @end

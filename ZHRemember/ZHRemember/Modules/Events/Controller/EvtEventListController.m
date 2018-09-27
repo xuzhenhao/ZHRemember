@@ -49,7 +49,7 @@
     [self.view addSubview:self.addEventButton];
     //下拉刷新
     @weakify(self)
-    [self.tableView configHeadRefreshControlWithRefreshBlock:^{
+    [self.tableView configAdHeadRefreshControlWithBannerView:self.bannerView refreshBlock:^{
         @strongify(self)
         [[[self.viewModel.loadDataCommand execute:nil] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
             //此处是刷新动作的完成。刷新UI在监听数据源的回调中
@@ -152,8 +152,6 @@
     if ([ZHUserStore shared].currentUser.isDisableAd) {
         return;
     }
-    self.tableView.tableHeaderView = self.bannerView;
-    self.tableView.contentOffset = CGPointMake(0, self.bannerView.ZH_height);
 }
 #endif
 - (BOOL)prefersHomeIndicatorAutoHidden{
