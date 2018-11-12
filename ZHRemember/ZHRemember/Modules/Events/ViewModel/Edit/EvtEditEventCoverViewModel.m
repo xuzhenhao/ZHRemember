@@ -30,11 +30,11 @@
     }
     self.coverImg = image;
     
-    [self.uploadPhotoSubject sendNext:nil];
+    [self.uploadPhotoSubject sendNext:@(NO)];
     __weak typeof(self)weakself = self;
     [ZHCommonApi uploadImage:image done:^(NSString *urlString, NSDictionary *error) {
         weakself.coverURLString = urlString;
-        [weakself.uploadPhotoSubject sendCompleted];
+        [weakself.uploadPhotoSubject sendNext:@(YES)];
     }];
 }
 

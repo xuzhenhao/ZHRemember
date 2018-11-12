@@ -209,9 +209,14 @@ NSString *DIYDiaryChangedNotification = @"DIYDiaryChangedNotification";
          }
     }];
     [[self.viewModel.uploadSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
-        [HBHUDManager showNetworkLoading];
+        BOOL finished = [x boolValue];
+        if (finished) {
+            [HBHUDManager hideNetworkLoading];
+        }else{
+            [HBHUDManager showNetworkLoading];
+        } 
     } completed:^{
-        [HBHUDManager hideNetworkLoading];
+        
     }];
     [[[RACObserve(self.viewModel, diaryFontName) skip:1] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         @strongify(self)

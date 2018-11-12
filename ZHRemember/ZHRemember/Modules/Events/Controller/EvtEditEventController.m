@@ -83,9 +83,14 @@ NSString *EvtEditEventSuccessNotification = @"com.event.editventSuccess";
         [self selectPhotoEventWithIndexPath:x];
     }];
     [[self.viewModel.uploadPhotoSubject deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
-        [HBHUDManager showNetworkLoading];
+        BOOL finished = [x boolValue];
+        if (finished) {
+            [HBHUDManager hideNetworkLoading];
+        }else{
+           [HBHUDManager showNetworkLoading];
+        }
     } completed:^{
-        [HBHUDManager hideNetworkLoading];
+        
     }];
     [[[[[NSNotificationCenter defaultCenter] rac_addObserverForName:UIKeyboardWillShowNotification object:nil] takeUntil:self.rac_willDeallocSignal] deliverOnMainThread] subscribeNext:^(NSNotification * _Nullable x) {
         @strongify(self)

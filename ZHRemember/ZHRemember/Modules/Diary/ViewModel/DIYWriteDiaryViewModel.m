@@ -63,13 +63,13 @@
 }
 - (void)updateDiaryImage:(UIImage *)image{
     @weakify(self)
-    [self.uploadSubject sendNext:nil];
+    [self.uploadSubject sendNext:@(NO)];
     [ZHCommonApi uploadImage:image done:^(NSString *urlString, NSDictionary *error) {
         @strongify(self)
         if (urlString) {
             self.diaryImageURL = urlString;
         }
-        [self.uploadSubject sendCompleted];
+        [self.uploadSubject sendNext:@(YES)];
     }];
 }
 #pragma mark - utils
