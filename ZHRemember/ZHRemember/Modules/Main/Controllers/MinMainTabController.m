@@ -7,8 +7,13 @@
 //
 
 #import "MinMainTabController.h"
+#import "ZHVersionManager.h"
+#import "HBUpdateTipView.h"
+#import "MainViewModel.h"
 
 @interface MinMainTabController ()
+
+@property (nonatomic, strong)   MainViewModel     *viewModel;
 
 @end
 
@@ -22,19 +27,51 @@
     [super viewDidLoad];
     [self initialSetup];
 }
-
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self.viewModel.syncUserCommand execute:nil];
+    [self checkVersionUpdate];
+}
 #pragma mark - UI
 - (void)initialSetup{
-    UINavigationController *eventsNC = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
-    eventsNC.tabBarItem.title = @"记忆点";
     
-    UINavigationController *settingNC = [[UINavigationController alloc] initWithRootViewController:[UIViewController new]];
+    UINavigationController *eventsNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] eventListController]];
+    eventsNC.tabBarItem.title = @"纪念日";
+    eventsNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-event-normal"];
+    eventsNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-event-high"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] zh_diaryListViewController]];
+    diaryNC.tabBarItem.title = @"日记本";
+    diaryNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-diary"];
+    diaryNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-diary"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    
+    UINavigationController *settingNC = [[UINavigationController alloc] initWithRootViewController:[[ZHMediator sharedInstance] myViewController] ];
     settingNC.tabBarItem.title = @"我的";
+    settingNC.tabBarItem.image = [UIImage imageNamed:@"tabbar-me-normal"];
+    settingNC.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar-me-high"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     
-    
-    self.viewControllers = @[eventsNC,settingNC];
+    self.viewControllers = @[eventsNC,diaryNC,settingNC];
 }
 
-
+#pragma mark - private method
+- (void)checkVersionUpdate{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[ZHVersionManager sharedManager] checkUpdateVersionWithDoneHandler:^(BOOL isNewVersion, NSString *versionDesc) {
+            if (isNewVersion) {
+                [HBUpdateTipView showWithTitle:@"升级提示" contents:versionDesc done:^{
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:AppStoreLinkURL]];
+                }];
+            }
+        }];
+    });
+}
+#pragma mark- getter
+- (MainViewModel *)viewModel{
+    if (!_viewModel) {
+        _viewModel = [MainViewModel new];
+    }
+    return _viewModel;
+}
 
 @end
