@@ -28,15 +28,15 @@ NSInteger IAPDisableAdPrice = 300;
 }
 - (void)initConfig{
     
-    IAPDiamondCellViewModel *sixYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"180记忆结晶" price:@"¥ 6" eventId:IAPEventBuySixRMB];
-    IAPDiamondCellViewModel *eightYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"540记忆结晶" price:@"¥ 18" eventId:IAPEventBuyEighteenRMB];
-    IAPDiamondCellViewModel *threeYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"900记忆结晶" price:@"¥ 30" eventId:IAPEventBuythirtyRMB];
-    self.viewModels = @[sixYuanModel,eightYuanModel,threeYuanModel];
+//    IAPDiamondCellViewModel *sixYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"180记忆结晶" price:@"¥ 6" eventId:IAPEventBuySixRMB];
+//    IAPDiamondCellViewModel *eightYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"540记忆结晶" price:@"¥ 18" eventId:IAPEventBuyEighteenRMB];
+//    IAPDiamondCellViewModel *threeYuanModel = [IAPDiamondCellViewModel viewModelWithTitle:@"900记忆结晶" price:@"¥ 30" eventId:IAPEventBuythirtyRMB];
+//    self.viewModels = @[sixYuanModel,eightYuanModel,threeYuanModel];
     
     IAPDiamondCellViewModel *signModel = [IAPDiamondCellViewModel viewModelWithTitle:@"签到(每日+2)" price:@"签到" eventId:IAPEventSign];
     IAPDiamondCellViewModel *publishModel = [IAPDiamondCellViewModel viewModelWithTitle:@"发表日记(每日+5)" price:@"前往" eventId:IAPEventPublish];
-    IAPDiamondCellViewModel *adModel = [IAPDiamondCellViewModel viewModelWithTitle:@"看广告(每次+5)" price:@"前往" eventId:IAPEventWatchAds];
-    self.freeViewModels = @[signModel,publishModel,adModel];
+//    IAPDiamondCellViewModel *adModel = [IAPDiamondCellViewModel viewModelWithTitle:@"看广告(每次+5)" price:@"前往" eventId:IAPEventWatchAds];
+    self.freeViewModels = @[signModel,publishModel];
 }
 - (NSString *)getRewardMoneyForAction:(NSString *)action{
     NSInteger rewardMoney = 0;

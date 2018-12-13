@@ -10,13 +10,13 @@
 #import "IAPConfig.h"
 #import "IAPDiamondCell.h"
 #import "IAPDiamondViewModel.h"
-#import <StoreKit/StoreKit.h>
-#ifdef Pro
-#else
-#import <GoogleMobileAds/GoogleMobileAds.h>
-#endif
+//#import <StoreKit/StoreKit.h>
+//#ifdef Pro
+//#else
+//#import <GoogleMobileAds/GoogleMobileAds.h>
+//#endif
 
-@interface IAPDiamondViewController ()<UITableViewDataSource,UITableViewDelegate,SKProductsRequestDelegate,SKPaymentTransactionObserver>
+@interface IAPDiamondViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**用户当前余额*/
 @property (weak, nonatomic) IBOutlet UILabel *diamondLabel;
 /** 去广告按钮*/
@@ -41,10 +41,10 @@
 }
 - (void)setupUI{
     self.title = @"我的账户";
-    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
 #ifdef Pro
 #else
-    [GADRewardBasedVideoAd sharedInstance].delegate = self;
+//    [GADRewardBasedVideoAd sharedInstance].delegate = self;
 //    self.navigationItem.rightBarButtonItem = self.adItem;
 #endif
 }
@@ -92,14 +92,16 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 100, 20)];
-    [view addSubview:titleLabel];
-    titleLabel.text = section == 0 ? @"充值" : @"免费获取";
-    return view;
+//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+//    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 10, 100, 20)];
+//    [view addSubview:titleLabel];
+////    titleLabel.text = section == 0 ? @"充值" : @"免费获取";
+//    titleLabel.text = section ==  @"免费获取";
+//    return view;
+    return nil;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 40;
+    return CGFLOAT_MIN;
 }
 
 #pragma mark - action
@@ -122,15 +124,15 @@
             [self.viewModel.signCommand execute:nil];
         }
     }else{
-        if ([SKPaymentQueue canMakePayments]) {
-            // 请求苹果后台商品
-            self.currentGoodsId = eventId;
-            [self getRequestAppleProductWithGoodsId:eventId];
-        }
-        else
-        {
-            [HBHUDManager showMessage:@"您的程序没有打开付费购买"];
-        }
+//        if ([SKPaymentQueue canMakePayments]) {
+//            // 请求苹果后台商品
+//            self.currentGoodsId = eventId;
+//            [self getRequestAppleProductWithGoodsId:eventId];
+//        }
+//        else
+//        {
+//            [HBHUDManager showMessage:@"您的程序没有打开付费购买"];
+//        }
     }
 }
 - (void)finishBuyingEvent{
@@ -140,12 +142,12 @@
 #ifdef Pro
 #else
 - (void)watchVideoAdsEvent{
-    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
-        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
-    }else{
-        [HBHUDManager showMessage:@"暂无广告，请稍后重试"];
-        [self loadNextMovieAds];
-    }
+//    if ([[GADRewardBasedVideoAd sharedInstance] isReady]) {
+//        [[GADRewardBasedVideoAd sharedInstance] presentFromRootViewController:self];
+//    }else{
+//        [HBHUDManager showMessage:@"暂无广告，请稍后重试"];
+//        [self loadNextMovieAds];
+//    }
 }
 
 - (void)finishWatchAdsEvent{
@@ -155,8 +157,8 @@
 }
 - (void)loadNextMovieAds{
     NSString *UnitId = [ZHGlobalStore isProductEnvironment] ? AdMobMovieId : AdMobMovieTestId;
-    [[GADRewardBasedVideoAd sharedInstance] loadRequest:
-     [GADRequest request] withAdUnitID:UnitId];
+//    [[GADRewardBasedVideoAd sharedInstance] loadRequest:
+//     [GADRequest request] withAdUnitID:UnitId];
 }
 #endif
 - (void)didClickDisableItem:(UIBarButtonItem *)sender{
@@ -189,77 +191,77 @@
     NSArray *product = [[NSArray alloc] initWithObjects:goodsId,nil];
     NSSet *nsset = [NSSet setWithArray:product];
     
-    SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:nsset];
-    request.delegate = self;
-    [request start];
+//    SKProductsRequest *request = [[SKProductsRequest alloc] initWithProductIdentifiers:nsset];
+//    request.delegate = self;
+//    [request start];
 }
-- (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
-{
-    NSArray *product = response.products;
-    
-    //如果服务器没有产品
-    if([product count] == 0){
-        [HBHUDManager showMessage:@"连接appstore失败"];
-        return;
-    }
-    SKProduct *requestProduct = nil;
-    for (SKProduct *pro in product) {
-        if([pro.productIdentifier isEqualToString:self.currentGoodsId]){
-            requestProduct = pro;
-        }
-    }
-
-    SKPayment *payment = [SKPayment paymentWithProduct:requestProduct];
-    //发送购买请求
-    [[SKPaymentQueue defaultQueue] addPayment:payment];
-}
-- (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
-    [HBHUDManager showMessage:@"连接appstore失败"];
-}
+//- (void) productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
+//{
+//    NSArray *product = response.products;
+//
+//    //如果服务器没有产品
+//    if([product count] == 0){
+//        [HBHUDManager showMessage:@"连接appstore失败"];
+//        return;
+//    }
+//    SKProduct *requestProduct = nil;
+//    for (SKProduct *pro in product) {
+//        if([pro.productIdentifier isEqualToString:self.currentGoodsId]){
+//            requestProduct = pro;
+//        }
+//    }
+//
+//    SKPayment *payment = [SKPayment paymentWithProduct:requestProduct];
+//    //发送购买请求
+//    [[SKPaymentQueue defaultQueue] addPayment:payment];
+//}
+//- (void)request:(SKRequest *)request didFailWithError:(NSError *)error{
+//    [HBHUDManager showMessage:@"连接appstore失败"];
+//}
 #pragma mark - SKPaymentTransactionObserver
-- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
-    for(SKPaymentTransaction *tran in transaction){
-        
-        switch (tran.transactionState) {
-            case SKPaymentTransactionStatePurchased:
-                NSLog(@"交易完成");
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                [self finishBuyingEvent];
-                break;
-            case SKPaymentTransactionStatePurchasing:
-                NSLog(@"商品添加进列表");
-                
-                break;
-            case SKPaymentTransactionStateRestored:
-                NSLog(@"已经购买过商品");
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                break;
-            case SKPaymentTransactionStateFailed:
-                NSLog(@"交易失败");
-                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
-                break;
-            default:
-                break;
-        }
-    }
-}
-#pragma mark - video ad
-#ifdef Pro
-#else
-- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
-   didRewardUserWithReward:(GADAdReward *)reward {
-    [self finishWatchAdsEvent];
-}
-- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
-    //请求下一个广告
-    [self loadNextMovieAds];
-}
-#endif
+//- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transaction{
+//    for(SKPaymentTransaction *tran in transaction){
+//
+//        switch (tran.transactionState) {
+//            case SKPaymentTransactionStatePurchased:
+//                NSLog(@"交易完成");
+//                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+//                [self finishBuyingEvent];
+//                break;
+//            case SKPaymentTransactionStatePurchasing:
+//                NSLog(@"商品添加进列表");
+//
+//                break;
+//            case SKPaymentTransactionStateRestored:
+//                NSLog(@"已经购买过商品");
+//                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+//                break;
+//            case SKPaymentTransactionStateFailed:
+//                NSLog(@"交易失败");
+//                [[SKPaymentQueue defaultQueue] finishTransaction:tran];
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+//}
+//#pragma mark - video ad
+//#ifdef Pro
+//#else
+//- (void)rewardBasedVideoAd:(GADRewardBasedVideoAd *)rewardBasedVideoAd
+//   didRewardUserWithReward:(GADAdReward *)reward {
+//    [self finishWatchAdsEvent];
+//}
+//- (void)rewardBasedVideoAdDidClose:(GADRewardBasedVideoAd *)rewardBasedVideoAd {
+//    //请求下一个广告
+//    [self loadNextMovieAds];
+//}
+//#endif
 
 //结束后一定要销毁
 - (void)dealloc
 {
-    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
+//    [[SKPaymentQueue defaultQueue] removeTransactionObserver:self];
 }
 #pragma mark - getter
 - (IAPDiamondViewModel *)viewModel{
